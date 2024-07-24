@@ -146,8 +146,27 @@ TCP (Transmission Control Protocol) is a core protocol of the Internet Protocol 
 \item 1.9.d Modified EUI 64
 \end{itemize}
 
-	A unicast address is used for one to one communication. Global unicast addresses are equivalent to public IPv4 addresses and are routable on the IPv6 internet. They consist of a 48-bit global routing prefix, a 16-bit subnet ID for hierarchical addressing, and a 64-bit interface ID to identify specific devices within a subnet. The global routing prefix is assigned by internet registeries (ARIN, RIPDE NCC, APNIC) to ISPs and large organizations. FC00::/7 Unique local addresses (ULA) are equivalent to IPv4 private addresses and are used for local communication within a site or organization. They are not routable on the global IPv6 internet. FE80::/10 Link-local addresses are used for communication within the same network segment. They are not routable beyond the immediate link. Anycast is used for one-to-nearest communication, typically for load balancing. These are common in DNS servers or Content Delivery Networks. FF00::/8 Multicast is used for one-to-many communication, distributing data efficiently to multiple recipients simultaneously. Modified EUI-64 is derived from a modified MAC address, used for automatic address configuration. Typically this is used for global unicast and link-local addresses. Insert FF in the middle of the address then invert the 7th bit and finally append the interface ID.\\
-  
+	A unicast address is used for one to one communication. Global unicast addresses are equivalent to public IPv4 addresses and are routable on the IPv6 internet. They consist of a 48-bit global routing prefix, a 16-bit subnet ID for hierarchical addressing, and a 64-bit interface ID to identify specific devices within a subnet. The global routing prefix is assigned by internet registeries (ARIN, RIPDE NCC, APNIC) to ISPs and large organizations. FC00::/7 Unique local addresses (ULA) are equivalent to IPv4 private addresses and are used for local communication within a site or organization. They are not routable on the global IPv6 internet. FE80::/10 Link-local addresses are used for communication within the same network segment. They are not routable beyond the immediate link. Anycast is used for one-to-nearest communication, typically for load balancing. These are common in DNS servers or Content Delivery Networks. FF00::/8 Multicast is used for one-to-many communication, distributing data efficiently to multiple recipients simultaneously. Modified EUI-64 is derived from a modified MAC address, used for automatic address configuration. Typically this is used for global unicast and link-local addresses. Insert FF in the middle of the address then invert the 7th bit and finally append the interface ID.
+
+reserved multicast addresses $\downarrow$
+\begin{itemize}
+\item All nodes- FF02::1
+\item All routers - FF02::2
+\item All-OSPF, All-OSPF-DR - FF02::5, FF02::6
+\item RIPng Routers - FF02::9
+\item EIGRPv6 Routers - FF02::A
+\item DHCP relay agent - FF02::1:2
+\end{itemize}
+
+IPv6 multicast scope terms $\downarrow$
+\begin{itemize}
+\item Interface-local - FF01
+\item Link-local - FF02
+\item Site-local - FF05
+\item Organization-local - FF08
+\item Global - FF0E
+\end{itemize}
+
 \textbf{1.10 Verify IP parameters for Client OS}
 \begin{itemize}
 \item ipconfig /all /release /renew
@@ -369,7 +388,17 @@ Ethernet costs $\downarrow$
 	
 	The next hop indicates the IP address of the next router or gateway where packets should be forwarded to reach the destination network. It represents the immediate forwarding address for traffic destined to the specified network prefix. Helps routers make forwarding decisions by specifying the next router or gateway in the path toward the destination, facilitating hop-by-hop packet delivery across interconnected networks.\\
 	
-	The AD is a measure used by routers to prioritize between routes when multiple sources provide route information to the same destination. Lower administrative distance values indicate higher preference for a route. It helps routers select the most reliable and preferred path to reach a destination in case of route redundancy or multiple route options. Common default AD values are used by different routing protocols (e.g., 0 for directly connected networks, 1 for static routes, 90 for EIGRP internal routes, 110 for OSPF routes, etc.).\\
+	The AD is a measure used by routers to prioritize between routes when multiple sources provide route information to the same destination. Lower administrative distance values indicate higher preference for a route. It helps routers select the most reliable and preferred path to reach a destination in case of route redundancy or multiple route options.
+	
+\begin{itemize}
+\item Connected routes - 0
+\item Static routes - 1
+\item NDP - 2
+\item EIGRP - 90
+\item OSPF - 110
+\item RIP - 120
+\item Unknown or unbelievable - 255
+\end{itemize}
 
 	Metric is a numerical value assigned to a route by a routing protocol to represent the cost associated with reaching a particular destination network. It quantifies the optimal path selection based on criteria such as hop count, bandwidth, delay, reliability, or other factors defined by the routing protocol. Routers use the metric value to compare and determine the best path among potential routes to a destination, ensuring efficient packet forwarding and optimal network utilization. IGPs operate within an autonomous system (AS), typically a single organization's network, and focus on efficient routing within that network. Metrics like hop count, bandwidth, and delay are chosen to optimize internal routing. IGPs generally use simpler distance vector or link state algorithms to compute routes based on predefined metrics. In contrast, EGPs like BGP use more complex path vector algorithms that consider attributes of the complete route path. IGPs use metrics directly related to the characteristics of links (like hop count, bandwidth, delay, and cost) within the AS. EGPs rely more on administrative policies (like administrative distance and path attributes) and are concerned with inter-domain routing and policy enforcement.\\
 	
