@@ -1,0 +1,114 @@
+\documentclass{article}
+\usepackage{times}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\renewcommand{\thesection}{\arabic{section}.0}
+\setlist[enumerate]{label=\arabic*.0}
+
+\title{ENAUTO Study Guide}
+\author{Alexander}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+\item Network Programmability Foundation
+\item Automate APIs and Protocols
+\item Network Device Programmability
+\item Cisco DNA Center
+\item Cisco SD-WAN
+\item Cisco Meraki
+\end{enumerate}
+
+\section{Network Programmability Foundatio}
+\textbf{Utilize common version control operations with git (add, clone, push, commit, diff, branching, merging conflict)}\\
+
+	Git is essential for managing and tracking changes in your network automation projects. Key operations include 'git clone', which duplicates a remote repository to your local machine, enabling you to start working on the project. Using 'git add' stages changes to files, preparing them for commit, while git commit records these changes in the local repository with a descriptive message. To synchronize your local changes with the remote repository, you use 'git push'. When you want to view differences between file versions, 'git diff' helps identify modifications. Branching with 'git branch' allows you to create isolated environments for development or features, and 'git merge' integrates these changes into the main branch. Handling conflicts that arise during merging requires careful resolution, often using Git's built-in conflict markers to manually adjust conflicting changes before finalizing the merge. Mastery of these operations is crucial for effective version control in network automation workflows.\\
+
+\textbf{Describe characteristics of API styles (REST and RPC)}\\
+
+	 Understanding the characteristics of API styles such as REST (Representational State Transfer) and RPC (Remote Procedure Call) is crucial for designing and interacting with network automation systems. REST APIs are based on a stateless, client-server architecture that uses standard HTTP methods (GET, POST, PUT, DELETE) and URLs to perform operations on resources represented in various formats, like JSON or XML. REST emphasizes scalability and simplicity, making it a popular choice for web services and applications. On the other hand, RPC APIs focus on executing specific procedures or functions on a remote server, where a client sends a request to execute a method with parameters and receives a response. RPC can use different protocols, including HTTP or more specialized ones like gRPC, and is often favored for its straightforward approach to invoking remote methods. Both styles have their advantages and use cases: REST is generally preferred for its scalability and ease of use in web-based applications, while RPC is valued for its precision in invoking specific actions. Understanding these characteristics helps in selecting the appropriate API style for network automation needs.\\
+
+\textbf{Describe the challenges encountered and patterns used when consuming APIs synchronously and asynchronously}\\
+
+	Synchronous API consumption involves making requests where the client waits for the server to respond before proceeding. This approach can simplify the logic of your application, as the request and response flow is straightforward and easy to handle. However, it introduces challenges such as potential delays and inefficiencies, especially when dealing with long-running processes or high-latency networks. In scenarios where the server response is slow, the client can become blocked, leading to reduced application performance and responsiveness. This can be particularly problematic in high-load environments or for applications requiring real-time interactions.\\
+
+	Asynchronous API consumption, on the other hand, allows the client to make requests and continue processing other tasks while waiting for the server's response. This method improves responsiveness and scalability, as the client can handle other operations without being blocked by the network delay. It also enables more efficient use of system resources, as the application can manage multiple requests concurrently. However, asynchronous consumption introduces its own set of challenges, such as increased complexity in handling callbacks, managing state, and ensuring that responses are processed in the correct order. Additionally, error handling can become more complex, as responses might arrive at unpredictable times and require careful synchronization with the application's workflow.\\
+
+	Some patterns sommonly used to address challenges include: callback functions, promises and async/await, polling and web sockets, and circuit breaker/retry mechanisms. Callback functions for asynchronous operations, which allow the application to specify a function to be executed once the response is received, ensuring that the application can continue to process other tasks in the meantime. Promises and async/await patterns, which simplify asynchronous code by making it look more like synchronous code and improving readability and maintainability. Polling and WebSockets for managing long-running or real-time interactions, where polling periodically checks for updates or WebSockets provide a persistent connection for continuous data exchange. Circuit breaker patterns and retry mechanisms to handle and recover from failures gracefully in both synchronous and asynchronous scenarios.\\
+
+\textbf{Interpret Python scripts containing data types, functions, classes, conditions, and looping}\\
+
+The built-in data types, include: int (whole numbers), float (numbers with decimals), str (sequence of characters), list (ordered collections of items, which can be of mixed types), dict (unordered collections of key-value pais), tuple (ordered, immutable collections), set (unordered collections of unique items)\\
+
+Functions are deined using the 'def' keyword and encapsulate reusable blocks of code.\\
+
+Classes are blueprints for creating objects and encapsulate data and behavior. They are defined using the 'class' keyword.\\
+
+Conditional statements allow you to execute code based on certain conditions. The primary conditional statements are 'if', 'elif', and 'else'\\
+
+Loops are used to execute a block of code repeatedly. Python supports several looping constructs: 'for' loops iterate over a sequence (e.g., list, tuple, string), 'while' loops repeats as long as a condition is 'True'\\
+
+\noindent class Student:\\
+	\indent def \_\_init\_\_(self, name, grade):\\
+		\indent\indent self.name = name\\
+		\indent\indent self.grade = grade\\
+
+	\indent def status(self):\\
+		\indent\indent if self.grade $\geq$ 90:\\
+			\indent\indent\indent return "Excellent"\\
+	
+		\indent\indent elif self.grade $\geq$ 70:\\
+			\indent\indent\indent return "Good"\\
+
+		\indent\indent else:\\
+			\indent\indent\indent return "Needs Improvement"\\
+
+\noindent students = [Student("Alice", 92), Student("Bob", 76), Student("Charlie", 65)]\\
+
+\noindent for student in students:\\
+	\indent print(f"{student.name}: {student.status()}")\\
+
+\textbf{Describe the benefits of Python virtual environments}\\
+
+	Python virtual environments are essential for managing project-specific dependencies, ensuring compatibility, and maintaining a clean and organized development environment. They facilitate better project management and development practices by providing isolation and control over the Python ecosystem for each project.\\
+
+\noindent Dependency Management\\
+
+	Virtual environments allow you to create isolated spaces for each project, which means you can manage dependencies separately. Each environment has its own set of installed packages and dependencies, preventing conflicts between projects that require different versions of the same library. This isolation ensures that changes or updates in one project do not affect others.\\
+
+\noindent Version Controls\\
+
+	By using virtual environments, you can maintain different versions of libraries and tools for different projects. This is particularly useful when working on projects that depend on specific versions of libraries or Python itself. For instance, if one project requires Django 2.2 and another requires Django 3.1, virtual environments allow you to switch between these setups without conflicts.\\
+
+\noindent Cleaner Development Environment\\
+
+	Virtual environments help keep your global Python environment clean and uncluttered. By installing packages only within the virtual environment, you avoid polluting the global site-packages directory. This makes managing global packages easier and prevents potential issues with system-wide installations.\\
+
+\noindent Reproducibility\\
+	
+	Virtual environments make it easier to reproduce the development setup across different systems. You can create a 'requirements.txt' file listing all the dependencies of your project. Other developers or deployment systems can then recreate the same environment by installing these dependencies in a new virtual environment, ensuring consistency across different setups.\\
+
+\noindent Simplified Project Setup\\
+
+	With virtual environments, setting up a new project is straightforward. You create a virtual environment, install the necessary packages, and your project has a self-contained environment. This makes it easier to start working on new projects and share them with others.\\
+
+\noindent Avoiding Permission Issues\\
+
+	Since virtual environments are contained within user directories and don’t require system-level permissions, you avoid issues related to installing packages globally, which may require administrative rights. This is especially useful in environments where you lack administrative privileges or when working on shared systems.\\
+
+\noindent Enhanced Security\\
+
+	By isolating dependencies, virtual environments can reduce the risk of inadvertently introducing vulnerabilities or conflicts from system-wide packages. This isolation can also help in testing packages or versions without affecting the global Python environment.\\
+
+\noindent Ease of Cleanup\\
+
+	If you need to remove a project or clean up old dependencies, you can simply delete the virtual environment. This action removes all the installed packages and configuration specific to that environment, making it easy to manage and clean up your development space.\\
+
+\textbf{Explain the benefits of using network configuration tools such as Ansible and Terraform for automating IOS XE platforms}\\
+
+
+\end{document}
