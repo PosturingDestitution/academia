@@ -15,8 +15,8 @@
 \maketitle
 
 \begin{enumerate}
-\item Architecture (1-9999)
-\item Virtualization
+\item Architecture (1-6)
+\item Virtualization (6-9999)
 \item Infrastructure
 \item Network Assurance
 \item Security
@@ -73,8 +73,95 @@
 \item 1.5.b QoS policy
 \end{itemize}
 
-\textbf{1.6 Describe hardware and software switching mechanisms such as CEF, CAM, TCAM, FIB, RIB, and adjacency tables}
+	Quality of Service (QoS) is a crucial aspect of networking, ensuring that various types of network traffic are handled appropriately to meet the performance requirements of different applications. QoS configurations are essential for both wired and wireless networks, although the specific implementations may differ. Classification is identifying and categorizing packets based on attributes such as source/destination IP address, MAC address, or type of service. This is often done using Access Control Lists (ACLs) or other matching criteria. Marking assigns a priority to packets. For example, marking packets with Differentiated Services Code Point (DSCP) or IP Precedence values to indicate their priority in the network. This marking is crucial for downstream QoS processing. Queuing mechanisms are used to manage how packets are handled when there’s congestion. FIFO has packets processed in the order they arrive. Priority Queueing (PQ) will have packets placed into different priority queues and are processed according to their priority. Weighted Fair Queueing (WFQ) has packets divided amoung queues with weights, ensuring fair bandwidth distribution based on weights. Class-Based Weighted Fair Queuing (CBWFQ) is an extension of WFQ that allows for more granular control by assigning different weights to different classes of traffic. Policing enforces traffic limits by dropping or remarking packets that exceed specified rates. This helps in controlling the rate of traffic entering the network. Shaping temporarily buffers excess traffic to smooth out bursts and ensure that traffic conforms to a defined rate. It helps in managing traffic flow and preventing congestion. Techniques like Random Early Detection (RED) or Weighted Random Early Detection (WRED) are used to manage congestion by selectively dropping packets before the queue becomes full. Strategies to prevent congestion from occurring, such as Traffic Policing and Traffic Shaping. A link efficiency mechanisms example would be header compression to reduce the size of packet headers, which is particularly useful for wireless networks.\\
 
+	QoS policies are the configurations that define how QoS is implemented on a network device. They encompass various components and settings to ensure traffic is prioritized and managed according to the defined rules. A policy map defines the QoS policy and associates specific actions to different classes of traffic. Actions can include queuing, marking, or policing. A class map defines traffic classes based on certain criteria. For example, a class map might define a class for voice traffic, another for video, and another for data. Service policies are applied to interfaces to enforce the QoS policy. This is where the policy map is associated with a specific interface or direction (ingress or egress).\\
+
+\noindent Class Maps:\\
+
+\noindent class-map match-any VOICE\\
+\indent match ip dscp ef\\
+\noindent class-map match-any VIDEO\\
+\indent match ip dscp af41\\
+
+\noindent Policy Maps:\\
+
+\noindent policy-map QoS-Policy\\
+\indent class VOICE\\
+\indent\indent priority 1000\\
+\indent class VIDEO\\
+\indent\indent bandwidth 500\\
+\indent class class-default\\
+\indent\indent fair-queue\\
+
+\noindent Applying Policy Maps:\\
+
+\noindent interface GigabitEthernet0/1\\
+\indent service-policy output QoS-Policy\\
+
+	For wired networks, QoS policies are typically implemented on switches and routers, where various queuing and marking mechanisms can be applied. Wired networks generally have more predictable performance and can support more sophisticated QoS configurations.\\
+
+	For wireless networks, QoS is crucial due to the shared medium and potential for interference. Configurations may include specific QoS settings for different wireless clients and access points. Techniques like Wi-Fi Multimedia (WMM) are used to prioritize different types of traffic, such as voice and video, on wireless networks.\\
+
+\textbf{1.6 Describe hardware and software switching mechanisms such as CEF, CAM, TCAM, FIB, RIB, and adjacency tables}\\
+
+	In networking, particularly in Cisco environments, switching mechanisms and tables play crucial roles in how packets are processed and forwarded. Cisco Express Forwarding (CEF) is a high-performance, hardware-based switching method used by Cisco devices. It is designed to improve the efficiency and speed of packet forwarding by using two main tables: Forwarding Information Base (FIB) and adjacency tables. FIB contains the actual forwarding information used to make packet forwarding decisions. It maps IP prefixes to outgoing interfaces, enabling quick lookups and efficient packet forwarding. Adjacency tables maintain the MAC addresses of next-hop routers. It is used to map the next-hop IP address (as determined from the FIB) to the corresponding MAC address for the actual packet transmission. CEF operates by pre-computing the best path for each destination based on the routing table, and then using this information to forward packets efficiently without needing to perform a full route lookup for each packet. Content ADdressable Memory (CAM) is a specialized memory used in switches to perform rapid lookups of MAC addresses. CAM is used for MAC address tables (forwarding tables). These tables store MAC addresses associated with specific switch ports. When a frame arrives at the switch, CAM is used to quickly determine the port associated with the destination MAC address and forward the frame accordingly. CAM allows for very fast lookups because it can match an entire address in parallel rather than sequentially. Ternary Content Addressable Memory (TCAM) extends the capabilities of CAM by allowing for more complex lookups and multiple fields in a single operation. TCAM is used for: ACLs, and routing table lookups. TCAM helps in implementing ACLs by performing lookups based on multiple criteria (source IP, destination IP, etc.) and allowing for flexible matching (e.g., wildcard matches). TCAM is used in high-performance routers to quickly perform lookups in large routing tables, especially when dealing with large-scale networks. TCAM provides more flexibility than CAM because it can handle wildcard bits and multiple conditions, but it is generally more expensive and power-consuming. Forwarding Information Base (FIB) is a table used in conjunction with CEF to store the forwarding information. It contains IP prefixes (mapped to specific outgoing interfaces), and next-hop information (used to quickly forward packets based on their destination IP address). The FIB is built from the routing table and optimized for fast lookups, which helps in quick packet forwarding. Routing Information Base (RIB) is a table that stores all the routing information learned from various routing protocols. It includes: routing entries (metrics, next-hop addresses, associated interfaces), and routing protocol data (details from OSPF, EIGRP, or BGP). RIB is used to make routing decisions and build the FIB. The data in RIB is processed to create the optimized forwarding paths found in the FIB. Adjacency tables are used to map IP addresses to MAC addresses for the purpose of forwarding packets. For example, next-hop MAC addresses are stored in the adjacency table for quick retrieval during packet forwarding. Another example would be ARP tables. In routers, ARP tables map IP addresses to MAC addresses for devices on the same local network. This information is critical for correctly addressing packets when they are sent to the next-hop router or destination device.\\
 
 \section{Virtualization}
+\textbf{2.1 Describe device virtualization technologies}
+\begin{itemize}
+\item 2.1.a Hypervisor type 1 and 2
+\item 2.1.b Virtual machine
+\item 2.1.c Virtual switching
+\end{itemize}
+
+\textbf{2.2 Configure and verify data path virtualization technologies}
+\begin{itemize}
+\item 2.2.a VRF
+\item 2.2.b GRE and IPsec tunneling
+\end{itemize}
+
+\textbf{2.3 Describe network virtualization concepts}
+\begin{itemize}
+\item 2.3.a LISP
+\item 2.3.b VXLAN
+\end{itemize}
+
+\section{Infrastructure}
+\textbf{3.1 Layer 2}
+\begin{itemize}
+\item 3.1.a Troubleshoot static and dynamic 802.1q trunking protocols
+\item 3.1.b Troubleshoot static and dynamic EtherChannels
+\item 3.1.c Configure and verify common Spanning Tree Protocols (RSTP, MST) and Spanning Tree enhancements such as root guard and BPDU guard
+\end{itemize}
+
+\textbf{3.2 Layer 3}
+\begin{itemize}
+\item 3.2.a Compare routing concepts of EIGRP and OSPF (advanced distance vector vs. link state, load balancing, path selection, path operations, metrics, and area types)
+\item 3.2.b Configure simple OSPFv2/v3 environments, including multiple normal areas, summarization, and filtering (neighbor adjacency, point-to-point, and broadcast network types, and passive-interface)
+\item 3.2.c Configure and verify eBGP between directly connected neighbors (best path selection algorithm and neighbor relationships)
+\item 3.2.d Describe policy-based routing
+\end{itemize}
+
+\textbf{3.3 Wireless}
+\begin{itemize}
+\item 3.3.a Describe Layer 1 concepts, such as RF power, RSSI, SNR, interference, noise, bands, channels, and wireless client devices capabilities
+\item 3.3.b Describe AP modes and antenna types
+\item 3.3.c Describe access point discovery and join process (discovery algorithms, WLC selection process)
+\item 3.3.d Describe the main principles and use cases for Layer 2 and Layer 3 roaming
+\item 3.3.e Troubleshoot WLAN configuration and wireless client connectivity issues using GUI only
+\item 3.3.f Describe wireless segmentation with groups, profiles, and tags
+\end{itemize}
+
+
+\textbf{3.4 IP Services}
+\begin{itemize}
+\item 3.4.a Interpret network time protocol configurations such as NTP and PTP
+\item 3.4.b Configure NAT/PAT
+\item 3.4.c Configure first hop redundancy protocols, such as HSRP, VRRP
+\item 3.4.d Describe multicast protocols, such as RPF check, PIM and IGMP v2/v3
+\end{itemize}
+
+
+
 \end{document}
