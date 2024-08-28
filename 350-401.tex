@@ -6,7 +6,7 @@
 \renewcommand{\thesection}{\arabic{section}.0}
 \setlist[enumerate]{label=\arabic*.0}
 
-\title{CCNP Study Guide}
+\title{ENCOR Study Guide}
 \author{Alexander}
 \date{\today}
 
@@ -114,11 +114,94 @@
 \item 2.1.b Virtual machine
 \item 2.1.c Virtual switching
 \end{itemize}
+	
+	Device virtualization technologies are foundational in modern IT environments, allowing multiple virtual instances to run on a single physical hardware platform. This virtualization is primarily managed by hypervisors, which are classified into two main types. Type 1 hypervisors, or bare-metal hypervisors, operate directly on the host hardware without a host operating system, providing superior performance and security due to their direct access to hardware resources. Examples of Type 1 hypervisors include VMware ESXi, Microsoft Hyper-V (when installed directly on hardware), and Xen. These hypervisors are predominantly used in enterprise environments for server virtualization, offering benefits such as improved isolation between virtual machines (VMs) and efficient resource management. On the other hand, Type 2 hypervisors, or hosted hypervisors, run atop an existing operating system, which manages the hardware resources. This makes Type 2 hypervisors like VMware Workstation, Oracle VirtualBox, and Parallels Desktop more suitable for personal or development environments, though they may introduce some performance overhead due to the additional layer of the host OS. Virtual machines themselves are software-based simulations of physical computers, each with its own virtual CPU, memory, disk storage, and network interface card (vNIC). These VMs are isolated from each other, allowing for secure and stable operation while facilitating easy portability and backup through features like snapshots and cloning. Virtual switching, which involves virtual switches (vSwitches), plays a crucial role in managing network traffic within and between VMs. vSwitches, such as VMware vSwitch or Hyper-V Virtual Switch, connect VMs to each other and to external networks, supporting advanced features like VLANs for network segmentation and traffic shaping to optimize performance. Distributed Virtual Switches (DVS) extend this capability across multiple hosts, providing centralized management and consistency in larger environments. Understanding these elements of virtualization is essential for optimizing resource utilization and ensuring efficient and secure network operations in both enterprise and personal computing scenarios.\\
 
 \textbf{2.2 Configure and verify data path virtualization technologies}
 \begin{itemize}
 \item 2.2.a VRF
 \item 2.2.b GRE and IPsec tunneling
+\end{itemize}
+
+	VRF allows multiple instances of a routing table to exist on the same router, enabling multiple customers or departments to have separate, isolated routing tables without requiring multiple physical devices.\\
+
+Create a VRF Instance $\downarrow$
+\begin{itemize}
+\item Router(config)\# ip vrf [VRF\_NAME]
+\item Router(config-vrf )\# rd [ROUTE\_DISTINGUISHER]
+\item Router(config-vrf)\# route-target import [ROUTE\_TARGET]
+\item Router(config-vrf)\# route-target export [ROUTE\_TARGET]  
+\end{itemize}
+
+Assign Interfaces to VRF $\downarrow$
+\begin{itemize}
+\item Router(config)\# interface [INTERFACE\_TYPE] [INTERFACE\_ID]
+\item Router(config-if)\# ip vrf forwarding [VRF\_NAME]
+\item Router(config-if)\# ip adddress [IP\_ADDRESS] [SUBNET\_MASK]
+\end{itemize}
+
+Configure Routing Protocols for VRF $\downarrow$\\
+
+\noindent OSPF:
+\begin{itemize}
+\item Router(config)\# router ospf [PROCESS\_ID] vrf [VRF\_NAME]
+\item Router(config-router)\# network [network] [WILDCARD\_MASK] area [AREA\_ID]
+\end{itemize}
+BGP:
+\begin{itemize} 
+\item Router(config)\# router bgp [AS\_NUMBER]
+\item Router(config-router)\# address-family ipv4 vrf [VRF\_NAME]
+\item Router(config-router-af)\# [NEIGHBOR\_IP] remote-as [NEIGHBOR\_AS]
+\end{itemize}
+
+Verification: 1. Check VRF Configuration  2. Verfiy Interface Assignment 3. Verify Routing in a VRF $\downarrow$
+\begin{itemize}
+\item Router\# show ip vrf
+\item Router\# show ip interface brief vrf [VRF\_NAME]
+\item Router\# show ip route vrf [VRF\_NAME]
+\end{itemize}
+
+	GRE is a tunneling protocol used to encapsulate a wide variety of network layer protocols into a point-to-point connection.\\
+
+Configuration $\downarrow$
+\begin{itemize}
+\item Router(config)\# interface tunnel [TUNNEL\_NUMBER]
+\item Router(config-if)\# ip address [TUNNEL\_IP] [SUBNET\_MASK]
+\item Router(config-if)\# tunnel source [SOURCE\_IP]
+\item Router(config-if)\# tunnel destination [DESTINATION\_IP]
+\item Router(config-if)\# tunnel mode gre ip
+\end{itemize}
+
+Verify$\downarrow$
+\begin{itemize}
+\item Router\# show interfaces tunnel [TUNNEL\_NUMBER]
+\end{itemize}
+
+Check Tunnel Connectivity$\downarrow$
+\begin{itemize}
+\item Router\# ping [DESTINATION\_IP] source [SOURCE\_IP]
+\end{itemize}
+
+	IPsec provides secure communication over IP networks through encryption and authentication. It is often used in VPNs.\\
+
+Configuration: 1. Define an IPsec Transform Set 2. Create a Crypto Map 3. Configure IPsec Policies 4. Apply the CryptoMap to an Interface $\downarrow$
+\begin{itemize}
+\item Router(config)\# crypto ipsec transform-set [TRANSFORM\_SET\_NAME] [ENCRYPTION\_ALGORITHM] [AUTHENTICATION\_ALGORITHM]
+\item Router(config)\# crypto map [MAP\_NAME] [SEQ\_NUM] ipsec-isakmp
+\item Router(config-crypto-map)\# set peer [PEER\_IP]
+\item Router(config-crypto-map)\# set transform-set [TRANSFORM\_SET\_NAME]
+\item Router(config-crypto-map)\# match address [ACL\_NAME]
+\item Router(config)\# crypto ipsec profile [PROFILE\_NAME]
+\item Router(config-ipsec-profile)\# set transform-set [TRANSFORM\_SET\_NAME]
+\item Router(config)\# interface [INTERFACE\_TYPE] [INTERFACE\_ID]
+\item Router(config-if)\# crypto map [MAP\_NAME]
+\end{itemize}
+
+Verification: 1. Check IPsec Status 2. Verify Tunnel Configuration 3. Check Tunnel Connectivity$\downarrow$
+\begin{itemize}
+\item Router\# show crypto ipsec sa
+\item Router\# show crypto isakmp sa
+\item Router\# ping [DESTINATION\_IP] source [SOURCE\_IP]
 \end{itemize}
 
 \textbf{2.3 Describe network virtualization concepts}

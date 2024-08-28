@@ -271,46 +271,34 @@
 
 79. Show that if $r=\frac{a}{b}$ is a fraction in lowest terms, then $r$ has a finite decimal expansion if and only if $b = (2^n)(5^m)$ for some n, m $\geq$ 0. Hint: Observe that r has a finite decimal expansion when $(10^N)(r)$ is an integer for some $N\geq0$ (and hence b dividies $10^N$).\\
 
-1.) Understanding Finite Decimal Expansion\\
+\textbf{Finite Decimal Expansion implies $b = 2^n \cdot 5^m$}\\
 
-A fraction $\frac{a}{b}$ has a finite decimal expansion if and only if, after simplification, the denominator b only contains the prime factos 2 and 5. In other words, $b$ must be of the form $2^n \cdot 5^m$, where $n$ and $m$ are non-negative integers. To see why this is true, recall that a fraction $\frac{a}{b}$ has a finite decimal expansion if and only if $b$ divides $10^N$ for some integer $N$. This is because multiplying $\frac{a}{b}$ by $10^N$ (where $N$ is large enough) should result in an integer.\\
+1. Finite Decimal Expansion: A fraction $\frac{a}{b}$ has a finite decimal expansion if and only if $\frac{a}{b}$ can be written as $k \cdot 10^-N$ for some integer $k$ and non-negative integer N. This is equivalent to the condition that b divides $10^N$ for some $N \geq 0$\\
 
-2.) Necessity: $b$ Divides $10^N$\\
+2. Denominator as a Product of Powers of 2 and 5: Observe that $10^N = 2^N \cdot 5^N$. Therefore, if $b$ divides $10^N$, then $b$ must be of the form $b = \frac{10^N}{k}$, where $k$ is an integer that ensures $b$ divides $10^N$. This implies that $b$ must only have the prime factors $2$ and $5$ because $10^N$ itself only contains the prime factors $2$ and $5$. Thus, if $b$ divides $10^N$, then $b$ must be of the form $b = 2^n \cdot 5^m$ for some non-negative integers $n$ and $m$\\
 
-Claim: If $\frac{a}{b}$ has a finite decimal expansion, then $b$ must be of the form $2^n \cdot 5^m$.\\
+\textbf{$b = 2^n \cdot 5^m$ Implies Finite Decimal Expansion}\\
 
-Proof:\\
+1. Form of $b$: Suppose $b = 2^n \cdot 5^m$. We want to show that $\frac{a}{b}$ has a finite decimal expansion. Since $b$ can be written as $2^n \cdot 5^m$, it folows that $b$ is a dividor of $10^N$ where $N = max(n, m)$.\\
 
-Assume $\frac{a}{b}$ has a finite decimal expansion.Then there exists some integer $N \geq 0$ such that: $(10^N) \cdot (\frac{a}{b})$ is an integer.\\
+2. Verification: To be specific, let us express $\frac{a}{b}$ in terms of $10^N$:\\
 
-Rearranging, we get: $\frac{10^N \cdot a}{b}$ is an integer\\
+	$\frac{a}{b} = \frac{a}{2^n \cdot 5^m}$\\
 
-This implies that $b$must divide $10^N$, since $10^N \cdot a$ is an integer and $b$ is a factor of this integer.\\
+We can multiply both the numerator and the denominator by $10^N$, where $N = max(n, m)$. This multiplication yields:\\
 
-The number $10^N$ can be factored into primes as: $10^N = 2^N \cdot 5^N$.\\
+	$\frac{a \cdot 10^N}{b \cdot 10^N} = \frac{a \cdot 10^N}{2^n \cdot 5^m \cdot 10^N} = \frac{a \cdot 10^N}{10^{N+n} \cdot 10^m} = \frac{a \cdot 10^N}{10^N}$\\
 
-Therefore, if $b$ divides $10^N$, $b$ must be of theform $2^n \cdot 5^m$ where $n \leq N$ and $m \leq N$. This is because the only prime factors of $10^N$ are 2 and 5.\\
+\noindent Since $b \cdot 10^N = 10^{N+n} \cdot 10^m$, which simplifies to $10^N$, we get that $b \cdot 10^N$ is an integer.\\
+Hence, $\frac{a \cdot 10^N}{b \cdot 10^N}$ is an integer, implying that $\frac{a}{b}$ indeed has a finite decimal expansion.\\
 
-3.)  Sufficiency: $b$ of the form $2^n \cdot 5^m$\\
+\textbf{Conclusion}\\
 
-Claim: if $b$ can be expressed as $2^n \cdot 5^m$ forsome non-negative integers n andm, then $\frac{a}{b}$ has a finite decimal expansion.\\
+We have shown that if $b$ divides $10^N$ for some $N \geq 0$, then $b$ must be of the form $2^n \cdot 5^m$. Conversely, if $b = 2^n \cdot 5^m$, then $\frac{a}{b}$ has a finite decimal expansion. Therefor, the fraction $\frac{a}{b}$ in lowest terms has a finite decimal expansion if and only if the denominator $b$ is of the form $2^n \cdot 5^m$.
 
-Proof:\\
+\newpage
 
-Suppose $b = 2^n \cdot 5^m$. We need to show that $\frac{a}{b}$ has a finite decimal expansion.\\
-
-To have a finite decimal expansion, there must be some integer $N \geq 0$ such that: $10^N = 2^N \cdot 5^N$.\\
-
-Since $10^N$ contains at least $2^n$ and $5^m$ (as $N \geq n$ and $N \geq m$), we have: $10^N = 2^N \cdot 5^N$ is divisible by $b = 2^n \cdot 5^m$.\\
-
-Therefore: $\frac{10^N \cdot a}{b}$ is an integer because $10^N$ contains all the prime factors of $b$\\
-
-Conclusion: \\
-
-1. If $\frac{a}{b}$ has a finite decimal expansion, then $b$ must be of the for $2^n \cdot 5^m$ for non-negative integers $n$ and $m$.\\
-2. Conversely, if $b$ is of the form $2^n \cdot 5^m$, then $\frac{a}{b}$ will have a finite decimal expansion\\
-
-Thus, the fraction $\frac{a}{b}$ in lowest terms has a finite decimal expansion if and only if $b = 2^n \cdot 5^m$ for some non-negative integers $n$ and $m$.
+80. Let $p = p_1 \dots p_s$ be an integer with digits $p_1, \dots, p_s$. Show that $\frac{p}{10^s - 1} = 0.\overline{p_1 \dots p_s}$ Use this to find the decimal expansion of $r = \frac{2}{11}$. Note that $r = \frac{2}{11} = \frac{18}{10^2 - 1}$
 
 \end{document}
 
