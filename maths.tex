@@ -252,20 +252,20 @@
 78. Prove the triangle inequality by adding the two inequalities\\
 
 1.) Known Inequalities\\
-\indent$-\left|a\right| \leq a \leq \left|a\right|$\\
-\indent$-\left|b\right| \leq b \leq \left|b\right|$\\
+\begin{center}$-\left|a\right| \leq a \leq \left|a\right|$\\\end{center}
+\begin{center}$-\left|b\right| \leq b \leq \left|b\right|$\\\end{center}
 
 2.) Add and Simplify\\
-\indent$(-\left|a\right|)+(-\left| b\right|) \leq a + b \leq \left|a\right| + \left|b\right|$\\
-\indent$-(\left|a\right| + \left|b\right|) \leq a + b \leq \left|a\right| + \left|b\right|$\\
+\begin{center}$(-\left|a\right|)+(-\left| b\right|) \leq a + b \leq \left|a\right| + \left|b\right|$\\\end{center}
+\begin{center}$-(\left|a\right| + \left|b\right|) \leq a + b \leq \left|a\right| + \left|b\right|$\\\end{center}
 
 3.) By the definition of absolute value, we know:\\
-\indent$-\left|x\right| \leq x \leq \left|x\right|$\\
-\indent$-\left|a+b\right| \leq a+b \leq \left|a+b\right|$\\
+\begin{center}$-\left|x\right| \leq x \leq \left|x\right|$\\\end{center}
+\begin{center}$-\left|a+b\right| \leq a+b \leq \left|a+b\right|$\\\end{center}
 
 4.) To explain, the value $a + b$ is squeezed between $-(\left|a\right| + \left|b\right|)$ and $\left|a\right| + \left|b\right|$. By taking the absolute value on both sides, we conclude that: \\
-\indent$-(\left|a\right| + \left|b\right|) \leq a + b \leq \left|a\right| + \left|b\right|$\\
-\indent$\left|a + b\right| \leq \left|a\right| + \left|b\right|$\\
+\begin{center}$-(\left|a\right| + \left|b\right|) \leq a + b \leq \left|a\right| + \left|b\right|$\\\end{center}
+\begin{center}$\left|a + b\right| \leq \left|a\right| + \left|b\right|$\\\end{center}
 
 \newpage
 
@@ -283,11 +283,11 @@
 
 2. Verification: To be specific, let us express $\frac{a}{b}$ in terms of $10^N$:\\
 
-	$\frac{a}{b} = \frac{a}{2^n \cdot 5^m}$\\
+\begin{center}$\frac{a}{b} = \frac{a}{2^n \cdot 5^m}$\\\end{center}
 
 We can multiply both the numerator and the denominator by $10^N$, where $N = max(n, m)$. This multiplication yields:\\
 
-	$\frac{a \cdot 10^N}{b \cdot 10^N} = \frac{a \cdot 10^N}{2^n \cdot 5^m \cdot 10^N} = \frac{a \cdot 10^N}{10^{N+n} \cdot 10^m} = \frac{a \cdot 10^N}{10^N}$\\
+\begin{center} $\frac{a \cdot 10^N}{b \cdot 10^N} = \frac{a \cdot 10^N}{2^n \cdot 5^m \cdot 10^N} = \frac{a \cdot 10^N}{10^{N+n} \cdot 10^m} = \frac{a \cdot 10^N}{10^N}$\\\end{center}
 
 \noindent Since $b \cdot 10^N = 10^{N+n} \cdot 10^m$, which simplifies to $10^N$, we get that $b \cdot 10^N$ is an integer.\\
 Hence, $\frac{a \cdot 10^N}{b \cdot 10^N}$ is an integer, implying that $\frac{a}{b}$ indeed has a finite decimal expansion.\\
@@ -300,6 +300,33 @@ We have shown that if $b$ divides $10^N$ for some $N \geq 0$, then $b$ must be o
 
 80. Let $p = p_1 \dots p_s$ be an integer with digits $p_1, \dots, p_s$. Show that $\frac{p}{10^s - 1} = 0.\overline{p_1 \dots p_s}$ Use this to find the decimal expansion of $r = \frac{2}{11}$. Note that $r = \frac{2}{11} = \frac{18}{10^2 - 1}$
 
+\newpage
+
+A quadratic function is a function defined by a quadratic polynomial\\
+\begin{center}$f(x) = ax^2 + bx + c$ ($a$,$b$,$c$, constants with $a$ $\neq$ 0)\\\end{center}
+
+The technique of completing the square consists of writing a quadratic polynomial as a multiple of a squareplus a constant:\\
+\begin{center}$ax^2 + bx + c = a(x + \frac{b}{2a})^2 + \frac{4ac-b^2}{4a}$\\\end{center}
+
+The discriminant of f(x) is the quantity $D = b^2 - 4ac$ The roots of f(x) are given by the quadratic formula:\\
+\begin{center}$\frac{-b \pm \sqrt[2]{b^2 - 4ac}}{2a}$ \end{center}
+
+The general linear equation is $ax + by = c$ where $a$ and $b$ are not both zero. For $b = 0$, this gives the verical line $ax = c$. When $b \neq 0$, we can rewrite in slope-intercept form. For example, $-6x + 2y =3$ can be rewritten as $y = 3x + \frac{3}{2}$\\
+
+Polynomials: For any real number $m$, the function $f(x) = x^m$ is called the power function with exponent $m$. A polynomial is a sum of multiples of power functions with whole number exponents: $f(x) = x^5 -5x^3 + 4x$, $g(t) = 7t^6 +t^3 - 3t -1$\\
+
+Thus, the function $f(x) = x + x^{-1}$ is not a polynomial because it includes a power function $x^-1$ with a negative exponent. The general polynomial in the variable $x$ may be written\\
+\begin{center}$P(x) = a_nx^n + a_{n-1}x^{n-1} + \dots + a_1 + a_0$\end{center}
+The numbers $a_0, a_1, \dots, a_n$ are called coefficients.\\
+The degree of $P(x)$ is $n$ (assuming that $a_n \neq 0$).\\
+The coefficient $a_n$ is called the leading coefficient.\\
+The domain of $P(x)$ is $\mathbb{R}$.\\
+
+Rational functions: A rational function is a quotient of two polynomials:\\
+\begin{center}$f(x) = \frac{P(x)}{Q(x)}$\end{center}
+Every polynomialis also a rational functions with $Q(x) = 1$. The domain of a rational function $\frac{P(x)}{Q(x)}$ is th eset of numbers $x$ such that $Q(x) \neq 0$.\\
+
+Algebraic functions: An algrbraic function is produced by taking sums, products, and quotients of roots of polynomials and rational functions
 \end{document}
 
 
