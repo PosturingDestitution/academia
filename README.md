@@ -1,0 +1,1 @@
+This is a personal REPO where I keep my notes for various topics. I am currently studying for the CCNP ENCOR and CCNP ENAUTO. In addition to the CCNP, I am going back and reteaching myself calculus. I have a few project ideas for the future, but nothing posted here yet.
