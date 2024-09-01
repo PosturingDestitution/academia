@@ -8,7 +8,7 @@
 \usepackage{tikz}
 \usepackage{xcolor}
 
-\title{Maths}
+\title{Calculus}
 \author{Alexander}
 \date{\today}
 
@@ -298,7 +298,21 @@ We have shown that if $b$ divides $10^N$ for some $N \geq 0$, then $b$ must be o
 
 \newpage
 
-80. Let $p = p_1 \dots p_s$ be an integer with digits $p_1, \dots, p_s$. Show that $\frac{p}{10^s - 1} = 0.\overline{p_1 \dots p_s}$ Use this to find the decimal expansion of $r = \frac{2}{11}$. Note that $r = \frac{2}{11} = \frac{18}{10^2 - 1}$
+80. Let $p = p_1 \dots p_s$ be an integer with digits $p_1, \dots, p_s$. Show that $\frac{p}{10^s - 1} = 0.\overline{p_1 \dots p_s}$ Use this to find the decimal expansion of $r = \frac{2}{11}$. Note that $r = \frac{2}{11} = \frac{18}{10^2 - 1}$\\
+
+53. Show that if $f(x)$ and $g(x)$ are linear, then so is $f(x) + g(x)$. Is the same true of $f(x)g(x)$?\\
+
+54. Show that if $f(x)$ and $g(x)$ are linear functions such that $f(0) = g(0)$ and $f(1) = g(1)$, then $f(x) = g(x)$.\\
+
+55. Show that the ratio $\frac{\Delta y}{\Delta x}$ for the function $f(x) = x^2$ over the interval [$x_1$, $x_2$] is not a constant, but depends on the interval. Determine the exact dependence of $\frac{\Delta y}{\Delta x}$ on $x_1$ and $x_2$.\\
+
+56.  Derivation of the Quadratic Formula\\
+
+57. Let $a$, $c \neq 0$. Show that the roots of $ax^2 + bx + c = 0$ and $cx^2 + bx + a = 0$ are reciprocals of each other.\\
+
+58. Complete the square to show that the parabolas $y = ax^2 + bx + c$ and $y = ax^2$ have the same shape (show that the first parabola is congruent to the second by a vertical and horizontal translation).\\
+
+59. Prove Viete's Formulas, which state that the quadratic polynomial with given numbers $\alpha$ and $\beta$ as roots is $x^2 + bx + c$, where $b = -\alpha - \beta$ and $c = \alpha\beta$.
 
 \newpage
 
@@ -326,7 +340,24 @@ Rational functions: A rational function is a quotient of two polynomials:\\
 \begin{center}$f(x) = \frac{P(x)}{Q(x)}$\end{center}
 Every polynomialis also a rational functions with $Q(x) = 1$. The domain of a rational function $\frac{P(x)}{Q(x)}$ is th eset of numbers $x$ such that $Q(x) \neq 0$.\\
 
-Algebraic functions: An algrbraic function is produced by taking sums, products, and quotients of roots of polynomials and rational functions
+Algebraic functions: An algrbraic function is produced by taking sums, products, and quotients of roots of polynomials and rational functions:\\
+\begin{center} $f(x) = \sqrt[2]{1 + 3x^2 - x^4}$, $g(t) = (\sqrt{t} - 2)^{-2}$, $h(z) = \frac{z + z^{\frac{-5}{3}}}{5z^3 - \sqrt{z}}$\end{center}
+
+More generally, algebraic functions are defined by polynomial equations between $x$ and $y$. In this case, we say that $y$ is implicitly defined as a function of $x$. For example, the equation $y^4 + 2x^{2}y + x^4$ defines $y$ implicitly as a function of $x$.\\
+
+Exponential functions: The function $f(x) = b^x$, where $b > 0$, is called the exponential function with base $b$. The function $f(x) = b^x$ is increasing if $b > 1$ and decreasing if $b < 1$. The inverse of $f(x) = b^x$ is the logarithm function $y = log_{b}x$.\\
+
+Tirgonometric functions: Functions built from $\sin(x)$ and $\cos(x)$ are called trigonometric functions.
+
+If $f$ and $g$ are functions, we may construct new functions by forming the sum, difference, product, and quotient functions:\\
+\begin{center} $(f + g)(x) = f(x) + g(x)$, $(f - g)(x) = f(x) - g(x)$, $(fg)(x) = f(x)g(x)$, $(\frac{f}{g})(x) = \frac{f(x)}{g(x)}$ (where $g(x) \neq 0$)\end{center}
+
+We can also multiply functions by constants. A function of the form: $c_1f(x) + c_2g(x)$ $(c_1, c_2 constants)$ is called a linear combination of $f(x) and g(x)$.\\
+
+Composition is another important way of contructing new functions. The composition of $f$ and $g$ is the function $f \circ g$ defined by $(f \circ g)(x) = f(g(x))$, defined for values of $x$ in the domain of $g$ such that $g(x)$ lies in the domain of $f$.\\
+
+Net functions may be produced using the operation of addition, multiplication, division, as well as composition, extraction of roots, and taking inverses. It is convenient to refer to a function constructed in this way from the basic functions listed above as an elementary function. The following functions are elementary:\\
+\begin{center} $f(x) = \sqrt{2x + \sin(x)}$, $f(x) = 10^{\sqrt{x}}$, $f(x) = \frac{1 + x^{-1}}{1 + \cos(x)}$\end{center}
 \end{document}
 
 
