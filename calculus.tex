@@ -15,6 +15,8 @@
 \begin{document}
 \maketitle
 
+NOTE: the book I am using for this document is Calculus by Jon Rogawski
+
 \section* {Algebra}
 	\subsection*{Lines}
 		Slope of the line through $P_1 = (x_1, y_1)$ and $P_2 = (x_2, y_2)$:
@@ -267,8 +269,6 @@
 \begin{center}$-(\left|a\right| + \left|b\right|) \leq a + b \leq \left|a\right| + \left|b\right|$\\\end{center}
 \begin{center}$\left|a + b\right| \leq \left|a\right| + \left|b\right|$\\\end{center}
 
-\newpage
-
 79. Show that if $r=\frac{a}{b}$ is a fraction in lowest terms, then $r$ has a finite decimal expansion if and only if $b = (2^n)(5^m)$ for some n, m $\geq$ 0. Hint: Observe that r has a finite decimal expansion when $(10^N)(r)$ is an integer for some $N\geq0$ (and hence b dividies $10^N$).\\
 
 \textbf{Finite Decimal Expansion implies $b = 2^n \cdot 5^m$}\\
@@ -294,11 +294,31 @@ Hence, $\frac{a \cdot 10^N}{b \cdot 10^N}$ is an integer, implying that $\frac{a
 
 \textbf{Conclusion}\\
 
-We have shown that if $b$ divides $10^N$ for some $N \geq 0$, then $b$ must be of the form $2^n \cdot 5^m$. Conversely, if $b = 2^n \cdot 5^m$, then $\frac{a}{b}$ has a finite decimal expansion. Therefor, the fraction $\frac{a}{b}$ in lowest terms has a finite decimal expansion if and only if the denominator $b$ is of the form $2^n \cdot 5^m$.
-
-\newpage
+We have shown that if $b$ divides $10^N$ for some $N \geq 0$, then $b$ must be of the form $2^n \cdot 5^m$. Conversely, if $b = 2^n \cdot 5^m$, then $\frac{a}{b}$ has a finite decimal expansion. Therefor, the fraction $\frac{a}{b}$ in lowest terms has a finite decimal expansion if and only if the denominator $b$ is of the form $2^n \cdot 5^m$.\\
 
 80. Let $p = p_1 \dots p_s$ be an integer with digits $p_1, \dots, p_s$. Show that $\frac{p}{10^s - 1} = 0.\overline{p_1 \dots p_s}$ Use this to find the decimal expansion of $r = \frac{2}{11}$. Note that $r = \frac{2}{11} = \frac{18}{10^2 - 1}$\\
+
+Step 1. Express $p$ as a number\\
+The number $p$ can be written as: $p = p_1 \cdot 10^{s-1} + p_2 \cdot 10^{s-2} + \dots + p_{s-1} \cdot 10 + p_s$\\
+
+Step 2. Compute $\frac{p}{10^{s}-1}$\\
+$D = 0.\overline{p_1p_2\dots p_s}$\\
+To convert this repeating decimal to a fraction, we multiply $D$ by $10^s$\\
+$10^s \cdot D = p_1p_2\dots p_s.\overline{p_1p_2\dots p_s}$\\
+Subtract the original $D$ from this equation:\\
+$10^s \cdot D - D = p_1p_2\dots p_s$\\
+$(10^s - 1) \cdot D = p_1p_2\dots p_s$\\
+$D = \frac{p_1p_2\dots p_s}{10^s - 1}$\\
+
+Step 3.\\
+$\frac{p}{10^s - 1} = 0.\overline{p_1p_2\dots p_s}$\\
+
+Step 1. Notice that:\\
+$\frac{2}{11} = \frac{18}{10^{2} - 1}$\\
+
+Step 2. Apply the Formula Derived Above:\\
+$\frac{18}{99} = 0.\overline{18}$\\
+$\frac{2}{11} = 0.\overline{18}$\\
 
 53. Show that if $f(x)$ and $g(x)$ are linear, then so is $f(x) + g(x)$. Is the same true of $f(x)g(x)$?\\
 
@@ -312,7 +332,19 @@ We have shown that if $b$ divides $10^N$ for some $N \geq 0$, then $b$ must be o
 
 58. Complete the square to show that the parabolas $y = ax^2 + bx + c$ and $y = ax^2$ have the same shape (show that the first parabola is congruent to the second by a vertical and horizontal translation).\\
 
-59. Prove Viete's Formulas, which state that the quadratic polynomial with given numbers $\alpha$ and $\beta$ as roots is $x^2 + bx + c$, where $b = -\alpha - \beta$ and $c = \alpha\beta$.
+59. Prove Viete's Formulas, which state that the quadratic polynomial with given numbers $\alpha$ and $\beta$ as roots is $x^2 + bx + c$, where $b = -\alpha - \beta$ and $c = \alpha\beta$.\\
+
+54. Use the addition formula to prove that $\cos(3\theta)= 4\cos^3(\theta) - 3\cos(\theta)$.\\
+
+55. Use the addition formulas for sine and cosine to prove $\tan(a + b) = \frac{\tan(a) + tan(b)}{1 - \tan(a)\tan(b)}$ and $\cot(a - b) = \frac{\cot(a)\cot(b) + 1}{\cot(b) - \cot(a)}$.\\
+
+56. Let $\theta$ be the angle between the line $y = mx + b$ and the x-axis...Prove that $m = \tan(\theta)$.\\
+
+57. Let $L_1$ and $L_2$ be the lines of slope $m_1$ and $m_2$. Show that the angle $\theta$ between $L_1$ and $L_2$ satisfies $\cot(\theta) = \frac{m_2m_1 + 1}{m_2 - m_1}$.\\
+
+58. Perpendicular Lines...Use Exercise 57 to prove that two lines with nonzero slopes $m_1$ and $m_2$ are perpendicular if and only if $m_2 = \frac{-1}{m_1}$.\\
+
+59. Apply the double-angle formula to prove: (a) $\cos(\frac{\pi}{8}) = \frac{1}{2}\sqrt{2 + \sqrt{2}}$ and (b) $\cos(\frac{\pi}{16}) = \frac{1}{2}\sqrt{2 + \sqrt{2 + \sqrt{2}}}$ Guess the values of $\cos(\frac{\pi}{32})$ and of $\cos(\frac{\pi}{2^n})$ for all $n$.
 
 \newpage
 
@@ -358,6 +390,56 @@ Composition is another important way of contructing new functions. The compositi
 
 Net functions may be produced using the operation of addition, multiplication, division, as well as composition, extraction of roots, and taking inverses. It is convenient to refer to a function constructed in this way from the basic functions listed above as an elementary function. The following functions are elementary:\\
 \begin{center} $f(x) = \sqrt{2x + \sin(x)}$, $f(x) = 10^{\sqrt{x}}$, $f(x) = \frac{1 + x^{-1}}{1 + \cos(x)}$\end{center}
+
+\section* {Limits}
+
+"Calculus is usually divided into two branches, differential and integral, partly for historical reasons. The subject was developed in the seventeeth century to solve two important geometric problems: finding tangent lines to curves (differential calculus) and computing areas under curves (integral calculus). However, calculus is a very broad subject with no clear boundaries. It includes other topics, such as the theory of infinite series, and it has an extraordinarily wide range of applications, especially in the sciences and in engineering. What makes these methods and applications part of calculus is that they all rely ultimately on the concept of a limit."\\
+
+\noindent How do the values of a function $f(x)$ behave when $x$ approaches a number $c$, whether or not $f(c)$ is defined?\\
+
+\begin{center}$f(x) = \frac{\sin(x)}{x}$ (x in radians)\end{center}
+The value $f(0)$ is not defined because
+\begin{center}$f(0) = \frac{\sin(0)}{0}$ = $\frac{0}{0}$ (undefined)\end{center}
+Nevertheless, $f(x)$ can be computed for values of $x$ close to 0.\\
+
+if $x \to 0^+ f(x) \to 1$ and $x \to 0^- f(x) \to 1$ we say that the limit of $f(x)$ as $x \to 0$ is equal to 1, and we write:
+\begin{center}$\lim_{x \to 0}f(x) = 1$\end{center}
+We also say that $f(x)$ approaches or converges to 1 as $x \to 0$.\\
+
+\noindent Though...$f(0) = \frac{0}{0}$ we could NOT have arrived at the conclusiton $\frac{0}{0} = 1$...otherwise we could conclude that $2=1$
+\begin{center}$2(\frac{0}{0}) = \frac{2(0)}{0} = \frac{0}{0}$\end{center}
+
+To define limits more generally, let us recall that the distance between two numbers $a$ and $b$ is the absolute value $\left|a-b\right|$. Thus, we can express the idea that $f(x)$ is close to $L$ by saying that $\left|f(x) - L\right|$ is small.\\
+
+Assume that $f(x)$ is defined for all $x$ near $c$ (i.e., in some open interval containing $c$), but not necessarily at $c$ itself. We say that:
+\begin{center}the limit of $f(x)$ as $x$ approaches $c$ is equal to $L$\end{center}
+if $\left|f(x) - L\right|$ becomes arbitrarily small when $x$ is any number sufficiently close (but not equal) to $c$. In this case, we write:
+\begin{center}$\lim_{x \to c}f(x) = L$\end{center}
+We also say that $f(x)$ approaches or converges to $L$ as $x \to c$ (and we write $f(x) \to L$).\\
+
+"Although fundamental in calculus, the limit concept was not fully clarified until the nineteenth century. The French mathematician Augustin-Louis Cauchy (1789-1857, pronounced Koh-shee) gave the following verbal definition: 'When the values successively attributed to the same variable approach a fixed value indefinitely, in such a way as to end up differing from it by as little as one could wish, this last value is called the limit of all the others. So, for example, an irrational number is the limit of the various fractions which provide values that approximate it more and more closely.'"\\
+
+If the values of $f(x)$ do not converge to any limit as $x \to c$, we say that $\lim_{x \to c}f(x)$ does not exist. It is important to note that the value $f(c)$ itself, which may or may not be defined, plays no role in the limit. All that matters are the values $f(x)$ for $x$ close to $c$. Furthermore, if $f(x)$ approaches a limit as $x \to c$, then the limiting value $L$ is unique.\\
+
+EXAMPLE 1 Use the definition above to verify the following limits:
+\begin{center}
+(a) $\lim_{x \to 7}5 = 5$ and (b) $\lim_{x \to 4}(3x + 1) = 13$
+\end{center}
+(a) Let $f(x) = 5$. To show that $\lim_{x \to 7}f(x) = 5$, we must show that $\left|f(x) - 5\right|$ becomes arbitrarily small when $x$ is sufficiently close (but not equal) to 7. But $\left|f(x)-5\right| = \left|5 - 5\right| = 0$ for all $x$, so what we are required to show is automatic (and it is not necessary to take $x$ close to 7).\\
+
+\noindent(b)Let $f(x) = 3x+1$. To show that $\lim_{x \to 4}(3x + 1) = 13$, we must show that $\left|f(x) - 13\right|$ becomes arbitrarily small when $x$ is sufficiently close (but not equal) to 4. We have
+\begin{center}$\left|f(x) - 13\right| = \left|(3x+1) - 13\right| = \left|3x - 12\right| = 3\left|x - 4\right|$\end{center}
+Since $\left|f(x) - 13\right|$ is a multiple of $\left|x - 4\right|$, we can make $\left|f(x) - 13\right|$ arbitrarily small by taking $x$ sufficiently close to 4.\\
+
+Reasoning as in Example 1 but with arbitrary constants, we obtain the following simple but important results:
+\begin{center}For any constants $k$ and $c$, (a) $\lim_{x \to c}k = k$ and (b) $\lim_{x \to c}x = c$.\end{center}
+
+NOTE: Here is a way of stating the limit definition precisely:\\
+$\lim_{x \to c}f(x) = L$ if, for any $n$, we have $\left|f(x) -  L\right| < 10^{-n}$, provided that $0 < \left|x - c\right| < 10^{-m}$ (where the choice of $m$ depends on $n$).\\
+
+"To deal with more complicated limits in a rigorous manner, it is necessary to make the phrases 'arbitrarily small' and 'sufficiently close' more precise using inequalities."
+
+\subsection*{Basic Limit Laws}
 \end{document}
 
 
