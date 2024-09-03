@@ -2,7 +2,7 @@ This is a personal REPO where I keep my notes for various topics.
 Next 6 months:
   1. CCNP ENCOR
   2. CCNP ENAUTO
-  3. expanding on my understanding of calculus
+  3. reviewing calculus
   4. messing around with the following python tools: itertools, collections, functools, numpy, pandas, matplotlib, scikit-learn, and seaborn
 
 Future topics?:
