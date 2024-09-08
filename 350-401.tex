@@ -3,6 +3,7 @@
 \usepackage{enumitem}
 \usepackage{amsmath}
 \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\setlength{\parindent}{1em}
 \renewcommand{\thesection}{\arabic{section}.0}
 \setlist[enumerate]{label=\arabic*.0}
 
@@ -22,6 +23,31 @@
 \item Security
 \item Automation
 \end{enumerate}
+
+\section*{OCG}
+
+\textbf{Chapter 1: Packet Fowarding}\\
+
+	The MAC address table resides in content addressable memory (CAM). The CAM uses high-speed memory that is faster than typical computer RAM due to its search techniques. The CAM table provides a binary result for any query of 0 for true or 1 for false. The CAM is used with other functions to analyze and forward packets very quickly. Switches are built with large CAM to accommodate all the Later 2 hosts for which they must maintain forwarding tables.\\
+
+	Process switching (software switching/slow path) is the fallback CEF because it is deticated for punted IP packets. In IOS $ip\_input$ process runs on the general-purpose CPU for processing incoming IP packets. When will packets requre software handling?
+
+\begin{itemize}
+\item 1. packets are sourced/destined to/from the router (control traffic or routing protocols) 
+\item 2. packets that are too complex for the hardware to handle (IP packets with IP options) 
+\item 3. packets that require extra information that is not currently known (for example, unresolved ARP entries)
+\end{itemize}
+
+	The general-purpose CPUs on software-based and hardware-based routers are similar and perform all the same functions; the difference is that on software-based routers, the general-purpose CPU is in charge of all operations, including CEF switching (software CEF), and the hardware-based routers do CEF switching using forwarding  engines that are implemented in specialized ASICs, ternary content addressable memory (TCAM), and NPUs (hardware CEF). Forwarding engines provide the packet switching, forwarding, and route lookup capabillity to routers.\\
+
+	A switch's ternary content addressable memory (TCAM) allows for the matching and evaluation of a packet on more than one field. TCAM is an extension of the CAM architecture but enhanced to allow for upper-layer processing such as identifying the Layer 2/3 source/destination addresses, protocol, QoS markings, and so on. TCAM provides more flexibility in searching than does CAM, which is binary. A TCAM search provides three results: 0 for true, 1 false, and X for do not care, which is a ternary combination.\\
+
+The TCAM entries are stored in Value, Mask, and Result (VMR) format. The value indicates the fields that should be searched, such as the IP address and protocol fields. The mask indicates the field that is of interest and that should be queried. The result indicates the action that should be taken with a match on the value and mask. Multiple actions can be selected besides allowing or dropping traffic, but tasks like redirecting a flow to a QoS policer or specifying a pointer to a different entry in the forwarding table are possible. Most switches implement multiple TCAM entries so that inbound/outbound security, QoS, and Layer 2 and Layer 3 forwarding decisions occur all at once. TCAM operates in hardware, providing faster processing and scalabillity than process switching. This allows for some features like ACLs to process at the same speed regardless of whether there are 10 entries or 500. The TCAM is not an infinite resource, and balancing memory allocation between functions has trade-offs.\\
+
+
+
+\noindent\textbf{Chapter 2: Spanning Tree Protocol}\\
+
 
 \section{Architecture}
 \textbf{1.1 Explain the different design principles used in an enterprise network}
