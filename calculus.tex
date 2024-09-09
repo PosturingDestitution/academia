@@ -344,7 +344,43 @@ $\frac{2}{11} = 0.\overline{18}$\\
 
 58. Perpendicular Lines...Use Exercise 57 to prove that two lines with nonzero slopes $m_1$ and $m_2$ are perpendicular if and only if $m_2 = \frac{-1}{m_1}$.\\
 
-59. Apply the double-angle formula to prove: (a) $\cos(\frac{\pi}{8}) = \frac{1}{2}\sqrt{2 + \sqrt{2}}$ and (b) $\cos(\frac{\pi}{16}) = \frac{1}{2}\sqrt{2 + \sqrt{2 + \sqrt{2}}}$ Guess the values of $\cos(\frac{\pi}{32})$ and of $\cos(\frac{\pi}{2^n})$ for all $n$.
+59. Apply the double-angle formula to prove: (a) $\cos(\frac{\pi}{8}) = \frac{1}{2}\sqrt{2 + \sqrt{2}}$ and (b) $\cos(\frac{\pi}{16}) = \frac{1}{2}\sqrt{2 + \sqrt{2 + \sqrt{2}}}$ Guess the values of $\cos(\frac{\pi}{32})$ and of $\cos(\frac{\pi}{2^n})$ for all $n$.\\
+
+36. How many points lie on the intersection of the horizontal line $y = c$ and the graph of $y = \tan(x)$ for $0 \leq x \leq 2\pi$\\
+
+In Exercises 37-40, solve for $0 \leq \theta \leq 2\pi$.\\
+
+37. $\sin(2\theta) + \sin(3\theta) = 0$\\
+
+38. $\sin(\theta) = \sin(2\theta)$\\
+
+39. $\cos(4\theta) + \cos(2\theta) = 0$\\
+
+40. $\sin(\theta) = \cos(2\theta)$\\
+
+In Exercises 41-50, derive the identities using the identities listed in this section.\\
+
+41. $\cos(2\theta) = 2\cos^2(\theta) - 1$\\
+
+42. $\cos^2(\frac{\theta}{2}) = \frac{1 = \cos(\theta)}{2}$\\
+
+43. $\left|\sin(\frac{\theta}{2})\right| = \sqrt{\frac{1 - \cos(\theta)}{2}}$\\
+
+44. $\sin(\theta + \pi) = -sin(\theta)$\\
+
+45. $\cos(\theta + \pi) = -\cos(\theta)$\\
+
+51. Use Exercises 44 and 45 to show that $\tan(\theta)$ and $\cot(\theta)$ are periodic with period $\pi$\\
+
+In Exercises 31-34, sketch the graph over [0, 2$\pi$].\\
+
+31. $2\sin(4\theta)$\\
+
+32. $\cos(2(\theta - \frac{\pi}{2}))$\\
+
+33. $\cos(2\theta - \frac{\pi}{2})$\\
+
+34. $\sin(2(\theta - \frac{\pi}{2}) + \pi) + 2$\\
 
 \newpage
 
@@ -437,7 +473,29 @@ Reasoning as in Example 1 but with arbitrary constants, we obtain the following 
 NOTE: Here is a way of stating the limit definition precisely:\\
 $\lim_{x \to c}f(x) = L$ if, for any $n$, we have $\left|f(x) -  L\right| < 10^{-n}$, provided that $0 < \left|x - c\right| < 10^{-m}$ (where the choice of $m$ depends on $n$).\\
 
-"To deal with more complicated limits in a rigorous manner, it is necessary to make the phrases 'arbitrarily small' and 'sufficiently close' more precise using inequalities."
+"To deal with more complicated limits in a rigorous manner, it is necessary to make the phrases 'arbitrarily small' and 'sufficiently close' more precise using inequalities."\\
+
+Some functions tend to $\infty$ or $-\infty$ as $x$ approaches a value $c$. In this case, the limit $\lim_{x \ to c}f(x)$ does not exist, but we say that $f$ ahs an \textit{infinite limit}. More precisely, we write
+\begin{center}$\lim_{x \to c}f(x)=\infty$\end{center}
+if $f(x)$ increases without bound as $x \to c$. If $f(x)$ tends to $-\infty$ (that is, $f(x)$ becomes negative and $\left|f(x)\right| \to \infty$), then we write
+\begin{center}$\lim_{x \to c}f(x)=-\infty$\end{center}
+
+When using this notation, keep in mind that $\infty$ and $-\infty$ are not numbers. One-sided infinite limits are defined similarly. In the next example, we use the notation $x \to c\pm$ to indicate that the left and right-hand limits are to be considered separately.
+
+\begin{center}(a) $\lim_{x \to 2\pm}\frac{1}{x - 2}$ (b) $\lim_{x \to 0\pm}\frac{1}{x^2}$\end{center}
+
+(a) The function $f(x) = \frac{1}{x - 2}$ is negative for $x < 2$ and positive for $x > 2$. $f(x)$ approaches $-\infty$ as $x$ approaches 2 from the left and $\infty$ as $x$ approaches 2 from the right:
+\begin{center}$\lim_{x \to 2^-}\frac{1}{x - 2} = -\infty$, $\lim_{x \to 2^+}\frac{1}{x - 2} = \infty$\end{center}
+
+(b) The function $f(x) = \frac{1}{x^2}$ is positive for all $x \neq 0$ and becomes arbitrarily large as $x\ to 0$ fro either side. Therefore, $\lim_{x \to 0}\frac{1}{x^2} = \infty$.\\
+
+\textcolor{blue}{CONCEPTUAL INSIGHT} You should not think of an infinite limit as a true limit. The notation $\lim_{x\to c}f(x) = \infty$ is a shorthand way of saying that no finite limit exists but that $f(x)$ increases beyond all bounds as $x$ approaches $c$. We must be careful about this because $\infty$ and $-\infty$ are not numbers, and contradictions may arise if we manipulate them as numbers. For example, if $\infty$ were a number larger than any finite numbers, then presumably $\infty + 1 = \infty$. This would give
+\begin{center}$\infty + 1 = \infty$\end{center}
+\begin{center}$(\infty + 1) - \infty = \infty - \infty$\end{center}
+\begin{center}$1 = 0$ (contradiction!)\end{center}
+For this reason, the Limit Laws discussed in the next section are valid only for finite limits and cannot be applied to infinite limits.
+
+
 
 \subsection*{Basic Limit Laws}
 \end{document}
