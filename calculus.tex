@@ -349,40 +349,25 @@ $\frac{2}{11} = 0.\overline{18}$\\
 36. How many points lie on the intersection of the horizontal line $y = c$ and the graph of $y = \tan(x)$ for $0 \leq x \leq 2\pi$\\
 
 In Exercises 37-40, solve for $0 \leq \theta \leq 2\pi$.\\
-
 37. $\sin(2\theta) + \sin(3\theta) = 0$\\
-
 38. $\sin(\theta) = \sin(2\theta)$\\
-
 39. $\cos(4\theta) + \cos(2\theta) = 0$\\
-
 40. $\sin(\theta) = \cos(2\theta)$\\
 
 In Exercises 41-50, derive the identities using the identities listed in this section.\\
 
 41. $\cos(2\theta) = 2\cos^2(\theta) - 1$\\
-
 42. $\cos^2(\frac{\theta}{2}) = \frac{1 = \cos(\theta)}{2}$\\
-
 43. $\left|\sin(\frac{\theta}{2})\right| = \sqrt{\frac{1 - \cos(\theta)}{2}}$\\
-
 44. $\sin(\theta + \pi) = -sin(\theta)$\\
-
 45. $\cos(\theta + \pi) = -\cos(\theta)$\\
-
 51. Use Exercises 44 and 45 to show that $\tan(\theta)$ and $\cot(\theta)$ are periodic with period $\pi$\\
 
 In Exercises 31-34, sketch the graph over [0, 2$\pi$].\\
-
 31. $2\sin(4\theta)$\\
-
 32. $\cos(2(\theta - \frac{\pi}{2}))$\\
-
 33. $\cos(2\theta - \frac{\pi}{2})$\\
-
 34. $\sin(2(\theta - \frac{\pi}{2}) + \pi) + 2$\\
-
-\newpage
 
 A quadratic function is a function defined by a quadratic polynomial\\
 \begin{center}$f(x) = ax^2 + bx + c$ ($a$,$b$,$c$, constants with $a$ $\neq$ 0)\\\end{center}
@@ -493,11 +478,77 @@ When using this notation, keep in mind that $\infty$ and $-\infty$ are not numbe
 \begin{center}$\infty + 1 = \infty$\end{center}
 \begin{center}$(\infty + 1) - \infty = \infty - \infty$\end{center}
 \begin{center}$1 = 0$ (contradiction!)\end{center}
-For this reason, the Limit Laws discussed in the next section are valid only for finite limits and cannot be applied to infinite limits.
+For this reason, the Limit Laws discussed in the next section are valid only for finite limits and cannot be applied to infinite limits.\\
 
+In Exercises 19-32, estimate the limit numerically or state that the limit does not exist.\\
+19. $\lim_{x \to 1}\frac{\sqrt{x} - 1}{x - 1}$\\
+20. $\lim_{x \to -3}\frac{2x^2 - 18}{x + 3}$\\
+21. $\lim_{x \to 2}\frac{x^2 + x - 6}{x^2 - x - 2}$\\
+22. $\lim_{x \to 3}\frac{x^3 - 2x^2 - 9}{x^2 - 2x - 3}$\\ 
+23. $\lim_{x \to 0}\frac{\sin(2x)}{x}$\\
+24. $\lim_{x \to 0}\frac{\sin(5x)}{x}$\\
+25. $\lim_{x \to 0}\frac{\sin(x)}{x^2}$\\
+26. $\lim_{\theta \to 0}\frac{\cos(\theta) - 1}{\theta}$\\
+27. $\lim_{h \to 0}\cos(\frac{1}{h})$\\
+28. $\lim_{h \to 0}\sin(h)\cos(\frac{1}{h})$\\
+29. $\lim_{h \to 0}\frac{2^h - 1}{h}$\\
+30. $\lim_{x \to 0}\frac{2^x - 3^x}{x}$\\
+31. $\lim_{h \to 2}\frac{5^h - 25}{h - 2}$\\
+32.$\lim_{x \to 0}\left|x\right|^x$\\
 
+\textcolor{blue}{Further Insights and Challenges}\\
+54. Investigate $\lim_{\theta \to 0}\frac{\sin(n\theta)}{\theta}$ numerically for several values of $n$ and then guess the value in general.\\
+
+55. Show numerically that $\lim_{x \to 0}\frac{b^x - 1}{x}$ for $b = 3, 5$ appears to equal $\ln(3), \ln(5)$, where $\ln(x)$ is the natural logarithm. Then make a conjecture (guess) for the value in general and test your conjecture for two additional values of $b$.\\
+
+56. Let $n$ be any number and consider $\lim_{x \to 0}(1 + nx)^{\frac{1}{x}}$.\\
+(a) Give numerical evidence that for $n = 1$, the limit is $e$ [where $e = exp(1)$ can be found on any scientific calculator].\\
+(b) Estimate the limit for $n = 2, 3$ and try to express the result in terms of $e$. Then form a conjecture for the value of the limit in general. Is it valid for noninteger $n$?\\
+
+57. Investigate $\lim_{x \to 1}\frac{x^n - 1}{x^m - 1}$ for ($m$, $n$) equal to (2, 1), (1, 2) , (2, 3),  and (3, 2). Then guess the value of the limit in general and check your guess for at least three additional pairs.\\
+
+58. Find by experimentation the positive integers $k$ such that $\lim_{x \to 0}\frac{\sin(\sin^2(x))}{x^k}$ exists.\\
 
 \subsection*{Basic Limit Laws}
+
+In the previoud section we relied on graphical and numerical approaches to investigate limits and estimate their values. On the next four sections we go beyond this intuitive approach and develop tools for computing limits in a precise way. This section discusses the basic limit laws used for computing limtis of functions constructed as sums, multiples, products, or quotients of other functions.\\
+
+Assume that $\lim_{x \to c}f(x)$ and $\lim_{x \to c}g(x)$ exist. Then:\\
+
+(i) Sum Law:
+\begin{center}$\lim_{x \to c}(f(x) + g(x)) = \lim_{x \to c}f(x) + \lim_{x \to c}g(x)$\end{center}
+
+(ii) Constant Multiple Law: For any number k,
+\begin{center}$\lim_{x \to c}kf(x) = k\lim_{x \to c}f(x)$\end{center}
+
+(iii) Product Law:
+\begin{center}$\lim_{x \to c}f(x)g(x) = (\lim_{x \to c}f(x))(\lim_{x \to c}g(x))$\end{center}
+
+(iv) Quotient Law: If $\lim_{x \to c}g(x) \neq 0, then$
+\begin{center}$\lim_{x \to c}\frac{f(x)}{g(x)} = \frac{\lim_{x \to c}f(x)}{\lim_{x \to c}g(x)}$\end{center}
+
+	The proofs of these laws are discussed later. However, we can understand the underlying idea by arguing informally. For example, to prove the Sum Law, we observer that if $f(x)$ is close to $L$ and $g(x)$ is close to $M$ when $\left|x - c\right|$ is sufficiently small. Similarly, $f(x)g(x)$ must be close to $LM$, etc.
+	Before proceeding to the examples, we make two useful remarks. First, the Sum and Product Laws are valid for any number of functions. For example,
+\begin{center}$\lim_{x \to c}(f_1(x) + f_2(x) + f_3(x)) = \lim_{x \to c}f_1(x) + \lim_{x \to c}f_2(x) + \lim_{x \to c}f_3(x)$\end{center}
+	Second, the Sum Law has a conterpart for differences:
+\begin{center}$\lim_{x \to c}(f(x) - g(x)) = \lim_{x \to c}f(x) - \lim_{x \to c}g(x) $\end{center}
+	This is not listed as a separate law because it follow by combinging the Sum and Constant Multiple Laws:
+\begin{center} $\lim_{x \to c}(f(x) - g(x)) = \lim_{x \to c}f(x) + \lim_{x \to c}(- g(x)) = \lim_{x \to c}f(x) - \lim_{x \to c}g(x)$\end{center}
+
+\textcolor{blue}{Exercises}\\
+11. $\lim_{x \to \frac{1}{2}}(4x + 1)(2x - 1)$\\
+14. $\lim_{x \to 2}(x + 1)(3x^2 - 9)$\\
+18. $\lim_{x \to -1}\frac{x}{x^3 + 4x}$\\
+
+\textcolor{blue}{Further Insights and Challenges}\\
+35. Show that if both $\lim_{x \to c}f(x)g(x)$ and $\lim_{x \to c}g(x)$ exist and $\lim_{x \to c}g(x)$ is nonzero, then $\lim_{x \to c}f(x)$ exists. Hint: Write $f(x) = \frac{(f(x)g(x))}{g(x)}$ and apply the Quotient Law.\\
+36. Show that if $\lim_{t \to 3}tg(t) = 12$, then $\lim_{t \to 3}g(t)$ exists and equals 4.\\
+37. Prove that if $\lim_{t \to 3}\frac{h(t)}{t} = 5$, then $\lim_{t \to 3}h(t) = 15$\\
+38.\\
+39.\\
+40.\\
+
+\subsection*{Limits and Continuity}
 \end{document}
 
 
