@@ -1,11 +1,10 @@
 This is a personal REPO. 
 
-current:
+topics included:
   1. CCNP ENCOR
   2. CCNP ENARSI
-  3. reviewing calculus
+  3. calculus
   4. linear algebra
-
-future: 
-  1. COA/OS
-  2. discreet
+  6. C programming
+  7. COA
+  8. operating systems
