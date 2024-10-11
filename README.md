@@ -1,11 +1,11 @@
-This is a personal REPO. 
+This is a personal REPO for learning purposes. 
 
-current:
-  1. CCNP ENCOR
-  2. CCNP ENARSI
-  3. reviewing calculus
-  4. linear algebra
-
-future: 
-  1. COA/OS
-  2. discreet
+topics:
+  1. CCNA
+  2. CCNP ENCOR
+  3. CCNP ENARSI
+  4. calculus
+  5. linear algebra
+  6. C programming
+  7. COA
+  8. operating systems
