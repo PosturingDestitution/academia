@@ -1,0 +1,582 @@
+\documentclass{article}
+
+\usepackage{times}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{xcolor}
+
+\title{Calculus}
+\author{Alexander}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+NOTE: the book I am using for this document is Calculus by Jon Rogawski
+
+\section* {Algebra}
+	\subsection*{Lines}
+		Slope of the line through $P_1 = (x_1, y_1)$ and $P_2 = (x_2, y_2)$:
+			\begin{center}
+			$m = \frac{y_2 - y_1}{x_2 - x_1}$
+			\end{center}
+		Slope-intercept equation of line with slope m and y-intercept b:
+			\begin{center}
+			$y = mx + b$
+			\end{center}
+		Point-slope equation of line through $P_1 = (x_1, y_1)$ with slope m:
+			\begin{center}
+			$y - y_1 = m(x - x_1)$
+			\end{center}
+	\subsection*{Circles}
+		Equation of the circle with center (a, b) and radius r:
+			\begin{center}
+			$(x - a)^2 + (y - b)^2 = r^2$
+			\end{center}
+	\subsection*{Distance and Midpoint Formulas}
+		Distance between $P_1 = (x_1, y_1)$ and $P_2 = (x_2, y_2)$:
+			\begin{center}
+			$d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$
+			\end{center}
+		Midpoint of $\bar{P_1P_2}$:
+			\begin{center}
+			$(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2})$
+			\end{center}
+	\subsection*{Laws of Exponents}
+		\begin{center}
+		$x^m x^n = x^{m+n}$\\
+		\vspace{10pt}
+		$\frac{x^m}{x^n} = x^{m-n}$\\
+		\vspace{10pt}
+		$(x^m)^n = x^{mn}$\\
+		\vspace{10pt}
+		$x^{-n} = \frac{1}{x^n}$\\
+		\vspace{10pt}
+		$(xy)^n = x^n y^n$\\
+		\vspace{10pt}	
+		$(\frac{x}{y})^n = \frac{x^n}{y^n}$\\	
+		\vspace{10pt}	
+		$x^{\frac{1}{n}} = \sqrt[n]{x}$\\	
+		\vspace{10pt}	
+		$\sqrt[n]{xy} = \sqrt[n]{x}\sqrt[n]{y}$\\
+		\vspace{10pt}
+		$\sqrt[n]{\frac{x}{y}} = \frac{\sqrt[n]{x}}{\sqrt[n]{y}}$\\
+		\vspace{10pt}
+		$x^{\frac{m}{n}} = \sqrt[n]{x^m} = (\sqrt[n]{x})^m$
+		\end{center}
+	\subsection*{Special Factorizations}
+		\begin{center}
+		$x^2 - y^2 = (x + y)(x - y)$\\
+		\vspace{10pt}
+		$x^3 + y^3 = (x + y)(x^2 - xy + y^2)$\\
+		\vspace{10pt}
+		$x^3 - y^3 = (x-y)(x^2 + xy + y^2)$
+		\end{center}
+	\subsection*{Binomial Theorem}
+		\begin{center}
+		$(x+y)^2 = x^2 + 2xy +y^2$\\
+		\vspace{10pt}
+		$(x-y)^2 = x^2 - 2xy + y^2$\\
+		\vspace{10pt}
+		$(x+y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$\\
+		\vspace{10pt}
+		$(x-y)^3 = x^3 - 3x^2y + 3xy^2 - y^3$\\
+		\vspace{10pt}
+		$(x+y)^n = x^n + nx^{n-1}y + \frac{n(n-1)}{2}x^{n-2}y^2 + \ldots + \binom{n}{k}x^{n-k}y^k + \ldots + nxy^{n-1} + y^n$\\
+		where $\binom{n}{k} = \frac{n(n-1)\ldots(n-k+1)}{1 \cdot 2 \cdot 3 \ldots k}$
+		\end{center}
+	\subsection*{Quadratic Formula}
+		\begin{center}
+		If $ax^2 + bx +c = 0$, then $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$.
+		\end{center}
+	\subsection*{Inequalities and Absolute Value}
+		\begin{center}
+		If $a < b$ and $b < c$, then $a < c$.\\
+		\vspace{10pt}
+		If $a < b$, then $a + c < b + c$.\\
+		\vspace{10pt}
+		if $a < b$ and $c > 0$, then $ca < cb$.\\
+		\vspace{10pt}
+		if $a < b$ and $c < 0$, then $ca > cb$.\\
+		\vspace{10pt}
+		$\left|x\right| = x$ if $x >= 0$\\
+		\vspace{10pt}
+		$\left|x\right| = -x$ if $x <= 0$
+		\end{center}
+		
+\section* {Geometry}
+	Formulas for area A, circumference C, and volume V\\
+	Triangle\\
+		\begin{center}
+		$A = \frac{1}{2}bh$\\
+		\vspace{10pt}
+		$A = \frac{1}{2}ab\sin(\theta)$\\
+		\end{center}
+	Circle\\
+		\begin{center}
+		$A = \pi r^2$\\
+		\vspace{10pt}
+		$C = 2\pi r$\\
+		\end{center}
+	Sector of Circle\\
+		\begin{center}
+		$A = \frac{1}{2}r^2\theta$\\
+		\vspace{10pt}
+		$s = r\theta$\\
+		\end{center}
+	Sphere\\
+		\begin{center}
+		$V = \frac{4}{3}\pi r^3$\\
+		\vspace{10pt}
+		$A = 4\pi r^2$\\
+		\end{center}
+	Cylinder\\
+		\begin{center}
+		$V = \pi r^2h$\\
+		\end{center}
+	Cone\\
+		\begin{center}
+		$V = \frac{1}{3}\pi r^2h$\\
+		\vspace{10pt}
+		$A = \pi r\sqrt{r^2 + h^2}$\\
+		\end{center}
+	Cone with arbitrary base\\
+		\begin{center}
+		$V = \frac{1}{3}Ah$\\
+		\end{center}
+		
+\section* {Trigonometry}
+	Pythagorean Theorem: For a right trianlge with hypotenuse of length $c$ and legs of lengths $a$ and $b$, $c^2 = a^2 + b^2$.\\
+	\subsection*{Angle Measurement}
+		\begin{center}
+		$\pi$ radians = $180^\circ$\\
+		\vspace{10pt}
+		$1^\circ = \frac{\pi}{180}rad$\\
+		\vspace{10pt}
+		1 rad = $\frac{180}{\pi}$\\
+		\vspace{10pt}
+		$s = r\theta$ ($\theta$ in radians)
+		\end{center}
+	\subsection*{Right Triangle Definitions}
+		\begin{center}
+		sin $\theta = \frac{opp}{hyp}$\\
+		\vspace{10pt}
+		cos $\theta = \frac{adj}{hyp}$\\
+		\vspace{10pt}
+		tan $\theta = \frac{sin \theta}{cos \theta} = \frac{opp}{adj}$\\
+		\vspace{10pt}
+		sec $\theta = \frac{1}{cos \theta}$ 
+		\vspace{10pt}
+		csc $\theta = \frac{1}{sin \theta}$
+		\end{center}
+	\subsection*{Trigonometric Functions}
+		\begin{center}
+		sin $\theta = \frac{y}{r}$\\
+		\vspace{10pt}
+		cos $\theta = \frac{x}{r}$\\
+		\vspace{10pt}
+		tan $\theta = \frac{y}{x}$\\
+		\vspace{10pt}
+		sec $\theta = \frac{r}{x}$\\
+		\vspace{10pt}
+		csc $\theta = \frac{r}{y}$\\
+		\vspace{10pt}
+		$\lim_{\theta \to 0} \frac{sin \theta}{\theta} = 1$\\
+		\vspace{10pt}
+		$\lim_{\theta \to 0} \frac{1 - cos \theta}{\theta} = 0$
+		\end{center}
+	\subsection*{Fundamental Identities}
+		\begin{center}
+		$sin^2 \theta + cos^2 \theta = 1$\\
+		\vspace{10pt}
+		$1 + tan^2 \theta = sec^2\theta$\\
+		\vspace{10pt}
+		$1 + cot^2 \theta = csc^2 \theta$\\
+		\vspace{10pt}
+		$\sin(\frac{\pi}{2} - \theta) = \cos(\theta)$\\
+		\vspace{10pt}
+		$\cos(\frac{\pi}{2} - \theta) = \sin(\theta)$\\
+		\vspace{10pt}
+		$\tan(\frac{\pi}{2} - \theta) = \cot(\theta)$\\
+		\vspace{10pt}
+		$\sin(-\theta) = -sin\theta$\\
+		\vspace{10pt}
+		$\cos(-\theta) = cos\theta$\\
+		\vspace{10pt}
+		$\tan(-\theta) = -tan\theta$\\
+		\vspace{10pt}
+		$\sin(\theta + 2\pi) = sin\theta$\\
+		\vspace{10pt}
+		$\cos(\theta + 2\pi) = cos\theta$\\
+		\vspace{10pt}
+		$\tan(\theta + \pi) = tan\theta$
+		\end{center}
+	\subsection*{The Law of Sines}
+		\begin{center}
+		$\frac{sin A}{a} = \frac{sin B}{b} = \frac{sin C}{c}$
+		\end{center}
+	\subsection*{The Law of Cosines}
+		\begin{center}
+		$a^2 = b^2 + c^2 - 2bc cos A$
+		\end{center}
+	\subsection*{Addition and Subtraction Formulas}
+		\begin{center}
+		$\sin(x + y) = sinxcosy + cosxsiny$\\
+		\vspace{10pt}
+		$\sin(x - y) = sinxcosy - cosxsiny$\\
+		\vspace{10pt}
+		$\cos(x + y) = cosxcosy - sinxsiny$\\
+		\vspace{10pt}
+		$\cos(x - y) = cosxcosy + sinxsiny$\\
+		\vspace{10pt}
+		$tan(x + y) = \frac{tanx + tany}{1 - tanxtany}$\\
+		\vspace{10pt}
+		$tan(x - y) = \frac{tanx - tany}{1 + tanxtany}$
+		\end{center}
+	\subsection*{Double-Angle Formulas}
+		\begin{center}
+		$sin2x = 2sinxcosx$\\
+		\vspace{10pt}
+		$cos2x = cos^2x - sin^2x = 2cos^2x-1 = 1-2sin^2x$\\
+		\vspace{10pt}
+		$tan2x = \frac{2tanx}{1 - tan^2x}$\\
+		\vspace{10pt}
+		$sin^2x = \frac{1 - cos2x}{2}$\\
+		\vspace{10pt}
+		$cos^2x = \frac{1+cos2x}{2}$
+		\end{center}
+
+\section* {Precalculus Review}
+
+78. Prove the triangle inequality by adding the two inequalities\\
+
+1.) Known Inequalities\\
+\begin{center}$-\left|a\right| \leq a \leq \left|a\right|$\\\end{center}
+\begin{center}$-\left|b\right| \leq b \leq \left|b\right|$\\\end{center}
+
+2.) Add and Simplify\\
+\begin{center}$(-\left|a\right|)+(-\left| b\right|) \leq a + b \leq \left|a\right| + \left|b\right|$\\\end{center}
+\begin{center}$-(\left|a\right| + \left|b\right|) \leq a + b \leq \left|a\right| + \left|b\right|$\\\end{center}
+
+3.) By the definition of absolute value, we know:\\
+\begin{center}$-\left|x\right| \leq x \leq \left|x\right|$\\\end{center}
+\begin{center}$-\left|a+b\right| \leq a+b \leq \left|a+b\right|$\\\end{center}
+
+4.) To explain, the value $a + b$ is squeezed between $-(\left|a\right| + \left|b\right|)$ and $\left|a\right| + \left|b\right|$. By taking the absolute value on both sides, we conclude that: \\
+\begin{center}$-(\left|a\right| + \left|b\right|) \leq a + b \leq \left|a\right| + \left|b\right|$\\\end{center}
+\begin{center}$\left|a + b\right| \leq \left|a\right| + \left|b\right|$\\\end{center}
+
+79. Show that if $r=\frac{a}{b}$ is a fraction in lowest terms, then $r$ has a finite decimal expansion if and only if $b = (2^n)(5^m)$ for some n, m $\geq$ 0. Hint: Observe that r has a finite decimal expansion when $(10^N)(r)$ is an integer for some $N\geq0$ (and hence b dividies $10^N$).\\
+
+\textbf{Finite Decimal Expansion implies $b = 2^n \cdot 5^m$}\\
+
+1. Finite Decimal Expansion: A fraction $\frac{a}{b}$ has a finite decimal expansion if and only if $\frac{a}{b}$ can be written as $k \cdot 10^-N$ for some integer $k$ and non-negative integer N. This is equivalent to the condition that b divides $10^N$ for some $N \geq 0$\\
+
+2. Denominator as a Product of Powers of 2 and 5: Observe that $10^N = 2^N \cdot 5^N$. Therefore, if $b$ divides $10^N$, then $b$ must be of the form $b = \frac{10^N}{k}$, where $k$ is an integer that ensures $b$ divides $10^N$. This implies that $b$ must only have the prime factors $2$ and $5$ because $10^N$ itself only contains the prime factors $2$ and $5$. Thus, if $b$ divides $10^N$, then $b$ must be of the form $b = 2^n \cdot 5^m$ for some non-negative integers $n$ and $m$\\
+
+\textbf{$b = 2^n \cdot 5^m$ Implies Finite Decimal Expansion}\\
+
+1. Form of $b$: Suppose $b = 2^n \cdot 5^m$. We want to show that $\frac{a}{b}$ has a finite decimal expansion. Since $b$ can be written as $2^n \cdot 5^m$, it folows that $b$ is a dividor of $10^N$ where $N = max(n, m)$.\\
+
+2. Verification: To be specific, let us express $\frac{a}{b}$ in terms of $10^N$:\\
+
+\begin{center}$\frac{a}{b} = \frac{a}{2^n \cdot 5^m}$\\\end{center}
+
+We can multiply both the numerator and the denominator by $10^N$, where $N = max(n, m)$. This multiplication yields:\\
+
+\begin{center} $\frac{a \cdot 10^N}{b \cdot 10^N} = \frac{a \cdot 10^N}{2^n \cdot 5^m \cdot 10^N} = \frac{a \cdot 10^N}{10^{N+n} \cdot 10^m} = \frac{a \cdot 10^N}{10^N}$\\\end{center}
+
+\noindent Since $b \cdot 10^N = 10^{N+n} \cdot 10^m$, which simplifies to $10^N$, we get that $b \cdot 10^N$ is an integer.\\
+Hence, $\frac{a \cdot 10^N}{b \cdot 10^N}$ is an integer, implying that $\frac{a}{b}$ indeed has a finite decimal expansion.\\
+
+\textbf{Conclusion}\\
+
+We have shown that if $b$ divides $10^N$ for some $N \geq 0$, then $b$ must be of the form $2^n \cdot 5^m$. Conversely, if $b = 2^n \cdot 5^m$, then $\frac{a}{b}$ has a finite decimal expansion. Therefor, the fraction $\frac{a}{b}$ in lowest terms has a finite decimal expansion if and only if the denominator $b$ is of the form $2^n \cdot 5^m$.\\
+
+80. Let $p = p_1 \dots p_s$ be an integer with digits $p_1, \dots, p_s$. Show that $\frac{p}{10^s - 1} = 0.\overline{p_1 \dots p_s}$ Use this to find the decimal expansion of $r = \frac{2}{11}$. Note that $r = \frac{2}{11} = \frac{18}{10^2 - 1}$\\
+
+Step 1. Express $p$ as a number\\
+The number $p$ can be written as: $p = p_1 \cdot 10^{s-1} + p_2 \cdot 10^{s-2} + \dots + p_{s-1} \cdot 10 + p_s$\\
+
+Step 2. Compute $\frac{p}{10^{s}-1}$\\
+$D = 0.\overline{p_1p_2\dots p_s}$\\
+To convert this repeating decimal to a fraction, we multiply $D$ by $10^s$\\
+$10^s \cdot D = p_1p_2\dots p_s.\overline{p_1p_2\dots p_s}$\\
+Subtract the original $D$ from this equation:\\
+$10^s \cdot D - D = p_1p_2\dots p_s$\\
+$(10^s - 1) \cdot D = p_1p_2\dots p_s$\\
+$D = \frac{p_1p_2\dots p_s}{10^s - 1}$\\
+
+Step 3.\\
+$\frac{p}{10^s - 1} = 0.\overline{p_1p_2\dots p_s}$\\
+
+Step 1. Notice that:\\
+$\frac{2}{11} = \frac{18}{10^{2} - 1}$\\
+
+Step 2. Apply the Formula Derived Above:\\
+$\frac{18}{99} = 0.\overline{18}$\\
+$\frac{2}{11} = 0.\overline{18}$\\
+
+53. Show that if $f(x)$ and $g(x)$ are linear, then so is $f(x) + g(x)$. Is the same true of $f(x)g(x)$?\\
+
+54. Show that if $f(x)$ and $g(x)$ are linear functions such that $f(0) = g(0)$ and $f(1) = g(1)$, then $f(x) = g(x)$.\\
+
+55. Show that the ratio $\frac{\Delta y}{\Delta x}$ for the function $f(x) = x^2$ over the interval [$x_1$, $x_2$] is not a constant, but depends on the interval. Determine the exact dependence of $\frac{\Delta y}{\Delta x}$ on $x_1$ and $x_2$.\\
+
+56.  Derivation of the Quadratic Formula\\
+
+57. Let $a$, $c \neq 0$. Show that the roots of $ax^2 + bx + c = 0$ and $cx^2 + bx + a = 0$ are reciprocals of each other.\\
+
+58. Complete the square to show that the parabolas $y = ax^2 + bx + c$ and $y = ax^2$ have the same shape (show that the first parabola is congruent to the second by a vertical and horizontal translation).\\
+
+59. Prove Viete's Formulas, which state that the quadratic polynomial with given numbers $\alpha$ and $\beta$ as roots is $x^2 + bx + c$, where $b = -\alpha - \beta$ and $c = \alpha\beta$.\\
+
+54. Use the addition formula to prove that $\cos(3\theta)= 4\cos^3(\theta) - 3\cos(\theta)$.\\
+
+55. Use the addition formulas for sine and cosine to prove $\tan(a + b) = \frac{\tan(a) + tan(b)}{1 - \tan(a)\tan(b)}$ and $\cot(a - b) = \frac{\cot(a)\cot(b) + 1}{\cot(b) - \cot(a)}$.\\
+
+56. Let $\theta$ be the angle between the line $y = mx + b$ and the x-axis...Prove that $m = \tan(\theta)$.\\
+
+57. Let $L_1$ and $L_2$ be the lines of slope $m_1$ and $m_2$. Show that the angle $\theta$ between $L_1$ and $L_2$ satisfies $\cot(\theta) = \frac{m_2m_1 + 1}{m_2 - m_1}$.\\
+
+58. Perpendicular Lines...Use Exercise 57 to prove that two lines with nonzero slopes $m_1$ and $m_2$ are perpendicular if and only if $m_2 = \frac{-1}{m_1}$.\\
+
+59. Apply the double-angle formula to prove: (a) $\cos(\frac{\pi}{8}) = \frac{1}{2}\sqrt{2 + \sqrt{2}}$ and (b) $\cos(\frac{\pi}{16}) = \frac{1}{2}\sqrt{2 + \sqrt{2 + \sqrt{2}}}$ Guess the values of $\cos(\frac{\pi}{32})$ and of $\cos(\frac{\pi}{2^n})$ for all $n$.\\
+
+36. How many points lie on the intersection of the horizontal line $y = c$ and the graph of $y = \tan(x)$ for $0 \leq x \leq 2\pi$\\
+
+In Exercises 37-40, solve for $0 \leq \theta \leq 2\pi$.\\
+37. $\sin(2\theta) + \sin(3\theta) = 0$\\
+38. $\sin(\theta) = \sin(2\theta)$\\
+39. $\cos(4\theta) + \cos(2\theta) = 0$\\
+40. $\sin(\theta) = \cos(2\theta)$\\
+
+In Exercises 41-50, derive the identities using the identities listed in this section.\\
+
+41. $\cos(2\theta) = 2\cos^2(\theta) - 1$\\
+42. $\cos^2(\frac{\theta}{2}) = \frac{1 = \cos(\theta)}{2}$\\
+43. $\left|\sin(\frac{\theta}{2})\right| = \sqrt{\frac{1 - \cos(\theta)}{2}}$\\
+44. $\sin(\theta + \pi) = -sin(\theta)$\\
+45. $\cos(\theta + \pi) = -\cos(\theta)$\\
+51. Use Exercises 44 and 45 to show that $\tan(\theta)$ and $\cot(\theta)$ are periodic with period $\pi$\\
+
+In Exercises 31-34, sketch the graph over [0, 2$\pi$].\\
+31. $2\sin(4\theta)$\\
+32. $\cos(2(\theta - \frac{\pi}{2}))$\\
+33. $\cos(2\theta - \frac{\pi}{2})$\\
+34. $\sin(2(\theta - \frac{\pi}{2}) + \pi) + 2$\\
+
+A quadratic function is a function defined by a quadratic polynomial\\
+\begin{center}$f(x) = ax^2 + bx + c$ ($a$,$b$,$c$, constants with $a$ $\neq$ 0)\\\end{center}
+
+The technique of completing the square consists of writing a quadratic polynomial as a multiple of a squareplus a constant:\\
+\begin{center}$ax^2 + bx + c = a(x + \frac{b}{2a})^2 + \frac{4ac-b^2}{4a}$\\\end{center}
+
+The discriminant of f(x) is the quantity $D = b^2 - 4ac$ The roots of f(x) are given by the quadratic formula:\\
+\begin{center}$\frac{-b \pm \sqrt[2]{b^2 - 4ac}}{2a}$ \end{center}
+
+The general linear equation is $ax + by = c$ where $a$ and $b$ are not both zero. For $b = 0$, this gives the verical line $ax = c$. When $b \neq 0$, we can rewrite in slope-intercept form. For example, $-6x + 2y =3$ can be rewritten as $y = 3x + \frac{3}{2}$\\
+
+Polynomials: For any real number $m$, the function $f(x) = x^m$ is called the power function with exponent $m$. A polynomial is a sum of multiples of power functions with whole number exponents: $f(x) = x^5 -5x^3 + 4x$, $g(t) = 7t^6 +t^3 - 3t -1$\\
+
+Thus, the function $f(x) = x + x^{-1}$ is not a polynomial because it includes a power function $x^-1$ with a negative exponent. The general polynomial in the variable $x$ may be written\\
+\begin{center}$P(x) = a_nx^n + a_{n-1}x^{n-1} + \dots + a_1 + a_0$\end{center}
+The numbers $a_0, a_1, \dots, a_n$ are called coefficients.\\
+The degree of $P(x)$ is $n$ (assuming that $a_n \neq 0$).\\
+The coefficient $a_n$ is called the leading coefficient.\\
+The domain of $P(x)$ is $\mathbb{R}$.\\
+
+Rational functions: A rational function is a quotient of two polynomials:\\
+\begin{center}$f(x) = \frac{P(x)}{Q(x)}$\end{center}
+Every polynomialis also a rational functions with $Q(x) = 1$. The domain of a rational function $\frac{P(x)}{Q(x)}$ is th eset of numbers $x$ such that $Q(x) \neq 0$.\\
+
+Algebraic functions: An algrbraic function is produced by taking sums, products, and quotients of roots of polynomials and rational functions:\\
+\begin{center} $f(x) = \sqrt[2]{1 + 3x^2 - x^4}$, $g(t) = (\sqrt{t} - 2)^{-2}$, $h(z) = \frac{z + z^{\frac{-5}{3}}}{5z^3 - \sqrt{z}}$\end{center}
+
+More generally, algebraic functions are defined by polynomial equations between $x$ and $y$. In this case, we say that $y$ is implicitly defined as a function of $x$. For example, the equation $y^4 + 2x^{2}y + x^4$ defines $y$ implicitly as a function of $x$.\\
+
+Exponential functions: The function $f(x) = b^x$, where $b > 0$, is called the exponential function with base $b$. The function $f(x) = b^x$ is increasing if $b > 1$ and decreasing if $b < 1$. The inverse of $f(x) = b^x$ is the logarithm function $y = log_{b}x$.\\
+
+Tirgonometric functions: Functions built from $\sin(x)$ and $\cos(x)$ are called trigonometric functions.
+
+If $f$ and $g$ are functions, we may construct new functions by forming the sum, difference, product, and quotient functions:\\
+\begin{center} $(f + g)(x) = f(x) + g(x)$, $(f - g)(x) = f(x) - g(x)$, $(fg)(x) = f(x)g(x)$, $(\frac{f}{g})(x) = \frac{f(x)}{g(x)}$ (where $g(x) \neq 0$)\end{center}
+
+We can also multiply functions by constants. A function of the form: $c_1f(x) + c_2g(x)$ $(c_1, c_2 constants)$ is called a linear combination of $f(x) and g(x)$.\\
+
+Composition is another important way of contructing new functions. The composition of $f$ and $g$ is the function $f \circ g$ defined by $(f \circ g)(x) = f(g(x))$, defined for values of $x$ in the domain of $g$ such that $g(x)$ lies in the domain of $f$.\\
+
+Net functions may be produced using the operation of addition, multiplication, division, as well as composition, extraction of roots, and taking inverses. It is convenient to refer to a function constructed in this way from the basic functions listed above as an elementary function. The following functions are elementary:\\
+\begin{center} $f(x) = \sqrt{2x + \sin(x)}$, $f(x) = 10^{\sqrt{x}}$, $f(x) = \frac{1 + x^{-1}}{1 + \cos(x)}$\end{center}
+
+\section* {Limits}
+
+"Calculus is usually divided into two branches, differential and integral, partly for historical reasons. The subject was developed in the seventeeth century to solve two important geometric problems: finding tangent lines to curves (differential calculus) and computing areas under curves (integral calculus). However, calculus is a very broad subject with no clear boundaries. It includes other topics, such as the theory of infinite series, and it has an extraordinarily wide range of applications, especially in the sciences and in engineering. What makes these methods and applications part of calculus is that they all rely ultimately on the concept of a limit."\\
+
+\noindent How do the values of a function $f(x)$ behave when $x$ approaches a number $c$, whether or not $f(c)$ is defined?\\
+
+\begin{center}$f(x) = \frac{\sin(x)}{x}$ (x in radians)\end{center}
+The value $f(0)$ is not defined because
+\begin{center}$f(0) = \frac{\sin(0)}{0}$ = $\frac{0}{0}$ (undefined)\end{center}
+Nevertheless, $f(x)$ can be computed for values of $x$ close to 0.\\
+
+if $x \to 0^+ f(x) \to 1$ and $x \to 0^- f(x) \to 1$ we say that the limit of $f(x)$ as $x \to 0$ is equal to 1, and we write:
+\begin{center}$\lim_{x \to 0}f(x) = 1$\end{center}
+We also say that $f(x)$ approaches or converges to 1 as $x \to 0$.\\
+
+\noindent Though...$f(0) = \frac{0}{0}$ we could NOT have arrived at the conclusiton $\frac{0}{0} = 1$...otherwise we could conclude that $2=1$
+\begin{center}$2(\frac{0}{0}) = \frac{2(0)}{0} = \frac{0}{0}$\end{center}
+
+To define limits more generally, let us recall that the distance between two numbers $a$ and $b$ is the absolute value $\left|a-b\right|$. Thus, we can express the idea that $f(x)$ is close to $L$ by saying that $\left|f(x) - L\right|$ is small.\\
+
+Assume that $f(x)$ is defined for all $x$ near $c$ (i.e., in some open interval containing $c$), but not necessarily at $c$ itself. We say that:
+\begin{center}the limit of $f(x)$ as $x$ approaches $c$ is equal to $L$\end{center}
+if $\left|f(x) - L\right|$ becomes arbitrarily small when $x$ is any number sufficiently close (but not equal) to $c$. In this case, we write:
+\begin{center}$\lim_{x \to c}f(x) = L$\end{center}
+We also say that $f(x)$ approaches or converges to $L$ as $x \to c$ (and we write $f(x) \to L$).\\
+
+"Although fundamental in calculus, the limit concept was not fully clarified until the nineteenth century. The French mathematician Augustin-Louis Cauchy (1789-1857, pronounced Koh-shee) gave the following verbal definition: 'When the values successively attributed to the same variable approach a fixed value indefinitely, in such a way as to end up differing from it by as little as one could wish, this last value is called the limit of all the others. So, for example, an irrational number is the limit of the various fractions which provide values that approximate it more and more closely.'"\\
+
+If the values of $f(x)$ do not converge to any limit as $x \to c$, we say that $\lim_{x \to c}f(x)$ does not exist. It is important to note that the value $f(c)$ itself, which may or may not be defined, plays no role in the limit. All that matters are the values $f(x)$ for $x$ close to $c$. Furthermore, if $f(x)$ approaches a limit as $x \to c$, then the limiting value $L$ is unique.\\
+
+EXAMPLE 1 Use the definition above to verify the following limits:
+\begin{center}
+(a) $\lim_{x \to 7}5 = 5$ and (b) $\lim_{x \to 4}(3x + 1) = 13$
+\end{center}
+(a) Let $f(x) = 5$. To show that $\lim_{x \to 7}f(x) = 5$, we must show that $\left|f(x) - 5\right|$ becomes arbitrarily small when $x$ is sufficiently close (but not equal) to 7. But $\left|f(x)-5\right| = \left|5 - 5\right| = 0$ for all $x$, so what we are required to show is automatic (and it is not necessary to take $x$ close to 7).\\
+
+\noindent(b)Let $f(x) = 3x+1$. To show that $\lim_{x \to 4}(3x + 1) = 13$, we must show that $\left|f(x) - 13\right|$ becomes arbitrarily small when $x$ is sufficiently close (but not equal) to 4. We have
+\begin{center}$\left|f(x) - 13\right| = \left|(3x+1) - 13\right| = \left|3x - 12\right| = 3\left|x - 4\right|$\end{center}
+Since $\left|f(x) - 13\right|$ is a multiple of $\left|x - 4\right|$, we can make $\left|f(x) - 13\right|$ arbitrarily small by taking $x$ sufficiently close to 4.\\
+
+Reasoning as in Example 1 but with arbitrary constants, we obtain the following simple but important results:
+\begin{center}For any constants $k$ and $c$, (a) $\lim_{x \to c}k = k$ and (b) $\lim_{x \to c}x = c$.\end{center}
+
+NOTE: Here is a way of stating the limit definition precisely:\\
+$\lim_{x \to c}f(x) = L$ if, for any $n$, we have $\left|f(x) -  L\right| < 10^{-n}$, provided that $0 < \left|x - c\right| < 10^{-m}$ (where the choice of $m$ depends on $n$).\\
+
+"To deal with more complicated limits in a rigorous manner, it is necessary to make the phrases 'arbitrarily small' and 'sufficiently close' more precise using inequalities."\\
+
+Some functions tend to $\infty$ or $-\infty$ as $x$ approaches a value $c$. In this case, the limit $\lim_{x \ to c}f(x)$ does not exist, but we say that $f$ ahs an \textit{infinite limit}. More precisely, we write
+\begin{center}$\lim_{x \to c}f(x)=\infty$\end{center}
+if $f(x)$ increases without bound as $x \to c$. If $f(x)$ tends to $-\infty$ (that is, $f(x)$ becomes negative and $\left|f(x)\right| \to \infty$), then we write
+\begin{center}$\lim_{x \to c}f(x)=-\infty$\end{center}
+
+When using this notation, keep in mind that $\infty$ and $-\infty$ are not numbers. One-sided infinite limits are defined similarly. In the next example, we use the notation $x \to c\pm$ to indicate that the left and right-hand limits are to be considered separately.
+
+\begin{center}(a) $\lim_{x \to 2\pm}\frac{1}{x - 2}$ (b) $\lim_{x \to 0\pm}\frac{1}{x^2}$\end{center}
+
+(a) The function $f(x) = \frac{1}{x - 2}$ is negative for $x < 2$ and positive for $x > 2$. $f(x)$ approaches $-\infty$ as $x$ approaches 2 from the left and $\infty$ as $x$ approaches 2 from the right:
+\begin{center}$\lim_{x \to 2^-}\frac{1}{x - 2} = -\infty$, $\lim_{x \to 2^+}\frac{1}{x - 2} = \infty$\end{center}
+
+(b) The function $f(x) = \frac{1}{x^2}$ is positive for all $x \neq 0$ and becomes arbitrarily large as $x\ to 0$ fro either side. Therefore, $\lim_{x \to 0}\frac{1}{x^2} = \infty$.\\
+
+\textcolor{blue}{CONCEPTUAL INSIGHT} You should not think of an infinite limit as a true limit. The notation $\lim_{x\to c}f(x) = \infty$ is a shorthand way of saying that no finite limit exists but that $f(x)$ increases beyond all bounds as $x$ approaches $c$. We must be careful about this because $\infty$ and $-\infty$ are not numbers, and contradictions may arise if we manipulate them as numbers. For example, if $\infty$ were a number larger than any finite numbers, then presumably $\infty + 1 = \infty$. This would give
+\begin{center}$\infty + 1 = \infty$\end{center}
+\begin{center}$(\infty + 1) - \infty = \infty - \infty$\end{center}
+\begin{center}$1 = 0$ (contradiction!)\end{center}
+For this reason, the Limit Laws discussed in the next section are valid only for finite limits and cannot be applied to infinite limits.\\
+
+In Exercises 19-32, estimate the limit numerically or state that the limit does not exist.\\
+19. $\lim_{x \to 1}\frac{\sqrt{x} - 1}{x - 1}$\\
+20. $\lim_{x \to -3}\frac{2x^2 - 18}{x + 3}$\\
+21. $\lim_{x \to 2}\frac{x^2 + x - 6}{x^2 - x - 2}$\\
+22. $\lim_{x \to 3}\frac{x^3 - 2x^2 - 9}{x^2 - 2x - 3}$\\ 
+23. $\lim_{x \to 0}\frac{\sin(2x)}{x}$\\
+24. $\lim_{x \to 0}\frac{\sin(5x)}{x}$\\
+25. $\lim_{x \to 0}\frac{\sin(x)}{x^2}$\\
+26. $\lim_{\theta \to 0}\frac{\cos(\theta) - 1}{\theta}$\\
+27. $\lim_{h \to 0}\cos(\frac{1}{h})$\\
+28. $\lim_{h \to 0}\sin(h)\cos(\frac{1}{h})$\\
+29. $\lim_{h \to 0}\frac{2^h - 1}{h}$\\
+30. $\lim_{x \to 0}\frac{2^x - 3^x}{x}$\\
+31. $\lim_{h \to 2}\frac{5^h - 25}{h - 2}$\\
+32.$\lim_{x \to 0}\left|x\right|^x$\\
+
+\textcolor{blue}{Further Insights and Challenges}\\
+54. Investigate $\lim_{\theta \to 0}\frac{\sin(n\theta)}{\theta}$ numerically for several values of $n$ and then guess the value in general.\\
+
+55. Show numerically that $\lim_{x \to 0}\frac{b^x - 1}{x}$ for $b = 3, 5$ appears to equal $\ln(3), \ln(5)$, where $\ln(x)$ is the natural logarithm. Then make a conjecture (guess) for the value in general and test your conjecture for two additional values of $b$.\\
+
+56. Let $n$ be any number and consider $\lim_{x \to 0}(1 + nx)^{\frac{1}{x}}$.\\
+(a) Give numerical evidence that for $n = 1$, the limit is $e$ [where $e = exp(1)$ can be found on any scientific calculator].\\
+(b) Estimate the limit for $n = 2, 3$ and try to express the result in terms of $e$. Then form a conjecture for the value of the limit in general. Is it valid for noninteger $n$?\\
+
+57. Investigate $\lim_{x \to 1}\frac{x^n - 1}{x^m - 1}$ for ($m$, $n$) equal to (2, 1), (1, 2) , (2, 3),  and (3, 2). Then guess the value of the limit in general and check your guess for at least three additional pairs.\\
+
+58. Find by experimentation the positive integers $k$ such that $\lim_{x \to 0}\frac{\sin(\sin^2(x))}{x^k}$ exists.\\
+
+\subsection*{Basic Limit Laws}
+
+In the previoud section we relied on graphical and numerical approaches to investigate limits and estimate their values. On the next four sections we go beyond this intuitive approach and develop tools for computing limits in a precise way. This section discusses the basic limit laws used for computing limtis of functions constructed as sums, multiples, products, or quotients of other functions.\\
+
+Assume that $\lim_{x \to c}f(x)$ and $\lim_{x \to c}g(x)$ exist. Then:\\
+
+(i) Sum Law:
+\begin{center}$\lim_{x \to c}(f(x) + g(x)) = \lim_{x \to c}f(x) + \lim_{x \to c}g(x)$\end{center}
+
+(ii) Constant Multiple Law: For any number k,
+\begin{center}$\lim_{x \to c}kf(x) = k\lim_{x \to c}f(x)$\end{center}
+
+(iii) Product Law:
+\begin{center}$\lim_{x \to c}f(x)g(x) = (\lim_{x \to c}f(x))(\lim_{x \to c}g(x))$\end{center}
+
+(iv) Quotient Law: If $\lim_{x \to c}g(x) \neq 0, then$
+\begin{center}$\lim_{x \to c}\frac{f(x)}{g(x)} = \frac{\lim_{x \to c}f(x)}{\lim_{x \to c}g(x)}$\end{center}
+
+	The proofs of these laws are discussed later. However, we can understand the underlying idea by arguing informally. For example, to prove the Sum Law, we observer that if $f(x)$ is close to $L$ and $g(x)$ is close to $M$ when $\left|x - c\right|$ is sufficiently small. Similarly, $f(x)g(x)$ must be close to $LM$, etc.
+	Before proceeding to the examples, we make two useful remarks. First, the Sum and Product Laws are valid for any number of functions. For example,
+\begin{center}$\lim_{x \to c}(f_1(x) + f_2(x) + f_3(x)) = \lim_{x \to c}f_1(x) + \lim_{x \to c}f_2(x) + \lim_{x \to c}f_3(x)$\end{center}
+	Second, the Sum Law has a conterpart for differences:
+\begin{center}$\lim_{x \to c}(f(x) - g(x)) = \lim_{x \to c}f(x) - \lim_{x \to c}g(x) $\end{center}
+	This is not listed as a separate law because it follow by combinging the Sum and Constant Multiple Laws:
+\begin{center} $\lim_{x \to c}(f(x) - g(x)) = \lim_{x \to c}f(x) + \lim_{x \to c}(- g(x)) = \lim_{x \to c}f(x) - \lim_{x \to c}g(x)$\end{center}
+
+\textcolor{blue}{Exercises}\\
+11. $\lim_{x \to \frac{1}{2}}(4x + 1)(2x - 1)$\\
+14. $\lim_{x \to 2}(x + 1)(3x^2 - 9)$\\
+18. $\lim_{x \to -1}\frac{x}{x^3 + 4x}$\\
+
+\textcolor{blue}{Further Insights and Challenges}\\
+35. Show that if both $\lim_{x \to c}f(x)g(x)$ and $\lim_{x \to c}g(x)$ exist and $\lim_{x \to c}g(x)$ is nonzero, then $\lim_{x \to c}f(x)$ exists. Hint: Write $f(x) = \frac{(f(x)g(x))}{g(x)}$ and apply the Quotient Law.\\
+36. Show that if $\lim_{t \to 3}tg(t) = 12$, then $\lim_{t \to 3}g(t)$ exists and equals 4.\\
+37. Prove that if $\lim_{t \to 3}\frac{h(t)}{t} = 5$, then $\lim_{t \to 3}h(t) = 15$\\
+38.\\
+39.\\
+40.\\
+
+\subsection*{Limits and Continuity}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
