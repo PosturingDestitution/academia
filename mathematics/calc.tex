@@ -251,6 +251,8 @@ NOTE: the book I am using for this document is Calculus by Jon Rogawski
 
 \section* {Precalculus Review}
 
+\textcolor{blue}{Further Insights and Challenges} \\
+
 78. Prove the triangle inequality by adding the two inequalities\\
 
 1.) Known Inequalities\\
@@ -303,11 +305,15 @@ The number $p$ can be written as: $p = p_1 \cdot 10^{s-1} + p_2 \cdot 10^{s-2} +
 
 Step 2. Compute $\frac{p}{10^{s}-1}$\\
 $D = 0.\overline{p_1p_2\dots p_s}$\\
+
 To convert this repeating decimal to a fraction, we multiply $D$ by $10^s$\\
 $10^s \cdot D = p_1p_2\dots p_s.\overline{p_1p_2\dots p_s}$\\
+
 Subtract the original $D$ from this equation:\\
 $10^s \cdot D - D = p_1p_2\dots p_s$\\
+
 $(10^s - 1) \cdot D = p_1p_2\dots p_s$\\
+
 $D = \frac{p_1p_2\dots p_s}{10^s - 1}$\\
 
 Step 3.\\
@@ -319,6 +325,9 @@ $\frac{2}{11} = \frac{18}{10^{2} - 1}$\\
 Step 2. Apply the Formula Derived Above:\\
 $\frac{18}{99} = 0.\overline{18}$\\
 $\frac{2}{11} = 0.\overline{18}$\\
+
+
+\textcolor{blue}{Further Insights and Challenges} \\
 
 53. Show that if $f(x)$ and $g(x)$ are linear, then so is $f(x) + g(x)$. Is the same true of $f(x)g(x)$?\\
 
@@ -334,17 +343,33 @@ $\frac{2}{11} = 0.\overline{18}$\\
 
 59. Prove Viete's Formulas, which state that the quadratic polynomial with given numbers $\alpha$ and $\beta$ as roots is $x^2 + bx + c$, where $b = -\alpha - \beta$ and $c = \alpha\beta$.\\
 
-54. Use the addition formula to prove that $\cos(3\theta)= 4\cos^3(\theta) - 3\cos(\theta)$.\\
 
-55. Use the addition formulas for sine and cosine to prove $\tan(a + b) = \frac{\tan(a) + tan(b)}{1 - \tan(a)\tan(b)}$ and $\cot(a - b) = \frac{\cot(a)\cot(b) + 1}{\cot(b) - \cot(a)}$.\\
+\textcolor{blue}{Further Insights and Challenges} \\
+In Exercices 37-43, we define the first difference $\delta$ $f$ of a function $f(x)$ by $\delta$ $f(x)$ = $f(x+1) -  f(x).$\\
 
-56. Let $\theta$ be the angle between the line $y = mx + b$ and the x-axis...Prove that $m = \tan(\theta)$.\\
+37. show that if $f(x) = x^2$, then $\delta f(x) = 2x + 1$. Calculate $\delta f$ for $f(x) = x$ and $f(x) = x^3$ \\
 
-57. Let $L_1$ and $L_2$ be the lines of slope $m_1$ and $m_2$. Show that the angle $\theta$ between $L_1$ and $L_2$ satisfies $\cot(\theta) = \frac{m_2m_1 + 1}{m_2 - m_1}$.\\
+38. show that $\delta(10^x) = 9 \cdot 10^x$, and more generally, $\delta(b^x) = c \cdot b^x$ for some constant $c$.\\
 
-58. Perpendicular Lines...Use Exercise 57 to prove that two lines with nonzero slopes $m_1$ and $m_2$ are perpendicular if and only if $m_2 = \frac{-1}{m_1}$.\\
+39. show that for any two functions $f$ and $g$, $\delta(f + g) = \delta f + \delta g$ and $\delta$(c$f$) = c$\delta$($f$). where c is any constant\\
 
-59. Apply the double-angle formula to prove: (a) $\cos(\frac{\pi}{8}) = \frac{1}{2}\sqrt{2 + \sqrt{2}}$ and (b) $\cos(\frac{\pi}{16}) = \frac{1}{2}\sqrt{2 + \sqrt{2 + \sqrt{2}}}$ Guess the values of $\cos(\frac{\pi}{32})$ and of $\cos(\frac{\pi}{2^n})$ for all $n$.\\
+40. first differences can be used to derive formulas for the sum of the kth powers. Suppose we can find a function $P(x)$ such that $\delta P = (x + 1)^k$ and $P(0) - 0$. Prove that $P(1) = 1^k, P(2) = 1^k + 2^k$, and more venerally, for every whole number $n$, $\downarrow$
+
+	\begin{center}$P(n) = (1^k + 2^k + \dots + n^k$\end{center}
+
+41. First show that $P(x) = \frac{x(x+1)}{2}$ satisfies $\delta P = (x + 1)$. Then apply Exercise 40 to concluse that $\downarrow$
+
+	\begin{center} $1 + 2 + 3 + \dots + n = \frac{n(n+1)}{2}$ \end{center}
+
+42. calculate $\delta(x^3)$, $\delta(x^2)$, and $\delta(x^1)$. then find a polynomial $P(x)$ of degree 3 such that $\delta P = (x+1)^2$ and $P(0) = 0$ Conclude that $\downarrow$
+
+43.(a) (b)\\
+
+In Exercises 31-34, sketch the graph over [0, 2$\pi$].\\
+31. $2\sin(4\theta)$\\
+32. $\cos(2(\theta - \frac{\pi}{2}))$\\
+33. $\cos(2\theta - \frac{\pi}{2})$\\
+34. $\sin(2(\theta - \frac{\pi}{2}) + \pi) + 2$\\
 
 36. How many points lie on the intersection of the horizontal line $y = c$ and the graph of $y = \tan(x)$ for $0 \leq x \leq 2\pi$\\
 
@@ -363,11 +388,20 @@ In Exercises 41-50, derive the identities using the identities listed in this se
 45. $\cos(\theta + \pi) = -\cos(\theta)$\\
 51. Use Exercises 44 and 45 to show that $\tan(\theta)$ and $\cot(\theta)$ are periodic with period $\pi$\\
 
-In Exercises 31-34, sketch the graph over [0, 2$\pi$].\\
-31. $2\sin(4\theta)$\\
-32. $\cos(2(\theta - \frac{\pi}{2}))$\\
-33. $\cos(2\theta - \frac{\pi}{2})$\\
-34. $\sin(2(\theta - \frac{\pi}{2}) + \pi) + 2$\\
+\textcolor{blue}{Further Insights and Challenges} \\
+
+54. Use the addition formula to prove that $\cos(3\theta)= 4\cos^3(\theta) - 3\cos(\theta)$.\\
+
+55. Use the addition formulas for sine and cosine to prove $\tan(a + b) = \frac{\tan(a) + tan(b)}{1 - \tan(a)\tan(b)}$ and $\cot(a - b) = \frac{\cot(a)\cot(b) + 1}{\cot(b) - \cot(a)}$.\\
+
+56. Let $\theta$ be the angle between the line $y = mx + b$ and the x-axis...Prove that $m = \tan(\theta)$.\\
+
+57. Let $L_1$ and $L_2$ be the lines of slope $m_1$ and $m_2$. Show that the angle $\theta$ between $L_1$ and $L_2$ satisfies $\cot(\theta) = \frac{m_2m_1 + 1}{m_2 - m_1}$.\\
+
+58. Perpendicular Lines...Use Exercise 57 to prove that two lines with nonzero slopes $m_1$ and $m_2$ are perpendicular if and only if $m_2 = \frac{-1}{m_1}$.\\
+
+59. Apply the double-angle formula to prove: (a) $\cos(\frac{\pi}{8}) = \frac{1}{2}\sqrt{2 + \sqrt{2}}$ and (b) $\cos(\frac{\pi}{16}) = \frac{1}{2}\sqrt{2 + \sqrt{2 + \sqrt{2}}}$ Guess the values of $\cos(\frac{\pi}{32})$ and of $\cos(\frac{\pi}{2^n})$ for all $n$.\\
+
 
 A quadratic function is a function defined by a quadratic polynomial\\
 \begin{center}$f(x) = ax^2 + bx + c$ ($a$,$b$,$c$, constants with $a$ $\neq$ 0)\\\end{center}
@@ -411,6 +445,12 @@ Composition is another important way of contructing new functions. The compositi
 
 Net functions may be produced using the operation of addition, multiplication, division, as well as composition, extraction of roots, and taking inverses. It is convenient to refer to a function constructed in this way from the basic functions listed above as an elementary function. The following functions are elementary:\\
 \begin{center} $f(x) = \sqrt{2x + \sin(x)}$, $f(x) = 10^{\sqrt{x}}$, $f(x) = \frac{1 + x^{-1}}{1 + \cos(x)}$\end{center}
+
+\textcolor{blue}{Further Insights and Challenges}
+
+23. Let $f_1(x) = x$ and define a sequence of functions by $f_{n+1}(x) = \frac{1}{2}(f_n(x) + \frac{x}{f_n(x)]})$. For example, $f_2(x) = \frac{1}{2}(x + 1)$. Use a computer algebra system to compute $f_n(x)$ for $n = 3,4,5$ and plot $f_n(x)$ together with $\sqrt[2]{x}$ for $x \geq 0$. What do you notice?\\
+
+24.
 
 \section* {Limits}
 
