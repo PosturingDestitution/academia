@@ -1,10 +1,11 @@
 https://www.geeksforgeeks.org/memory-layout-of-c-program/
+https://www.youtube.com/watch?v=FlkNgJXEyrc
 
 "The memory layout of a program refers to how the program’s data is stored in the computer memory during its execution. Understanding this layout helps developers manage memory more efficiently and avoid issues such as segmentation faults and memory leaks."
 
-"A C program’s memory is organized into specific regions (segments), each serving distinct purposes for program execution."
+"A C program’s memory is organized into specific regions (data segments), each serving distinct purposes for program execution."
 
-	1. text segment
+	1. text segment (read only)
 		The text segment (also known as code segment) is where the executable code of the program is stored. It contains the compiled machine code of the program’s functions and instructions. This segment is usually read-only and stored in the lower parts of the memory to prevent accidental modification of the code while the program is running.
 		The size of the text segment is determined by the number of instructions and the complexity of the program.
 

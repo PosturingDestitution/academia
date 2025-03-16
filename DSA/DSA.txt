@@ -63,10 +63,10 @@ O(n!) traveling salesman problem (factorial growth)
 
 SPACIAL COMPLEXITY
 
-Space Complexity is the amount of memory an algorithm uses as a function of the input size n
+"Space complexity refers to the amount of memory or space an algorithm uses as a function of the size of its input. It measures the growth of memory usage with respect to the input size, helping you understand how efficient an algorithm is in terms of memory."
 
-steps to determine space complexity
-1.
-2.
-3.
-4.
+steps to determine spacial complexity
+1. identify the input variables
+2. analyze the data structures
+3. consider recursion (stack space)
+4. look at extra memory usage

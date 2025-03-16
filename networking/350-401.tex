@@ -768,166 +768,30 @@ If VLAN 4 contained devices only on s2 and s3, the topology could not be tuned w
 \newpage
 \noindent\textbf{Routing}\\
 
-The process for a protocol to become an official standard through the Internet Engineering Task Force (IETF) involves several stages. This process is known as the "RFC (Request for Comments) process" and is outlined in RFC 2026. Here's a breakdown:
-\begin{enumerate}[label = \arabic*]
-\item Idea and Draft Proposal
-	\begin{itemize}
-	\item An individual or group identifies a need for a new protocol or improvement to an existing one.
-	\item They draft an Internet-Draft (I-D), which is a working document that describes the protocol, its architecture, and its functionality.
-	\end{itemize}
-\item Working Group Review
-	\begin{itemize}
-	\item The draft is submitted to an IETF Working Group (WG) related to the protocol's area (e.g., routing, transport, security).
-	\item The WG provides feedback, discusses technical aspects, and iterates on the draft.
-	\end{itemize}
-\item IETF Community Review
-	\begin{itemize}
-	\item The draft is posted publicly for review and comments from the broader IETF community.
-	\item Open discussions take place on mailing lists and during IETF meetings.
-	\end{itemize}
-\item Approval by the IESG
-	\begin{itemize}
-	\item The final draft is submitted to the Internet Engineering Steering Group (IESG).
-	\item The IESG ensures that the draft meets technical standards, has sufficient consensus, and follows IETF guidelines.
-	\end{itemize}
-\item Request for Comments (RFC) Publication
-	\begin{itemize}
-	\item If approved, the draft becomes an RFC (Request for Comments) document.
-	\item RFCs are permanent, numbered publications that serve as the official standard or informational documents.
-	\end{itemize}
-\item Standardization Track
-	\begin{itemize}
-	\item Proposed Standard: Initial implementation and testing.
-	\item Draft Standard: Widely implemented and tested across multiple platforms.
-	\item Internet Standard: Fully mature and stable protocol.
-	\end{itemize}
-\item Continuous Improvement
-	\begin{itemize}
-	\item Protocols can be updated, extended, or deprecated through new RFCs or revisions to existing ones.
-	\end{itemize}
-\end{enumerate}
+"A system of interconnected routers and related components managed under a common network administration is known as an AS, or a routing domain. The internet is composed of thousands of these AS's spanning the globe."\\
 
-\section*{Types of Routing Protocols}
-
-Routing protocols can be classified into several types based on how they operate and the type of information they exchange. The main types of routing protocols are:
-
-\begin{enumerate}[label=\arabic*]
-    \item \textbf{Distance Vector Routing Protocols}
-    \begin{itemize}
-        \item These protocols determine the best route based on distance metrics (usually hop count).
-        \item Each router sends its routing table to its neighbors at regular intervals.
-        \item Examples:
-        \begin{itemize}
-            \item \textbf{RIP (Routing Information Protocol)}: Uses hop count as the metric and is simple but inefficient for large networks.
-            \item \textbf{IGRP (Interior Gateway Routing Protocol)}: Cisco's proprietary protocol, similar to RIP but with more advanced metrics.
-        \end{itemize}
-    \end{itemize}
-    
-    \item \textbf{Link-State Routing Protocols}
-    \begin{itemize}
-        \item These protocols allow routers to maintain a complete view of the network topology by exchanging information about the state of each link in the network.
-        \item Routers use algorithms like Dijkstra's to calculate the shortest path.
-        \item Examples:
-        \begin{itemize}
-            \item \textbf{OSPF (Open Shortest Path First)}: A popular link-state protocol used in large and complex networks.
-            \item \textbf{IS-IS (Intermediate System to Intermediate System)}: Similar to OSPF but less commonly used outside of service provider networks.
-        \end{itemize}
-    \end{itemize}
-    
-    \item \textbf{Path-Vector Routing Protocols}
-    \begin{itemize}
-        \item These protocols use a list of autonomous systems (ASes) a packet must traverse to reach its destination.
-        \item Used in inter-domain routing, especially for the Internet.
-        \item Example:
-        \begin{itemize}
-            \item \textbf{BGP (Border Gateway Protocol)}: The primary routing protocol for inter-domain routing on the Internet, exchanging routing information between autonomous systems.
-        \end{itemize}
-    \end{itemize}
-    
-    \item \textbf{Hybrid Routing Protocols}
-    \begin{itemize}
-        \item These combine aspects of both distance vector and link-state protocols to optimize routing.
-        \item Example:
-        \begin{itemize}
-            \item \textbf{EIGRP (Enhanced Interior Gateway Routing Protocol)}: Cisco's proprietary protocol, which combines the best features of distance vector and link-state protocols.
-        \end{itemize}
-    \end{itemize}
-    
-    \item \textbf{Exterior Gateway Protocols (EGPs)}
-    \begin{itemize}
-        \item These protocols are used to exchange routing information between different autonomous systems, typically over the Internet.
-        \item Example:
-        \begin{itemize}
-            \item \textbf{BGP}: The most widely used exterior gateway protocol.
-        \end{itemize}
-    \end{itemize}
-    
-\end{enumerate}
-
-\section*{Routing Information Protocol Version 2 (RIPv2)}
+The common dynamic routing protocols found on most routing platforms today are as follows:
 \begin{itemize}
-\item \textbf{Type:} Distance Vector Protocol
-\item \textbf{Metric:} Hop Count (maximum 15 hops, 16 considered unreachable)
-\item \textbf{Updates:} Periodic (every 30 seconds)
-\item \textbf{Convergence:} Slow
-\item \textbf{Loop Prevention:} Split Horizon, Route Poisoning, Hold-down Timers
-\item \textbf{Usage:} Small networks due to scalability limitations
-\item \textbf{Protocol:} UDP port 520
-\item \textbf{Classless Support:} Yes (supports subnet masks, unlike RIPv1)
+\item Routing Information Protocol Version 2 (RIPv2)
+\item Enhanced Interior Gateway Routing Protocol (EIGRP)
+\item Open Shortest Path First (OSPF)
+\item Intermediate System-To-Intermediate System (IS-IS)
+\item Border Gateway Protocol (BGP)
 \end{itemize}
 
-\section*{Enhanced Interior Gateway Routing Protocol (EIGRP)}
-\begin{itemize}
-\item \textbf{Type:} Hybrid Protocol (combines Distance Vector and Link-State characteristics)
-\item \textbf{Metric:} Composite metric (bandwidth, delay, reliability, load, MTU)
-\item \textbf{Updates:} Triggered (only when topology changes)
-\item \textbf{Convergence:} Fast (uses Diffusing Update Algorithm - DUAL)
-\item \textbf{Loop Prevention:} Feasible Successor Mechanism
-\item \textbf{Usage:} Cisco proprietary (now open standard), suitable for medium to large networks
-\item \textbf{Protocol:} IP protocol number 88
-\item \textbf{Classless Support:} Yes
-\end{itemize}
+"Distance vector routing protocols, such as RIPv2, advertise routes as vectors, where distance is a metric (or cost) such as hop count, and vector is the next-hop router's IP used to reach a destination network. When a router receives routing information from a neighbor, it stores that information in a local routing database as it is received, and the distance vector algorithms (such as the Bellman-Ford and Ford-Fulkerson algorithms) is used to determine which paths are the best loop-free paths to each reachable destination. When the best paths are determined, they are installed into the routing table and are advertised to each neighbor router."\\
 
-\section*{Open Shortest Path First (OSPF)}
-\begin{itemize}
-\item \textbf{Type:} Link-State Protocol
-\item \textbf{Metric:} Cost (based on interface bandwidth)
-\item \textbf{Updates:} Triggered (LSAs - Link State Advertisements)
-\item \textbf{Convergence:} Fast
-\item \textbf{Loop Prevention:} Shortest Path First (SPF) Algorithm (Dijkstra's Algorithm)
-\item \textbf{Areas:} Supports hierarchical design with areas (e.g., Area 0 - Backbone Area)
-\item \textbf{Usage:} Suitable for large enterprise networks
-\item \textbf{Protocol:} IP protocol number 89
-\item \textbf{Classless Support:} Yes
-\item \textbf{Authentication:} Supports plain text and MD5 authentication
-\end{itemize}
+"Routers running distance vector protocols advertise the routing information to their neighbors from their own perspective, modified from the original route received. Therefor, a distance vector protocol does not have a complete map of the whole network; instead, its database reflexts that a ngihbor router knows how to reach the destination network and how far the neighbor router is from the destination network. The advantage of distance vector protocols is that they require less CPU and memory and can run on low-end routers."\\
 
-\section*{Intermediate System to Intermediate System (IS-IS)}
-\begin{itemize}
-\item \textbf{Type:} Link-State Protocol
-\item \textbf{Metric:} Cost (based on interface metrics)
-\item \textbf{Updates:} Triggered (LSP - Link State Packets)
-\item \textbf{Convergence:} Fast
-\item \textbf{Loop Prevention:} SPF Algorithm (Dijkstra's Algorithm)
-\item \textbf{Levels:} Level-1 (intra-area) and Level-2 (inter-area)
-\item \textbf{Usage:} Originally for ISO CLNP, adapted for IP (commonly used in service provider networks)
-\item \textbf{Protocol:} Runs directly over Layer 2 (no IP dependency)
-\item \textbf{Classless Support:} Yes
-\item \textbf{Scalability:} Highly scalable, supports large ISPs
-\end{itemize}
+"An analogy commonly used to describe distance vector protocols is a road sign at an intersection indicating that the destination is 2 miles to the west; drivers trust and blindly follow this information, without really knowing whether there is a shorter or better way to the destination or whether the sign is even correct."
 
-\section*{Border Gateway Protocol (BGP)}
-\begin{itemize}
-\item \textbf{Type:} Path Vector Protocol
-\item \textbf{Metric:} Path Attributes (AS Path, Local Preference, MED, etc.)
-\item \textbf{Updates:} Incremental (only when changes occur)
-\item \textbf{Convergence:} Slow (due to stability mechanisms)
-\item \textbf{Loop Prevention:} AS Path Attribute (prevents routing loops between autonomous systems)
-\item \textbf{Usage:} Internet backbone and large enterprise networks
-\item \textbf{Protocol:} TCP port 179
-\item \textbf{Classless Support:} Yes
-\item \textbf{Policy Control:} Extensive policy-based routing capabilities
-\end{itemize}
+Enhanced distance vector algorithms
+
+Link-state algorithms
+
+Path vector algorithm
+
+Virtual routing and forwarding
 
 \newpage
 \noindent\textbf{Services}\\
