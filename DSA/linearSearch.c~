@@ -1,0 +1,35 @@
+/*observe the spacial and time complexity of good ole' linear search*/
+
+
+#include <stdio.h>
+
+int linearSearch(int arr[], int size, int target);
+
+int main(){
+
+	int arr[] = {4, 2, 7, 1, 9, 3};
+	int size = sizeof(arr) / sizeof(arr[0]);
+	int target = 7;
+
+	int result = linearSearch(arr, size, target);
+
+	if (result != -1){
+		printf("Elemnt found at index %d\n", result);	
+	}
+	else {
+		printf("Elements not found\n");
+	}
+
+
+
+
+	return 0;
+}
+
+int linearSearch(){
+
+	for (){
+	}
+
+	return -1;
+}
