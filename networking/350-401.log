@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.20)  15 MAR 2025 22:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.20)  19 MAR 2025 08:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -727,67 +727,82 @@ Underfull \hbox (badness 10000) in paragraph at lines 771--772
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 782--783
-
- []
-
-
+[23]
 Underfull \hbox (badness 10000) in paragraph at lines 784--785
 
  []
 
-[23]
+
 Underfull \hbox (badness 10000) in paragraph at lines 795--796
 
  []
 
-[24]
+
+Underfull \hbox (badness 10000) in paragraph at lines 796--797
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 797--798
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 798--799
 
  []
 
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 802--803
+
+ []
+
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 801--802
+Underfull \hbox (badness 10000) in paragraph at lines 805--806
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 804--805
+Underfull \hbox (badness 10000) in paragraph at lines 808--809
 
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 807--808
+Underfull \hbox (badness 10000) in paragraph at lines 811--812
 
  []
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 810--811
+Underfull \hbox (badness 10000) in paragraph at lines 814--815
 
  []
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 845--846
+Underfull \hbox (badness 10000) in paragraph at lines 817--818
 
  []
 
-[30] [31] [32]
-Underfull \hbox (badness 10000) in paragraph at lines 906--912
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 852--853
 
  []
 
-[33] [34]
-Underfull \hbox (badness 10000) in paragraph at lines 948--954
+[31] [32] [33]
+Underfull \hbox (badness 10000) in paragraph at lines 913--919
+
+ []
+
+[34] [35]
+Underfull \hbox (badness 10000) in paragraph at lines 955--961
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 957--958
+Underfull \hbox (badness 10000) in paragraph at lines 964--965
 
  []
 
-[35] (./350-401.aux)
+[36] (./350-401.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-04-11>
@@ -796,8 +811,8 @@ Package rerunfilecheck Info: File `350-401.out' has not changed.
 (rerunfilecheck)             Checksum: 837D741C7757FCF6704AC69CAF87AF0C;792.
  ) 
 Here is how much of TeX's memory you used:
- 9191 strings out of 474049
- 140720 string characters out of 5746277
+ 9192 strings out of 474049
+ 140727 string characters out of 5746277
  1941754 words of memory out of 5000000
  31458 multiletter control sequences out of 15000+600000
  572445 words of font info for 64 fonts, out of 8000000 for 9000
@@ -807,10 +822,10 @@ Here is how much of TeX's memory you used:
 live/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2024/texmf-di
 st/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw
 /times/utmri8a.pfb>
-Output written on 350-401.pdf (35 pages, 126860 bytes).
+Output written on 350-401.pdf (36 pages, 127303 bytes).
 PDF statistics:
- 251 PDF objects out of 1000 (max. 8388607)
- 203 compressed objects within 3 object streams
- 74 named destinations out of 1000 (max. 500000)
+ 255 PDF objects out of 1000 (max. 8388607)
+ 206 compressed objects within 3 object streams
+ 75 named destinations out of 1000 (max. 500000)
  49 words of extra memory for PDF output out of 10000 (max. 10000000)
 

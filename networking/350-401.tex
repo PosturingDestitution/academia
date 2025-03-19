@@ -779,19 +779,26 @@ The common dynamic routing protocols found on most routing platforms today are a
 \item Border Gateway Protocol (BGP)
 \end{itemize}
 
-"Distance vector routing protocols, such as RIPv2, advertise routes as vectors, where distance is a metric (or cost) such as hop count, and vector is the next-hop router's IP used to reach a destination network. When a router receives routing information from a neighbor, it stores that information in a local routing database as it is received, and the distance vector algorithms (such as the Bellman-Ford and Ford-Fulkerson algorithms) is used to determine which paths are the best loop-free paths to each reachable destination. When the best paths are determined, they are installed into the routing table and are advertised to each neighbor router."\\
+\newpage
+\begin{itemize}
+\item Distance Vector algorithms\\
 
-"Routers running distance vector protocols advertise the routing information to their neighbors from their own perspective, modified from the original route received. Therefor, a distance vector protocol does not have a complete map of the whole network; instead, its database reflexts that a ngihbor router knows how to reach the destination network and how far the neighbor router is from the destination network. The advantage of distance vector protocols is that they require less CPU and memory and can run on low-end routers."\\
+	distance: the distance is the route metric to reach the network\\
+	vector: the vector is the interface or direction to reach the  network
+
+	When routing information is received from another router, it stores that information in a local routing DB. A distance vector algorithm  (Bellman-Ford/Ford-Fulkerson) is used to determine which paths are the best loop-free paths to each reachable destination. The best paths are determined,they are installed into the routing table and are advertised (from its perspective) to each neighbor router.
+
+	Routers running distance vector protocols advertise the routing information to their neighbors from their own perspective, modified from the original route received. Therefore, a distance vector protocol does not have a complete map of the whole network; instead, its DB reflects that a neighbor router knows how to reach the destination network and how far the neighbor router is from the destination network. The advantage of distance vector protocols is that they require less CPU and memory and can run on low-end routers.
 
 "An analogy commonly used to describe distance vector protocols is a road sign at an intersection indicating that the destination is 2 miles to the west; drivers trust and blindly follow this information, without really knowing whether there is a shorter or better way to the destination or whether the sign is even correct."
 
-Enhanced distance vector algorithms
+	A distance vector protocol selecs a path purely based on distance. It does not account for link speeds or other factors.
 
-Link-state algorithms
-
-Path vector algorithm
-
-Virtual routing and forwarding
+\item Enhanced Distance Vector algorithms\\
+\item Link-state algorithms\\
+\item Path Vector algorithm\\
+\item Virtual Routing and Forwarding\\
+\end{itemize}
 
 \newpage
 \noindent\textbf{Services}\\

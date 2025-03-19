@@ -1,72 +1,188 @@
-DATA STRUCTURES
+1. Arrays
 
-why would you use a data structure? if you need to organize data effectively, optimized searching, sorting, and retreaval, reduces redundancy and optimized space
+	Time Complexity:
+		-access: O(1) (direct index access)
+		-insertion/deletion: O(n) (shifting elements)
 
-1. linear
-	array - fixed-size colleciton of elements stored in contiguous memory
-	linked list - a collection of nodes where each node contains data and a pointer to the next node
-	stack - LIFO used for operations like undo mechanisms
-	queue - FIFO used for scheduling tasks
+	Space Complexity:
+		-O(n) (for storing n elements)
 
-2. nonlinear
+2. Linked Lists (Singly and Doubly)
 
-	tree - hierarchical structure with nodes connected by edges
-	graph - collection of nodes (verticies) connected by edges, used to model networks and realtionships
-	heap - a specialized tree-based structure used in priority queues
+	Time Complexity:
+		-access: O(n) (requires traversal)
+		-insertion/deletion: O(1) (given a reference to the node)
 
-3. static data structures
-	fixed size and memory allocation (array)
+	Space Complexity:
+		-singly linked list: O(n) (for storing n nodes with 1 pointer per node)
+		-doubly linked list: O(n) (for storing n nodes with 2 pointers per node)
 
-4. dynamic data structures
-	can grow or shrink at runtime (linked list, hash tables)
+3. Stacks
 
-5. hierarchical data structures
-	follows a parent-child relationship (trees and heaps)
+	Time Complexity:
+		-push: O(1)
+		-pop: O(1)
+		-peek: O(1)
 
-6. hashing-based data structure
+	Space Complexity:
+		-O(n) (for storing n elements)
 
-	hash table - stores key-value pairs, allowing effcient searching and retrieval
-	set - stores unique elements and allows fast membership checking
+	A Stack is typically used in problems requiring LIFO order, such as expression evaluation, function calls, etc.
+
+4. Queues (FIFO)
+
+	Time Complexity:
+		-enqueue: O(1)
+		-dequeue: O(1)
+		-peek: O(1)
+
+	Space Complexity:
+		-O(n) (for storing n elements)
+
+	Queues are used in scenarious like task scheduling, BFS, and managing requests
+
+5. Hash Tables (Hash Maps)
+
+	Time Complexity:
+		-search: O(1) (average case), O(n) (in worst-case due to collisions)
+		-insert/delete: O(1) (average case), O(n) (in worst-case)
+
+	Space Complexity:
+		-O(n) (for storing n elements)
 	
-ALGORITHMS
+	Hash maps are crucial for fast lookups, inserting, and deleting key-value pairs
 
-An Algorithm is a step-by-step procedure or set of rules to solve a problem or perform a computation.
+6. Binary Search Trees (BST)
 
-The types of algorithms:
-1. search (binary, linear)
-2. sorting (merge, quick, bubble)
-3. divide and conquer (merge, quick)
-4. greedy algoitthms (Kruskal's, Prim's)
-5. DP (fibonacci series, knapsack)
-6. backtracking algoithms (N-Queens, maze solving)
-7. graph algorithms (Dijkstra's, BFS, DFS)
-8. brute force algorthms (password cracking, pattern matching)
+	Time Complexity:
+		-search: O(log n) (balanced), O(n) (unbalanced)
+		-insertion/deletion: O(log n) (balanced), O(n) (unbalanced)
 
-TIME COMPLEXITY
+	Space Complexity:
+		-O(n) (for storing n nodes)
 
-Time Complexity is the amount of time an algoithm takes to run as a function of the input size (n)
+	BSTs are useful for maintaining a sorted collection of elements with efficient search, insert, and delete operations.
 
-steps to analyze time complexity
-1. identify the basic operations ...like those that take constant time (comparisons, assignments, or arthmetic)
-2. count the number of executions ... for loops, nested loops, and recursive calls are the key area to focus on
-3. analyze control structures  .. for loops: O(n), nested loops O(n^2) or more depending on nesting, divide annd conquer O(log n) or O(n log n)
-4. ignore constants and lower order terms ... drop constant factors like 2n becomes O(n) ... drop lower order terms like n^2 + n becomes O(n^2)
-5. check for recursive calls (use recurrence relations) ... example: merge sort T(n) = 2T(n/2) + O(n) -> solves to O(n log n)
+7. Heaps (Binary Heap)
 
-common time complexities
-O(1) accessing an element in an array (constant time)
-O(log n) binary search (halving the input size)
-O(n) linear seach, single loop (one pass through input)
-O(n log n) merge sort, quick sort (divide and conquer)
-O(2^n) recursive backtracking (exponential growth)
-O(n!) traveling salesman problem (factorial growth)
+	Time Complexity:
+		-insert: O(log n)
+		-delete (root): O(log n)
+		-peek (root): O(1)
 
-SPACIAL COMPLEXITY
+	Space Complexity:
+		-o(n) (for storing n elements)
 
-"Space complexity refers to the amount of memory or space an algorithm uses as a function of the size of its input. It measures the growth of memory usage with respect to the input size, helping you understand how efficient an algorithm is in terms of memory."
+8. Graphs (Adjacency Matrix and List)
 
-steps to determine spacial complexity
-1. identify the input variables
-2. analyze the data structures
-3. consider recursion (stack space)
-4. look at extra memory usage
+	Time Complexity: (depends on the representation)
+		-adjacency matrix
+			-add edge: O(1)
+			-remove edge: O(1)
+			-check connection: O(1)
+
+		-adjacency list 
+			-add edge: O(1)
+			-remove edge: O(n) (depending on implementation)
+			-check connection: O(n) (in worst-case, if it's unweighted)
+
+	Space Complexity:
+		-adjacency matrix: O(V^2) (where V is the number of vertices)
+		-adjacency list: O(V + E) (where V is vertices, E is edges)
+
+	Graphs are fundamental for represeting networks (social, transport, etc.) and algorithms like BFS, DFS, shortest paths, etc.	
+
+9. Sorting Algorithms
+
+	-bubble
+		-Time Complexity: O(n^2) (worst/average), O(n) (best case)
+		-Space Complexity: O(1)
+	
+	-insertion
+		-Time Complexity: O(n^2) (worst/average)
+		-Space Complexity: O(1) 
+		 
+	-merge
+		-Time Complexity: O(n log n)
+		-Space Complexity: O(n) (for recursive calls and temporary arrays) 
+		 
+	-quick
+		-Time Complexity: O(n log n) (average), O(n^2) (worst case)
+		-Space Complexity: O(log n) (for recursive stack space) 
+		 
+	-heap
+		-Time Complexity: O(n log n)
+		-Space Complexity: O(1)
+
+	Sorting algorithms are essential for organizing data and enabling efficient searching and retrieval. 
+
+10. Searching Algorithms
+	
+	-binary search (on sorted arrays)
+		-Time Complexity: O(log n)
+		-Space Complexity: O(1) (iterative), O(log n) (recursive)
+	-DFS
+		-Time Complexity: O(V + E)
+		-Space Complexity: O(V) (for recursive call or stack) 
+	-BFS
+		-Time Complexity: O(V + E)
+		-Space Complexity: O(V) (for queue used in BFS)
+ 
+	Binary search is common searching algorithm, while DFS and BFS are critical for exploring graphs.
+
+11. Dynamic Programming (DP)
+
+	DP involves solving problems by breaking them down into simpler subproblems and solving each subproblem only once, storing the results.
+
+	Time Complexity:
+		-genreally depends on the number of subproblems and how they are solved. Often O(n) or O(n^2)	
+
+	Space Complexity:
+		-depends on the problem, but it is often O(n) due to storing results of subproblems.
+
+12. Divide and Conquer
+
+	Involves breaking a problem into smaller subproblems, solving each recursively, and combining the result.
+
+	Time Complexity:
+		-often O(n log n) (e.g., merge sort, quick sort)	
+
+	Space Complexity:
+		-usually O(log n) (due to recursive calls), but this can vary.
+
+13. Greedy Algorithms
+
+	Greedy algorithms make the locally optimal choice at each stage, aiming for a global optimum.
+
+	Time Complexity:
+		-varies, but often O(n log n)
+	
+	Space Complexity:
+		-typically O(1), but depends on the problemi
+
+	Examples: Huffman coding, Prim's algorithm, Kruskal's algorithm.
+
+14. Trie (Prefix Tree)
+
+	Time Complexity:
+		-insert/search/delete: O(k), where k is the length of the word being inserted/queried
+
+	Space Complexity:
+		-O(n *k) (for storing n words of length k)
+
+	Tries are used for fast search, autocomplete, and prefix-based problems.
+
+15. Backtracking
+
+	Used to find all (or one) solutions to problems like puzzles, combinations, and permutations.
+
+	Time Complexity: varies widely, but often O(n!) in the worst case (e.g., for generating all permutations)
+	Space Complexity: O(n) (for recursive calls or stack)
+
+
+
+
+
+
+
+

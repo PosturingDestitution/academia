@@ -1,0 +1,188 @@
+1. Arrays
+
+	Time Complexity:
+		-access: O(1) (direct index access)
+		-insertion/deletion: O(n) (shifting elements)
+
+	Space Complexity:
+		-O(n) (for storing n elements)
+
+2. Linked Lists (Singly and Doubly)
+
+	Time Complexity:
+		-access: O(n) (requires traversal)
+		-insertion/deletion: O(1) (given a reference to the node)
+
+	Space Complexity:
+		-singly linked list: O(n) (for storing n nodes with 1 pointer per node)
+		-doubly linked list: O(n) (for storing n nodes with 2 pointers per node)
+
+3. Stacks
+
+	Time Complexity:
+		-push: O(1)
+		-pop: O(1)
+		-peek: O(1)
+
+	Space Complexity:
+		-O(n) (for storing n elements)
+
+	A Stack is typically used in problems requiring LIFO order, such as expression evaluation, function calls, etc.
+
+4. Queues (FIFO)
+
+	Time Complexity:
+		-enqueue: O(1)
+		-dequeue: O(1)
+		-peek: O(1)
+
+	Space Complexity:
+		-O(n) (for storing n elements)
+
+	Queues are used in scenarious like task scheduling, BFS, and managing requests
+
+5. Hash Tables (Hash Maps)
+
+	Time Complexity:
+		-search: O(1) (average case), O(n) (in worst-case due to collisions)
+		-insert/delete: O(1) (average case), O(n) (in worst-case)
+
+	Space Complexity:
+		-O(n) (for storing n elements)
+	
+	Hash maps are crucial for fast lookups, inserting, and deleting key-value pairs
+
+6. Binary Search Trees (BST)
+
+	Time Complexity:
+		-search: O(log n) (balanced), O(n) (unbalanced)
+		-insertion/deletion: O(log n) (balanced), O(n) (unbalanced)
+
+	Space Complexity:
+		-O(n) (for storing n nodes)
+
+	BSTs are useful for maintaining a sorted collection of elements with efficient search, insert, and delete operations.
+
+7. Heaps (Binary Heap)
+
+	Time Complexity:
+		-insert: O(log n)
+		-delete (root): O(log n)
+		-peek (root): O(1)
+
+	Space Complexity:
+		-o(n) (for storing n elements)
+
+8. Graphs (Adjacency Matrix and List)
+
+	Time Complexity: (depends on the representation)
+		-adjacency matrix
+			-add edge: O(1)
+			-remove edge: O(1)
+			-check connection: O(1)
+
+		-adjacency list 
+			-add edge: O(1)
+			-remove edge: O(n) (depending on implementation)
+			-check connection: O(n) (in worst-case, if it's unweighted)
+
+	Space Complexity:
+		-adjacency matrix: O(V^2) (where V is the number of vertices)
+		-adjacency list: O(V + E) (where V is vertices, E is edges)
+
+	Graphs are fundamental for represeting networks (social, transport, etc.) and algorithms like BFS, DFS, shortest paths, etc.	
+
+9. Sorting Algorithms
+
+	-bubble
+		-Time Complexity: O(n^2) (worst/average), O(n) (best case)
+		-Space Complexity: O(1)
+	
+	-insertion
+		-Time Complexity: O(n^2) (worst/average)
+		-Space Complexity: O(1) 
+		 
+	-merge
+		-Time Complexity: O(n log n)
+		-Space Complexity: O(n) (for recursive calls and temporary arrays) 
+		 
+	-quick
+		-Time Complexity: O(n log n) (average), O(n^2) (worst case)
+		-Space Complexity: O(log n) (for recursive stack space) 
+		 
+	-heap
+		-Time Complexity: O(n log n)
+		-Space Complexity: O(1)
+
+	Sorting algorithms are essential for organizing data and enabling efficient searching and retrieval. 
+
+10. Searching Algorithms
+	
+	-binary search (on sorted arrays)
+		-Time Complexity: O(log n)
+		-Space Complexity: O(1) (iterative), O(log n) (recursive)
+	-DFS
+		-Time Complexity: O(V + E)
+		-Space Complexity: O(V) (for recursive call or stack) 
+	-BFS
+		-Time Complexity: O(V + E)
+		-Space Complexity: O(V) (for queue used in BFS)
+ 
+	Binary search is common searching algorithm, while DFS and BFS are critical for exploring graphs.
+
+11. Dynamic Programming (DP)
+
+	DP involves solving problems by breaking them down into simpler subproblems and solving each subproblem only once, storing the results.
+
+	Time Complexity:
+		-genreally depends on the number of subproblems and how they are solved. Often O(n) or O(n^2)	
+
+	Space Complexity:
+		-depends on the problem, but it is often O(n) due to storing results of subproblems.
+
+12. Divide and Conquer
+
+	Involves breaking a problem into smaller subproblems, solving each recursively, and combining the result.
+
+	Time Complexity:
+		-often O(n log n) (e.g., merge sort, quick sort)	
+
+	Space Complexity:
+		-usually O(log n) (due to recursive calls), but this can vary.
+
+13. Greedy Algorithms
+
+	Greedy algorithms make the locally optimal choice at each stage, aiming for a global optimum.
+
+	Time Complexity:
+		-varies, but often O(n log n)
+	
+	Space Complexity:
+		-typically O(1), but depends on the problemi
+
+	Examples: Huffman coding, Prim's algorithm, Kruskal's algorithm.
+
+14. Trie (Prefix Tree)
+
+	Time Complexity:
+		-insert/search/delete: O(k), where k is the length of the word being inserted/queried
+
+	Space Complexity:
+		-O(n *k) (for storing n words of length k)
+
+	Tries are used for fast search, autocomplete, and prefix-based problems.
+
+15. Backtracking
+
+	Used to find all (or one) solutions to problems like puzzles, combinations, and permutations.
+
+	Time Complexity:
+	Space Complexity:
+
+
+
+
+
+
+
+
