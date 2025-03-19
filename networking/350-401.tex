@@ -786,7 +786,7 @@ The common dynamic routing protocols found on most routing platforms today are a
 	distance: the distance is the route metric to reach the network\\
 	vector: the vector is the interface or direction to reach the  network
 
-	When routing information is received from another router, it stores that information in a local routing DB. A distance vector algorithm  (Bellman-Ford/Ford-Fulkerson) is used to determine which paths are the best loop-free paths to each reachable destination. The best paths are determined,they are installed into the routing table and are advertised (from its perspective) to each neighbor router.
+	When routing information is received from another router, it stores that information in a local routing DB. A distance vector algorithm  (Bellman-Ford/Ford-Fulkerson) is used to determine which paths are the best loop-free paths to each reachable destination. The best paths are determined, they are installed into the routing table and are advertised (from its perspective) to each neighbor router.
 
 	Routers running distance vector protocols advertise the routing information to their neighbors from their own perspective, modified from the original route received. Therefore, a distance vector protocol does not have a complete map of the whole network; instead, its DB reflects that a neighbor router knows how to reach the destination network and how far the neighbor router is from the destination network. The advantage of distance vector protocols is that they require less CPU and memory and can run on low-end routers.
 
@@ -795,7 +795,19 @@ The common dynamic routing protocols found on most routing platforms today are a
 	A distance vector protocol selecs a path purely based on distance. It does not account for link speeds or other factors.
 
 \item Enhanced Distance Vector algorithms\\
+
+	The diffusing update algorithm (DUAL) is an enhanced distance vector algorithm that EIGRP uses to calculate the shortest path to a destination network within a routing domain. EIGRP is called a hybrid because of it's link-state characteristics as well as distance vector characteristics. It uses more advanced metrics than hop count (for example, bandwidth) for its best-path calculations. Information is advertised out in all directions, like other distance vector routing protocols. By default, EIGRP advertises the total path delay and minimum bandwidth for a route. By default, EIGRP advertises the total path delay and minimum bandwidth for a route. Once advertised, each router can calculate thebest path based on the information provided to it's neighbors.
+
+	\begin{itemize}
+	\item It offers rapid convergence time for changes in the network topology
+	\item It sends updates only when there is a topological change. It does not send full routing table updates in a periodic fasion, as distance vector protocols typically do.
+	\item It uses hellos and forms neighbor relationships just as link-state protocols do.
+	\item It can use bandwidth, delay, reliability, load, and MTU size instead of hop count for path calculations
+	\item It has the option to load balance traffic across equal-or unequal-cost paths.
+	\end{itemize}
+
 \item Link-state algorithms\\
+
 \item Path Vector algorithm\\
 \item Virtual Routing and Forwarding\\
 \end{itemize}
@@ -885,7 +897,7 @@ The common dynamic routing protocols found on most routing platforms today are a
 
 \noindent\textbf{3.2 Layer 3}
 \begin{itemize}
-\item 3.2.a Compare routing concepts of EIGRP and OSPF (advanced distance vector vs. link state, load balancing, path selection, path operations, metrics, and area types)
+\item 3.2.a Compare routing concepts of EIGRP and OSPF (advanced distance vector vs. link state, load balancing, path selection, path operations, s, and area types)
 \item 3.2.b Configure simple OSPFv2/v3 environments, including multiple normal areas, summarization, and filtering (neighbor adjacency, point-to-point, and broadcast network types, and passive-interface)
 \item 3.2.c Configure and verify eBGP between directly connected neighbors (best path selection algorithm and neighbor relationships)
 \item 3.2.d Describe policy-based routing
