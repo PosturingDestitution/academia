@@ -1,7 +1,6 @@
 C programming
 python programming
 CCNP ENCOR CCNP ENARSI
-calculus
+calculus linear algebra
 Operating Systems
 Computer Architecture
-linear algebra
