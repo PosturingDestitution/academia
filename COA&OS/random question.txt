@@ -1,5 +1,0 @@
-define the following terms: block size (cache line size), associativity (ways)
-
-suppose a 32-bit memory addresss is used, the system has a 4 KB cache, 64-byte cache lines, and 4-way set associativity
-
-how many sets exist in the cache?

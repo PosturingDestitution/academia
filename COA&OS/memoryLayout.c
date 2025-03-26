@@ -1,4 +1,4 @@
-//code found via https://www.geeksforgeeks.org/memory-layout-of-c-program/
+//code https://www.geeksforgeeks.org/memory-layout-of-c-program/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,7 +22,7 @@ int main() {
     //heap variable
     int *hvar = (int*)malloc(sizeof(int));
 
-    //checking and comparing addresses of different elements of program that should be stored in different segements of the memroy
+    //checking and comparing addresses of different elements of program that should be stored in different segements of the memory
     printf("Address of foo:\t\t%p\n", (void*)&foo);
     printf("Address of cgvar:\t%p\n", (void*)&cgvar);
     printf("Address of gvar:\t%p\n", (void*)&gvar);

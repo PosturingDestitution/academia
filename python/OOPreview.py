@@ -12,13 +12,6 @@ inheritance
 data abstraction
 """
 
-
-
-
-
-
-
-
 class Dog:
     species = "Canine" #Class attribute
 
@@ -31,5 +24,3 @@ class Dog:
 
     print(dog1.name)
     print(dog1.species)
-
-

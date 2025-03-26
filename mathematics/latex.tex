@@ -1,0 +1,134 @@
+\documentclass{article} 
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{latex document} \maketitle
+
+trigonometric functions are mathematical functions that relate the angle of a trianlge to the lengths of its sides. these functions are based on the relationships between the angles and sides of right-angled triangles and can also be generalized to all real numbers using the unit circle.\\
+
+To derive the rest of the fundamental trigonometric identities, you need a combination of a few key identities and principles. The most important starting point is the Pythagorean identity, but you’ll also need the basic relationships between the trigonometric functions, such as the definitions of sine, cosine, tangent, secant, cosecant, and cotangent in terms of a right triangle or the unit circle. \\
+
+$ \sin^2 \theta + \cos^2 \theta = 1 $
+
+$ \sec \theta = \frac{1}{\cos \theta}, \quad \csc \theta = \frac{1}{\sin \theta}, \quad \cot \theta = \frac{1}{\tan \theta} $
+
+$ \tan \theta = \frac{\sin \theta}{\cos \theta}, \quad \cot \theta = \frac{\cos \theta}{\sin \theta} $
+
+$ 1 + \tan^2 \theta = \sec^2 \theta $
+
+$ 1 + \cot^2 \theta = \csc^2 \theta $
+
+$ \sin(\alpha + \beta) = \sin \alpha \cos \beta + \cos \alpha \sin \beta $
+
+$ \cos(\alpha + \beta) = \cos \alpha \cos \beta - \sin \alpha \sin \beta $
+
+$ \tan(\alpha + \beta) = \frac{\tan \alpha + \tan \beta}{1 - \tan \alpha \tan \beta} $
+
+$ \sin(\alpha - \beta) = \sin \alpha \cos \beta - \cos \alpha \sin \beta $
+
+$ \cos(\alpha - \beta) = \cos \alpha \cos \beta + \sin \alpha \sin \beta $
+
+$ \tan(\alpha - \beta) = \frac{\tan \alpha - \tan \beta}{1 + \tan \alpha \tan \beta} $
+
+$ \sin(2\theta) = 2\sin \theta \cos \theta $
+
+$ \cos(2\theta) = \cos^2 \theta - \sin^2 \theta = 2\cos^2 \theta - 1 = 1 - 2\sin^2 \theta $
+
+$ \tan(2\theta) = \frac{2\tan \theta}{1 - \tan^2 \theta} $
+
+$ \sin(90^\circ - \theta) = \cos \theta, \quad \cos(90^\circ - \theta) = \sin \theta $
+
+$ \tan(90^\circ - \theta) = \cot \theta, \quad \cot(90^\circ - \theta) = \tan \theta $
+
+$ \sec(90^\circ - \theta) = \csc \theta, \quad \csc(90^\circ - \theta) = \sec \theta $
+
+$ \sin(-\theta) = -\sin(\theta), \quad \cos(-\theta) = \cos(\theta) $
+
+$ \tan(-\theta) = -\tan(\theta), \quad \sec(-\theta) = \sec(\theta) $
+
+$ \csc(-\theta) = -\csc(\theta), \quad \cot(-\theta) = -\cot(\theta) $
+
+$ \sin \alpha \sin \beta = \frac{1}{2} [\cos(\alpha - \beta) - \cos(\alpha + \beta)] $
+
+$ \cos \alpha \cos \beta = \frac{1}{2} [\cos(\alpha - \beta) + \cos(\alpha + \beta)] $
+
+$ \sin \alpha \cos \beta = \frac{1}{2} [\sin(\alpha + \beta) + \sin(\alpha - \beta)] $ \\
+	
+
+algebraic functions:\\
+	polynomials $a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0$ where n is non-neg and represents the degree\\
+	rational $p(x)/q(x)$\\
+	root sqrt[n]{g(x)}\\
+
+	properties:\\
+		domain: set of all input values for which the function is defined\\
+		range: set of all possible output values of the function\\
+	
+		continuity: most algebaic functions are continuous (no breaks of jumps), but rational functions have discontinuities at points\\
+		
+		behavior: the functions behavior is influenced bu the degree of the polynomial and the nature of the function\\
+
+calculus is a branch of mathematics that deals with rates of change and the accumulation of quantities.\\
+
+\textbf{1. Fundamental Theorem of Calculus (FTC)} \\
+\text{Part 1:} \quad $\int_{a}^{b} f(x) \, dx = F(b) - F(a)$  \\
+\text{Part 2:} \quad \text{If } $F(x) = \int_a^x f(t) \, dt,$ \text{ then } $F'(x) = f(x)$  \\
+
+\textbf{2. Mean Value Theorem (MVT)} \\
+\text{If } $f(x)$ \text{ is continuous on } $[a, b]$ \text{ and differentiable on } $(a, b),$ \text{ then there exists } $c$ $\in (a, b)$ \text{ such that: }  \\
+$f'(c) = \frac{f(b) - f(a)}{b - a}$  \\
+
+\textbf{3. Rolle's Theorem} \\
+\text{If } $f(x)$ \text{ is continuous on } $[a, b]$, \text{ differentiable on } $(a, b)$, \text{ and } $f(a) = f(b)$, \text{ then there exists } $c \in (a, b)$ \text{ such that: }  \\
+$f'(c) = 0$  \\
+
+\textbf{4. L'Hopital's Rule} \\
+\text{If } $\lim_{x \to a} \frac{f(x)}{g(x)}$ \text{ is of the indeterminate form } $\frac{0}{0}$ \text{ or } $\frac{\infty}{\infty},$ \text{ then:}  \\
+$\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}$  \\
+\text{(provided the limit on the right exists).}  \\
+
+\textbf{5. Taylor's Theorem} \\
+\text{The Taylor series of } $f(x)$ \text{ around } $a$ \text{ is: }  \\
+$f(x) = f(a) + f'(a)(x - a) + \frac{f''(a)}{2!}(x - a)^2 + \frac{f^{(3)}(a)}{3!}(x - a)^3 + \dots$  \\
+\text{The remainder term is: }  \\
+$R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x - a)^{n+1}$  \\
+\text{where } $c$ \text{ is some point between } $a$ \text{ and } $x$.  \\
+
+\textbf{6. Partial Fraction Decomposition} \\
+\text{For the rational function } $\frac{1}{(x - a)(x - b)},$ \text{ we can decompose it as:}  \\
+$\frac{1}{(x - a)(x - b)} = \frac{A}{x - a} + \frac{B}{x - b}$  \\
+\text{where we solve for } $A$ \text{ and } $B$ \text{ by multiplying both sides by } $(x - a)(x - b)$.  \\
+
+\textbf{7. Chain Rule} \\
+\text{If } $y = f(u) \text{ and } u = g(x)$, \text{ then the chain rule states:}  \\
+$\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}$  \\
+
+\textbf{8. Product Rule} \\
+\text{If } $y = f(x)g(x)$, \text{ then the product rule states:}  \\
+$\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)$  \\
+
+\textbf{9. Quotient Rule} \\
+\text{If } $y = \frac{f(x)}{g(x)}, \text{ then the quotient rule states:}$  \\
+$\frac{d}{dx} \left( \frac{f(x)}{g(x)} \right) = \frac{g(x)f'(x) - f(x)g'(x)}{[g(x)]^2}$  \\
+
+\textbf{10. The Divergence Theorem} \\
+\text{The Divergence Theorem states that:}  \\
+$\int_S \mathbf{F} \cdot d\mathbf{A} = \int_V (\nabla \cdot \mathbf{F}) \, dV$  \\
+\text{where } $\mathbf{F}$ \text{ is a vector field, } $S$ \text{ is a closed surface, and } $V$ \text{ is the volume enclosed by } $S$.  \\
+
+\textbf{11. Green's Theorem} \\
+\text{Green's Theorem relates a line integral around a closed curve } $C$ \text{ to a double integral over the region } $R$ \text{ enclosed by } $C$:  \\
+$\int_C P \, dx + Q \, dy = \iint_R \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \, dA$  \\
+\text{where } $\mathbf{F} = (P, Q)$ \text{ is a vector field.}  \\
+
+\textbf{12. Stokes' Theorem} \\
+\text{Stokes' Theorem states that:}  \\
+$\int_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot d\mathbf{S}$  \\
+\text{where } $C$ \text{ is a closed curve, } $S$ \text{ is a surface bounded by } $C$, \text{ and } $\mathbf{F}$ \text{ is a vector field.}  \\		
+	
+\newpage
+\section*{problems}	
+				
+\end{document}

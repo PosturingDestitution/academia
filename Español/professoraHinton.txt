@@ -1,0 +1,379 @@
+Conjugation refers to the modification of a verb to express different grammatical features, such as tense, mood, aspect, person, number, or voice. It involves altering the base form of the verb to align with the subject of the sentence or the time the action occurs.
+
+In other languages, conjugation can be more complex, involving different forms for different persons (I, you, he/she/it, etc.) and numbers (singular or plural).
+
+
+Conjugation is not limited to verbs and can also apply to adjectives, pronouns, or other parts of speech in certain languages.
+
+presente
+
+1. ser (to be)
+   yo soy
+   tú eres
+   él/ella/usted es
+   nosotros/nosotras somos
+   vosotros/vosotras sois
+   ellos/ellas/ustedes son
+
+2. estar (to be)
+   yo estoy
+   tú estás
+   él/ella/usted está
+   nosotros/nosotras estamos
+   vosotros/vosotras estáis
+   ellos/ellas/ustedes están
+
+3. tener (to have)
+   yo tengo
+   tú tienes
+   él/ella/usted tiene
+   nosotros/nosotras tenemos
+   vosotros/vosotras tenéis
+   ellos/ellas/ustedes tienen
+
+4. hacer (to do, to make)
+   yo hago
+   tú haces
+   él/ella/usted hace
+   nosotros/nosotras hacemos
+   vosotros/vosotras hacéis
+   ellos/ellas/ustedes hacen
+
+5. ir (to go)
+   yo voy
+   tú vas
+   él/ella/usted va
+   nosotros/nosotras vamos
+   vosotros/vosotras vais
+   ellos/ellas/ustedes van
+
+6. ver (to see)
+   yo veo
+   tú ves
+   él/ella/usted ve
+   nosotros/nosotras vemos
+   vosotros/vosotras veis
+   ellos/ellas/ustedes ven
+
+7. dar (to give)
+   yo doy
+   tú das
+   él/ella/usted da
+   nosotros/nosotras damos
+   vosotros/vosotras dais
+   ellos/ellas/ustedes dan
+
+8. saber (to know)
+   yo sé
+   tú sabes
+   él/ella/usted sabe
+   nosotros/nosotras sabemos
+   vosotros/vosotras sabéis
+   ellos/ellas/ustedes saben
+
+9. querer (to want, to love)
+   yo quiero
+   tú quieres
+   él/ella/usted quiere
+   nosotros/nosotras queremos
+   vosotros/vosotras queréis
+   ellos/ellas/ustedes quieren
+
+10. poder (to be able to, can)
+    yo puedo
+    tú puedes
+    él/ella/usted puede
+    nosotros/nosotras podemos
+    vosotros/vosotras podéis
+    ellos/ellas/ustedes pueden
+
+11. venir (to come)
+    yo vengo
+    tú vienes
+    él/ella/usted viene
+    nosotros/nosotras venimos
+    vosotros/vosotras venís
+    ellos/ellas/ustedes vienen
+
+12. decir (to say, to tell)
+    yo digo
+    tú dices
+    él/ella/usted dice
+    nosotros/nosotras decimos
+    vosotros/vosotras decís
+    ellos/ellas/ustedes dicen
+
+13. salir (to leave, to go out)
+    yo salgo
+    tú sales
+    él/ella/usted sale
+    nosotros/nosotras salimos
+    vosotros/vosotras salís
+    ellos/ellas/ustedes salen
+
+14. venir (to come)
+    yo vengo
+    tú vienes
+    él/ella/usted viene
+    nosotros/nosotras venimos
+    vosotros/vosotras venís
+    ellos/ellas/ustedes vienen
+
+15. trabajar (to work)
+    yo trabajo
+    tú trabajas
+    él/ella/usted trabaja
+    nosotros/nosotras trabajamos
+    vosotros/vosotras trabajáis
+    ellos/ellas/ustedes trabajan
+
+16. comer (to eat)
+    yo como
+    tú comes
+    él/ella/usted come
+    nosotros/nosotras comemos
+    vosotros/vosotras coméis
+    ellos/ellas/ustedes comen
+
+17. beber (to drink)
+    yo bebo
+    tú bebes
+    él/ella/usted bebe
+    nosotros/nosotras bebemos
+    vosotros/vosotras bebéis
+    ellos/ellas/ustedes beben
+
+18. vivir (to live)
+    yo vivo
+    tú vives
+    él/ella/usted vive
+    nosotros/nosotras vivimos
+    vosotros/vosotras vivís
+    ellos/ellas/ustedes viven
+
+19. escribir (to write)
+    yo escribo
+    tú escribes
+    él/ella/usted escribe
+    nosotros/nosotras escribimos
+    vosotros/vosotras escribís
+    ellos/ellas/ustedes escriben
+
+20. leer (to read)
+    yo leo
+    tú lees
+    él/ella/usted lee
+    nosotros/nosotras leemos
+    vosotros/vosotras leéis
+    ellos/ellas/ustedes leen
+
+21. estudiar (to study)
+    yo estudio
+    tú estudias
+    él/ella/usted estudia
+    nosotros/nosotras estudiamos
+    vosotros/vosotras estudiáis
+    ellos/ellas/ustedes estudian
+
+22. hablar (to talk, to speak)
+    yo hablo
+    tú hablas
+    él/ella/usted habla
+    nosotros/nosotras hablamos
+    vosotros/vosotras habláis
+    ellos/ellas/ustedes hablan
+
+23. escuchar (to listen)
+    yo escucho
+    tú escuchas
+    él/ella/usted escucha
+    nosotros/nosotras escuchamos
+    vosotros/vosotras escucháis
+    ellos/ellas/ustedes escuchan
+
+24. comprar (to buy)
+    yo compro
+    tú compras
+    él/ella/usted compra
+    nosotros/nosotras compramos
+    vosotros/vosotras compráis
+    ellos/ellas/ustedes compran
+
+25. vender (to sell)
+    yo vendo
+    tú vendes
+    él/ella/usted vende
+    nosotros/nosotras vendemos
+    vosotros/vosotras vendéis
+    ellos/ellas/ustedes venden
+
+26. pensar (to think)
+    yo pienso
+    tú piensas
+    él/ella/usted piensa
+    nosotros/nosotras pensamos
+    vosotros/vosotras pensáis
+    ellos/ellas/ustedes piensan
+
+27. dormir (to sleep)
+    yo duermo
+    tú duermes
+    él/ella/usted duerme
+    nosotros/nosotras dormimos
+    vosotros/vosotras dormís
+    ellos/ellas/ustedes duermen
+
+28. cantar (to sing)
+    yo canto
+    tú cantas
+    él/ella/usted canta
+    nosotros/nosotras cantamos
+    vosotros/vosotras cantáis
+    ellos/ellas/ustedes cantan
+
+29. bailar (to dance)
+    yo bailo
+    tú bailas
+    él/ella/usted baila
+    nosotros/nosotras bailamos
+    vosotros/vosotras bailáis
+    ellos/ellas/ustedes bailan
+
+30. viajar (to travel)
+    yo viajo
+    tú viajas
+    él/ella/usted viaja
+    nosotros/nosotras viajamos
+    vosotros/vosotras viajáis
+    ellos/ellas/ustedes viajan
+
+31. enseñar (to teach)
+    yo enseño
+    tú enseñas
+    él/ella/usted enseña
+    nosotros/nosotras enseñamos
+    vosotros/vosotras enseñáis
+    ellos/ellas/ustedes enseñan
+
+32. trabajar (to work)
+    yo trabajo
+    tú trabajas
+    él/ella/usted trabaja
+    nosotros/nosotras trabajamos
+    vosotros/vosotras trabajáis
+    ellos/ellas/ustedes trabajan
+
+33. caminar (to walk)
+    yo camino
+    tú caminas
+    él/ella/usted camina
+    nosotros/nosotras caminamos
+    vosotros/vosotras camináis
+    ellos/ellas/ustedes caminan
+
+34. ayudar (to help)
+    yo ayudo
+    tú ayudas
+    él/ella/usted ayuda
+    nosotros/nosotras ayudamos
+    vosotros/vosotras ayudáis
+    ellos/ellas/ustedes ayudan
+
+35. esperar (to wait, to hope)
+    yo espero
+    tú esperas
+    él/ella/usted espera
+    nosotros/nosotras esperamos
+    vosotros/vosotras esperáis
+    ellos/ellas/ustedes esperan
+
+36. correr (to run)
+    yo corro
+    tú corres
+    él/ella/usted corre
+    nosotros/nosotras corremos
+    vosotros/vosotras corréis
+    ellos/ellas/ustedes corren
+
+37. escuchar (to listen)
+    yo escucho
+    tú escuchas
+    él/ella/usted escucha
+    nosotros/nosotras escuchamos
+    vosotros/vosotras escucháis
+    ellos/ellas/ustedes escuchan
+
+38. cerrar (to close, to shut)
+    yo cierro
+    tú cierras
+    él/ella/usted cierra
+    nosotros/nosotras cerramos
+    vosotros/vosotras cerráis
+    ellos/ellas/ustedes cierran
+
+39. abrir (to open)
+    yo abro
+    tú abres
+    él/ella/usted abre
+    nosotros/nosotras abrimos
+    vosotros/vosotras abrís
+    ellos/ellas/ustedes abren
+
+40. recibir (to receive)
+    yo recibo
+    tú recibes
+    él/ella/usted recibe
+    nosotros/nosotras recibimos
+    vosotros/vosotras recibís
+    ellos/ellas/ustedes reciben
+
+41. pagar (to pay)
+    yo pago
+    tú pagas
+    él/ella/usted paga
+    nosotros/nosotras pagamos
+    vosotros/vosotras pagáis
+    ellos/ellas/ustedes pagan
+
+42. necesitar (to need)
+    yo necesito
+    tú necesitas
+    él/ella/usted necesita
+    nosotros/nosotras necesitamos
+    vosotros/vosotras necesitáis
+    ellos/ellas/ustedes necesitan
+
+43. ayudar (to help)
+    yo ayudo
+    tú ayudas
+    él/ella/usted ayuda
+    nosotros/nosotras ayudamos
+    vosotros/vosotras ayudáis
+    ellos/ellas/ustedes ayudan
+
+44. vivir (to live)
+    yo vivo
+    tú vives
+    él/ella/usted vive
+    nosotros/nosotras vivimos
+    vosotros/vosotras vivís
+    ellos/ellas/ustedes viven
+
+45. pintar (to paint)
+    yo pinto
+    tú pintas
+    él/ella/usted pinta
+    nosotros/nosotras pintamos
+    vosotros/vosotras pintáis
+    ellos/ellas/ustedes pintan
+
+
+pretérito
+
+
+
+
+
+Objeto Directo
+Objeto Indirecto
+Double Object Pronouns
