@@ -1,3 +1,5 @@
+topics of interest
+
 maths:
 statistics,
 calculus,
@@ -7,10 +9,15 @@ ODE, PDE
 
 cs:
 CCNP (ENCOR+ENARSI),
-packet tracer,
+tools (pt, wireshark, burp, nmap, etc.)
 ASM, C, python, programming2,
 DSA,
-tools
+OS,
+COA,
+compilers,
+automata theory,
+PL theory,
+DBMS
 
 misc:
 Español
