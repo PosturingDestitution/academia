@@ -1,11 +1,5 @@
-topics of interest
-
-maths:
-statistics,
-calculus,
-linear algebra,
-discreet,
-ODE, PDE
+misc:
+Español
 
 cs:
 CCNP (ENCOR+ENARSI),
@@ -19,5 +13,9 @@ automata theory,
 PL theory,
 DBMS
 
-misc:
-Español
+maths:
+statistics,
+calculus,
+linear algebra,
+discreet,
+ODE, PDE
