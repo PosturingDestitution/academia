@@ -9,7 +9,7 @@ ODE, PDE
 
 cs:
 CCNP (ENCOR+ENARSI),
-tools (pt, wireshark, burp, nmap, etc.)
+tools (pt, wireshark, burp, nmap, etc.),
 ASM, C, python, programming2,
 DSA,
 OS,
