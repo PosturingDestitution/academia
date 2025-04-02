@@ -1,21 +1,8 @@
-misc:
-Español
+hobbies/interests
 
-cs:
-CCNP (ENCOR+ENARSI),
-tools (pt, wireshark, burp, nmap, etc.),
-ASM, C, python, programming2,
-DSA,
-OS,
-COA,
-compilers,
-automata theory,
-PL theory,
-DBMS
+spanish
 
-maths:
-statistics,
-calculus,
-linear algebra,
-discreet,
-ODE, PDE
+calculus, linear algebra, discreet
+
+ASM, C, python, DSA, programming2
+OS, CCNP (ENCOR + ENARSI), COA
