@@ -1,6 +1,4 @@
 /*
-CHATGPTY rabbit holing
-
 why would you capture packets on the network?
  
 Packet capture is like listening to the heartbeat of the network.
@@ -27,7 +25,4 @@ You don't just see the network.
 You feel the flow of packets.
 
 They can hide their IP, They can spoof MAC addresses, They can even encrypt traffic...But packets don't lie
-   
-
-
 */
