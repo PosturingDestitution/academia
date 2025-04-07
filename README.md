@@ -1,1 +1,1 @@
-After being demoralized and disappointed by the American education system, I have decided to educate myself. This repository is the result.
+After being demoralized by the American education system, I have made this repo.
