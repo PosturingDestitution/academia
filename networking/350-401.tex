@@ -796,7 +796,7 @@ The common dynamic routing protocols found on most routing platforms today are a
 
 \item Enhanced Distance Vector algorithms\\
 
-	The diffusing update algorithm (DUAL) is an enhanced distance vector algorithm that EIGRP uses to calculate the shortest path to a destination network within a routing domain. EIGRP is called a hybrid because of it's link-state characteristics as well as distance vector characteristics. It uses more advanced metrics than hop count (for example, bandwidth) for its best-path calculations. Information is advertised out in all directions, like other distance vector routing protocols. By default, EIGRP advertises the total path delay and minimum bandwidth for a route. By default, EIGRP advertises the total path delay and minimum bandwidth for a route. Once advertised, each router can calculate thebest path based on the information provided to it's neighbors.
+	The diffusing update algorithm (DUAL) is an enhanced distance vector algorithm that EIGRP uses to calculate the shortest path to a destination network within a routing domain. EIGRP is called a hybrid because of it's link-state characteristics as well as distance vector characteristics. It uses more advanced metrics than hop count (for example, bandwidth) for its best-path calculations. Information is advertised out in all directions, like other distance vector routing protocols. By default, EIGRP advertises the total path delay and minimum bandwidth for a route. By default, EIGRP advertises the total path delay and minimum bandwidth for a route. Once advertised, each router can calculate the best path based on the information provided to it's neighbors.
 
 	\begin{itemize}
 	\item It offers rapid convergence time for changes in the network topology
@@ -808,7 +808,73 @@ The common dynamic routing protocols found on most routing platforms today are a
 
 \item Link-state algorithms\\
 
+	A link-state dynamic IP routing protocol advertises the link state and link metric for each of its conntected links and directly connected routers to every router in the network. OSPF advertisements are called Link-State Advertisements (LSAs), and IS-IS uses Link-State packets (LSPs) for its advertisements. As a router receives an advertisement from a neighbor, it stores the information in a local database called the link-state database (LSDB) and advertises the link-state information on to each of its neighbor routers exactly as it was received. The link-state information is essentially flooded throughout the network, unchanged, from router to router, just as the originating router advertised it. This allows all the routers in the network to have synchronized and identical map of the network.\\
+
+	Using the complete map of the network, every router in the network then runs the Dijkstra shortest path first (SPF) algorithm to calculate the best shortest loop-free paths. The link-state algorithm then populates the routing table with this information.\\
+
+	Becausee they have the complete map of the network, link-state protocols usually require more CPU and memory than distance vector protocols, but they are less prone to routing loops and make better path decisions. In addition, link-state protocols are equipped with extended capabilities such as opaque LSAs for OSPF and TLVs (type/length/value) for IS-IS that allow them to support features commonly used by service providers, such as MPLS traffic engineering.\\
+
+	An analogy for link-state protocols is a GPS navigation system. The GPS navigation system has a complete map and can make the best decision about which way is the shortest and best path to reach a destination.\\
+
 \item Path Vector algorithm\\
+
+	A path vector protocol such as BGP is similar to a distance vector protocol; the difference is that instead of looking at the distance to determine the best loop-free path, it looks at various BGP path attributes. BGP path attributes include autonomous system path (AS\_Path), multi-exit discriminator (MED), origin, next hop, local preference, atomic aggregate, and aggregator.\\
+
+	A path vector protocol guarantees loop-free paths by keeping a record of each autonomous system that the routing advertisement traverses. Any time a router receives an advertisement in which it is already part of the AS\_Path would effectively result in a routing loop.\\
+
+\item{path selection}\\
+
+	A router identifies the path that a packet should take by evaluating the prefix length that is programmed in the Forwarding Information Base (FIB). The FIB is programmed through the routing table, which is also known as the Routing Information Base (RIB). The RIB is composed of routes presented from the routing protocol processes. Path selection has three main components:
+
+	\begin{itemize}
+	\item prefix length: the prefix length represents the number of leading binary bits in the subnet mask that are in the on position
+	\item administrative distance: a rating of the trustworhiness of a routing information source. If a router learns about a route to a destination from more than one routing protocol, and all the routes have the same prefix length, then the AD is compared.
+	\item metrics: A metric is a unit of measure used by a routing protocol in the best-path calculation. The metrics vary from one routing protocol to another.
+	\end{itemize}
+
+	note: the logic for selecting the best path for a routing protocol can vary. Most IGPs prefer internally learned routes over external routes and further prioritize the path with the lowest metric.\\
+
+\item{Equal-Cost Multipathing}\\
+
+	If a routing protocol identifies multiple paths as a best path and supports multiple path entries, the router installs the maximum number of paths allowed per destination. This is known as equal-cost multipathing (ECMP) and provides load sharing across all links. RIPv2, EIGRP, OSPF, and IS-IS all support ECMP. ECMP provides a mechanism to increase bandwidth across multiple paths by splitting traffic equally across the links.\\
+
+		By default, routing protocols install only routes with the lowest path metric. However, EIGRP can be configured (not enabled by default) to install multiple routes with different path metrics. This configuration allows for unequal-cost load balancing across multiple paths. Traffic is transmitted out the router's interfaces in a ratio to the path metric associated with that interface.
+
+\item{static routing}\\
+
+	Static routes provide precise control over routing but may create an administrative burden as the number of routers and network segments grows. Using static routing rquires zero network bandwidth because implementing manual route entries does not require communication with other routers.\\
+
+	Unfortunately, because the routers are not communicating, there is no network intelligence. If a link goes down, other routers will not be aware that the network path is no longer valid. Static routes are useful when:
+
+	\begin{itemize}
+	\item Dynamic routing protocols cannot be used on a router because of limited router CPU or memory
+	\item Routes learned from dynamic routing protocols need to be superseded
+	\end{itemize}
+
+	static route types:
+	\begin{itemize}
+	\item{directly attchted static routes}
+
+		P2P serial interfaces do not have to worry about maintaining an adjacency table and do not use ARP, so static routes can directly reference the outbound interface of a router. A static route that uses only the outbound next-hop interface is known as a directly attached static route, and it requires that the outbound interface be in a up state for the route to be installed into the RIB.
+
+		note: configuring a directly attached static route to an interface that uses ARP (that is, Ethernet) causes problems and is not recommended. The router must repeat the ARP process for every destination that matches that static route, which consumes CPU and memory. Depending on the size of the prefix of the static route and the number of lookups, the configuration can cause system instability.
+
+	\item{recursive static routes}	
+
+		The forwarding engine on Cisco devices need to know which interface an outbound packet should use. A
+recursive static route specifies the IP address of the next-hop address. The next recursive lookup
+occurs when the router queries the RIB to locate the route towards the next hop IP address (connected,
+static, or dynamic) and then cross-references the adjacency table.
+
+		Recursive static routes are configured with the command ip route network subnet-mask next-hop-ip. Re-
+cursive static routes require the route’s next-hop address to exist in the routing table to install the static
+route into the RIB. A recursive static route may not resolve the next-hop forwarding address using the
+default route (0.0.0.0/0) entry. The static route will fail next-hop reachability requirements and will not be
+inserted into the RIB.	
+
+	\item{fully specified static routes}
+	\end{itemize}
+
 \item Virtual Routing and Forwarding\\
 \end{itemize}
 
