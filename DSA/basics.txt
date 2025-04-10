@@ -1,0 +1,67 @@
+operations on data structures: create/delete/insert/locating
+
+arrays
+
+linked lists
+	singley
+	doubley
+
+queue (FIFO)
+
+stack (LIFO)
+
+trees (non-linear)
+	binary trees
+	binray search trees
+
+heaps and priority queues
+
+graphs (nodes and verticies)
+
+hashing
+--------------------------------------------------------------------------------------------------------
+recursion
+
+searching algorithms
+
+sorting algorithms (insertion, selection, bubble, merge, heap, quick, etc.)
+
+graph algorithms (DFS, BFS)
+kruskal
+prims
+
+path finding
+dijsktra
+A*
+
+greedy
+
+divide and conquer
+
+DP 
+
+backtracking
+--------------------------------------------------------------------------------------------------------
+tries
+
+b trees
+
+avl trees
+
+red-black trees
+
+skip llists
+
+segment trees 
+
+fenwick trees
+
+disjoint set
+--------------------------------------------------------------------------------------------------------
+combinatorics
+
+probability 
+
+discreet math
+
+discreet structures
