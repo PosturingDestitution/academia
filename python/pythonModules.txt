@@ -1,0 +1,13 @@
+numpy
+
+pandas
+
+matplotlab
+
+seaborn
+
+beautiful soup
+
+scikit-learn
+
+pytorch
