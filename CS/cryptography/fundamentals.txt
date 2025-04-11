@@ -1,0 +1,21 @@
+1. introduces the notion of secure encryption, from weak pen-and-paper ciphers to strong, randomized encryption
+2. describes how a pseudorandom generator works, what it takes for one to be secure, and how to use one securely
+3. discusses theoretical and practical notions of security, and compares provable security with probable security
+
+plaintext: refers to the unencrypted message
+ciphertext: encrypted message
+cipher: composed of two functions (encryption and decryption) we will write this relation as C = E(K, P) and P = D(K, C)
+
+
+NOTE: ciphertexts can never be shorter than plaintexts
+
+classical ciphers are ciphers that predate computers and therefore work on letters rather than on bits
+	caesar cipher
+		caesar >>>3 fdhvdu
+	vigenere cipher
+		theydrinkthetea >>>3, >>>20, >>>7, ... wblbxylhrwblwyh
+
+based on simplistic ciphers like the caesar and vigenere ciphers, we can try to abstract out the workings of a cipher, first by identifying its two main components: a permutation and a mode of operation.
+
+permutation: 
+mode of operation:
