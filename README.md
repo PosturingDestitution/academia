@@ -1,1 +1,1 @@
-After being demoralized by the American education system, I have made this repo.
+readme
