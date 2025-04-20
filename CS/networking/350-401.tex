@@ -861,21 +861,40 @@ The common dynamic routing protocols found on most routing platforms today are a
 
 	\item{recursive static routes}	
 
-		The forwarding engine on Cisco devices need to know which interface an outbound packet should use. A
-recursive static route specifies the IP address of the next-hop address. The next recursive lookup
-occurs when the router queries the RIB to locate the route towards the next hop IP address (connected,
-static, or dynamic) and then cross-references the adjacency table.
+		The forwarding engine on Cisco devices need to know which interface an outbound packet should use. A recursive static route specifies the IP address of the next-hop address. The next recursive lookup occurs when the router queries the RIB to locate the route towards the next hop IP address (connected, static, or dynamic) and then cross-references the adjacency table.
 
-		Recursive static routes are configured with the command ip route network subnet-mask next-hop-ip. Re-
-cursive static routes require the route’s next-hop address to exist in the routing table to install the static
-route into the RIB. A recursive static route may not resolve the next-hop forwarding address using the
-default route (0.0.0.0/0) entry. The static route will fail next-hop reachability requirements and will not be
-inserted into the RIB.	
+		Recursive static routes are configured with the command ip route network subnet-mask next-hop-ip. Recursive static routes require the route’s next-hop address to exist in the routing table to install the static route into the RIB. A recursive static route may not resolve the next-hop forwarding address using the default route (0.0.0.0/0) entry. The static route will fail next-hop reachability requirements and will not be inserted into the RIB.	
 
 	\item{fully specified static routes}
 
+		Static route recursion can simplify topologies if a link fails because it may allow the static route to stay installed while it changes to a different outbound interface in the same direction as the destination. However, problems arise if the recursive lookup resolves to a different interface pointed in the opposite direction.
+
+		To correct this issue, the static route configuration should use the outbound interface and the next-hop IP address. A static route with both an interface and a next-hop IP address is known as a \textbf{fully specified static route}. If the interface listed is not in an up state, the router removes the static route from the RIB. Specifying the next-hop address along with the physical interface removes the recursive lookup and does not involve the ARP processing problems that occur when using only the outbound interface.
+
+		Fully specified static routes around configured with the command ip route network subnet-mask interface-id next-hop-ip
+
+	\item{floating static routing}
+
+		The default AD on a static route is 1, but a static route can be configured with an AD value of 1 to 255 for a specific route. The AD is set on a static route by appending the AD as part of the command structure.
+
+		Using a \textbf{floating static route} is a common technique for providing backup connectivity for prefixes learned via dynamic routing protocols. A floating static route is configured with an AD higher than that of the primary route. Because the AD is higher than that of the primary route, it is installed in the RIB only when the primary route is withdrawn.
+
+	\item{static route to null interfaces}
+	
+		The null interface is a virtual interface that is always in an up state. Null interfaces do not forward or receive network traffic; instead, they drop all traffic destined toward them without adding overhead to a router's CPU.
+
+		Configuring a static route to a null interface provides a method of dropping network traffic without requiring the configuration of an access list. Creating a static route to the Null0 interface is a common technique to prevent routing loops. The static route to the Null0 interface uses a summarized network range, and routes that are more specific point toward the actual destination.
+
+	\item{IPv6 static routes}
+
+		The static routing principles for IPv4 routes are exactly the same for IPv6. It is important to ensure that IPv6 routing is enabled by using the configuration command \textbf{ipv6 unicast routing}. IPv6 routing is enabled by using the configuration command \textbf{ipv6 route} network/prefix-length {next-hop-interface-id \texttt{|} [next-hop-interface-id] next-ip-address}.
+
+		NOTE: If the next-hop address is an IPv6 link-local address, the static route must be a fully specified static route.
+
 	\end{itemize}
 
+
+\item Policy Based Routing\\
 \item Virtual Routing and Forwarding\\
 \end{itemize}
 

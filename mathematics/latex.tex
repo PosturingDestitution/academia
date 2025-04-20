@@ -10,30 +10,80 @@
 
 \maketitle
 
-\section*{real numbers, functions, and graphs}
 
-	polynomials $a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0$ where n is non-neg and represents the degree\\
+circle: $(x-a)^2 + (y-b)^2 = r^2$ where $(a, b)$ is the center and the radius is $r$\\
 
-	rational $p(x)/q(x)$\\
+midpoint between $P_1 = (x_1, y_1)$ and $P_2 = (x_2, y_2)$ is $\bar{P_{1}P_2}$ divided by 2\\
 
-	root $\sqrt[n]{g(x)}$\\
+distance: $\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$\\
 
-	properties:\\
-		domain: set of all input values for which the function is defined\\
-		range: set of all possible output values of the function\\
+laws of exponents: 
+
+	\begin{itemize}
+		\item $x^mx^n = x^{m+n}$
+		\item $\frac{x^m}{x^n} = x^{m-n}$
+		\item $(x^m)^n = x^{mn}$
+		\item $x^{-n} = \frac{1}{x^n}$
+		\item $(xy)^n = x^ny^n$
+		\item $(\frac{x}{y})^n = \frac{x^n}{y^n}$
+		\item $x^{1/n} = \sqrt[n]{x}$
+		\item $x^{\frac{m}{n}} = \sqrt[n]{x^m} = (\sqrt[n]{x})^m$
+	\end{itemize}
+
+special factorizations
+
+	\begin{itemize}
+		\item $x^2 - y^2 = (x + y)(x - y)$
+		\item $x^3 + y^3 = (x + y)(x^2 - xy + y^2)$
+		\item $x^3 - y^3 = (x - y)(x^2 + xy + y^2)$
+	\end{itemize}
+
+binomial theorem:
+
+	\begin{itemize}
+		\item $(x + y)^2 = x^2 + 2xy + y^2$
+		\item $(x - y)^2 = x^2 - 2xy + y^2$
+		\item $(x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$
+		\item $(x - y)^3 = x^3 - 3x^2y + 3xy^2 - y^3$
+		\item $(x + y)^n = x^n + nx^{n-1}y + \frac{n(n-1)}{2}x^{n-2}y^2 + \ldots + \binom{n}{k}x^{n-k}y^k + \dots + nxy^{n-1} + y^n$
+			where $\binom{n}{k} = \frac{n(n-1) \dots (n-k+1)}{1 \cdot 2 \cdot 3 \cdot \ldots \cdot k}$
+	\end{itemize}
+
+quadratic formulae:
+
+	\begin{enumerate}
+		\item $ax^2 + bx + c = 0$
+		\item $x^2 + \frac{b}{a}x + \frac{c}{a} = 0$
+		\item $x^2 + \frac{b}{a}x = -\frac{c}{a}$
+		\item $x^2 + \frac{b}{a}x + \left( \frac{b}{2a} \right)^2 = -\frac{c}{a} + \left( \frac{b}{2a} \right)^2$
+		\item $\left( x + \frac{b}{2a} \right)^2 = \frac{b^2 - 4ac}{4a^2}$
+		\item $x + \frac{b}{2a} = \pm \frac{\sqrt{b^2 - 4ac}}{2a}$
+		\item $x = -\frac{b}{2a} \pm \frac{\sqrt{b^2 - 4ac}}{2a}$
+		\item $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+	\end{enumerate}
+
+polynomials $a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0$ where n is non-neg and represents the degree\\
+
+rational $p(x)/q(x)$\\
+
+root $\sqrt[n]{g(x)}$\\
+
+properties:\\
+	domain: set of all input values for which the function is defined\\
+	range: set of all possible output values of the function\\
 	
-		continuity: most algebaic functions are continuous (no breaks of jumps), but rational functions have discontinuities at points\\
+	continuity: most algebaic functions are continuous (no breaks of jumps), but rational functions have discontinuities at points\\
 		
-		behavior: the functions behavior is influenced bu the degree of the polynomial and the nature of the function\\
+	behavior: the functions behavior is influenced bu the degree of the polynomial and the nature of the function\\
 
 
 	scaling:\\
 		\begin{itemize}
-		\item{vertical scaling}
-			$y = kf(x)$: If $k \geq 1$, the graph is expanded vertically by the factor $k$. If $0 < k < 1$, the graph is compressed vertically. When the scale factor $k$ is negative $(k < 0)$, the graph is also reflected across the x-axis.
-		\item{horizontal scaling}
-			$y = f(kx)$: If $K \geq 1$, the graph is compressed in the horizontal direction. If $0 < k < 1$, the graph is expanded. If $k \leq 0$, then the graph is also reflected across the y-axis.
+			\item{vertical scaling} $y = kf(x)$: If $k \geq 1$, the graph is expanded vertically by the factor $k$. If $0 < k < 1$, the graph is compressed vertically. When the scale factor $k$ is negative $(k < 0)$, the graph is also reflected across the x-axis.
+			\item{horizontal scaling} $y = f(kx)$: If $K \geq 1$, the graph is compressed in the horizontal direction. If $0 < k < 1$, the graph is expanded. If $k \leq 0$, then the graph is also reflected across the y-axis.
 		\end{itemize}
+
+$1 \deg = \frac{\pi}{180}$rad\\
 
 trigonometric functions are mathematical functions that relate the angle of a trianlge to the lengths of its sides. these functions are based on the relationships between the angles and sides of right-angled triangles and can also be generalized to all real numbers using the unit circle.\\
 
@@ -84,25 +134,73 @@ $ \sin \alpha \sin \beta = \frac{1}{2} [\cos(\alpha - \beta) - \cos(\alpha + \be
 $ \cos \alpha \cos \beta = \frac{1}{2} [\cos(\alpha - \beta) + \cos(\alpha + \beta)] $\\
 
 $ \sin \alpha \cos \beta = \frac{1}{2} [\sin(\alpha + \beta) + \sin(\alpha - \beta)] $\\
-	
 
-algebraic functions:\\
-	polynomials $a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0$ where n is non-neg and represents the degree\\
-	rational $p(x)/q(x)$\\
-	root sqrt[n]{g(x)}\\
+power functions: $f(x) = x^n$....if even the function behaves symmetrical around the y-axis...if odd then the function has point symmetry ($x^4$, $x^3$, $x^{-n} = \frac{1}{x^n}$)\\
 
-	properties:\\
-		domain: set of all input values for which the function is defined\\
-		range: set of all possible output values of the function\\
-	
-		continuity: most algebaic functions are continuous (no breaks of jumps), but rational functions have discontinuities at points\\
-		
-		behavior: the functions behavior is influenced bu the degree of the polynomial and the nature of the function\\
+inverse trig functions: $\arcsin(x) = \sin^{-1}(x) = \theta$, $\arccos(x) = \cos^{-1}(x) = \theta$, $\arcsin(x) = \sin^{-1}(x) = \theta$\\
 
-calculus is a branch of mathematics that deals with rates of change and the accumulation of quantities.\\
+logs: $\log_ax=y \leftrightarrow a^y = x$, $\ln(x)=y \leftrightarrow e^y=x$\\
 
+hyperbolic functions: $\sinh(x) = \frac{e^x-e^{-x}}{2}$, $\cosh(x) = \frac{e^x+e^{-x}}{2}$, $\tanh(x) = \frac{\sinh(x)}{\cosh(x)}$\\
 
+differentiation rules:
+	\begin{enumerate}
+		\item$\frac{d}{dx}(c) = 0$
+		\item$\frac{d}{dx}x = 1$
+		\item$\frac{d}{dx}(x^n) = nx^{-1}$ (power rule)
+		\item$\frac{d}{dx}[cf(x)] = cf'(x)$
+		\item$\frac{d}{dx}[f(x)+g(x)] = f'(x) + g'(x)$
+		\item$\frac{d}{dx}[f(x)g(x)] = f(x)g'(x) + g(x)f'(x)$ (product rule)
+		\item$\frac{d}{dx}[\frac{f(x)}{g(x)}] = \frac{g(x)f'(x) - f(x)g'(x)}{[g(x)]^2}$ (quotient rule)
+		\item$\frac{d}{dx}$ (chain rule)
+		\item$\frac{d}{dx}$ (quotient rule)
+		\item$\frac{d}{dx}$ (chain rule)
+		\item$\frac{d}{dx}$ (general power rule)
+		\item$\frac{d}{dx}$ 
+		\item$\frac{d}{dx}$
+		\item$\frac{d}{dx}$
+		\item$\frac{d}{dx}$
+		\item$\frac{d}{dx}$
+		\item$\frac{d}{dx}$
+		\item$\frac{d}{dx}$
+		\item$\frac{d}{dx}$
+		\item$\frac{d}{dx}$
+		\item$\frac{d}{dx}$
+		\item$\frac{d}{dx}$
+		\item$\frac{d}{dx}$
+		\item$\frac{d}{dx}$
+		\item$\frac{d}{dx}$
+		\item$\frac{d}{dx}$
+		\item$\frac{d}{dx}$
+		\item$\frac{d}{dx}$
+		\item$\frac{d}{dx}$
+		\item$\frac{d}{dx}$	
+	\end{enumerate}
 
+\newpage
 \section*{problems}	
 				
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
