@@ -4,12 +4,22 @@
 \usepackage[a4paper, left=1.5in, right=1.5in, top=1.5in, bottom=1.5in]{geometry}
 \usepackage{xcolor}
 
+\usepackage{pgfplots}
+\usetikzlibrary{intersections,angles,quotes}
+\usepgfplotslibrary{fillbetween}
+%\pgfplotsset{compat=1.17}
 \begin{document}
 
 \title{calculus is a branch of mathematics that deals with rates of change and the accumulation of quantities.}
-
 \maketitle
 
+real numbers
+describing intervals via inequalities
+
+limits
+
+linear approximation
+taylor polynomial
 
 circle: $(x-a)^2 + (y-b)^2 = r^2$ where $(a, b)$ is the center and the radius is $r$\\
 
@@ -77,15 +87,144 @@ properties:\\
 	behavior: the functions behavior is influenced bu the degree of the polynomial and the nature of the function\\
 
 
-	scaling:\\
+	scaling:
 		\begin{itemize}
 			\item{vertical scaling} $y = kf(x)$: If $k \geq 1$, the graph is expanded vertically by the factor $k$. If $0 < k < 1$, the graph is compressed vertically. When the scale factor $k$ is negative $(k < 0)$, the graph is also reflected across the x-axis.
 			\item{horizontal scaling} $y = f(kx)$: If $K \geq 1$, the graph is compressed in the horizontal direction. If $0 < k < 1$, the graph is expanded. If $k \leq 0$, then the graph is also reflected across the y-axis.
 		\end{itemize}
 
+\begin{tikzpicture}[scale=3]
+
+%grid lines
+\draw[
+        step=.5cm,
+        gray,
+        very thin
+        ] 
+        (-1.4,-1.4) grid (1.4,1.4);
+\filldraw[
+            fill=blue!20,
+            draw=red!50
+            ] 
+            (0,0) -- (3mm,0mm)
+arc [
+        start angle=0, 
+        end angle=30, 
+        radius=3mm] 
+        -- cycle;
+%axes
+\draw[->] (-1.5,0) -- (1.5,0) coordinate (x axis);
+\draw[->] (0,-1.5) -- (0,1.5) coordinate (y axis);
+
+%axes label
+\node [right]at (1.5,0)(x){$x$};    
+\node [above]at (0,1.5){$y$};
+
+%circle 
+\draw (0,0) circle [
+                    radius=1cm
+                    ];
+                    
+%triangle height
+\draw[
+        very thick,
+        orange
+        ]
+        (30:1cm) -- node[
+                        left=1pt,
+                        fill=white
+                        ] 
+                        {$\sin \alpha$} (30:1cm |- x axis);
+                        
+%triangle base
+\draw[
+        very thick,
+        blue
+        ]
+        (30:1cm |- x axis) -- node[
+                                    below=2pt,
+                                    fill=white
+                                    ] 
+                                    {$\cos \alpha$} (0,0);
+
+%intersection
+\path [name path=upward line] (1,0) -- (1,1);
+\path [name path=sloped line] (0,0) -- (30:1.5cm);
+\draw [name intersections={of=upward line and sloped line, by=t}]
+        [very thick,red] 
+        (1,0) -- node [right=1pt,fill=white]
+        {$\displaystyle \tan \alpha $} (t);
+\draw (0,0) -- (t);
+
+%x-ticks
+\foreach \x/\xtext in {-1, 
+                        -0.5/-\frac{1}{2},
+                                         1}
+\draw (\x cm,1pt) -- (\x cm,-1pt) node[
+                                        anchor=north,
+                                        fill=white
+                                        ] 
+                                        {$\xtext$};
+%y-ticks
+\foreach \y/\ytext in {-1, 
+                        -0.5/-\frac{1}{2}, 
+                            0.5/\frac{1}{2}, 
+                                            1}
+\draw (1pt,\y cm) -- (-1pt,\y cm) node[
+                                        anchor=east,
+                                        fill=white
+                                        ] 
+                                        {$\ytext$};
+%arc angle
+\draw (x) coordinate (A)-- 
+        (0,0) coordinate (B)-- 
+            (t) coordinate (C)
+pic [
+        draw,
+        red, 
+        "$\alpha$",
+        angle radius=9mm
+        ] 
+        {angle};
+\end{tikzpicture}
+\\
+\\
+\\
+$
+\begin{array}{|c|c|c|c|}
+\hline
+\text{Angle (Degrees)} & \text{Angle (Radians)} & \cos(\theta) & \sin(\theta) \\
+\hline
+0^\circ & 0 & 1 & 0 \\
+30^\circ & \frac{\pi}{6} & \frac{\sqrt{3}}{2} & \frac{1}{2} \\
+45^\circ & \frac{\pi}{4} & \frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} \\
+60^\circ & \frac{\pi}{3} & \frac{1}{2} & \frac{\sqrt{3}}{2} \\
+90^\circ & \frac{\pi}{2} & 0 & 1 \\
+\hline
+120^\circ & \frac{2\pi}{3} & -\frac{1}{2} & \frac{\sqrt{3}}{2} \\
+135^\circ & \frac{3\pi}{4} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} \\
+150^\circ & \frac{5\pi}{6} & -\frac{\sqrt{3}}{2} & \frac{1}{2} \\
+180^\circ & \pi & -1 & 0 \\
+\hline
+210^\circ & \frac{7\pi}{6} & -\frac{\sqrt{3}}{2} & -\frac{1}{2} \\
+225^\circ & \frac{5\pi}{4} & -\frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} \\
+240^\circ & \frac{4\pi}{3} & -\frac{1}{2} & -\frac{\sqrt{3}}{2} \\
+270^\circ & \frac{3\pi}{2} & 0 & -1 \\
+\hline
+300^\circ & \frac{5\pi}{3} & \frac{1}{2} & -\frac{\sqrt{3}}{2} \\
+315^\circ & \frac{7\pi}{4} & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} \\
+330^\circ & \frac{11\pi}{6} & \frac{\sqrt{3}}{2} & -\frac{1}{2} \\
+360^\circ & 2\pi & 1 & 0 \\
+\hline
+\end{array}
+$
+\\
+\\
+\\
+
 $1 \deg = \frac{\pi}{180}$rad\\
 
-trigonometric functions are mathematical functions that relate the angle of a trianlge to the lengths of its sides. these functions are based on the relationships between the angles and sides of right-angled triangles and can also be generalized to all real numbers using the unit circle.\\
+trigonometric functions are mathematical functions that relate the angle of a trianlge to the lengths of its sides... and can also be generalized to all real numbers using the unit circle.\\
 
 To derive the rest of the fundamental trigonometric identities, you need a combination of a few key identities and principles. The most important starting point is the Pythagorean identity, but you’ll also need the basic relationships between the trigonometric functions, such as the definitions of sine, cosine, tangent, secant, cosecant, and cotangent in terms of a right triangle or the unit circle. \\
 
@@ -117,6 +256,10 @@ $ \cos(2\theta) = \cos^2 \theta - \sin^2 \theta = 2\cos^2 \theta - 1 = 1 - 2\sin
 
 $ \tan(2\theta) = \frac{2\tan \theta}{1 - \tan^2 \theta} $\\
 
+$ \sin^2(2\theta) = \frac{1 - \cos^2(2\theta)}{2} $\\
+
+$ \cos^2(2\theta) = \frac{1 + \cos(2\theta)}{2} $\\
+
 $ \sin(90^\circ - \theta) = \cos \theta, \quad \cos(90^\circ - \theta) = \sin \theta $\\
 
 $ \tan(90^\circ - \theta) = \cot \theta, \quad \cot(90^\circ - \theta) = \tan \theta $\\
@@ -134,6 +277,10 @@ $ \sin \alpha \sin \beta = \frac{1}{2} [\cos(\alpha - \beta) - \cos(\alpha + \be
 $ \cos \alpha \cos \beta = \frac{1}{2} [\cos(\alpha - \beta) + \cos(\alpha + \beta)] $\\
 
 $ \sin \alpha \cos \beta = \frac{1}{2} [\sin(\alpha + \beta) + \sin(\alpha - \beta)] $\\
+
+law of sines: $ \frac{\sin(A)}{a} = \frac{\sin(B)}{b} = \frac{\sin(C)}{c} $ (uppercase are the angles)\\
+
+law of cosines: $ a^2 = b^2+c^2 - 2bc\cos(A) $\\
 
 power functions: $f(x) = x^n$....if even the function behaves symmetrical around the y-axis...if odd then the function has point symmetry ($x^4$, $x^3$, $x^{-n} = \frac{1}{x^n}$)\\
 
@@ -176,6 +323,8 @@ differentiation rules:
 		\item$\frac{d}{dx}$
 		\item$\frac{d}{dx}$	
 	\end{enumerate}
+
+	
 
 \newpage
 \section*{problems}	
