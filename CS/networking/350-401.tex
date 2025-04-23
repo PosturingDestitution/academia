@@ -770,16 +770,8 @@ If VLAN 4 contained devices only on s2 and s3, the topology could not be tuned w
 
 "A system of interconnected routers and related components managed under a common network administration is known as an AS, or a routing domain. The internet is composed of thousands of these AS's spanning the globe."\\
 
-The common dynamic routing protocols found on most routing platforms today are as follows:
-\begin{itemize}
-\item Routing Information Protocol Version 2 (RIPv2)
-\item Enhanced Interior Gateway Routing Protocol (EIGRP)
-\item Open Shortest Path First (OSPF)
-\item Intermediate System-To-Intermediate System (IS-IS)
-\item Border Gateway Protocol (BGP)
-\end{itemize}
+The common dynamic routing protocols found on most routing platforms today are as follows: Routing Information Protocol Version 2 (RIPv2), Enhanced Interior Gateway Routing Protocol (EIGRP), Open Shortest Path First (OSPF), Intermediate System-To-Intermediate System (IS-IS), Border Gateway Protocol (BGP)\\
 
-\newpage
 \begin{itemize}
 \item Distance Vector algorithms\\
 
@@ -893,9 +885,106 @@ The common dynamic routing protocols found on most routing platforms today are a
 
 	\end{itemize}
 
-
 \item Policy Based Routing\\
+A router makes forwarding decisions based on the destination address in IP packets. Some scenarios accommodate other factors, such as packet length or source address, when deciding where the router should forward a packet.\\
+
+	\textbf{Policy-based routing (PBR)} allows for conditional forwarding of packets based on packet characteristics besides the destination IP address.\\
+
+	PBR provides the following capabilities:
+	\begin{itemize}
+		\item Routing by protocol type (ICMP, TCP, UDP, and so on)
+		\item Routing by source IP address, destination IP address, or both
+		\item Manual assignment of different network paths to the same destination, based on tolerance for latency, link speed, or utilzation for specific tansient traffic
+	\end{itemize}
+
+	Some of the drawbacks of conditional routing include the following:
+	\begin{itemize}
+		\item Administrative burden in scalability
+		\item Lack of network Intelligence
+		\item Troubleshooting complexity
+		\item Not all configuration options are supported by all hardware platforms
+	\end{itemize}
+
+	Packets are examined for PBR processing as they are received on the router interface. Local PBR policies can also identify traffic originating from the router.\\
+
+	PBR verifies the existence of the next-hop IP address and then forwards packets using the specified next-hop address. Additional next-hop addresses can be configured so that if the first next-hop address is not in the RIB, the secondary next-hop addresses can be used. If none of the specified next-hop addresses exist in the routing table, the packets are not conditionally forwarded.\\
+
+	NOTE: PBR policies do not modify the RIB because the policies are not universal for all packets. Because PBR does not change the RIB, troubleshooting can become complicated as the routing table displays the next-hop address learned from the routing protocol but does not display a different next-hop address learned from the routing protocol but does not display a different next-hop address for the conditional traffic.\\
+
 \item Virtual Routing and Forwarding\\
+
+	Virtual routing and forwarding (VRF) is a technology that creates separate virtual routers on physical router. Router interfaces, routing tables, and forwarding tables are completely isolated between VRFs, preventing traffic from one VRF from forwarding into another VRF. All router interfaces belong to the global VRF until they are specifically assigned to a user-defined VRF. The global VRF is synonymous to regular routing table of non-VRF routers.\\
+
+	Every router's VRF maintains a separate routing table, so it is possible to allow for overlap ping IP address ranges. VRF creates segmentation between network interface, network supinterfaces, IP addresses, and routing tables. Configuring VRF on a router ensures that the paths of each VRF are isolated, network security is increased through segmentation, and encrypting traffic on the network is not needed to maintain privacy between VRF instances.\\
+
+	The creation of multiprotocol VRF instances requires the global configuration command \textbf{vrf definition} vrf-name. Under the VRF definition submode, the command \textbf{address-family {ipv4 | ipv6}} is required to specify the appropriate address family. The VRF instance is then associated to the interface with the command \textbf{vrf forwarding} vrf-name under the interface configuration submode.\\
+
+	The following steps are required to create a VRF and assign it to an interface:
+	\begin{enumerate}
+		\item Create a multiprotocol VRF routing table by using the command \textbf{vrf definition} vrf-name.
+		\item Initialize the appropriate address family can be IPv4, IPv6, or both.
+		\item Enter interface configuration submode and specify the interface to be associated with the VRF instance by using the command \textbf{interface} interface-id
+		\item Associate the VRF instance to the interface or subinterface by entering the command \textbf{vrf forwarding} vrf-name under interface configuration submode.
+		\item Configure an IP address (IPv4, IPv6, or both) on the interface or subinterface by entering either or both of the following commands: 1. \textbf{ip address} ip-address subnet-mask [\textbf{secondary}] 2. \textbf{ipv6 address} ipv6-address/prefix-length
+	\end{enumerate}
+
+	VRF instances on a router can be compared to that of virtual local area networks (VLANs) on a switch. However, instead of relying on Layer 2 technologies such as 802.1Q for separation, VRF insttances allow for interaction and segmentation with Layer 3 dynamic routing protocols.
+\end{itemize}
+
+\begin{itemize}
+	\item EIGRP Fundamentals
+		
+		EIGRP overcomes the deficiencies of other distance vector routing protocols like RIPv2 with features such as unequal-cost load balancing, support for networks 255 hops away, and rapic convergence features. EIGRP uses a diffusing update algorithm (DUAL) to indentify networks paths and enable fast convergence using precalculated loop-free backup paths. Most distance vector routing protocols use hop count as the metric for routing decisions. However, using hop count for path selection does not take into account link speed and total delay. EIGRP adds to the route selection algorithm logic that uses factors other than hop count alone.\\
+
+		A router can run multiple EIGRP processes. Each process operates under the context of an /textbf{autonomous system}, which represents a common routing domain. Routers within the same domain use the same metric calculation formula and exchange routes only with members of the same autonomous system. An EIGRP autonomous system should not be confused with a BGP autonomous system.\\
+
+		\textbf{Successor route}: the route with the lowest path metric to reach a destination\\
+
+		\textbf{Successor}: the first next-hop router for the successor route\\
+
+		\textbf{Feasible distance (FD)}: the metric value for the lowest-metric path to reach a destination. the feasible distance is calculated locally using the formula shown in the "Path Metric Calculattion"\\
+
+		\textbf{Reported distance (RD)}: the distance reported by a router to reach a destination. the reported distance value is the feasible distance for the advertising router\\
+
+		\textbf{Feasibility condition}: a condition under which, for a route to be considered a backup route, the reported distance received for that route must be less than the feasible distance calculated locally. this logic guarantees a loop-free path\\
+
+		\textbf{Feasible successor}: a route that satisfies the feasibility condition and is maintained as a backup route. the feasibility condition ensures that the backup route is loop free\\
+
+
+		EIGRP contains a \textbf{topology table} that makes it different from a "true" distance vector routing protocol. EIGRP's topology table is a vital component to DUAL and contains information to identify loop-free backup routes. The topology table contains all the network prefixes advertised within an EIGRP autonomous system. Each entry in the table contains the following:
+		\begin{itemize}
+			\item Network prefix
+			\item EIGRP neighbors that have advertised that prefix
+			\item Metrics from each neighbor (for example, reported distance, hop count)
+			\item Values used for calculating the metric (for example, load, reliability, total delay, minimum bandwidth)
+		\end{itemize}
+
+	EIGRP neighbors exchange the entire routing table when forming an adjacency, and they advertise only incremental updates as topology changes occur within a network. The neighbor adjacency table is vital for tracking neighbor status and the updates sent to each neighbor.\\
+
+	EIGRP uses five different packet types to communicate with other routers. It uses IP protocol number 88 in the IP header, and it uses multicast packets where possible and unicast packets when necessary. Communication between routers is done with multicast, using the group address 224.0.0.10 when possible.\\
+
+		Opcode Value : Packet Type : Function
+		\begin{itemize}
+			\item 1 : Update : used to transmit routing and reachability information with other EIGRP neighbors
+			\item 2 : Request : used to get specific information from one or more neighbor
+			\item 3 : Query : Sent out to search for another path during convergence
+			\item 4 : Reply : Sent in response to a query packet
+			\item 5 : Hello : Used for discovery of EIGRP neighbors and for detecting when a neighbor is no longer available
+		\end{itemize}
+
+	\item Path Metric Calculation
+
+		Metric calculation is a critical component for any routing protocol. EIGRP uses multiple factors to calculate the metric for a path. Metric calculation uses bandwidth and delay by default, but it can include interface load and reliability too.\\
+
+		\begin{center}
+			
+		\end{center}
+
+	\item Failure Detection and Timers
+
+
+
+	\item Route Summarization
 \end{itemize}
 
 \newpage
@@ -1058,10 +1147,8 @@ The common dynamic routing protocols found on most routing platforms today are a
 \noindent\textbf{6.4 Describe APIs for Cisco DNA Center and vManage}\\
 \noindent\textbf{6.5 Interpret REST API response codes and results in payload using Cisco DNA Center and RESTCONF}\\
 \noindent\textbf{6.6 Construct an EEM applet to automate configuration, troubleshooting, or data collection}\\
-
-
-
 \noindent\textbf{6.7 Compare agent vs. agentless orchestration tools, such as Chef, Puppet, Ansible, and SaltStack}\\
 
-	In the context of IT infrastructure and network automation, orchestration tools help manage and automate configuration, deployment, and management of systems and services. These tools can generally be classified into two categories: agent-based and agentless. Agent-based tools require a software agent to be installed on the managed nodes (servers or devices). This agent communicates with a central management server to receive and execute configuration tasks. Agentless tools do not require an agent on the managed nodes. Instead, they use standard protocols (like SSH or WinRM) to connect to and configure the nodes directly. Chef uses a client-server model where the Chef client (agent) runs on each node. It communicates with the Chef server to retrieve and apply configurations. Chef uses "recipes" and "cookbooks" written in Ruby to define configurations. The Chef server stores these recipes and the node’s state. Puppet also uses a client-server model with Puppet agents installed on managed nodes. These agents periodically check in with the Puppet master server to apply configurations. Puppet uses "manifests" written in its own declarative language to define configurations. The Puppet master server maintains these manifests and the node’s state. Ansible uses a push-based model where configurations are pushed from the Ansible control node to managed nodes over SSH (or WinRM for Windows). No agents are required on the nodes. Ansible uses YAML for defining playbooks which describe the desired state of the systems. It operates in an ad-hoc manner, executing commands as needed. SaltStack offers both agent-based and agentless options. In its agent-based mode, Salt uses Salt minions (agents) on managed nodes. In agentless mode, it can operate over SSH to manage systems. SaltStack uses YAML for defining configurations and states. It supports both push and pull models, and provides real-time command execution capabilities. Choosing between agent-based and agentless orchestration tools depends on factors like the size and complexity of your infrastructure, the level of control and state management required, and the existing toolchain and practices within your organization.
+
+
 \end{document}
