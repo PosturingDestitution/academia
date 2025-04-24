@@ -1,4 +1,5 @@
-operations on data structures: create/delete/insert/locating
+operations on data structures: insertion, deletion, search, traversal/access, update
+main performance metrics: worst and average complexities
 
 arrays
 

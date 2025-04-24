@@ -1,0 +1,33 @@
+TCP fields
+	src port (16 bits)
+	dest port (16 bits)
+	ack number (32 bits): identifies the position of the data segment in the stream of data segments already sent
+	header length (4 bits): indicates the length of the TCP header in 32-bit words, ensuring the header is a multiple of 32 bits
+	reserved (6 bits): reserved for future use and is always set to zero
+	flags (6 bits): URG, ACK, PSH, RST, SYN, FIN
+	window size (16 bits): how many bytes the sender can issue to a receiver while acknowledgment for this segment is outstanding
+	checksum (16 bits): allows the receiving node to determine whether the TCP segment became corrupted during transmission
+	urgent pointer (16 bits): a location in the data field where urgent data resides, valid only if the URG flag is set
+	options (<=320 bits): for special options, such as the maximum segment size a network can handle
+	padding: filler information to ensure that the size of the TCP header is a multiple of 32 bits
+	data: data originally sent by the source node, with a size that depends on the data to be transmitted and network constraints
+
+1. connection establishment
+	1. SYN packet
+	2. SYN,ACK packet	
+	3. ACK packet
+
+2. data transmission
+	1. sender: breaks data into segments and sends them over the network
+	2. receiver: receives segments and reassembles the original data
+	3. acknolegment: receiver sends an ACK packet to acknowlege receipt of each segment
+
+3. flow control
+	1. window size: the maximum amount of data that can be sent before an ACK is required
+	2. advertised window: the receiver advertises its current window size to the sender
+
+4. termination (the conneciton remains in a closed state until both devices agree to close it)
+	1. FIN
+	2. ACK
+	3. FIN
+	4. ACK

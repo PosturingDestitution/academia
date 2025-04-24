@@ -977,7 +977,7 @@ A router makes forwarding decisions based on the destination address in IP packe
 		Metric calculation is a critical component for any routing protocol. EIGRP uses multiple factors to calculate the metric for a path. Metric calculation uses bandwidth and delay by default, but it can include interface load and reliability too.\\
 
 		\begin{center}
-			
+			$Metric = 256 * [(K_1 * BW + \frac{K_2 * BW}{256 - Load} + K_3 * Delay) * \frac{K_5}{K_4 + Reliability}]$	
 		\end{center}
 
 	\item Failure Detection and Timers

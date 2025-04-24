@@ -1,0 +1,34 @@
+a fundamental concept in computer science that helps us understand how the performace of an algorithm scales as the input size grows. it is not about measuring *actual* time because that depends on the hardware, programming language, and other factors. instead, it is about describing the *growth rate* of resources (usually time or space) needed by the algorithm
+
+what is an algorithm? (sorting, searching, finding the shortest path between cities, etc.)
+	a step-by-step procedure for solving a problem. it is a recipe for a computer to follow.
+
+
+why it matters?
+	the relative performance of algorithms changes as input size grows. it is not always about picking the best algorithm outright. you have to consider: the likely range of input sizes, potential future growth
+
+
+the core idea: asymptotic analysis
+	algorithmic complexity is usually discussed in terms of asymptotic analysis. asymptotic means we are interested in what happens as the input size gets very large (approaches infinity). we are not concerned with small input sizes where the constants and lower-order terms in the formulas dominate
+
+
+types of complexity
+	time complexity: how the runtime of an algorithm grows as the input size grows
+	space complexity: how much memory an algorithm uses as the input size grows. 
+
+
+big O notation
+	O(1) constant
+	O(log n) logarithmic
+	O(n) linear
+	O(n log n) linearithmic time (or log-linear)
+	O(n^2) quadratic
+
+	O(2^n) exponential time
+	O(n!) factorial time
+
+	note: polynomial time can be expressed as O(n^k)
+
+	rules of simplification:
+		1. constant factor is dropped O(2n) becomes O(n)
+		2. lower-order terms are dropped O(n^2 + n) -> O(n^2)

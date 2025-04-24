@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2025.4.4)  23 APR 2025 04:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2025.4.4)  23 APR 2025 18:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -913,72 +913,83 @@ Underfull \hbox (badness 10000) in paragraph at lines 964--965
 
  []
 
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 987--988
+
+Underfull \hbox (badness 10000) in paragraph at lines 977--978
 
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 990--991
+[28] [29]
+Underfull \hbox (badness 10000) in paragraph at lines 991--992
 
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 993--994
+Underfull \hbox (badness 10000) in paragraph at lines 994--995
 
  []
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 996--997
+Underfull \hbox (badness 10000) in paragraph at lines 997--998
 
  []
 
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 999--1000
+Underfull \hbox (badness 10000) in paragraph at lines 1000--1001
 
  []
 
 [33]
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1003
+Underfull \hbox (badness 10000) in paragraph at lines 1003--1004
 
  []
 
 [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1037--1038
+Underfull \hbox (badness 10000) in paragraph at lines 1006--1007
 
  []
 
-[35] [36] [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1098--1104
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 1041--1042
 
  []
 
-[38] [39]
-Underfull \hbox (badness 10000) in paragraph at lines 1140--1147
+[36] [37] [38]
+Underfull \hbox (badness 10000) in paragraph at lines 1102--1108
 
  []
 
-[40] (./350-401.aux)
+[39] [40]
+Underfull \hbox (badness 10000) in paragraph at lines 1144--1151
+
+ []
+
+[41] (./350-401.aux)
 Package rerunfilecheck Info: File `350-401.out' has not changed.
 (rerunfilecheck)             Checksum: 837D741C7757FCF6704AC69CAF87AF0C;792.
  ) 
 Here is how much of TeX's memory you used:
- 9050 strings out of 476091
- 142178 string characters out of 5794082
+ 9051 strings out of 476091
+ 142185 string characters out of 5794082
  1865330 words of memory out of 5000000
  29255 multiletter control sequences out of 15000+600000
  527178 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,6n,76p,6167b,669s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
-/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 350-401.pdf (40 pages, 143446 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/urw/times/utmri8a.pfb>
+Output written on 350-401.pdf (41 pages, 202136 bytes).
 PDF statistics:
- 285 PDF objects out of 1000 (max. 8388607)
- 230 compressed objects within 3 object streams
- 84 named destinations out of 1000 (max. 500000)
+ 320 PDF objects out of 1000 (max. 8388607)
+ 252 compressed objects within 3 object streams
+ 85 named destinations out of 1000 (max. 500000)
  49 words of extra memory for PDF output out of 10000 (max. 10000000)
 
