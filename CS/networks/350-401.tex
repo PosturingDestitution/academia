@@ -1105,55 +1105,322 @@ OSPF
 					\item Hello
 						These packets are for discovering and maintaining neighbors. Packets are sent out periodically on all OSPF interfaces to discover new neighbors while ensuring that other adjacent neighbors are still online.
 
-
 					\item Database description (DBD) or (DDP)
 						These packets are for summarizing database contents. Packets are exchanged when an OSPF adjacency is first being formed. These packets are used to describe the contents of the LSDB.
-
 
 					\item Link-state request
 						These packets are for database downloads. When a router thinks that part of its LSDB is stale, it may request a portion of a neighbor's database by using this packet type.
 			
-
 					\item Link-state update (LSU)
 						These packets are for database updates. This is an explicit LSA for a specific network link and normally is sent in direct response to and LSR.
 
-
 					\item Link-state ack
 						These packets are for flooding acknowledgments. this packets are sent in response to the flooding of LSAs, thus making flooding a reliable transport feature.
-
-
 				\end{itemize}
 
 
 			\item OSPF Hello Packets
+				OSPF \textbf{hello packets} are responsible for discovering and maintaining neighbors. In most instances, a router sends hello packets to the AllSPFRouters address (244.0.0.5).
+				\begin{itemize}
+					\item \textbf{Router ID (RID)}:
+						A unique 32-bit ID within an OSPF domain used to build a topology
+					\item Authentication options:
+						A field that allows secure communication between OSPF routers to prevent malicious activity. Options are none, clear text, or Message Digest 5 (MD5) authentication
+					\item Area ID:
+						The OSPF area that the OSPF interface belongs to. It is a 32-bit number that can be written in dotted-decimal dormat (0.0.1.0) or decimal (256)
+
+					\item Interface address mask:
+						The network mask for the primary IP address for the interface out which the hello is sent
+
+					\item \textbf{Interface priority}:
+						The router interface priority for DR elections
+
+					\item \textbf{Hello interval}:
+						The time span, in seconds, that a router sends out hello packets on the interface
+
+					\item \textbf{Dead interval}:
+						The time span, in seconds, that a router waits to hear a hello from a neighbor router before it declares that router down
+
+					\item Designated router and backup designated router:
+						The IP address of the DR and backup DR (BDR) for the network link
+
+					\item Active neighbor:
+						A list of OSPF neighbors seen on the network segment. A router must have received a hello from the neighbor within the dead interval
+				\end{itemize}
 
 
-
-			\item Router ID
-
-
-
-			\item Neighbors
+			\item Router ID\\
+				The OSPF router ID (RID) is a 32-bit number that uniquely identifies an OSPF router, and is an essential component for building an OSPF topology. In some OSPF output commands. neighbor ID refers to the RID; the terms are synonymous. The RID must be unique for each OSPF process in an OSPF domain and must be unique between OSPF processes on a router.
 
 
+			\item Neighbors\\
+				An OSPF neighbor is a router that shares a common OSPF-enabled network link. OSPF routers discorver other neighbors via the OSPF hello packets. An adjacent OSPF neighbor is an OSPF neighbor that shares a synchronized OSPF database between the two neighbors.\\
 
-			\item Designated router and Backup Designated Router
+				Each OSPF process maintains a table for adjacent OSPF neighbors and the state of each router.
+				\begin{itemize}
+					\item Down: This is the initial state of a neighbor relationship. It indicates that the router has not received any OSPF hello packets.
+
+					\item Attempt: This state is relevant to NBMA networks that do not support broadcast and require explicit neighbor configuration. This state indicates that no information has been received recently, but the router is still attempting
+					\item Init: This state indicates that a hello packet has been received from another router, but bidirectional communication has not been established
+
+					\item 2-Way: Bidirectional communication has been established. If a DR or BDR is needed, the election occurs during this state
+					\item ExStart: This is the first state in forming an adjacency. Routers identify which router will be the primary or secondary for the LSDB synchronization
+
+					\item Exchange: During this state, routers are exchanging link states by using DBD packets 
+					\item loading: LSR packets are sent to the neighbor, asking for the more recent LSAs that have been discovered (but not received) in the Exchange state
+					\item Full: Neighboring routers are fully adjacent 
+				\end{itemize}
+
+
+			\item Designated router and Backup Designated Router\\
+				Multi-access networks such as Ethernet (LANs) and Frame Relay allow more than two routers to exist on a network segment. Such a setup could cause scalability problems with OSPF as the number of routers on a segment increases. Additional routers flood more LSAs on the segment, and OSPF traffic becomes excessive as OSPF neighbor adjacencies increases. If occurrences of database flooding on a network.\\
+				
+				The number of edges formula, $n(n-1)/2$ where n represents the number of routers, is used to identify the number of sessions in a full mesh topology. If 5 routers were present on a segment, $5(5 - 1)/2 = 10$ then 10 OSPF adjacencies would exist for that segment. Continuing the logic, adding 1 additional router would make 15 OSPF adjacencies on a network segtment. Having so many adjacencies per segment consumes more bandwidth, more CPU processing, and more memory to maintain each of the neighbor states.\\
+
+				OSPF over comes this inefficiency by created a pseudonode (virtual router) to manage the adjacency state with all the other routers on that broadcast network segment. A router on the broadcast segment, known as the \textbf{designated router (DR)}, assumes the role of the pseudonode. The DR reduces the number of OSPF adjacencies on a multi-access netowrk segment because routers form a full OFPF adjacency only with the DR and not with each other. The DR is responsible for flooding updates to all OSPF routers on that segment as the updates occur.\\
+
+				If the DR were to fail, OSPF would need to form new adjacencies, invoking all new LSAs, and could potentially cause a temporary loss of routes. In the even of DR failure, a \textbf{backup designated router (BDR)}  becomes the new DR; then an election occurs to replace the BDR. To minimuzed transition time, the BDR also forms full OSPF adjacencies with all OSPF routers on that segment.\\
+
+				The DR/BDR process distributes LSAs in the following manner, assuming that all OSPF routers (DR, BR, and DROTHER) on a segment form a full OSPF adjacency with the DR and BDR.
+				\begin{enumerate}
+					\item As an OSPF router learns of a new route, it sends the updated LSA to the AllDRouters (224.0.0.6) address, which only the DR and BDR accept and process
+					\item The DR sends a unicast acknowledgment to the router that sent the initial LSA update 
+					\item The DR floods the LSA to all the routers on the segment via the AllSPFrouters (224.0.0.5) address
+				\end{enumerate}
 		\end{itemize}
 
+	\item OSPF Configuration\\
+		The configuration process for OSPF resides mostly under the OSPF process, but some OSPF options go directly on the interface ocnfiguration submode. The command \textbf{router ospf} process-id defines and initializes the OSPF process. The OSPF process ID is locally significant but is generally kept the same for operational consistency. OSPF is enabled on an interface using two methods: 1. An OSPF network statement 2. Interface-specific configuraiton
 
-	\item OSPF Configuration
-	\item Default Route Advertisement
-	\item Common OSPF Optimizations
+		\begin{itemize}
+			\item OSPF Network Statement\\
+				The OSPF network statement identifies the interfaces that the OSPF process will use and the area that those interfaces participate in. The network statements match against the primary IPv4 address and netmask associated with an interface.\\
+
+				A common misconception is that the network statement advertises the networks into OSPF; in reality, though, the network statement is selecting and enabling OSPF on the interface. The interface is then advertised in OSPF through the LSA. The network statement uses a wildcard mask, which allows the configuration to be as specific or vague as necessary. The selection of interfaces within the OSPF process is accomplished by using the command \textbf{network} ip-address wildcard-mask \textbf{area} area-id.\\
+
+				The concept is similar to the configuration of Enhanced Interior Gateway Routing Protocol (EIGRP), except that the OSPF area is specified. If the IP address for an interface matches two network statements with different areas, the most explicit network statement (that is, the longest match) preempts the other network statements for area allocation.\\
+
+				The connected network for the OSPF-enabled interface is added to the OSPF LSDB under the corresponding OSPF area in which the interface participates. Secondary connected networks are added to the LSDB only if the secondary IP address matches a network statement associated with the same area.\\
+
+			\item Interface-Specific Configuration\\
+				The second method for enabling OSPF on an interface for IOS XE is to configure it specifically on an interface with the command \textbf{ip ospf} process-id \textbf{area} area-id [\textbf{secondaries none}]. This method also adds secondary connected networks to the LSDB unless the secondaries \textbf{none} option is used.\\
+
+				This method provides explicit control for enabling OSPF; however, the configuration is not centralized and increases in complexity as the number of interfaces on the routers increases. If a hybrid configuration exists on a router, interface-specific settings take precedence over the network statement with the assignment of the areas.\\
+			\item Statically Setting the Router ID\\
+				By default, the RID is dynamically allocated using the highest IP address of any up loopback interfaces. If there are no up loopback interfaces, the highest IP address of any active up physical interfaces becomes the RID when the OSPF process initializes.\\
+
+				The OSPF process selects the RID when the OSPF process initializes, and it does not change until the process restarts. Interface changes (such as the addition or removal of IP addresses) on a router are detected when the OSPF process restarts, and the RID changes accordingly. The OSPF topology is built on the RID. Setting a static RID helps with troubleshooting and reduces LSAs when an RID changes in an OSPF environment. The RID is four octets in length and generally represents an IPv4 address that resides on the router for operational simplicity; however, this is not a requirement. The command \textbf{router-id} router-id statically assigns the OSPF RID under the OSPF process.\\
+
+				The EXEC command \textbf{clear ip ospf process} restarts the OSPF process on a router so the OSPF can use the new RID.
+			\item Passive Interfaces\\
+				Enable an interface with OSPF is the quickest way to advertise a network segement to other OSPF routers. However, it might be easy for someone to plug in an unauthorized OSPF router on an OSPF-enabled network segment and introduce false routes, thus causing havoc in the network. Making the network interface passive still adds the network segment into the LSDB but prohibits the interface from forming OSPF adjacencies. A \textbf{passive interface} does not send out OSPF hellos and does not process any received OSPF packets.\\
+
+				The command \textbf{passive-interface default} makes all interfaces passive. To allow for an interface to process OSPF packets, the command \textbf{no passive-interface} interface-id is used.
+
+			\item Requirements for Neighbor Adjacency\\
+				\begin{itemize}
+					\item RIDs must be unique between the two devices. They should be unique across all areas of the entire OSPF routing domain to prevent errors
+					\item The interfaces must share a common subnet. OSPF uses the interface's primary IP address when sending out OSPF hellos. The network mask (netmask) in the hello packet is used to extract the network ID of the hello packet. Network masks on the interfaces must match, except for OSPF point-to-point network type interfaces or virtual links
+					\item The maximum transsion units (MTUs) on the interfaces must match. The OSPF protocol does not support fragmentation, so the MTUs on the interfaces should match
+					\item The area ID must match for the segment
+					\item The DR enablement must match for the segment
+					\item OSPF hello and dead timers must match for the segment
+					\item Authentication type and credentials (if any) must match for the segment
+					\item Area type flags must match for the segment (for example, Stuf, NSSA), (These are not discussed in this book)
+				\end{itemize}
+
+			\item Confirmation of Interfaces\\
+				It is a good practice to verify that the correct interfaces are running OSSPF after making changes to the OSPF configuration. The command \textbf{show ip ospf interface [brief $|$ interface-id]} displays the OSPF-enabled interfaces.
+				OSPF Interface Columns (Field: Description)
+					\begin{itemize}
+						\item Interface: Interfaces with OSPF enabled
+						\item PID: The OSPF process ID associated with this interface
+						\item Area: The area that this interface is associate with
+						\item IP Address/Mask: The IP address and subnet mask (network mask) for the interface
+						\item Cost: The cost metric assigned to an interface that is used to calculate a path metric
+						\item State: The current interface state, which could be DR, BDR, DROTHER, LOOP, or Down
+						\item Nbrs F: The number of neighbor OSPF routers for a segmenet that are fully adjacent
+						\item Nbrs C: The number of neighbor OSPF routers for a segment that have been detected and are in a 2-Way state
+					\end{itemize}
+				NOTE: The DROTHER is a router on the DR-enabled segmenet that is not the DR or the BDR; it is simply the other router. DROTHERs do not establish full adjacency with other DROTHERs
+
+			\item Verification of OSPF Neighbor Adjacencies\\
+				COMMAND: \textbf{show ip ospf neighbor [detail]} ... OSPF Neighbor State Fields (Field : Description)
+				\begin{itemize}
+					\item Neighbor ID: The router ID (RID) of the neighboring router
+					\item PRI: The priority for the neighbor's interface, which is used for DR/BDR elections
+					\item State: The first field is the neighbor state ... The second field is the DR, BDR, or DROTHER role if the interface requires a DR. For non-DR network links, the second field shows just a hyphen (-)
+					\item Dead Time: The time left until the router is declared unreachable
+					\item Address: The primary IP address for the OSPF neighbor
+					\item Interface: The local interface to which the OSPF neighbor is attached
+				\end{itemize}
+
+			\item Verification of OSPF Routes\\
+				The next step is to verify the OSPF routes installed in the IP routing table. OSPF routes that install into the Routing Information Base (RIB) are shown with the command \textbf{show ip route ospf}.
+		\end{itemize}
+
+	\item Default Route Advertisement\\
+		OSPF suuports advertising the default route into the OSPF domain. The default route is advertised by using the command \textbf{default-information [always] [metric \textit{metric-value}]} [\textbf{metric-type} \textit{type-value}] underneath the OSPF process\\
+
+		If a default route does not exist in a routing table, the \textbf{always} optional keyword advertises a default route regardless of whether a default route exists in the RIB or not. In addition, the route metric can be changed with the \textbf{metric} metric-value option, and the metric type can be changed with the \textbf{metric-type} type-value option\\
+	\item Common OSPF Optimizations\\
+		Almost every network requires tuning based on the equipment, technical requirements, or a variety of other factors. The following section explain common concepts involved with the tuning of an OSPF network
+		\begin{itemize}
+			\item Link Costs
+				Interface cost is an essential component of Dijkstra's SPF calculation because the shortest path metric is based on the cumulative interface cost (that is, metric) from the router to the destination. OSPF assigns the OSPF link cost (that is, metric) for an interface by using the formula:
+				\begin{center}
+					$Cost = \frac{Reference Bandwidth}{Interface Bandwidth}$ (the default metric bandwidth is 100 Mbps)
+				\end{center}
+				OSPF Interface Costs Using Default Settings (Interface Type: OSPF Cost)
+				\begin{itemize}
+					\item T1: 64
+					\item Ethernet: 10
+					\item FastEthernet: 1
+					\item GigabitEthernet: 1
+					\item 10 GigabitEthernet: 1
+				\end{itemize}
+				Notice that there is no differentiation in the link cost associated with a FastEthernet interface and a 10 GigabitEthernet interface. Changing the reference bandwidth to a higher value allows for a differentiation of cost between higher-speed interface. Making the value too high could cause issues because low-bandwidth interfaces would not be distinguishable. The OSPF LSA metric field is 16 bits, and the interface cost cannot exceed 65,535.\\
+
+				Under the OSPF process, the command \textbf{auto-cost reference-bandwidth} bandwidth-in-mbps changes the reference bandwidth for all OSPF interfaces associated with that process. If the reference bandwidth is changed on one router, the reference bandwidth should be changed on all OSPF routers to ensure that SPF uses the same logic to prevent routing loops. It is a best practice to set the same reference bandwidth for all OSPF routers.\\
+
+				NOTE: NX-OS uses a default reference cost of 40,000 Mbps. To align with other routers and incorporate higher-speed interfaces, setting the reference bandwidth to 40,000 Mbps could standardize the reference bandwidth across multiple platforms.\\
+
+				The OSPF cost can be set manually with the command \textbf{ip ospf cost} 1-65535 under the interface configuration submode. Wile the interface cost is limited to 65,535 because of LSA field limitations, the path metric can exceed a 16-bit value (65,535) because all the link metrics are calculated locally.
+
+			\item Failure Detection\\
+				A secondary function of the OSPF hello packets is to ensure that adjacent OSPF neighbors are still healthy and available. OSPF sends hello packets at set intervals, based on the hello time. OSPF uses a second timer called the OSPF dead interval time, which defaults to four times the hello timer. Upon receipt of a hello packet from a neighboring router, the OPSF dead timer resets to the initial value and then starts to decrement again.\\
+
+				If a router does not receive a hello before the OSPF dead interval timer reaches 0, the neighbor state is changed to down. The OSPF router immediately sends out the appropriate LSA, reflecting the topology change, and the SPF algorithm processes on all routers within the area.
+
+				\begin{itemize}
+					\item Hello Timer\\
+						The default OSPF hello timer interval varies based on the OSPF network type. OSPF allows modification to the hello timer interval with values between 1 and 65,535 seconds. Changing the hello timer interval modifies the default dead interval too. The OSPF hello timer is modified with the interface configuration submode command \textbf{ip ospf hello-interval} 1-65535 under the interface configuration submode.	
+					\item Dead Interval Timer\\
+						The dead interval timer can be changed to a value between 1 and 65,535 seconds. The OSPF dead interval timer can be changed with the command \textbf{ip ospf dead-interval} 1-65535 under the interface configuration submode.
+					
+					NOTE: Always make sure that the dead interval timer setting is greater than the hello timer setting to ensure that the dead interval timer does not reach 0 in between hello packets
+
+					\item OSPF Timers\\
+						The timers for an OSPF interface are shown with the command \textbf{show ip ospf interface}
+				\end{itemize}
+
+			\item DR Placement
+				The DR and BDR roles for a broadcast network consume CPU and memory on the host routers in order to maintain states with all the other routers for that segement. Placing the DR and BDR roles on routers with adequate resources is recommended.\\
+
+				The following sections explain the DR election process and how the DR role can be assigned to specific hardware.
+				\begin{itemize}
+					\item Designated Router Elections\\
+						The DR/BDR election occurs during OSPF adjacency-specifically during the last phase of 2-Way neighbor state and just before the ExStart state. When a router enters the 2-Way state, it has already received a hello from the neighbor. If the hello packet includes an RID other than 0.0.0.0 for the DR and BDR, the new router assumes that the current routers are the actual DR and BDR.\\
+						Any router with an OSPF priority of 1 to 255 on its OSPF interface attempts to become the DR. By default, all OSPF interfaces use a priority of 1. The routers place their RID and OSPF priorities in their OSPF hellos for that segment.\\
+
+						Routers then receive and examine OSPF hellos from neighboring routers. If a router identifies itself as being a more favorable routers than the OSPF hellos it receives, it continues to send out hellos with its RID and priority listed. If the hello received is more favorable, the router updates its OSPF hello packet to use the more preferable RID in the DR field. OSPF deems a router more preferable if the priority for the interface is the highest for that segment. If the OSPF priority is the same, the higher RID is more favorable.\\
+
+						After all the routers have agreed on the same DR, all routers for that segment become adjacent with the DR. Then the election for the BDR takes place. The election follows the same logic for the DR election, except that the DR does not add its RID to the BDR field of the hello packet.\\
+
+						The OSPF DR and BDR roles cannot be preempted after the DR/BDR election. Only upon the failure (or process restart of the DR or BDR) does the election start to replace the role that is missing.\\
+						NOTE: To ensure that all routers on a segment have fully initialized, OSPF initiates a wait timer when OSPF hello packets do not contain a DR/BDR router for a segment. The default value for the wait timer is the dead interval timer. After the wait timer has expired, a router participates in the DR electio . The wait timer startts when OSPF first sttarts on an interface; so that a router can still elect itsself as the DR for a segment without other OSPF routers, it waits until the wait timer expires.\\
+					
+						The easiest way to determine the interface role is by viewing the OSPF interface with the command \textbf{show ip ospf interface brief}\\
+
+						The neighbo's full adjacency field reflects the number of routers that have become adjacent on that network segment; the neighbors count field is the number of other OSPF routers on that segment. You might assume that all routers will become adjacent with each other, but that would default the purpose of using a DR. Only the DR and BDR become adjacent with routers on a network segment.
+
+					\item DR and BDR Placement\\
+						Modifying a router's RID for DR placement is a bad design strategy. A better technique involves modifying the interface priority to a higher value than the existing DR has. Remeber that OSPF does not preempt the DR or BDR roles, and the OSPF proces might need to be restarted on the current DR/BDR for the changes to take effect.\\
+
+						The priority can be set manually under the interface configuration with the command \textbf{ip ospf priority} 0-255. Setting an interface priority to 0 removes that interface from the DR/BDR election immediately. Raising the priority above the default value (1) makes that interface more favorable compared to interface with the default value.
+				\end{itemize}
+			\item OSPF Network Types
+				Different media can provide different characteristics or might limit the number of nodes allowed on a segment. Frame Relay and Ethernet are common multiple-access media, and because they support more than two nodes on a network segment, the need for a DR exists. Other network circuits, such as serial links (with HDLC or PPP encapsulation), do not require a DR, and having one would just waste router CPU cycles.\\
+					
+				The default OSPF network type is set based on the media used for the connection and can be changed independently of the actual media type used. Cisco's implementation of OSPF considers the various media and provides five OSPF network types\\
+
+				OSPF Network Types (Type : Description: DR/BDR Field in OSPF Hellos : Timers)
+				\begin{itemize}
+					\item Broadcast : Default setting on OSPF-enabled Ethernet links. : Yes : Hello 40, Wait 40, Dead 40
+					\item Non-broadcast : Default setting on OSPF-enabled Frame Relay main interface or Frame Relay multipoint subinterfaces : No : Hello 30, Wait 120, Dead 120
+					\item Point-to-point : Default setting on OSPF-enabled Frame Relay point-to-point subinterfaces : No : Hello 10, Wait 40, Dead 40
+					\item Point-to-multipoint : Not enabled by default on any interface type. Interface is advertised as a host route (\verb|\32|) and sets the next-hop address to the outbound interface. Primarily used for hub-and-spoke topologies : No : Hello 30, Wait 120, Dead 120
+					\item Loopback : Default setting on OSPF-enabled loopback interfaces. Interface is advertised as a host route (\verb|\32|) : N/A : N/A
+				\end{itemize}
+
+				The non-broadcast or point-to-multipoint network types are beyond the scope of the Enterprise Core exam, but the other OSPF network types are explained in the following sections.	
+				\begin{itemize}
+					\item Broadcast\\
+						Broadcast media such as Ethernet are better defined as broadcast multi-access to distinguish them from non-broadcast multi-access (NBMA) networks. Broadcast networks are multiaccess in that they are capable of connecting more than two devices, and broaadcast sent out one interface are capable of reaching all interfaces attached to that segment.\\
+
+						The OSPF network type is set to broadcast by default for Ethernet interfaces. A DR is required for this OSPF network type because of the possibility that multiple nodes can exist on a segment, and LSA flooding needs to be controlled. The hello timer defaults to 10 seconds, as defined in RFC 2328.\\
+
+						The interface parameter command \textbf{ip ospf network broadcast} overrides the automatically configured setting and statically sets an interface as an OSPF broadcast network type.
+					\item Point-to-Point Networks\\
+						A network circuit that allows only two devices to communicate is considered a point-to-point (P2P) network. Because of the nature of the medium, point-to-point networks do not use Address Resolution Protocol (ARP), and broadcast traffic does not become the limiting factor.\\
+
+						The OSPF network type is set to point-to-oiunt by default for serial interfaces (HDLC or PPP encapsulation), generic routing encapsulation (GRE) tunnels, and point-to-point Frame Relay subinterfaces. Only two nodes can exist on this type of network medium, so OSPF does not waste CPU cycles on DR functionality. The hello timer is set to 10 seconds on OSPF point-to-point network types.
+					\item Loopback Networks\\
+						The OSPF network type loopback is enabled by default for loopback interface and can be used only on loopback interfaces. The OSPF loopback network type states that the IP address is always advertised with a \verb|\32| prefix length, even if the IP address configured on the loopback interface does not have a \verb|\32| prefix length.
+				\end{itemize}
+		\end{itemize}
 \end{itemize}
 
 Advanced OSPF
 \begin{itemize}
-	\item
-	\item
-	\item
-	\item
-	\item 
-	\item 
+	\item Areas\\
+		An OSPF area is a logical rouping of routers or, more specifically, a logical grouping of router interfaces. Area membership is set at the interface level, and the area ID is included in the OSPF hello packet. An interface can belong to only one area. All routers within the same OSPF area maintiain an identical copy of the link-state database (LSDB).\\
+
+		An OSPF area grows in size as network links and the number of routers increase in the area. While using a single area simplifies the topology, there are trade offs:
+		\begin{itemize}
+			\item A full shortest path first (SPF) tree calculation runs when a link flaps within the area
+			\item The LSDB increases in size and becomes unmanageable if the network grows because the LSDB will consume more memory, and take longer during the SPF calculation process
+			\item No summarization of route information occurs
+		\end{itemize}
+		Proper design addresses each of this issues by segmenting the OSPF routing domain into multiple OSPF areas, thereby keeping the LSDB to a manageable size. Sizing and design of OSPF networks should account for the hardware constraints of the smallest router in that area.\\
+
+		If a router has interfaces in multiple LSDBs (one for each area). The internal topology of one area is invisible from outside that area. If a topology change occurs (such as a link flap or an additional network being added) within an area, all routers in the same OSPF area calculate the SPF tree again. Routers outside that area do not calculate the full SPF tree again but perform a partial SPF calculation if the metrics have changed or a prefix is removed.\\
+
+		In essence, an OSPF area hides the topology from another area but enables the networks to be visible in otther areas within the OSPF domain. Segmenting the OSPF domain into multiple areas reduces the size of the LSDB for each area, making SPF tree calculations faster, and decreasing LSDB flooding between routers when a link flaps.\\
+
+		Just because a router connects to multiple OSPF areas does not mean the routes from one area will be injected into another area.\\
+
+		Area 0 is a special area called th ebackbone. By design, all areas must connect to Area 0 because OSPF expects all areas to inject routing information into the backbone, and Area 0 advertises the routes into other areas. The backbone design is crucial to preventing routing loops.\\
+
+		\textbf{Area border routers (ABRs)} are OSPF routers connected to Area 0 and another OSPF area, per Cisco definition and according to RFC 3509. ABRs are responsible for advertising routes from one area and injecting them into a different OSPF area. Every ABR needs to participate in Area 0; otherwise, routes will not advertise into another area. ABRs compute an SPF tree for every area that they participate in.
+		\begin{itemize}
+			\item Area ID\\
+				The area ID is a 32-bit field and can be formatted in simple decimal (0 through 4,284,967,295) or dotted decimal (0.0.0.0 through 255.255.255.255). During router configuration, the area can use decimal format on one router and dotted-decimal format on a different router, and the routers can still form an adjacency. OSPF advertises the area ID in dotted-decimal format in the OSPF hello packet.
+			\item OSPF Route Types\\
+				OSPF routes to destination networks within the same area are known as \textbf{intra-area routes.}\\
+
+				OSPF routtes to destination networks from outside the OSPF domain that are injected into the OSPF domain through redistribution are known as external routes. External OSPF routes can come from a different OSPF domain or from a different routing protocol. External OSPF routes are beyond the scope of the CCNP and CCIE Enterprise Core ENCOR 350-401 exam and are not covered.
+		\end{itemize}
+
+	\item Link-State Advertisements\\
+		When OSPF neighbors become adjacent, the LSDBs synchronize between the OSPF routers. As an OSPF router adds or removes a directly connected network link to or from its database, the router floods the link-state advertisement (LSA) out all active OSPF interfaces. The OSPF LSA contains a complete list of networks advertised from that router.\\
+
+		OSPF uses six LSA types for IPv4 routing:
+		\begin{itemize}
+			\item \textbf{Type 1, router LSA}: Advertises the LSAs that originiate within an area
+			\item \textbf{Type 2, network LSA}: Advertises a multi-access network segment attached to a DR
+			\item \textbf{Type 3, summary LSA}: Advertises network prefixes that originated from a different area
+			\item \textbf{Type 4, ASBR summary LSA}: Advertises a summary LSA for a specific ASBR
+			\item \textbf{Type 5, AS external LSA}: Advertises LSAs for routes thatt have been redistributed
+			\item \textbf{Type 7, NSSA external LSA}: Advertises redistributed routes in NSSAs
+		\end{itemize}
+		LSA types 1, 2, and 3, which are used for building the SPF tree for intra-area and inter-area routes, are explained here.\\
+
+		\begin{itemize}
+			\item LSA Sequences
+			\item LSA Age and Flooding
+			\item LSA types
+				\begin{itemize}
+					\item LSA Type 1: Router Link
+					\item LSA Type 2: Network Link
+					\item LSA Type 3: Summary Link
+				\end{itemize}
+		\end{itemize}
+
+	\item Discontiguous Networks\\
+	\item OSPF Path Selection\\
+	\item Summarization of Routes\\
+	\item Route Filtering\\
 \end{itemize}
 
 OSPFv3
