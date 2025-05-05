@@ -1,0 +1,54 @@
+UARK College of Engineering B.S.C.S
+
+(21/40) WOW!
+(course that actually relate to the field, total number of courses)
+conclusion: college must be primarily for socializing
+
+first year (2/11)
+	Introduction to Engineering I
+	Composition I
+	University Chemistry I
+	Calculus I*
+	History of the American People to 1877
+	History of the American People, 1877
+	Introduction to Engineering II
+	Calculus II*	
+	University Physics I
+	A Course to "Satisfy General Education Outcome"
+	Technical Composition II
+
+second year (6/9)
+	Programming Foundations I*
+	Digital Design*
+	Discrete Mathematics*
+	Fine Arts Elective
+	Social Sciences Elective
+	Programming Foundation II*
+	Computer Organization*
+	Linear Algebra*
+	Social Sciences Elective
+
+third year (6/10)
+	Programming Paradigms*
+	Operating Systems*
+	Engineering Probability and Statistics
+	Ethics and the Professions
+	General Elective
+	Software Engineering*
+	Database Management Systems*
+	CSCE Elective*
+	Combinatorics*
+	Public Speaking
+
+fourth year (7/10)
+	Capstone I*
+	Algorithms*
+	Computer Networks*
+	CSCE Elective*
+	General Elective
+	Capstone II*
+	Formal Languages and Computability*
+	CSCE Elective*
+	General Elective
+	Social Sciences Elective
+
