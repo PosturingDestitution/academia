@@ -1,7 +1,7 @@
 UARK College of Engineering B.S.C.S
 
 (21/40) WOW!
-(course that actually relate to the field, total number of courses)
+(course that actually relate to mathematics/CS, total number of courses)
 conclusion: college must be primarily for socializing
 
 first year (2/11)
