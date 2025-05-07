@@ -1,0 +1,37 @@
+1988 Innumeracy: Mathematical illiteracy and its Consequences - John Allen Paulos
+
+"Innumeracy, an inability to deal comfortably with the fundamental notions of number and chance, plagues for too many otherwise knowledgeable cirizens."
+
+real world examples: stock scams, choice of a spouse, newspaper psychics, diet and medical claims, the risk of terrorism, astrology, sports records, elections, sex discriminiation, UFOs, insurance and law, psychoanalysis, parapsychology, lotteries, and drug testing
+
+
+A recent study by Drs. Kronlund and Phillips of the University of Wasshington showed that most doctors' assessments of the risks of various operations, procedures, and medications (even in their own specialties) were way off the mark, often by several orders of magnitude.
+
+SCIENTIFIC NOTATION
+10^n = 1 followed by n zeros	
+	10^4 = 10,000
+	10^-4 = 0.0001
+
+7.39842 * 10^10 is more comprehensible and legible than seventy-tree billion nine hundred and eighty-four million and two hundred thousand
+
+1,000,000 seconds /60/60/24 = 11.574 days
+
+1,000,000,000 seconds /60/60/24 = 11,574 days /365 = 31 years
+
+its a good idea to have common collections of items going up the powers of ten maybe to 10^15
+estimating quantities is a good excersie
+
+how long would it take dump trucks to cart away an isolated mountain, say Japan's Mount Fuji, to ground level? Assume trucks come every fifteen minutes, twenty-four hours a day, are instantaneously filled with mountain dirt and rock, and leave without getting in each other's way.
+
+MULTIPLICATION PRINCIPLE
+	if some choice can be made in M different ways and some subsequent choice can be made in N different ways, then there are M x N different ways these choices can be made in succession
+	from a menu with four appetizers, seven entrees, and three desserts, a diner can design 4 x 7 x 3 = 83 different dinners, assuming he orders each course
+
+	number of outcomes of rolling three dice: 6 x 6 x 6
+	number of outcomes in which the number on the three dice differ: 6 x 5 x 4
+
+	how many ways to arrange 8 world leaders in a photo? 8 x 7 x 6 x 5 x 4 x 3 x 2 x 1 = 40,320
+	in how many of these would president reagan and prime minister thatcher (place them into a bag) be standing next to each other? 
+		these seven entities (6 remaining leaders and the bag their in) can be lined up in 7 x 6 x 5 x 4 x 3 x 2 x 1 = 5,040 
+		but we can pick how to arrange the 2 leaders so 10,080
+

@@ -278,7 +278,7 @@ law of cosines: $ a^2 = b^2+c^2 - 2bc\cos(A) $\\
 
 power functions: $f(x) = x^n$....if even the function behaves symmetrical around the y-axis...if odd then the function has point symmetry ($x^4$, $x^3$, $x^{-n} = \frac{1}{x^n}$)\\
 
-inverse trig functions: $\arcsin(x) = \sin^{-1}(x) = \theta$, $\arccos(x) = \cos^{-1}(x) = \theta$, $\arcsin(x) = \sin^{-1}(x) = \theta$\\
+inverse trig functions: $\arcsin(x) = \sin^{-1}(x) = \theta$, $\arccos(x) = \cos^{-1}(x) = \theta$...etc\\
 
 logs: $\log_ax=y \leftrightarrow a^y = x$, $\ln(x)=y \leftrightarrow e^y=x$\\
 
@@ -310,39 +310,229 @@ differentiation rules:
 		\item$\frac{d}{dx}\log_ax = \frac{1}{(\ln a)x}$
 	\end{enumerate}
 
-Essential Theorems:\\
-	\begin{itemize}
-		\item Intermediate Value Theorem
-		\item Mean Value Theorem
-		\item Extreme Values on a Closed Interval
-		\item The Fundamental Theorem of Calculus, Part I
-		\item Fundamental Theorem of Calculus, Part II
-	\end{itemize}
+
+Essential Theorems:
+\begin{itemize}
+    \item \textbf{Intermediate Value Theorem (IVT):} Guarantees that a continuous function takes every value between \( f(a) \) and \( f(b) \) at some point in the interval \([a, b]\).
+    \item \textbf{Mean Value Theorem (MVT):} States that for a continuous and differentiable function, there is at least one point where the instantaneous rate of change equals the average rate of change over the interval.
+    \item \textbf{Extreme Value Theorem:} Guarantees that a continuous function on a closed interval attains a maximum and minimum value.
+    \item \textbf{Fundamental Theorem of Calculus:}
+    \begin{enumerate}
+        \item \textbf{First Part:} The derivative of the integral of a function is the original function.
+        \item \textbf{Second Part:} The definite integral of a function can be computed using its antiderivative.
+    \end{enumerate}
+\end{itemize}
 
 \newpage
-\section*{review problems}	
+\section*{review problems}
 
-verifying trigonometric identities\\
-solving trigonometric equations\\
+verifying trigonometric identities:
+	\begin{enumerate}
+		\item $\frac{1 + \sin(x)}{\cos(x)} + \frac{1 - \sin(x)}{\cos(x)} = 2\sec(x)$
+		\item $\frac{\sin(x)}{1 + \cos(x)} + \frac{\sin(x)}{1 - \cos(x)} = \frac{2\sin(x)}{1 - \cos^2(x)}$
+		\item $\frac{\tan(x) + \cot(x)}{\sec(x) + \csc(x)} = \sin(x)\cos(x)$
+		\item $\frac{\sin(x) - \cos(x)}{\sin(x) + \cos(x)} = \frac{1 - \tan(x)}{1 + \tan(x)}$
+		\item $\frac{1 - \cos(2x)}{2\sin(x)\cos(x)} = \tan(x)$
+	\end{enumerate}
 
-direct substitution\\
-indeterminate forms and algebraic simplification\\
-trigonometic limits\\
-piecewise functions\\
-infinite limits and vertical asymptotes\\
+solving trigonometric equations:\\
+bounded:
+\begin{enumerate}
+	\item $ \sin(x) = \frac{1}{2} \quad \text{for } 0 \leq x < 2\pi $  
+	\item $ 2\cos(x) - 1 = 0 \quad \text{for } 0 \leq x < 2\pi $ 
+	\item $ \sin^2(x) - \sin(x) = 0 \quad \text{for } 0 \leq x < 2\pi $ 
+	\item $ 2\cos^2(x) - 3\cos(x) + 1 = 0 \quad \text{for } 0 \leq x < 2\pi $ 
+	\item $ \sin(x)\cos(x) = \frac{1}{2} \quad \text{for } 0 \leq x < 2\pi $ 
+	\item $ \tan(x) + \cot(x) = 2 \quad \text{for } 0 < x < \pi $ 
+	\item $ 1 - 2\sin^2(x) = \cos(2x) \quad \text{for } 0 \leq x < 2\pi $ 
+	\item $ \sec(x) = 2 \quad \text{for } 0 \leq x < 2\pi $ 
+	\item $ \sin(2x) = \sqrt{3}\cos(x) \quad \text{for } 0 \leq x < 2\pi $
+	\item $ \tan^2(x) = 3 \quad \text{for } 0 \leq x < 2\pi $
+\end{enumerate}
+unbounded:
+\begin{enumerate}
+  \item $\sin(x)=\frac{1}{2}$
+  \item $\cos(x)=-\frac{\sqrt{2}}{2}$
+  \item $\tan(x)=\sqrt{3}$
+  \item $2\sin(x)-1=0$
+  \item $\cos^2(x)=\frac{1}{4}$
+  \item $\sec(x)=-2$
+  \item $\tan^2(x)=1$
+  \item $\cot(x)+1=0$
+  \item $\sin(2x)=0$
+  \item $\cos(3x)=1$
+\end{enumerate}
 
-squeeze theorem\\
-epsilon-delta\\
+direct substitution:
+\begin{enumerate}
+	\item $\lim_{x \to 3} \left( 2x^2 - 5x + 4 \right)$
+	\item $\lim_{x \to 0} \left( \frac{3x^2 + 2x - 1}{x + 2} \right)$
+        \item $\lim_{x \to -1} \left( 4x^3 - 2x + 6 \right)$
+	\item $\lim_{x \to 2} \left( \frac{x^2 - 4}{x - 2} \right)$
+	\item $\lim_{x \to 1} \left( 3x^3 - 2x + 5 \right)$
+	\item $\lim_{x \to 0} \left( \frac{5x^2 + 3x}{x^2 + 2x + 1} \right)$
+	\item $\lim_{x \to 4} \left( \sqrt{x} - 2 \right)$
+	\item $\lim_{x \to 0} \left( \frac{x^3 + 2x}{x^2 - 3x + 2} \right)$
+	\item $\lim_{x \to 1} \left( \frac{x^2 + x - 2}{x - 1} \right)$
+	\item $\lim_{x \to -3} \left( \frac{2x + 1}{x^2 + 5x + 6} \right)$
+\end{enumerate}
 
-basic polynomial differentiation\\
-implicit differentiation\\
-higher-order derivatives\\
-applications of derivatives (tangent line equations, critical points, motion problems, related rates)\\
+indeterminate forms and algebraic simplification
+\begin{enumerate}
+        \item $\lim_{x \to 2} \frac{x^2 - 4}{x - 2}$
+        \item $\lim_{x \to 0} \frac{\sin(x)}{x}$
+        \item $\lim_{x \to 0} \frac{e^x - 1}{x}$
+        \item $\lim_{x \to 0} \frac{1 - \cos(x)}{x^2}$
+        \item $\lim_{x \to 0} \frac{x^2 + 3x}{x}$
+        \item $\lim_{x \to 1} \frac{x^3 - 1}{x - 1}$
+        \item $\lim_{x \to \infty} \frac{1}{x}$
+        \item $\lim_{x \to 0} \frac{\ln(x)}{x}$
+        \item $\lim_{x \to 0} \frac{x^2 + 2x - 3}{x^2 - 1}$
+        \item $\lim_{x \to 0} \frac{x^3 + x}{x^2 - 1}$
+\end{enumerate}
 
-basic antiderivatives\\
-u-sub (reverse chain rule)\\
-trig integrals\\
+trigonometic limits:
+\begin{enumerate}
+        \item $\lim_{x \to 0} \frac{\sin(x)}{x}$
+        \item $\lim_{x \to 0} \frac{1 - \cos(x)}{x^2}$
+        \item $\lim_{x \to 0} \frac{\tan(x)}{x}$
+        \item $\lim_{x \to 0} \frac{\sin(3x)}{x}$
+        \item $\lim_{x \to 0} \frac{1 - \cos(2x)}{x^2}$
+        \item $\lim_{x \to 0} \frac{\sin(x) - \sin(2x)}{x}$
+        \item $\lim_{x \to \infty} \frac{\sin(x)}{x}$
+        \item $\lim_{x \to 0} \frac{\cos(x) - 1}{x^2}$
+        \item $\lim_{x \to 0} \frac{\sin(x)}{x^3}$
+        \item $\lim_{x \to 0} \frac{\tan(2x)}{x}$
+\end{enumerate}
 
-partial fractions\\
-applications (area under curves, average value of a function, volume by disks/washers/shells, accumulation problems)\\
+piecewise functions:
+\begin{enumerate}
+        \item $\lim_{x \to 0} \left\{ \begin{array}{ll} 
+        \sin(x) & \text{if } x \geq 0 \\
+        -\sin(x) & \text{if } x < 0 \end{array} \right.$
+        \item $\lim_{x \to 0} \left\{ \begin{array}{ll} 
+        \frac{x^2 - 4}{x - 2} & \text{if } x \neq 2 \\
+        4 & \text{if } x = 2 \end{array} \right.$
+        \item $\lim_{x \to 0} \left\{ \begin{array}{ll} 
+        \frac{\sin(x)}{x} & \text{if } x \neq 0 \\
+        1 & \text{if } x = 0 \end{array} \right.$
+        \item $\lim_{x \to \pi} \left\{ \begin{array}{ll} 
+        \cos(x) & \text{if } x < \pi \\
+        \sin(x) & \text{if } x \geq \pi \end{array} \right.$
+        \item $\lim_{x \to 0} \left\{ \begin{array}{ll} 
+        \frac{\sin(2x)}{x} & \text{if } x \neq 0 \\
+        0 & \text{if } x = 0 \end{array} \right.$
+        \item $\lim_{x \to 0} \left\{ \begin{array}{ll} 
+        \frac{1 - \cos(x)}{x} & \text{if } x \neq 0 \\
+        0 & \text{if } x = 0 \end{array} \right.$
+        \item $\lim_{x \to 0} \left\{ \begin{array}{ll} 
+        \tan(x) & \text{if } x \geq 0 \\
+        -\tan(x) & \text{if } x < 0 \end{array} \right.$
+        \item $\lim_{x \to 0} \left\{ \begin{array}{ll} 
+        \frac{\sin(x) - \sin(2x)}{x} & \text{if } x \neq 0 \\
+        0 & \text{if } x = 0 \end{array} \right.$
+        \item $\lim_{x \to 0} \left\{ \begin{array}{ll} 
+        \frac{\sin(3x)}{x} & \text{if } x \neq 0 \\
+        3 & \text{if } x = 0 \end{array} \right.$
+        \item $\lim_{x \to 0} \left\{ \begin{array}{ll} 
+        \frac{x^2}{\sin(x)} & \text{if } x \neq 0 \\
+        0 & \text{if } x = 0 \end{array} \right.$
+\end{enumerate}
+
+infinite limits and vertical asymptotes:
+\begin{enumerate}
+        \item $\lim_{x \to 0^+} \frac{1}{x}$
+        \item $\lim_{x \to 0^-} \frac{1}{x}$
+        \item $\lim_{x \to \infty} \frac{1}{x^2}$
+        \item $\lim_{x \to 0} \frac{1}{x^2}$
+        \item $\lim_{x \to 2^+} \frac{1}{x-2}$
+        \item $\lim_{x \to -2^-} \frac{1}{x+2}$
+        \item $\lim_{x \to 0^+} \frac{\ln(x)}{x}$
+        \item $\lim_{x \to \infty} \frac{x^2}{x+1}$
+        \item $\lim_{x \to 3} \frac{1}{(x-3)^2}$
+        \item $\lim_{x \to 1} \frac{1}{x-1}$
+\end{enumerate}
+
+squeeze theorem:
+\begin{enumerate}
+        \item If $0 \leq x \leq 1$, show that $\lim_{x \to 0} x^2 \cos\left(\frac{1}{x}\right) = 0$
+        \item Show that $\lim_{x \to 0} \frac{\sin(x)}{x} = 1$ using the Squeeze Theorem
+        \item If $0 \leq x \leq 1$, show that $\lim_{x \to 0} x \sin\left(\frac{1}{x}\right) = 0$
+        \item Show that $\lim_{x \to 0} x^2 \sin\left(\frac{1}{x}\right) = 0$ using the Squeeze Theorem
+        \item Use the Squeeze Theorem to show that $\lim_{x \to 0} x^3 \cos(x) = 0$
+        \item Show that $\lim_{x \to 0} \frac{x^2 \cos(x)}{\sin(x)} = 0$ using the Squeeze Theorem
+        \item Use the Squeeze Theorem to show that $\lim_{x \to 0} \frac{x^2 \sin\left(\frac{1}{x}\right)}{x} = 0$
+        \item Show that $\lim_{x \to 0} \frac{\cos(x)}{x^2} = \infty$ using the Squeeze Theorem
+        \item Show that $\lim_{x \to 0} x^2 \cos(x) \sin\left(\frac{1}{x}\right) = 0$ using the Squeeze Theorem
+        \item Use the Squeeze Theorem to show that $\lim_{x \to 0} \frac{x \sin(x)}{x^2 + 1} = 0$
+\end{enumerate}
+
+epsilon-delta:
+\begin{enumerate}
+        \item Prove that $\lim_{x \to 2} (3x + 1) = 7$ using the epsilon-delta definition of a limit.
+        \item Prove that $\lim_{x \to 0} \frac{x^2}{x + 3} = 0$ using the epsilon-delta definition.
+        \item Prove that $\lim_{x \to 1} (x^2 - 1) = 0$ using the epsilon-delta definition of a limit.
+        \item Prove that $\lim_{x \to 3} \frac{x^2 - 9}{x - 3} = 6$ using the epsilon-delta definition of a limit.
+        \item Prove that $\lim_{x \to 0} \sin(x) = 0$ using the epsilon-delta definition.
+        \item Prove that $\lim_{x \to 0} \frac{1}{x^2 + 1} = 1$ using the epsilon-delta definition.
+        \item Prove that $\lim_{x \to 2} \frac{x^2 - 4}{x - 2} = 4$ using the epsilon-delta definition.
+        \item Prove that $\lim_{x \to 0} \frac{1}{x + 1} = 1$ using the epsilon-delta definition.
+        \item Prove that $\lim_{x \to 2} \frac{3x^2 + 1}{x - 1} = \infty$ using the epsilon-delta definition.
+        \item Prove that $\lim_{x \to 1} (x^3 - 1) = 0$ using the epsilon-delta definition of a limit.
+\end{enumerate}
+
+basic polynomial differentiation:
+\begin{enumerate}
+        \item Differentiate $f(x) = 3x^4 + 5x^3 - 2x + 7$
+        \item Differentiate $f(x) = 4x^5 - x^2 + 6x - 3$
+        \item Differentiate $f(x) = x^6 + 2x^4 - 3x^2 + x - 8$
+        \item Differentiate $f(x) = 5x^3 - 4x^2 + 7x + 1$
+        \item Differentiate $f(x) = 2x^5 - x^3 + x - 9$
+        \item Differentiate $f(x) = 3x^2 - 2x + 4$
+        \item Differentiate $f(x) = x^7 - 5x^3 + 2x^2 - x + 6$
+        \item Differentiate $f(x) = 6x^4 - 3x^3 + 2x^2 + x - 5$
+        \item Differentiate $f(x) = 2x^8 - x^6 + 4x^2 - 3$
+        \item Differentiate $f(x) = 9x^5 - 7x^4 + 3x^2 + 2x + 1$
+\end{enumerate}
+
+implicit differentiation:
+\begin{enumerate}
+        \item Differentiate $x^2 + y^2 = 25$
+        \item Differentiate $x^3 + y^3 = 6xy$
+        \item Differentiate $x^2y + y^2 = 10$
+        \item Differentiate $x^2 + 2xy + y^2 = 7$
+        \item Differentiate $x^3 + y^3 = 3xy$
+        \item Differentiate $x^2y^2 + 3x = 5$
+        \item Differentiate $x^2 + y^2 = x + y$
+        \item Differentiate $x^3 + y^3 = 6x + 2y$
+        \item Differentiate $xy = x + y$
+        \item Differentiate $x^2 - 3xy + y^2 = 10$
+\end{enumerate}
+
+higher-order derivatives:
+\begin{enumerate}
+        \item Find the second derivative of $f(x) = 3x^4 - 5x^2 + 2x - 7$
+        \item Find the third derivative of $f(x) = x^5 - 3x^3 + 4x^2 - 6$
+        \item Find the second derivative of $f(x) = \sin(x) + \cos(x)$
+        \item Find the first and second derivatives of $f(x) = e^{2x} \cos(x)$
+        \item Find the third derivative of $f(x) = 4x^3 + 3x^2 - 2x + 5$
+        \item Find the first and second derivatives of $f(x) = \ln(x^2 + 1)$
+        \item Find the second derivative of $f(x) = \tan(x)$
+        \item Find the fourth derivative of $f(x) = 7x^4 - 6x^2 + x - 3$
+        \item Find the second derivative of $f(x) = \frac{x^3}{x^2 + 1}$
+        \item Find the third derivative of $f(x) = x^4 \ln(x)$
+\end{enumerate}
+
+applications of derivatives (tangent line equations, critical points, motion problems, related rates):
+
+basic antiderivatives:
+
+u-sub (reverse chain rule):
+
+trig integrals:
+
+partial fractions:
+
+applications (area under curves, average value of a function, volume by disks/washers/shells, accumulation problems):
+
 \end{document}
