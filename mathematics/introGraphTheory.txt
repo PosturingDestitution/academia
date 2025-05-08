@@ -1,0 +1,8 @@
+1. pure mathematics
+2. graphs
+3. planar graphs
+4. euler's formula
+5. platonic graphs
+6. coloring
+7. the genus of a graph
+8. euler walks and hamilton walks

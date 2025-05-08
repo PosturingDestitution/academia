@@ -10,27 +10,4 @@ what are probability distributions?
 		exponential
 		log-normal
 		pareto
--------------------
-
-how is traffic distributed over time?
-
-poisson distribution
-	models the number of events (e.g., packets, requests) happening in a fixed interval of time or space. its often used to model rare events that occur independently of each other.
-	if you are measuring the number of HTTP requests arriving at a server in a fixed time interval, the number of requests could follow a poisson distribution if requests arrive independently of each other at a constant average rate.
-
-
-exponential distribution
-
-
-log-normal distribution
-
-
-pareto distribution
-
-
-gaussian distribution
-
-
-self-similar and long-range dependent traffic
-
 
