@@ -1,0 +1,24 @@
+GNS3 download
+	1. install python and the required emulation and gui packages
+	2. use pipx to install gns3
+	3. in order to launch you need to prepare the virtual environment. inject the GNS server and QT elements
+
+GNS3 is not just a simulator... it is an emulator
+	1. real firmware/images are run inside virtual machines or containers
+	2. these are networked together in a graphical interface where you can create and connect devices like in real lab 
+	3. support for QEMU/KVM VMs, docker containers, VirtualBox  VMs, Real network integration (tapping into your own NIC)
+
+GNS3 components
+	GUI
+	VM
+	QEMU
+	Dynamips
+	Docker
+
+Why is GNS3 so complex to set up
+	1. multiple components
+	2. third-part images
+	3. resource intensive
+	4. permissions and networking
+	5. cross-platform challenges
+
