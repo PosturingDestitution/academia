@@ -1,0 +1,73 @@
+\documentclass{article} 
+\usepackage{amsmath}
+\setlength{\parindent}{0pt}
+
+\usepackage{graphicx}
+\usepackage[a4paper, left=1.5in, right=1.5in, top=1.5in, bottom=1.5in]{geometry}
+\begin{document}
+
+\title{Linear Algebra}
+\author{alexander}
+\maketitle
+
+\begin{enumerate}
+	\item Linear Equations and Vectors
+	\item Matrices and Linear Transformation
+	\item Determinates and Eigenvectors
+	\item General Vector Spaces
+	\item Coordinate Representations
+	\item Inner Product Spaces
+	\item Numerical Methods
+	\item Linear Programming
+\end{enumerate}
+
+linear algebra is a branch of mathematics that deals with the study of vector spaces, linear transformations, and systems of linear equations. it provides a framework for describing and analyzing linear relationships between variables\\
+
+	A linear equation in $n$ variables $x_1,x_2,x_3,\ldots,x_n$: $a_1x_1 + a_2x_2 + a_3x_3 + \ldots + a_nx_n = b$ where the coefficients $a_1,a_2,\ldots,a_n$ and b are constants. The following is a system of linear equations: 	
+	\begin{align*}
+		x_1 + x_2 + x_3 &= 2\\
+		2x_1 +3x_2 + x_3 &= 3\\
+		x_1 - x_2 - 2x_3 &= -6	
+	\end{align*}	
+
+	NOTE TO SELF: 1. three equations... so you are going to have three geometrical objects 2. three variables... those objects are going to be embedded in a three dimensional space ... 3. I cannot necessarily formulate the words here but observe the following...:
+		\begin{itemize}
+			\item equation: $x = a$, space: 1 dimension(s), object(s) 0 dimension(s)
+			\item equation: $ax + by = c$, space: 2 dimension(s), object(s) 1 dimension(s) 
+			\item equation: $ax + by + cz = d$, space: 3 dimension(s), object(s) 2 dimension(s) 
+			\item equation: $a_1x_1 + \ldots + a_nx_n = d$, space: n dimension(s), object(s) n-1 dimension(s) 
+		\end{itemize}
+
+	NOTE TO SELF: remember subsitution? imagine a system with two equations and two unknowns... you solve for one variable in terms of another ... allowing you to have an equation with only one unknown... once a variable is know... you can then use that known variable in an original equation to obtain the remaining unknown variable\\
+
+	As the number of variables increases, a geometrical interpretation os such a system of equations becomes increasingly complex. Each equation will represent a space embedded in a larger space. Solutions will be points that lie on all the embedded spaces.\\
+
+$
+\begin{bmatrix}
+	1 & 2 & 3 & 61\\
+	4 & 5 & 6 & 32\\
+	7 & 8 & 9 & 3
+\end{bmatrix}
+$\\
+
+NOTE TO SELF: size is rows x columns so the size of the matrix above is 3 x 4 and the number 7 is in position row 3 column 1 or (3, 1)
+
+An identity matrix is a square matrix with 1s in the diagonal locations (1,1), (2,2), (3,3), etc., and zeors elsewhere. We write $I_n$ for the n x n identity matrix ... ex.:\\
+
+$
+\begin{bmatrix}
+	1 & 0 & 0\\
+	0 & 1 & 0\\
+	0 & 0 & 1
+\end{bmatrix}
+$\\
+
+
+
+
+
+
+
+
+
+\end{document}
