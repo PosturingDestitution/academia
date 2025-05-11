@@ -24,15 +24,9 @@ code is not compiled into machine code before execution. instead, it is translat
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+learn some basics here: https://www.youtube.com/watch?v=rLyYb7BFgQI 
+classes
+initialisers
+self
+methods
+dunder methods

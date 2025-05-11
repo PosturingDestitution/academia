@@ -1,10 +1,11 @@
-OSI review
+reread CCNA 200-301 document you wrote in 2024*
 
-data-link layer and data-link layer protocols
+review physical layer
+review data-link layer
 
 CSMA/CD
 
-composition of differnet protocol data unit (fields)
+composition of differnet protocol data units
 
 802.1Q (VLAN)
 	native VLAN
@@ -103,7 +104,7 @@ adjacency information base
 
 routing algorithms:
 	distance vector
-	enhanced distane vector
+	enhanced distance vector
 	link-state
 	path vector
 
@@ -127,6 +128,7 @@ EIGRP:
 	feasible successor: a route that satisfies the feasibility condition and is maintained as a backup route. the feasibility condition ensures that the bakup route is loop free
 
 EIGRP packet types
+
 EIGRP metric formulae
 	NOTE: a common misconception is that K values directly apply to a bandwidth, load, delay, or reliability; this is not accurate...for example both k_1 and k_2 both reference bandwidth
 	wide metrics (address the issue of scalability with higher-capacity interfacs)
