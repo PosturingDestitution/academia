@@ -1,20 +1,17 @@
-basic operations
-worst and average complexities
+things to consider:
+	basic operations
+	worst and average complexities
 
 arrays (contiguous, fixed, homogeneous, indexed access)
-	basic operations: access, insert, delete, search, sort
 
 linked lists (non-contiguous, dynamic, each node has a pointer to the next)
-	basic operations: insert, deletion, search, traversal, sorting, reverse	
 
 	singley (points to successor)
 	doubley (points to predecessor and successor)
 
 queue (FIFO)
-	basic operations: enqueue, dequeue, peek, isEmpty
 
 stack (LIFO)
-	basic operations: push, pop, peek, isEmpty
 
 trees (hierarchical, root node, child nodes, no cycles)
 	binary trees
