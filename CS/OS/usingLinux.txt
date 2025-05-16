@@ -1,0 +1,33 @@
+linux modularity(what are some components e.i. desktop environment)
+
+software preferences
+	LXQt
+	vim
+	git
+	latex
+	evince
+
+installing nvidia driver steps
+	1. prepare system (install build tools and kernel headers, disable nouveau driver)
+	2. regenerate initramfs and reboot
+	3. switch to console and stop display manager
+	4. make .run executable and run
+	5. reboot
+	6. verify
+
+optimizing linux for gaming
+	1. kernel optimization
+	2. system tweaks (processes)
+	3. graphics driver
+	4. i/o scheduler
+	5. system resource allocation
+	6. swap management
+	7. game mode
+
+deadlock (game) fixes
+	1. game crashing past menu
+		need to raise "vm.max_map_count"
+	2. shaders loading 0 out of 0 glitch
+		launch option: -no_prewarm_map
+	3. FPS time bomb
+		launch option: LD_PRELOAD=""
