@@ -40,31 +40,76 @@ midpoint between $P_1 = (x_1, y_1)$ and $P_2 = (x_2, y_2)$ is $\bar{P_{1}P_2}$ d
 
 distance: $\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$\\
 
-composite functions\\
+composing new functions\\
+	If $f$ and $g$ are functions, we may construct new functions by forming the sum, difference, product, and quotient functions:\\
+	\begin{itemize}
+		\item $(f + g)(x) = f(x) + g(x)$
+		\item $(f - g)(x) = f(x) - g(x)$
+		\item $(fg)(x) = f(x)g(x)$
+		\item $(\frac{f}{g}(x) = \frac{f(x)}{g(x)})$
+	\end{itemize}
+	We can also multiply functions by constants. A function of the form: $c_1f(x) + c_2g(x)$ is called a \textbf{linear combination}.\\
+	\textbf{Composition} is another important way of constructing new functions. The composition of $f$ and $g$ is the function $f \circ g$ defined by $(f \circ g)(x) = f(g(x))$, defined for values of $x$ in the domain of $g$ such that $g(x)$ lies in the domain of $f$.\\
+	ex. Compute the composite functions $f \circ g$ and $g \circ f$ and discuss their domains where $f(x) = \sqrt{x}$ and $g(x) = 1 - x$\\
+	solution: $(f \circ g)(x) = f(g(x)) = f(1 - x) = \sqrt{1 - x}$ The square root $\sqrt{1 - x}$ is defined if $1 - x \geq 0$ or $x \leq 1$, so the domain of $f \circ g$ is ${x : x \leq 1}$.\\
+	On the other hand, $(g \circ f)(x) = g(f(x)) = g(\sqrt{x}) = 1 - \sqrt{x}$ The domain of $g \circ f$ is ${x : x \geq 0}$.\\
+
 
 invertable functions\\
+	"is this function invertible?" $\Leftrightarrow$ "does an inverse function exist for this function" $\Leftrightarrow$ "is the function one-to-one?" (horizontal line test)
+	\begin{itemize}
+		\item if it is, then the inverse function exists
+		\item if it is not, then the inverse function does not exist, and the function is not invertible (as a function)
+	\end{itemize}
+	consider $f(x) = x^2$ this function is not one-to-one (horizontal line test) this it is not invertable unless you restrict the domain to be $x \geq 0$.\\
+	to find the inverse algeraically you can swap the x's and y's and then solve for y\\
 
-inverse functions\\
+law of sines/cosines proof\\
+
 
 complex numbers\\
+	modulus\\
+	argument\\
+	polar form\\
+
+
+the fundamental theorem of algebra
+
 
 conic sections\\
+	ellipses\\
+	hyperbolas\\
+
+	
+vectors\\
+
+
+matrices\\
+
+
+probability and combinatorics\\
+
+
+series\\
+
+
+
+remainder theorem\\
+
+factor theorem\\
 
 laws of exponents: 
-
 	\begin{itemize}
 		\item $x^mx^n = x^{m+n}$
 		\item $\frac{x^m}{x^n} = x^{m-n}$
 		\item $(x^m)^n = x^{mn}$
 		\item $x^{-n} = \frac{1}{x^n}$
 		\item $(xy)^n = x^ny^n$
-		\item $(\frac{x}{y})^n = \frac{x^n}{y^n}$
-		\item $x^{1/n} = \sqrt[n]{x}$
+		\item $(\frac{x}{y})^n = \frac{x^n}{y^n}$ \item $x^{1/n} = \sqrt[n]{x}$
 		\item $x^{\frac{m}{n}} = \sqrt[n]{x^m} = (\sqrt[n]{x})^m$
 	\end{itemize}
 
-special factorizations
-
+special factorizations:
 	\begin{itemize}
 		\item $x^2 - y^2 = (x + y)(x - y)$
 		\item $x^3 + y^3 = (x + y)(x^2 - xy + y^2)$
@@ -72,7 +117,6 @@ special factorizations
 	\end{itemize}
 
 binomial theorem:
-
 	\begin{itemize}
 		\item $(x + y)^2 = x^2 + 2xy + y^2$
 		\item $(x - y)^2 = x^2 - 2xy + y^2$
@@ -83,7 +127,6 @@ binomial theorem:
 	\end{itemize}
 
 quadratic formulae:
-
 	\begin{enumerate}
 		\item $ax^2 + bx + c = 0$
 		\item $x^2 + \frac{b}{a}x + \frac{c}{a} = 0$
@@ -358,6 +401,22 @@ Essential Theorems:
 
 \newpage
 \section*{review problems}
+
+polynomial long division: repeat 1. divide 2. multiply  3. subtract
+	\begin{enumerate}
+		\item divide $(2x^3+3x^2-5x+6)$ by $(x-2)$
+		\item divide $(x^2+5x+6)$ by $(x+2)$ 
+		\item divide $(2x^3+8x^2+10)$ by $(x-2)$ 
+		\item divide $6x^4-9x^2+18$ by $x-3$ 
+	\end{enumerate}
+
+synthetic division: repeat 1. multiply  2. add
+	\begin{itemize}
+		\item divide $(x^3-2x^2-5x)$ by $(x-3)$
+		\item divide $(x^3+5x^2+7x+2)$ by $(x+2)$ 
+		\item divide $(3x^2+7x-20)$ by $(x+5)$
+		\item divide $(7x^3+6x-8)$ by $(x-4)$ 
+	\end{itemize}
 
 law of sins/cosins:\\
 

@@ -1,0 +1,10 @@
+1. game insta crashing past main menu
+	you need to raise your "vm.max_map_count"
+	cat /proc/sys/vm/max_map_count
+	sudo sysctl -w vm.max_map_count=1048576
+
+2. shaders loading 0 out of 0 
+	-no_prewarm_map
+
+3. FPS time bomb
+	LD_PRELOAD=""
