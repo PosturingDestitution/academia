@@ -1,4 +1,5 @@
 software preferences
+	Liquorix kernel (for gaming)
 	LXQt
 	vim
 	git
