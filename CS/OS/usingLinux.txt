@@ -1,5 +1,4 @@
 software preferences
-	Liquorix kernel (for gaming)
 	LXQt
 	vim
 	git
@@ -15,18 +14,15 @@ installing nvidia driver steps
 	6. verify
 
 optimizing linux for gaming
-	1. kernel optimization
+	1. kernel optimization 
 	2. system tweaks (processes)
+		Feral GameMode
 	3. graphics driver
 	4. i/o scheduler
 	5. system resource allocation
 	6. swap management
-	7. game mode
 
-deadlock (game) fixes
-	1. game crashing past menu
-		need to raise "vm.max_map_count"
-	2. shaders loading 0 out of 0 glitch
-		launch option: -no_prewarm_map
-	3. FPS time bomb (prevents steam recording)
-		launch option: LD_PRELOAD=""
+game launch options:
+	gamemoderun %command%
+	-no_prewarm_map (keeps the "loading shaders 0 out of 0" message from displaying blocking screen
+	LD_PRELOAD="" (stops FPS timebomb from some steam service from attching to game)	
