@@ -1,5 +1,3 @@
-linux modularity(what are some components e.i. desktop environment)
-
 software preferences
 	LXQt
 	vim
@@ -29,5 +27,5 @@ deadlock (game) fixes
 		need to raise "vm.max_map_count"
 	2. shaders loading 0 out of 0 glitch
 		launch option: -no_prewarm_map
-	3. FPS time bomb
+	3. FPS time bomb (prevents steam recording)
 		launch option: LD_PRELOAD=""
