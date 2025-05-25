@@ -1,5 +1,4 @@
 /*
-fflush() 
 */
 
 
@@ -12,14 +11,17 @@ int main(){
 
 	puts("Enter your age: ");
 	scanf("%d", &age);
+	
+	getchar();
 
-	fflush(stdin);
+	// this function sucks: fflush(stdin);
+	while(getchar() != '\n');
 
 	puts("Enter your first name.");
-	scanf("%s", name);
+	scanf(" %s", name); //space here tells scanf to ignore any whitespace characters that might be left behind
 
 	printf("Your age is %d. \n", age);
 	printf("Your name is %s. \n", name);
 
-	return 0
+	return 0;
 }

@@ -66,11 +66,22 @@ invertable functions\\
 
 complex numbers
 	\begin{itemize}
-		\item rectangular form
-		\item polar form
+		\item rectangular form $z = x + yi$
+			where $s$ is the real part and $y$ is the imaginary part, and $i = \sqrt{-1}, i^2 = -1$
+		\item polar form $z = r(\cos(\theta) + i\sin(\theta))$
+			where $r = \sqrt{x^2 + y^2}, \theta = \tan^{-1}(\frac{y}{x})$
+		\item Euler's formula $z = r e^{i \theta}$
 	\end{itemize}
 
 the fundamental theorem of algebra\\	
+Let $p(z)$ be a non-constant polynomial with complex coefficients, i.e.,\\
+$p(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots + a_1 z + a_0,$\\
+where $a_n \neq 0$ and $n \geq 1$. Then, there exists at least one complex number $c \in \mathbb{C}$ such that\\
+$p(c) = 0.$
+
+This theorem says that any polynomial equation — no matter how complicated — always has at least one solution if we allow the solutions to be complex numbers (numbers that can include the square root of negative one). Even if the polynomial doesn’t have any real solutions, it will have complex ones. This means every polynomial can be "broken down" completely into simpler parts based on its roots.\\
+
+rational functions\\
 
 conic sections
 	\begin{itemize}
@@ -123,6 +134,22 @@ laws of exponents:
 		\item $(xy)^n = x^ny^n$
 		\item $(\frac{x}{y})^n = \frac{x^n}{y^n}$ \item $x^{1/n} = \sqrt[n]{x}$
 		\item $x^{\frac{m}{n}} = \sqrt[n]{x^m} = (\sqrt[n]{x})^m$
+	\end{itemize}
+
+exponential and logarithmic functions:
+	\begin{itemize}
+		\item $\log_ax = y \leftrightarrow a^y = x$
+		\item $\ln x = y \leftrightarrow e^y = x$
+		\item $\log_a(xy) = \log_ax + \log_ay$
+		\item $\log_a(a^x) = x$\\$a^{\log_a x} = x$
+		\item $\ln(e^x) = x e^{\ln x} = x$
+		\item $\log_a(\frac{x}{y}) = \log_ax - \log_ay$
+		\item $\log_a1 = 0$\\$\log_aa = 1$
+		\item $\ln1 = 0$\\$\ln e = 1$
+		\item $\log_a(\frac{x}{y}) = \log_ax - \log_ay$
+		\item $\log_a1 = 0$\\$\log_aa = 1$
+		\item $\ln1 = 0$\\$\ln e = 1$
+		\item $\log_a(x^r) = r\log_ax$
 	\end{itemize}
 
 special factorizations:
@@ -379,7 +406,7 @@ differentiation rules:
 		\item$\frac{d}{dx}\cos^{-1}(x) = -\frac{1}{\sqrt(1 - x^2)}$
 		\item$\frac{d}{dx}\tan^{-1}(x) = \frac{1}{1 + x^2}$
 		\item$\frac{d}{dx}(e^x) = e^x$
-		\item$\frac{d}{dx}(a^x) (\ln a)a^x$
+		\item$\frac{d}{dx}(a^x) = (\ln a)a^x$
 		\item$\frac{d}{dx}\ln\mid x\mid = \frac{1}{x}$
 		\item$\frac{d}{dx}\log_ax = \frac{1}{(\ln a)x}$
 	\end{enumerate}
@@ -400,17 +427,52 @@ Essential Theorems:
 \newpage
 \section*{review problems}
 
-factoring trinomials (simple, grouping, completing the sqaure, sum/difference of squares)
+factoring:	
 	\begin{enumerate}
-		\item
+	        \item $x^2 + 5x + 6$
+	        \item $x^2 - 9$
+	        \item $x^2 - x - 12$
+	        \item $3x^2 + 2x - 1$
+	        \item $x^2 + 2x$
+	        \item $x^3 + 3x^2 + 2x + 6$
+	        \item $2x^2 + 7x + 3$
+	        \item $x^3 - 8$
+	        \item $x^3 + 27$
+   		\item $x^2 + 6x + 9$
+       		\item $4x^2 - 12x + 9$
+	        \item $x^2 + 4x + 5$    % Not factorable over integers; good for completing the square
+	        \item $x^2 - 10x + 29$  % Also best solved by completing the square
 	\end{enumerate}
 
-solving general triangles
-	\begin{enumerate}
-		\item
-	\end{enumerate}
+solving triangles:
+\begin{enumerate}
+        \item In triangle $ABC$, $A = 40^\circ$, $B = 65^\circ$, and $c = 12$. Find side $a$.
+        \item In triangle $ABC$, $a = 10$, $b = 14$, and $C = 40^\circ$. Find side $c$ using the Law of Cosines.
+        \item In triangle $ABC$, $a = 7$, $b = 9$, and $c = 10$. Find angle $A$.
+        \item In triangle $ABC$, $A = 50^\circ$, $a = 12$, and $b = 10$. Find angle $B$.
+        \item In triangle $ABC$, $a = 13$, $b = 15$, and $C = 70^\circ$. Find the area of the triangle.
+        \item In triangle $ABC$, $A = 30^\circ$, $B = 45^\circ$, and $c = 18$. Find side $a$ and side $b$.
+        \item In triangle $ABC$, $a = 8$, $b = 11$, and $c = 14$. Find all angles using the Law of Cosines.
+        \item In triangle $ABC$, $A = 110^\circ$, $b = 20$, and $c = 25$. Find side $a$.
+        \item In triangle $ABC$, $a = 16$, $b = 20$, and angle $C = 90^\circ$. Find side $c$ and angles $A$ and $B$. 
+        \item In triangle $ABC$, $a = 9$, $b = 10$, $c = 11$. Find the area using Heron's Formula.
+\end{enumerate}
 
-polynomial long division: repeat 1. divide 2. multiply  3. subtract
+solving triangles (ambiguous case SSA):
+\begin{enumerate}
+        \item Given triangle $ABC$ with $A = 30^\circ$, $a = 10$, and $b = 15$. Determine the number of possible triangles and find all possible solutions.
+        \item In triangle $ABC$, $A = 50^\circ$, $a = 7$, and $b = 10$. Find how many triangles exist and solve for all possible angles and sides.
+        \item For triangle $ABC$, $A = 40^\circ$, $a = 8$, and $b = 5$. Decide the number of triangles possible and solve if applicable.
+        \item Given $A = 60^\circ$, $a = 9$, and $b = 9$. How many triangles can be formed? Find all solutions.
+        \item In triangle $ABC$, $A = 25^\circ$, $a = 4$, and $b = 10$. Determine the possible number of triangles and solve accordingly.
+        \item For triangle $ABC$, $A = 35^\circ$, $a = 12$, and $b = 7$. Analyze the number of triangles and solve.
+        \item In triangle $ABC$, $A = 45^\circ$, $a = 5$, and $b = 6$. Find the number of possible triangles and all possible solutions.
+        \item Given triangle $ABC$ with $A = 20^\circ$, $a = 3$, and $b = 8$. Determine how many triangles can be formed and solve.
+        \item For triangle $ABC$, $A = 70^\circ$, $a = 15$, and $b = 12$. Find the number of possible triangles and solve accordingly.
+        \item In triangle $ABC$, $A = 10^\circ$, $a = 2$, and $b = 5$. Determine the number of triangles possible and solve if any.
+\end{enumerate}
+
+polynomial long division (1. divide 2. multiply  3. subtract 4. repeat):
 	\begin{enumerate}
 		\item divide $(2x^3+3x^2-5x+6)$ by $(x-2)$
 		\item divide $(x^2+5x+6)$ by $(x+2)$ 
@@ -418,7 +480,7 @@ polynomial long division: repeat 1. divide 2. multiply  3. subtract
 		\item divide $6x^4-9x^2+18$ by $x-3$ 
 	\end{enumerate}
 
-synthetic division: repeat 1. multiply  2. add
+synthetic division (1. multiply 2. divide 3. repeat): 
 	\begin{itemize}
 		\item divide $(x^3-2x^2-5x)$ by $(x-3)$
 		\item divide $(x^3+5x^2+7x+2)$ by $(x+2)$ 

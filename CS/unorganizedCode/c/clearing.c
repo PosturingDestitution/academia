@@ -1,6 +1,4 @@
 /*
-	what is the purpose of clearing the buffer?	
-	try entering 23 alexander when program prompts for age
 */
 
 #include <stdio.h>
