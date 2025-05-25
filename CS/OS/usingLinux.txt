@@ -1,9 +1,5 @@
 software preferences
-	LXQt
-	vim
-	git
-	latex
-	evince
+	LXQt, vim, git, LaTeX, evince, Feral GameMode, MangoHud
 
 installing nvidia driver steps
 	1. prepare system (install build tools and kernel headers, disable nouveau driver)
@@ -16,13 +12,10 @@ installing nvidia driver steps
 optimizing linux for gaming
 	1. kernel optimization 
 	2. system tweaks (processes)
-		Feral GameMode
 	3. graphics driver
 	4. i/o scheduler
 	5. system resource allocation
 	6. swap management
 
 game launch options:
-	gamemoderun %command%
-	-no_prewarm_map (keeps the "loading shaders 0 out of 0" message from displaying blocking screen
-	LD_PRELOAD="" (stops FPS timebomb from some steam service from attching to game)	
+	gamemoderun mangohud %command%
