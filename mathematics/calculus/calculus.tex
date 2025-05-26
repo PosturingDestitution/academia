@@ -70,7 +70,7 @@ complex numbers
 			where $s$ is the real part and $y$ is the imaginary part, and $i = \sqrt{-1}, i^2 = -1$
 		\item polar form $z = r(\cos(\theta) + i\sin(\theta))$
 			where $r = \sqrt{x^2 + y^2}, \theta = \tan^{-1}(\frac{y}{x})$
-		\item Euler's formula $z = r e^{i \theta}$
+		\item exponential form $z = r e^{i \theta}$
 	\end{itemize}
 
 the fundamental theorem of algebra\\	
@@ -82,6 +82,20 @@ $p(c) = 0.$
 This theorem says that any polynomial equation — no matter how complicated — always has at least one solution if we allow the solutions to be complex numbers (numbers that can include the square root of negative one). Even if the polynomial doesn’t have any real solutions, it will have complex ones. This means every polynomial can be "broken down" completely into simpler parts based on its roots.\\
 
 rational functions\\
+$f(x) = \frac{P(x)}{Q(x)}$ where $P(x)$ and $Q(x)$ are polynomials\\
+$Q(x) \ne 0$\\
+the domian is all real numbers except for where the denominator is 0\\
+a vertial asymptote occurs where the denominator is zero (and not canceled by a common factor)\\
+holes (removable discontinuities) occur if a factor cancels from both the numerator and denominator\\
+horizontal asmptotes take $n$ to be the degree of the numerator and $m$ to be the degree if the denominator
+	\begin{itemize}
+		\item $n < m$: horizontal asymptote at $y = 0$
+		\item $n = m$: horitzontal asymptote at $\frac{\text{leading coeff. of}P(x)}{\text{leading coeff. of}Q(x)}$
+		\item $n > m$: no horizontal asymptote (however there may be an oblique/slant asymptote instead)
+	\end{itemize}
+slant(oblique) asymptotes occur when $n = m+1$ ... use polynomial division to find slant asymptotes
+the $x$ intercepts occur where the numerator is zero (where does the function = 0)\\
+the $y$ intercept: plug in $x = 0$
 
 conic sections
 	\begin{itemize}
@@ -124,6 +138,8 @@ matrices\\
 probability and combinatorics\\
 
 series\\
+
+limits and continuity revisited\\
 
 laws of exponents: 
 	\begin{itemize}
@@ -547,6 +563,46 @@ unbounded:
   \item $\cot(x)+1=0$
   \item $\sin(2x)=0$
   \item $\cos(3x)=1$
+\end{enumerate}
+
+complex numbers (basic arithmetic operations and graphical manipulation)
+\begin{enumerate}
+    \item Simplify the following expression and write the result in the form $a + bi$: \\
+    $(3 + 2i)(1 - 4i) - (2 - i)^2$
+
+    \item Let $z = 5 - 3i$. Find:
+    \begin{enumerate}
+        \item The complex conjugate of $z$
+        \item The modulus $|z|$
+        \item The multiplicative inverse $\frac{1}{z}$
+    \end{enumerate}
+
+    \item Compute $(1 + i)^8$ and express your answer in the form $a + bi$. \\
+    \textit{Hint: Convert to polar form first.}
+
+    \item Find all cube roots of the complex number $8(\cos(\pi) + i\sin(\pi))$. \\
+    Express your answers in both polar and rectangular form.
+
+    \item Solve the quadratic equation $z^2 + 4z + 13 = 0$ and graph the solutions in the complex plane.
+\end{enumerate}
+
+\begin{enumerate}
+    \setcounter{enumi}{5}
+
+    \item Plot the following complex numbers on the complex plane: \\
+    $A = 3 + 4i$, \quad $B = -2 + i$, \quad $C = 1 - 3i$ \\
+    Also compute and plot: \\
+    $A + B$, \quad $B - C$
+
+    \item Let $z_1 = 2 + 2i$ and $z_2 = -2 + 2i$. Show that the triangle formed by $z_1$, $z_2$, and the origin is a right triangle. Justify your answer algebraically and graphically.
+
+    \item Describe and sketch the locus of points $z$ in the complex plane such that $|z - (2 + i)| = 3$. \\
+    \textit{Hint: This is a circle. State its center and radius.}
+
+    \item Let $z = 4 + 4i$. Rotate $z$ by $90^\circ$ counterclockwise about the origin. Express the rotated point as a complex number and plot both the original and rotated points.
+
+    \item Consider multiplication by $i$. For a general complex number $z = x + yi$, what is the result of $iz$? \\
+    Describe the geometric transformation and illustrate it on the Argand diagram.
 \end{enumerate}
 
 direct substitution:
