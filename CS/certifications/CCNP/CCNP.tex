@@ -1,0 +1,118 @@
+\documentclass{article}
+
+\title{CCNP}
+\author{alexander}
+\date{\today}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\maketitle
+
+\section*{Physical/Data-Link Layer and Basic Access}
+
+CSMA/CD (Carrier Sense Multiple Access with Collision Detection) is a protocol used in half-duplex Ethernet networks, such as the original 10BASE5 Ethernet. Here's how it works:
+	\begin{enumerate}
+		\item Before sending data, the device checks whether the cable is currently in use by listening for any signals on the wire.
+		\item If the line is idle (no signal), the device sends its data.
+		\item While a device is transmitting its data, any other devices that sense the transmission will not attempt to transmit their own data.
+		\item When two or more devices detect each other's transmissions simultaneously and both start sending, they collide.
+	\end{enumerate}
+
+When a collision occurs, the following happens:
+	\begin{itemize}
+		\item The receiving device detects the error (garbled signal) and sends an "idle" sequence back to the transmitter.
+		\item The transmitting device hears this idle sequence and stops transmitting immediately. 
+		\item After a short period of time (called the **jamming signal**), both devices that collided will retransmit their data.
+	\end{itemize}
+This process is repeated until one or more of the colliding devices are successfully transmitted.\\
+
+CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance) is used in full-duplex Ethernet networks, such as 100BASE-TX and 1000BASE-T. Here's how it works:
+	\begin{enumerate}
+		\item Before sending data, the device checks whether the cable is currently in use by listening for any signals on the wire.
+		\item If the line is idle (no signal), the device sends a **request to send (RTS)** signal.
+		\item Upon receiving the RTS signal, the intended recipient responds with a **clear to send (CTS)** signal.
+	\end{enumerate}
+
+This process ensures that there are no collisions before data transmission begins:
+	\begin{itemize}
+		\item The transmitting device will only transmit its data if it receives the CTS signal.
+		\item If a device senses another transmission on the wire while trying to send an RTS or after receiving a CTS, it will wait for the transmission to finish and then reattempt to transmit.
+	\end{itemize}
+CSMA/CA is more efficient than CSMA/CD since devices can avoid collisions by sending RTS signals first.
+
+\section*{Hardware Components (Data Plane)}
+	\begin{itemize}
+		\item Line Cards also known as Line Interface Cards (LICs) or Network Interface Cards (NICs), are modules that connect to the backbone network through an interface, such as Ethernet, fiber optic, or copper cable. Their primary function is to transmit data between devices on the network and the switch itself.
+			Key features of line cards:
+				\begin{itemize}
+					\item **Network connectivity**: Line cards provide a connection point for each device connected to the switch.
+					\item **Packet processing**: They can forward packets from incoming interfaces to outgoing interfaces.
+					\item **Quality of Service (QoS)**: Some line cards support QoS, allowing administrators to prioritize traffic based on various parameters.
+				\end{itemize}
+
+
+
+
+
+		\item Swtich Fabric
+		\item Forwarding Engine
+	\end{itemize}
+
+\section*{Memory for Packet Lookup}
+	\begin{itemize}
+		\item Adjacency Information Base
+		\item Forwarding Information Base
+	\end{itemize}
+
+\section*{Switching Methods (Software Logic for Forwarding)}
+	\begin{itemize}
+		\item Process Switching
+		\item Fast Switching
+		\item CEF
+	\end{itemize}
+
+\section*{Configuration Layer}
+SDM templates
+
+\section*{Switching technologies}
+	\begin{itemize}
+		\item 802.1Q (VLAN tagging)
+		\item 802.1D (STP)
+		\item 802.1W (RSTP)
+		\item 802.1S (MSTP)
+		\item VTP
+		\item DTP
+		\item EtherChannels
+	\end{itemize}
+
+\section*{IPv4 and IPv6 Overview}
+
+\section*{NAT}
+
+\section*{DHCP}
+
+\section*{DNS}
+
+\section*{Static Routing Overview}
+
+\section*{NTP}
+
+\section*{SNMP}
+
+\section*{AAA (TACACS+ and RADIUS)}
+
+\section*{VRF}
+
+\section*{OSPF}
+
+\section*{IGRP/EIGRP}
+
+\section*{BGP}
+
+\section*{Multicast}
+
+\section*{QoS}
+
+\end{document}
