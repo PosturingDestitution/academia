@@ -1,0 +1,96 @@
+\documentclass[parindent=0pt]{article}
+
+\title{ENCOR Study Guide}
+\author{alexander}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{TCP/IP, OSI}
+
+TCP/IP and OSI are frameworks, and protocols can overlap or span multiple layers. In relity, many protocols do not strictly adhere to a single layer, and some functions can be performed at multiple levels.\\
+
+Developed by the International Organization for Standardization (ISO), the OSI model is a 
+7-layered framework that describes how data is transmitted over a network.	
+	\begin{enumerate}
+		\item Physical
+		\item Data Link
+		\item Network
+		\item Transport
+		\item Session
+		\item Presentation
+		\item Application
+	\end{enumerate}
+
+Developed by Vint Cerf and Bob Kahn, the TCP/IP model is a 4-layered framework that is commonly 
+used in modern networking.
+	\begin{enumerate}
+		\item Network Access
+		\item Internet
+		\item Transport
+		\item Application
+	\end{enumerate}
+
+
+\section*{data link layer and collisions}
+The Data Link Layer (DLL) in the OSI model is often divided into two sub-layers. Media Access Control (MAC) is responsible for controlling access to the network medium, such as a cable or wireless channel. Logical Link Control (LLC) manages data transfer between devices on the same network. Keep in mind that while the MAC/LLC layering is commonly used, some protocols may not adhere strictly to these sub-layers.\\
+
+key functions of the MAC layer include:
+	\begin{itemize}
+		\item addressing: assigns and manages MAC address for devices
+		\item frame format: defines the structure and formatting of data frames transmitted over the network medium
+		\item access control: regulates access to the shared network medium, using protocols like CSMA/CD or CSMA/CA
+	\end{itemize}
+
+key functions of the LLC layer include:
+	\begin{itemize}
+		\item frame delimiting: ensures that frames are properly bounded and separated from one another
+		\item error detection and correction: uses protocols like HDLC or SDLC
+		\item flow control: regulates the rate at which data is transmitted between devices
+	\end{itemize}
+
+When two or more devices transmit data at the same time (in a half-duplex environment), they can cause a collisions. This occurs when the signals from both devices overlap creating an unpredicatable and potentiall corrupted transmission. Device may retransmit the data, wasting bandwidth and increasing latency.\\ 
+
+In a half-duplex system, devices can either send or receive data at any given time but cannot do both simulataneously. This means the device must wait for its turn to transmit data after it has received some.\\
+
+In a full-duplex system, devices can simultaneously transmit and receive data. This allows for two-way real-time communication without any need to switch between modes or operation.\\
+
+The concept of simultaneous communication in full-duplex networks is slightly misleading. In reality, even in bidirectional transmission scenarios:
+	\begin{itemize}
+		\item The transmitter (TX) sends data on the forward path while listening for incoming data (RX).
+		\item At the same time, the receiver listens to the forward path and transmits its response back to the original sender.
+	\end{itemize}
+
+This process appears as simultaneous because the TX and RX operations are happening in parallel. However, from a CSMA/CD perspective, only one device is actively using the medium at any given moment (either sending or receiving data).\\
+
+CSMA/CD effectively manages shared media access by ensuring that only one device can transmit data at a time. The protocol ensures efficient use of bandwidth and prevents collisions in multi-device networks.\\
+
+An Ethernet segment is a common example of a collision domain. When multiple devices are connected to an Ethernet hub or switch, they share the same bandwidth and can collide with each other.\\
+
+In wireless networks, a collision domain can occur when multiple devices transmit data at the same time, causing interference that affects the entire network.\\
+
+A hub is a simple, passive device that connects multiple devices to a network by repeating incoming signals to all connected ports. It does not analyze or filter traffic; instead, it simply amplifies the signal to ensure it reaches all connected devices.\\
+
+A MAC address is a unique identifier assigned to each network interface controller (NIC). The MAC address format is defined by the IEEE. The standard format consists of six pairs of hexadecimal digits, separated by colons or hyphens. Each pair represents a byte in the 48-bit MAC address. The first three bytes (Organizationally Unique Identifier) identify the manufacturer of the NIC. The last three bytes are assigned by the manufacturer and uniquely identify each device. The MAC address is usually stored in non-volatile memory, such as ROM or flash, within the NIC. A BIA, also known as a "Permanent Address" or "Pre-programmed Address", is a specific type of MAC address that is permanently assigned to a device during manufacturing. The BIA is usually etched into the NIC's firmware.\\
+
+A switch is a more intelligent device than a hub, as it can analyze incoming traffic and forward packets only to the inteded destination. Switches use MAC addresses to identify the source and destination of each packet\\
+
+
+
+\section*{VLANs (802.1Q)}
+\section*{Content Addressable Memory}
+\section*{ARP}
+\section*{Routers and the Encapsulation Process}
+\section*{RIB}
+\section*{Routed Subinterfaces, SVIs, Routed Switch Ports}
+\section*{Process Switching, CEF, TCAM, Centralized/Distributed Forwarding}
+\section*{SDM Templates}
+\section*{STP}
+\section*{RSTP}
+\section*{MSTP}
+\section*{STP Protection Mechanisms}
+\section*{VTP/DTP}
+\section*{Ethernchannel Bundles}
+
+\end{document}
