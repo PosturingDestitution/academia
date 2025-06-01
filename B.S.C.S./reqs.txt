@@ -3,17 +3,17 @@ UARK College of Engineering B.S.C.S
 https://engineering.uark.edu/electrical-engineering-computer-science/undergraduate.php
 
 questions:
-	what is the fastest route to graduation? courses over winter/spring summer?
+	what clubs are offered?
 
-	am i able to test out of first year mathematics entirely (derivative and integral calculus)?
+	what is the fastest route to graduation? courses over winter/spring/summer?
+
+	am i able to test out of first year mathematics entirely (derivative and integral calculus) or am i only able to test into first year mathematics?
 
 	how many units do i need for the B.S.C.S.?
 		(30 + 28 + 30 + 31) = 119 so why does that ^ website say 122? 
 
 	how many courses will i actually enjoy?
-		there are 40 courses and 22 of them actually seem relavant to maths/cs so college has to just be one big socializing/networking event	
-	
-	how do i know what upcoming assignments are soon to be due (apart from actually sitting in class)? because their system was terrible last time i was here and some teachers just do NOT care
+		there are 40 courses and 22 of them actually seem relavant to maths/cs so college has to just be one big socializing/networking event		
 
 Requirements for Computer Science B.S.C.S.:
 FIRST YEAR (10 classes, 30 units)

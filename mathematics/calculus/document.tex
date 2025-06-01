@@ -1,0 +1,340 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setlength{\parindent}{0pt}
+
+\usepackage{graphicx}
+\usepackage[a4paper, left=1.5in, right=1.5in, top=1.5in, bottom=1.5in]{geometry}
+\usepackage{xcolor}
+
+\usepackage{pgfplots}
+\usetikzlibrary{intersections,angles,quotes}
+\usepgfplotslibrary{fillbetween}
+
+\title{calculus review document}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{introduction}
+
+\textbf{laws of exponents:} 
+	\begin{itemize}
+		\item $x^mx^n = x^{m+n}$
+		\item $\frac{x^m}{x^n} = x^{m-n}$
+		\item $(x^m)^n = x^{mn}$
+		\item $x^{-n} = \frac{1}{x^n}$
+		\item $(xy)^n = x^ny^n$
+		\item $(\frac{x}{y})^n = \frac{x^n}{y^n}$ \item $x^{1/n} = \sqrt[n]{x}$
+		\item $x^{\frac{m}{n}} = \sqrt[n]{x^m} = (\sqrt[n]{x})^m$
+	\end{itemize}
+
+\textbf{exponential and logarithmic functions:}
+	\begin{itemize}
+		\item $\log_ax = y \leftrightarrow a^y = x$
+		\item $\ln x = y \leftrightarrow e^y = x$
+		\item $\log_a(xy) = \log_ax + \log_ay$
+		\item $\log_a(a^x) = x$
+		\item $a^{\log_a x} = x$
+		\item $\ln(e^x) = x e^{\ln x} = x$
+		\item $\log_a(\frac{x}{y}) = \log_ax - \log_ay$
+		\item $\log_a1 = 0$
+		\item $\log_aa = 1$
+		\item $\ln1 = 0$
+		\item $\ln e = 1$
+		\item $\log_a(\frac{x}{y}) = \log_ax - \log_ay$
+		\item $\log_a1 = 0$
+		\item $\log_aa = 1$
+		\item $\ln1 = 0$
+		\item $\ln e = 1$
+		\item $\log_a(x^r) = r\log_ax$
+	\end{itemize}
+
+\textbf{special factorizations:}
+	\begin{itemize}
+		\item $x^2 - y^2 = (x + y)(x - y)$
+		\item $x^3 + y^3 = (x + y)(x^2 - xy + y^2)$
+		\item $x^3 - y^3 = (x - y)(x^2 + xy + y^2)$
+	\end{itemize}
+
+\textbf{polynomials}
+ $a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0$ where n is non-negative and represents the degree\\
+domain: set of all input values for which the function is defined\\
+range: set of all possible output values of the function\\
+continuity: most algebaic functions are continuous (no breaks of jumps), but rational functions have discontinuities at points\\
+behavior: the functions behavior is influenced by the degree of the polynomial and the nature of the function\\
+vertical scaling: $y = kf(x)$: If $k \geq 1$, the graph is expanded vertically by the factor $k$. If $0 < k < 1$, the graph is compressed vertically. When the scale factor $k$ is negative $(k < 0)$, the graph is also reflected across the x-axis.
+horizontal scaling: $y = f(kx)$: If $K \geq 1$, the graph is compressed in the horizontal direction. If $0 < k < 1$, the graph is expanded. If $k \leq 0$, then the graph is also reflected across the y-axis.
+
+$\lvert a\rvert = \lvert -a\rvert$, $\lvert ab\rvert = \lvert a\rvert\lvert b\rvert$\\
+The \textbf{distance} between two real numbers $a$ and $b$ is $\lvert b - a \rvert$, which is the length of the line segment joining $a$ and $b$.\\
+Two real numbers $a$ and $b$ are close to each other if $\lvert b - a\rvert$ is small, and this is the case if their decimal expansions agree to many places. More precisely, \textit{if the decimal expansions of a and b agree to k places (to the right of the decimal point), then the distance $\lvert b - a\rvert$ is at most $10^-k$. Thus, the distance between a = 3.1415 and b = 3.1478 is at most $10^{-2}$ because a and b agree to two places. In fact, the distance is exactly $\lvert3.1415 - 3.1478\rvert = 0.0063$.}\\
+Beware that $\lvert a + b\rvert$ is not equal to $\lvert a\rvert + \lvert b\rvert$ unless $a$ and $b$ have the same sign or at least one of $a$ and $b$ is zero. If they have opposite sins, cancellation occurs in the sum $a + b$ and $\lvert a+b\rvert < \lvert a\rvert + \lvert b\rvert$. For example, $\lvert 2 + 5\rvert = \lvert2\rvert + \lvert5\rvert$ but $\lvert-2 + 5\rvert = 3$, which is less than $\lvert-2\rvert + \lvert5\rvert = 7$. In any case, $\lvert a + b\rvert$ is never larger than $\lvert a\rvert + \lvert b\rvert$ and this gives us the simple but important \textbf{triangle inequality}: $\lvert a + b\rvert \leq \lvert a\rvert + \lvert b\rvert$\\
+
+$[a, b] = {x \in \mathbb{R} : a \leq x \leq b}$\\
+$(a, b) = {x \in \mathbb{R} : a < x < b}$\\
+$[a, b) = {x \in \mathbb{R} : a \leq x < b}$\\
+$(a, b] = {x \in \mathbb{R} : a < x \leq b}$\\
+$(-r, r) = {x : \lvert x\rvert < r}$\\
+
+circle: $(x-a)^2 + (y-b)^2 = r^2$ where $(a, b)$ is the center and the radius is $r$\\
+midpoint between $P_1 = (x_1, y_1)$ and $P_2 = (x_2, y_2)$ is ($\frac{x_1 + x_2}{2} , \frac{y_1 + y_2}{2}$)\\
+pythagorean: $a^2 + b^2 = c^2$\\
+distance: $\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$\\
+
+\textbf{composing new functions}\\
+	If $f$ and $g$ are functions, we may construct new functions by forming the sum, difference, product, and quotient functions:\\
+	\begin{itemize}
+		\item $(f + g)(x) = f(x) + g(x)$
+		\item $(f - g)(x) = f(x) - g(x)$
+		\item $(fg)(x) = f(x)g(x)$
+		\item $(\frac{f}{g}(x) = \frac{f(x)}{g(x)})$
+	\end{itemize}
+	We can also multiply functions by constants. A function of the form: $c_1f(x) + c_2g(x)$ is called a \textbf{linear combination}.\\
+	\textbf{Composition} is another important way of constructing new functions. The composition of $f$ and $g$ is the function $f \circ g$ defined by $(f \circ g)(x) = f(g(x))$, defined for values of $x$ in the domain of $g$ such that $g(x)$ lies in the domain of $f$.\\
+	ex. Compute the composite functions $f \circ g$ and $g \circ f$ and discuss their domains where $f(x) = \sqrt{x}$ and $g(x) = 1 - x$\\
+	solution: $(f \circ g)(x) = f(g(x)) = f(1 - x) = \sqrt{1 - x}$ The square root $\sqrt{1 - x}$ is defined if $1 - x \geq 0$ or $x \leq 1$, so the domain of $f \circ g$ is ${x : x \leq 1}$.\\
+	On the other hand, $(g \circ f)(x) = g(f(x)) = g(\sqrt{x}) = 1 - \sqrt{x}$ The domain of $g \circ f$ is ${x : x \geq 0}$.\\
+
+\textbf{invertable functions}\\
+	"is this function invertible?" $\Leftrightarrow$ "does an inverse function exist for this function" $\Leftrightarrow$ "is the function one-to-one?" (horizontal line test)
+	\begin{itemize}
+		\item if it is, then the inverse function exists
+		\item if it is not, then the inverse function does not exist, and the function is not invertible (as a function)
+	\end{itemize}
+	consider $f(x) = x^2$ this function is not one-to-one (horizontal line test) this it is not invertable unless you restrict the domain to be $x \geq 0$.\\
+	to find the inverse algeraically you can swap the x's and y's and then solve for y\\
+
+\textbf{rational functionas}\\
+$f(x) = \frac{P(x)}{Q(x)}$ where $P(x)$ and $Q(x)$ are polynomials\\
+$Q(x) \ne 0$\\
+the domian is all real numbers except for where the denominator is 0\\
+a vertial asymptote occurs where the denominator is zero (and not canceled by a common factor)\\
+holes (removable discontinuities) occur if a factor cancels from both the numerator and denominator\\
+horizontal asmptotes take $n$ to be the degree of the numerator and $m$ to be the degree if the denominator
+	\begin{itemize}
+		\item $n < m$: horizontal asymptote at $y = 0$
+		\item $n = m$: horitzontal asymptote at $\frac{\text{leading coeff. of}P(x)}{\text{leading coeff. of}Q(x)}$
+		\item $n > m$: no horizontal asymptote (however there may be an oblique/slant asymptote instead)
+	\end{itemize}
+slant(oblique) asymptotes occur when $n = m+1$ ... use polynomial division to find slant asymptotes
+the $x$ intercepts occur where the numerator is zero (where does the function = 0)\\
+the $y$ intercept: plug in $x = 0$
+
+\textbf{conic sections}
+	\begin{itemize}
+		\item ellipses
+			\begin{itemize}
+				\item $(h, k)$ center of the ellipse
+				\item $a$ semi-major axis (long radius)
+				\item $b$ semi-minor axis (short radius)
+				\item $c$ distance from center to each focus $c = \sqrt{a^2 - b^2}$
+			\end{itemize}
+			\begin{itemize}
+				\item horizontal major axis $\frac{(x - h)^2}{a^2} + \frac{(y - k)^2}{b^2} = 1$
+				\item vertical major axis $\frac{(x - h)^2}{b^2} + \frac{(y - k)}{a^2} = 1$
+			\end{itemize}
+
+		\item hyperbolas
+			\begin{itemize}
+				\item $(h, k)$ center
+				\item $a$ distance from center to each vertex (on transverse axis) 
+				\item $b$ related to the asymptotes
+				\item $c = \sqrt{a^2 + b^2}$ distance from center to each focus (note here add not subtract like ellipse)
+				\item asymptotes
+					\begin{itemize}
+						\item for horizontal hyperbola $y - k = \pm\frac{b}{a}(x - h)$
+						\item for vertical hyperbola $y - k = \pm\frac{a}{b}(x - h)$
+					\end{itemize}
+				\item transverse axis: line through both vertices and foci
+				\item conjugate axis: perpendicular to the transverse axis
+			\end{itemize}
+			\begin{itemize}
+				\item opens horizontally $\frac{(x - h)^2}{a^2} - \frac{(y - k)^2}{b^2} = 1$  
+				\item opens vertically $\frac{(x - h)^2}{b^2} - \frac{(y - k)}{a^2} = 1$ 
+			\end{itemize}
+	\end{itemize}
+
+\textbf{vectors}\\
+
+\textbf{complex numberas}\\
+	\begin{itemize}
+		\item rectangular form $z = x + yi$
+			where $s$ is the real part and $y$ is the imaginary part, and $i = \sqrt{-1}, i^2 = -1$
+		\item polar form $z = r(\cos(\theta) + i\sin(\theta))$
+			where $r = \sqrt{x^2 + y^2}, \theta = \tan^{-1}(\frac{y}{x})$
+		\item exponential form $z = r e^{i \theta}$
+	\end{itemize}
+
+the fundamental theorem of algebra\\	
+Let $p(z)$ be a non-constant polynomial with complex coefficients, i.e.,\\
+$p(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots + a_1 z + a_0,$\\
+where $a_n \neq 0$ and $n \geq 1$. Then, there exists at least one complex number $c \in \mathbb{C}$ such that\\
+$p(c) = 0.$
+
+This theorem says that any polynomial equation — no matter how complicated — always has at least one solution if we allow the solutions to be complex numbers (numbers that can include the square root of negative one). Even if the polynomial doesn’t have any real solutions, it will have complex ones. This means every polynomial can be "broken down" completely into simpler parts based on its roots.\\
+
+\textbf{matrices}\\
+
+
+\textbf{probability and combinatorics}\\
+
+
+\textbf{series}\\
+
+\textbf{binomial theorem:}
+	\begin{itemize}
+		\item $(x + y)^2 = x^2 + 2xy + y^2$
+		\item $(x - y)^2 = x^2 - 2xy + y^2$
+		\item $(x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$
+		\item $(x - y)^3 = x^3 - 3x^2y + 3xy^2 - y^3$
+		\item $(x + y)^n = x^n + nx^{n-1}y + \frac{n(n-1)}{2}x^{n-2}y^2 + \ldots + \binom{n}{k}x^{n-k}y^k + \dots + nxy^{n-1} + y^n$
+			where $\binom{n}{k} = \frac{n(n-1) \dots (n-k+1)}{1 \cdot 2 \cdot 3 \cdot \ldots \cdot k}$
+	\end{itemize}
+
+\section*{trigonometry}
+
+$
+\begin{array}{|c|c|c|c|}
+\hline
+\text{Angle (Degrees)} & \text{Angle (Radians)} & \cos(\theta) & \sin(\theta) \\
+\hline
+0^\circ & 0 & 1 & 0 \\
+30^\circ & \frac{\pi}{6} & \frac{\sqrt{3}}{2} & \frac{1}{2} \\
+45^\circ & \frac{\pi}{4} & \frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} \\
+60^\circ & \frac{\pi}{3} & \frac{1}{2} & \frac{\sqrt{3}}{2} \\
+90^\circ & \frac{\pi}{2} & 0 & 1 \\
+\hline
+120^\circ & \frac{2\pi}{3} & -\frac{1}{2} & \frac{\sqrt{3}}{2} \\
+135^\circ & \frac{3\pi}{4} & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} \\
+150^\circ & \frac{5\pi}{6} & -\frac{\sqrt{3}}{2} & \frac{1}{2} \\
+180^\circ & \pi & -1 & 0 \\
+\hline
+210^\circ & \frac{7\pi}{6} & -\frac{\sqrt{3}}{2} & -\frac{1}{2} \\
+225^\circ & \frac{5\pi}{4} & -\frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} \\
+240^\circ & \frac{4\pi}{3} & -\frac{1}{2} & -\frac{\sqrt{3}}{2} \\
+270^\circ & \frac{3\pi}{2} & 0 & -1 \\
+\hline
+300^\circ & \frac{5\pi}{3} & \frac{1}{2} & -\frac{\sqrt{3}}{2} \\
+315^\circ & \frac{7\pi}{4} & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} \\
+330^\circ & \frac{11\pi}{6} & \frac{\sqrt{3}}{2} & -\frac{1}{2} \\
+360^\circ & 2\pi & 1 & 0 \\
+\hline
+\end{array}
+$
+
+$1^\circ = \frac{\pi}{180}$rad\\
+$1 rad = \frac{180^\circ}{pi}$\\
+
+\textbf{SOH-CAH-TOA} is a mnemonic device that expresses the relationship between the basic trigonometric functions and the ratios of the sides in a right triangle.\\
+
+trigonometric functions are mathematical functions that relate the angle of a trianlge to the lengths of its sides... and can also be generalized to all real numbers using the unit circle.\\
+
+\textbf{law of sines and cosines}
+	$\frac{\sin(A)}{a} = \frac{\sin(B)}{b} \frac{\sin(C)}{c}$
+	$a^2 = b^2 + c^2 - 2bc\cos(A)$\\
+
+To derive the rest of the fundamental trigonometric identities, you need a combination of a few key identities and principles. The most important starting point is the Pythagorean identity, but you’ll also need the basic relationships between the trigonometric functions, such as the definitions of sine, cosine, tangent, secant, cosecant, and cotangent in terms of a right triangle or the unit circle. \\
+
+$\sin(-\theta) = -\sin(\theta)$\\
+$\cos(-\theta) = \cos(\theta)$\\
+$\tan(-\theta) = -\tan(\theta)$\\
+$\sin(\frac{\pi}{2} - \theta) = \cos(\theta)$\\
+$\cos(\frac{\pi}{2} - \theta) = \sin(\theta)$\\
+$\tan(\frac{\pi}{2} - \theta) = \cot(\theta)$\\
+$\sin^2 \theta + \cos^2 \theta = 1 $\\
+$\sec \theta = \frac{1}{\cos \theta}, \quad \csc \theta = \frac{1}{\sin \theta}, \quad \cot \theta = \frac{1}{\tan \theta} $\\
+$\tan \theta = \frac{\sin \theta}{\cos \theta}, \quad \cot \theta = \frac{\cos \theta}{\sin \theta} $\\
+$1 + \tan^2 \theta = \sec^2 \theta $\\
+$1 + \cot^2 \theta = \csc^2 \theta $\\
+$\sin(\alpha + \beta) = \sin \alpha \cos \beta + \cos \alpha \sin \beta $\\
+$\cos(\alpha + \beta) = \cos \alpha \cos \beta - \sin \alpha \sin \beta $\\
+$\tan(\alpha + \beta) = \frac{\tan \alpha + \tan \beta}{1 - \tan \alpha \tan \beta} $\\
+$\sin(\alpha - \beta) = \sin \alpha \cos \beta - \cos \alpha \sin \beta $\\
+$\cos(\alpha - \beta) = \cos \alpha \cos \beta + \sin \alpha \sin \beta $\\
+$\tan(\alpha - \beta) = \frac{\tan \alpha - \tan \beta}{1 + \tan \alpha \tan \beta} $\\
+$\sin(2\theta) = 2\sin \theta \cos \theta $\\
+$\cos(2\theta) = \cos^2 \theta - \sin^2 \theta = 2\cos^2 \theta - 1 = 1 - 2\sin^2 \theta $\\
+$\tan(2\theta) = \frac{2\tan \theta}{1 - \tan^2 \theta} $\\
+$\sin^2(2\theta) = \frac{1 - \cos^2(2\theta)}{2} $\\
+$\cos^2(2\theta) = \frac{1 + \cos(2\theta)}{2} $\\
+$\sin(90^\circ - \theta) = \cos \theta, \quad \cos(90^\circ - \theta) = \sin \theta $\\
+$\tan(90^\circ - \theta) = \cot \theta, \quad \cot(90^\circ - \theta) = \tan \theta $\\
+$\sec(90^\circ - \theta) = \csc \theta, \quad \csc(90^\circ - \theta) = \sec \theta $\\
+$\sin(-\theta) = -\sin(\theta), \quad \cos(-\theta) = \cos(\theta) $\\
+$\tan(-\theta) = -\tan(\theta), \quad \sec(-\theta) = \sec(\theta) $\\
+$\csc(-\theta) = -\csc(\theta), \quad \cot(-\theta) = -\cot(\theta) $\\
+$\sin \alpha \sin \beta = \frac{1}{2} [\cos(\alpha - \beta) - \cos(\alpha + \beta)] $\\
+$\cos \alpha \cos \beta = \frac{1}{2} [\cos(\alpha - \beta) + \cos(\alpha + \beta)] $\\
+$\sin \alpha \cos \beta = \frac{1}{2} [\sin(\alpha + \beta) + \sin(\alpha - \beta)] $\\
+
+
+
+\section*{limits}
+	so let us consider $f(x) = \frac{\sin(x)}{x}$ ($x$ in radians)\\
+	the value of $f(0)$ is not defined because\\
+	$f(0) = \frac{\sin(0)}{0} = \frac{0}{0}$\\
+	however if we take $x \to 0^{+}$ and $x \to 0^{-}$ we get the impression that $f(x)$ gets closer and closer to 1 as $x \to 0$ from the left and right.
+	\begin{center}
+		$\lim_{x \to 0}f(x) = 1$
+	\end{center}
+	recall that the distance between two numbers $\lvert a - b\rvert$...thus we can express the idea that $f(x)$ is close to $L$ by saying that $\lvert f(x) - L\rvert$ is small.\\
+
+	\textbf{informal limit definition} Assume that $f(x)$ is defined for all $x$ near $c$ (i.e., in some open interval containing c), but not necessarily at $c$ itself. We say that:\\
+	\textit{the limit of $f(x)$ as $x$ approaches $c$ is equal to $L$}\\
+	if $\lvert f(x) - L\rvert$ becomes arbitarily small when $x$ is any number sufficiently close (but not equal) to $c$. In this case, we write:
+	\begin{center}
+		$\lim_{x \to c}f(x) = L$
+	\end{center}
+	we also say the $f(x)$ approaches or converges to $L$ as $x \to c$ (and we write $f(x) \to L$)\\
+
+	If the values of $f(x)$ do not converge to any limit as $x \to c$, we say that $\lim_{x \to c}f(x)$ DNE. It is important to note that the value $f(c)$ itself, which may or may not be defined, plays no role in the limit. All that matters are the values $f(x)$ for $x$ close to c. Furthermore, if $f(x)$ approaches a limit as $x \to c$, then the limiting value $L$ is unique.\\
+
+	We say the $\lim_{x \to c}f(x) = \infty$ if $f(x)$ increases beyond bound as $x$ approaches $c$, and $\lim_{x \to c}f(x) = -\infty$ if $f(x)$ becomes arbitrarily large (in absolute value) but negative as $x$ approaches $c$
+
+\section*{differentiation}
+$\frac{d}{dx}(c) = 0$\\
+$\frac{d}{dx}x = 1$\\
+$\frac{d}{dx}(x^n) = nx^{-1}$ (power rule)\\
+$\frac{d}{dx}[cf(x)] = cf'(x)$\\
+$\frac{d}{dx}[f(x)+g(x)] = f'(x) + g'(x)$\\
+$\frac{d}{dx}[f(x)g(x)] = f(x)g'(x) + g(x)f'(x)$ (product rule)\\
+$\frac{d}{dx}[\frac{f(x)}{g(x)}] = \frac{g(x)f'(x) - f(x)g'(x)}{[g(x)]^2}$ (quotient rule)\\
+$\frac{d}{dx}f(g(x)) = f'(g(x))g'(x)$ (chain rule)\\
+$\frac{d}{dx}f(x)^n = nf(x)^{n-1}f'(x)$ (general power rule)\\
+$\frac{d}{dx}\sin(x) = \cos(x)$\\ 
+$\frac{d}{dx}\cos(x) = -\sin(x)$\\
+$\frac{d}{dx}\tan(x) = \sec^2(x)$
+$\frac{d}{dx}\csc(x) = -\csc(x)\cot(x)$\\
+$\frac{d}{dx}\sec(x) = \sec(x)\tan(x)$\\
+$\frac{d}{dx}\cot(x) = -\csc^2(x)$\\
+$\frac{d}{dx}\sin^{-1}(x) = \frac{1}{\sqrt(1 - x^2)}$\\
+$\frac{d}{dx}\cos^{-1}(x) = -\frac{1}{\sqrt(1 - x^2)}$\\
+$\frac{d}{dx}\tan^{-1}(x) = \frac{1}{1 + x^2}$\\
+$\frac{d}{dx}(e^x) = e^x$\\
+$\frac{d}{dx}(a^x) = (\ln a)a^x$\\
+$\frac{d}{dx}\ln\mid x\mid = \frac{1}{x}$\\
+$\frac{d}{dx}\log_ax = \frac{1}{(\ln a)x}$\\
+
+\section*{integration}
+
+
+
+\section*{essential theorems}
+	\begin{itemize}
+		\item squeeze theorem
+		\item intermediate value theorem
+		\item mean value theorem
+		\item extreme value theorem
+		\item fundamental theorem of calculus I and II
+	\end{itemize}
+
+\newpage
+\section*{review problems}
+
+
+
+
+\end{document}
