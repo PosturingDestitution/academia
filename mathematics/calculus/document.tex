@@ -20,6 +20,19 @@
 
 \section*{introduction}
 
+	midpoint: $(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2})$\\
+	distance: $\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$\\
+	circle: $(x - h)^2 + (y - k)^2 = r^2$\\
+	pythagorean: $c^2 = a^2 + b^2$\\
+
+	triangle\\
+	circle\\
+	sector of circle\\
+	sphere\\
+	cylinder\\
+	cone\\
+	cone with arbitrary base\\
+
 \textbf{laws of exponents:} 
 	\begin{itemize}
 		\item $x^mx^n = x^{m+n}$
@@ -59,14 +72,57 @@
 		\item $x^3 - y^3 = (x - y)(x^2 + xy + y^2)$
 	\end{itemize}
 
+\textbf{binomial}
+	\begin{itemize}
+		\item $(x + y)^2 = x^2 + 2xy + y^2$
+		\item $(x - y)^2 = x^2 - 2xy + y^2$
+		\item $(x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$
+		\item $(x - y)^3 = x^3 - 3x^2y + 3xy^2 - y^3$
+		\item $(x + y)^n = x^n + nx^{n-1}y + \frac{n(n-1)}{2}x^{n-2}y^2 + \ldots + \binom{n}{k}x^{n-k}y^k + \dots + nxy^{n-1} + y^n$
+			where $\binom{n}{k} = \frac{n(n-1) \dots (n-k+1)}{1 \cdot 2 \cdot 3 \cdot \ldots \cdot k}$
+	\end{itemize}
+
 \textbf{polynomials}
- $a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0$ where n is non-negative and represents the degree\\
+$a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0$\\
+where:
+	\begin{itemize}
+		\item $a_n, a_{n-1}, \ldots, a_0$ are coefficients (real or complex)
+		\item $x$ is the variable
+		\item $n$ is a non-negative integer
+		\item $a_n \neq 0$ (so the polynomial has degree $n$)
+	\end{itemize}
+
+so $\frac{1}{x} + 2$ and $\sqrt{x} + 1$ are not polynomials\\
+
 domain: set of all input values for which the function is defined\\
+
 range: set of all possible output values of the function\\
-continuity: most algebaic functions are continuous (no breaks of jumps), but rational functions have discontinuities at points\\
-behavior: the functions behavior is influenced by the degree of the polynomial and the nature of the function\\
-vertical scaling: $y = kf(x)$: If $k \geq 1$, the graph is expanded vertically by the factor $k$. If $0 < k < 1$, the graph is compressed vertically. When the scale factor $k$ is negative $(k < 0)$, the graph is also reflected across the x-axis.
-horizontal scaling: $y = f(kx)$: If $K \geq 1$, the graph is compressed in the horizontal direction. If $0 < k < 1$, the graph is expanded. If $k \leq 0$, then the graph is also reflected across the y-axis.
+
+continuity: most algebaic functions are continuous (no breaks of jumps), but for example rational functions have discontinuities at points\\
+
+behavior: the functions behavior is influenced by the degree of the polynomial and the nature of the function (consider even functions like $x^2$ or $x^4$ and their symmetry about the y-axis also consider odd functions like $x^3$ or $x^5$ that have point symmetry)\\
+
+odd function: $f(-x) = -f(x)$\\
+even function: $f(-x) = f(-x)$\\
+
+vertical scaling (scaling along the y-axis): multiplying the output (y-values) of a function by a constant
+	\begin{itemize}
+		\item if $a > 1$: stretches the graph vertically (makes it taller)
+		\item if $0 < a < 1$: compresses the graph vertical (makes it shorter)
+		\item if $a < 0$ reflects the graph over the x-axis and scales it
+	\end{itemize}
+
+horizontal scaling (scaling along the x-axis): multiplying the input (x-values) by a constand inside the function
+	\begin{itemize}
+		\item if $b > 1$: compresses the graph horizontally (makes it narrower)
+		\item if $0 < b < 1$: stretches the graph horizontally (makes it wider)
+	\end{itemize}
+
+consider $f(x) = x^2$:\\
+$g(x) = 3x^2$ (vertical scaling)\\
+$h(x) = (3x)^2$ (horizontal scaling) notice how here you will be squaring the scaling factor\\
+
+BONUS $f(x) = x$ (consider why vertical and horizontal scaling looks the same for linear)\\
 
 $\lvert a\rvert = \lvert -a\rvert$, $\lvert ab\rvert = \lvert a\rvert\lvert b\rvert$\\
 The \textbf{distance} between two real numbers $a$ and $b$ is $\lvert b - a \rvert$, which is the length of the line segment joining $a$ and $b$.\\
@@ -78,11 +134,6 @@ $(a, b) = {x \in \mathbb{R} : a < x < b}$\\
 $[a, b) = {x \in \mathbb{R} : a \leq x < b}$\\
 $(a, b] = {x \in \mathbb{R} : a < x \leq b}$\\
 $(-r, r) = {x : \lvert x\rvert < r}$\\
-
-circle: $(x-a)^2 + (y-b)^2 = r^2$ where $(a, b)$ is the center and the radius is $r$\\
-midpoint between $P_1 = (x_1, y_1)$ and $P_2 = (x_2, y_2)$ is ($\frac{x_1 + x_2}{2} , \frac{y_1 + y_2}{2}$)\\
-pythagorean: $a^2 + b^2 = c^2$\\
-distance: $\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$\\
 
 \textbf{composing new functions}\\
 	If $f$ and $g$ are functions, we may construct new functions by forming the sum, difference, product, and quotient functions:\\
@@ -121,7 +172,7 @@ horizontal asmptotes take $n$ to be the degree of the numerator and $m$ to be th
 	\end{itemize}
 slant(oblique) asymptotes occur when $n = m+1$ ... use polynomial division to find slant asymptotes
 the $x$ intercepts occur where the numerator is zero (where does the function = 0)\\
-the $y$ intercept: plug in $x = 0$
+the $y$ intercept: plug in $x = 0$\\
 
 \textbf{conic sections}
 	\begin{itemize}
@@ -157,49 +208,47 @@ the $y$ intercept: plug in $x = 0$
 			\end{itemize}
 	\end{itemize}
 
-\textbf{scalars and vectors}\\
-	Scalars have only magnitude (speed, temperature, mass). A vector has both magnitude and direction (velocity , force, displacement).\\
-	the magnitude (always positive because scalar) $\lvert\vec{a}\rvert = 10$ and $\theta = 30^{\circ}$ you can find the components as such: $10\cos(30^{\circ})$ and $10\sin(30^{\circ})$ thus (8.66, 5). if we were given $\vec{a} = (8.66, 5)$ we know that both its $x$ and $y$ component are in $Q1$ $\theta = \tan^{-1}(\frac{y}{x})$.\\
-
-	$\vec{w} = (1, 2)$ what is $-2\vec{w} = (-2, -4)$ (note that graphically multiplying by -1 flips the vector also note  $i^2 = -1$ for later\\
-	graph $\vec{a} = (3, -1)$ and $\vec{b} = (2, 3)$ find the sum and difference and observe the graph $\vec{a} + \vec{b}$ and $\vec{a} - \vec{b}$ ($\vec{a} + (-\vec{b})$) and graph
-
-
-
-\textbf{complex numberas}\\
+\textbf{scalars and vectors}
 	\begin{itemize}
-		\item rectangular form $z = x + yi$
-			where $s$ is the real part and $y$ is the imaginary part, and $i = \sqrt{-1}, i^2 = -1$
-		\item polar form $z = r(\cos(\theta) + i\sin(\theta))$
-			where $r = \sqrt{x^2 + y^2}, \theta = \tan^{-1}(\frac{y}{x})$
-		\item exponential form $z = r e^{i \theta}$
+		\item a scalar is a quantity that has only magnitude (size or amount) think temperature, mass, time, speed
+		\item a vector has both a magnitude and a direction... think displacement, velocity, force
 	\end{itemize}
 
-the fundamental theorem of algebra\\	
-Let $p(z)$ be a non-constant polynomial with complex coefficients, i.e.,\\
-$p(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots + a_1 z + a_0,$\\
-where $a_n \neq 0$ and $n \geq 1$. Then, there exists at least one complex number $c \in \mathbb{C}$ such that\\
-$p(c) = 0.$
+	find the component form of $\vec{a}$ given:\\
+	$\lvert\vec{a}\rvert = 3$ and $\theta = 30^{\circ}$\\
+	$\vec{a} = (3\cos(30^{\circ}), 3\sin(30^{\circ}))$\\
+	$\vec{a} = (\frac{3\sqrt{3}}{2}, \frac{3}{2})$\\
 
-This theorem says that any polynomial equation — no matter how complicated — always has at least one solution if we allow the solutions to be complex numbers (numbers that can include the square root of negative one). Even if the polynomial doesn’t have any real solutions, it will have complex ones. This means every polynomial can be "broken down" completely into simpler parts based on its roots.\\
+	now find the magnitude and direction of $\vec{b} = (\sqrt{2}, \sqrt{2})$\\
+	$\lvert\vec{b}\rvert = \sqrt{(\sqrt{2})^2 + (\sqrt{2})^2} = 2$\\
+	$\theta = \tan^{-1}(\frac{\sqrt{2}}{\sqrt{2}}) = 45^{\circ}$ (be aware of the quadrants)\\
 
-\textbf{matrices}\\
+	$\vec{w} = (1, 2)$ so $3\vec{w} = (3, 6)$\\
+
+	$\vec{a} = (3, -1)$ and $\vec{b} = (2, 3)$\\
+	$\vec{a} + \vec{b} = (3+2, -1+3) = (5, 2)$
+	$\vec{a} - \vec{b} = (3-2, -1-3) = (1, -4)$ (you could also just add the negative of $\vec{b}$)\\
+
+\textbf{complex numbers}\\
+	$i = \sqrt{-1}, i^2 = -1$\\
+	$z = a + bi$ rectangular form\\
+	$z = r(\cos(\theta) + i\sin(\theta))$ where $r = \lvert z\rvert$ and $\theta = \tan^{-1}(\frac{b}{a})$\\
+
+	$(2 + 3i)(1 - 4i) = 2 - 8i + 3i - 12i^2 = (14 - 5i)$\\
+	$\frac{1 + i}{2 - 3i} = \frac{(1 + i)(2 + 3i)}{(2 - 3i)(2 + 3i)} = \frac{2 + 5i - 3}{4 + 9} = -\frac{1}{13} + \frac{5}{13}i$\\	
+	$a^2 + b^2 = (a + bi)(a - bi)$\\
+
+	multiplying by i has a very cool and geometric meaning in the complex plane: it corresponds to a 90-degree counterclockwise rotation about the origin.\\
+
+	$i(a + bi) = ai + bi^2 = ai - b = -b + ai$ so $i(a + bi) = -b + ai$ that is a new complex number whose real part is -b, and imaginary part is a\\
+
+\textbf{matrices}
 
 
 \textbf{probability and combinatorics}\\
 
 
 \textbf{series}\\
-
-\textbf{binomial theorem:}
-	\begin{itemize}
-		\item $(x + y)^2 = x^2 + 2xy + y^2$
-		\item $(x - y)^2 = x^2 - 2xy + y^2$
-		\item $(x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$
-		\item $(x - y)^3 = x^3 - 3x^2y + 3xy^2 - y^3$
-		\item $(x + y)^n = x^n + nx^{n-1}y + \frac{n(n-1)}{2}x^{n-2}y^2 + \ldots + \binom{n}{k}x^{n-k}y^k + \dots + nxy^{n-1} + y^n$
-			where $\binom{n}{k} = \frac{n(n-1) \dots (n-k+1)}{1 \cdot 2 \cdot 3 \cdot \ldots \cdot k}$
-	\end{itemize}
 
 \section*{trigonometry}
 
@@ -230,18 +279,16 @@ $
 360^\circ & 2\pi & 1 & 0 \\
 \hline
 \end{array}
-$
+$\\
 
 $1^\circ = \frac{\pi}{180}$rad\\
 $1 rad = \frac{180^\circ}{pi}$\\
 
+Trigonometric functions are special mathematical functions that originally come from studying right triangles. They relate the size of an angle in a triangle to the ratios of the lengths of the triangle's sides.\\
+
 \textbf{SOH-CAH-TOA} is a mnemonic device that expresses the relationship between the basic trigonometric functions and the ratios of the sides in a right triangle.\\
 
-trigonometric functions are mathematical functions that relate the angle of a trianlge to the lengths of its sides... and can also be generalized to all real numbers using the unit circle.\\
-
-\textbf{law of sines and cosines}
-	$\frac{\sin(A)}{a} = \frac{\sin(B)}{b} \frac{\sin(C)}{c}$
-	$a^2 = b^2 + c^2 - 2bc\cos(A)$\\
+The triangle definition only works for angles between 0 and $\frac{\pi}{2}$. To extend trig functions to all angles (including negative angles and angles larger then ($2\pi or 360^{\circ}$), mathematicians use the unit circle. Thus allowing use to use trig functions on the coordinate plane, enabling graphing and calculus.\\
 
 To derive the rest of the fundamental trigonometric identities, you need a combination of a few key identities and principles. The most important starting point is the Pythagorean identity, but you’ll also need the basic relationships between the trigonometric functions, such as the definitions of sine, cosine, tangent, secant, cosecant, and cotangent in terms of a right triangle or the unit circle. \\
 
@@ -277,7 +324,11 @@ $\sin \alpha \sin \beta = \frac{1}{2} [\cos(\alpha - \beta) - \cos(\alpha + \bet
 $\cos \alpha \cos \beta = \frac{1}{2} [\cos(\alpha - \beta) + \cos(\alpha + \beta)] $\\
 $\sin \alpha \cos \beta = \frac{1}{2} [\sin(\alpha + \beta) + \sin(\alpha - \beta)] $\\
 
+\textbf{law of sines and cosines}
+	$\frac{\sin(A)}{a} = \frac{\sin(B)}{b} \frac{\sin(C)}{c}$\\
+	$a^2 = b^2 + c^2 - 2bc\cos(A)$\\
 
+\textbf{sinusoidal equations}
 
 \section*{limits}
 	so let us consider $f(x) = \frac{\sin(x)}{x}$ ($x$ in radians)\\
@@ -331,11 +382,12 @@ $\frac{d}{dx}\log_ax = \frac{1}{(\ln a)x}$\\
 
 \section*{essential theorems}
 	\begin{itemize}
+		\item the fundamental theorem of algebra
 		\item squeeze theorem
 		\item intermediate value theorem
 		\item mean value theorem
 		\item extreme value theorem
-		\item fundamental theorem of calculus I and II
+		\item fundamental theorem of calculus part I and II
 	\end{itemize}
 
 \newpage
