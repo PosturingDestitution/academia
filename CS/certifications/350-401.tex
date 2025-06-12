@@ -1,5 +1,7 @@
 \documentclass[parindent=0pt]{article}
 
+\usepackage[margin=1in]{geometry}
+
 \title{ENCOR Study Guide}
 \author{alexander}
 \date{\today}
@@ -7,7 +9,7 @@
 \begin{document}
 \maketitle
 
-\section*{Introduction}
+\section*{network stack models}
 
 TCP/IP and OSI are frameworks, and protocols can overlap or span multiple layers. In reality, many protocols do not strictly adhere to a single layer, and some functions can be performed at multiple levels.\\
 
@@ -32,17 +34,22 @@ used in modern networking.
 		\item Application
 	\end{enumerate}
 
-The data link layer in the OSI model is responsible for reliable data tranfer across a physical link. It is split into two sublayers: Media Access Control and Logical Link Control. Please note that protocols do not always conform with (sub)layers holistically. 
+\textbf{crossover, rollover wiring, bandwidth vs speed vs capacity ect, understanding ethernet specifications and their speeds}
 
-\textbf{MAC}\\
-This sublayer controls how devices on the network gain access to the medium and permission to transmit data. This layer is responsible for addressing (MAC addresses), frame delimiting and recognition, as well as Collision Detection and Avoidance (CSMA/CD, CSMA/CA)\\
+\section*{network access / data link layer}
 
-\textbf{LLC}\\
-This sublayer provides interface and control for upper layers (Layer 3) to access the data link layer services. It is responsible for flow control, error detection (using checksums like CRC), as well as multiplexing protocols. This is common for older technologies or when multiple layer 3 protocols are used.\\
+The data link layer in the OSI model is responsible for reliable data tranfer across a physical link. It is split into two sublayers: Media Access Control and Logical Link Control. Please note that protocols do not always conform with (sub)layers holistically.\\ 
+
+The MAC sublayer controls how devices on the network gain access to the medium and permission to transmit data. This layer is responsible for addressing (MAC addresses), frame delimiting and recognition, as well as Collision Detection and Avoidance (CSMA/CD, CSMA/CA)\\
+
+A MAC address is a unique identifier assigned to each network interface controller (NIC). The MAC address format is defined by the IEEE. The standard format consists of six pairs of hexadecimal digits, separated by colons or hyphens. Each pair represents a byte in the 48-bit MAC address. The first three bytes (Organizationally Unique Identifier) identify the manufacturer of the NIC. The last three bytes are assigned by the manufacturer and uniquely identify each device. The MAC address is usually stored in non-volatile memory, such as ROM or flash, within the NIC. A BIA, also known as a "Permanent Address" or "Pre-programmed Address", is a specific type of MAC address that is permanently assigned to a device during manufacturing. The BIA is usually etched into the NIC's firmware.\\
+
+The LLC sublayer provides interface and control for upper layers (Layer 3) to access the data link layer services. It is responsible for flow control, error detection (using checksums like CRC), as well as multiplexing protocols. This is common for older technologies or when multiple layer 3 protocols are used.\\
 what is multiplexing? multiplexing is the process of combining multiple signals, data streams, or communication sessions into a single channel or medium for transmission. It allows more efficient use of resources by sharing them amount multiple users or applications.\\
 
 LLC has become largely obsolete in most Ethernet-based networks. Most modern protocols assume Ethernet is carrying IP traffic directly bypassing the need for LLC. Splitting into LLC and MAC adds complexity and processing time. Enterprise and service provider networks prioritize speed and scalability, often bypassing LLC. Many networking devices implement the layers in ways that are optimized for performace or proprietary integration (e.g, Cisco HDLC, MPLS). IP has become dominant at Layer 3, eliminating the need for a multiplexing function (which was LLC's role when multiple protocols like IP, IPX, AppleTalk were common).\\
 
+\section*{collisions}
 When two or more devices transmit data at the same time, expect collisions. This occurs when the signals from both devices overlap creating an unpredicatable and potential corrupted transmission. Device may retransmit the data, wasting bandwidth and increasing latency.\\ 
 
 In a half-duplex system, devices can either send or receive data at any given time but cannot do both simulataneously. This means the device must wait for its turn to transmit data after it has received some.\\
@@ -63,8 +70,7 @@ An Ethernet segment is a common example of a collision domain. When multiple dev
 
 A hub is a simple, passive device that connects multiple devices to a network by repeating incoming signals to all connected ports. It does not analyze or filter traffic; instead, it simply amplifies the signal to ensure it reaches all connected devices.\\
 
-A MAC address is a unique identifier assigned to each network interface controller (NIC). The MAC address format is defined by the IEEE. The standard format consists of six pairs of hexadecimal digits, separated by colons or hyphens. Each pair represents a byte in the 48-bit MAC address. The first three bytes (Organizationally Unique Identifier) identify the manufacturer of the NIC. The last three bytes are assigned by the manufacturer and uniquely identify each device. The MAC address is usually stored in non-volatile memory, such as ROM or flash, within the NIC. A BIA, also known as a "Permanent Address" or "Pre-programmed Address", is a specific type of MAC address that is permanently assigned to a device during manufacturing. The BIA is usually etched into the NIC's firmware.\\
-
+\section*{switching, VLANs, trunks, ARP}
 A switch is a more intelligent device than a hub, as it can analyze incoming traffic and forward packets only to the inteded destination. Switches use MAC addresses to identify the source and destination of each packet\\
 
 A broadcast domain is the group of devices within a network that can directly receive a broadcast frame sent by any other device - typically those connected to the same VLAN or switch without a router separating them. Too many devices in one broadcast domain can cause congestion and reduce performance. Routers break up broadcast domains. Switches do not break broadcast by default - unless VLANs are configured. A VLAN is a logical grouping of devices within a switch (or across multiple switches) that behaves as if they are on the same physical LAN - even if they are not physically connected to the same switch. Devices in separate VLANs cannot talk without a router or L3 switch. VLANs dont just help with performance consider potential benifits with respect to management and security for different departments in a company for example.\\
@@ -111,9 +117,11 @@ Routed subinterfaces are virtual interfaces configured on a single physical inte
 
 Switch Virtual Interfaces (SVIs) are logical Layer 3 interfaces configured on switches, typically used to enable inter-VLAN routing on Layer 3 switches. Unlike routed subinterfaces, SVIs are not tied to a specific physical interface. Instead, they are associated with VLANs internally on the switch. An SVI is created by defining an interface for a VLAN (e.g., interface vlan10), assigning it an IP address, and ensuring the VLAN is active (with at least one active port assigned to it). SVIs are more scalable than routed subinterfaces and are commonly used in enterprise environments because they offer better performance and manageability. They allow Layer 3 switches to route between VLANs internally, without the need for external routers.\\
 
-Routed switch ports, on the other hand, are physical interfaces on a Layer 3 switch that have been configured to behave like router ports. Instead of operating at Layer 2 (switching), these ports are put into Layer 3 mode using commands like no switchport, allowing the port to be assigned an IP address directly. Routed ports are used in point-to-point connections between switches or between a switch and a router, and they are useful in designs that require Layer 3 connectivity without VLAN tagging. These ports do not carry multiple VLANs like trunks do—they are meant for routing purposes, much like interfaces on a traditional router.
+Routed switch ports, on the other hand, are physical interfaces on a Layer 3 switch that have been configured to behave like router ports. Instead of operating at Layer 2 (switching), these ports are put into Layer 3 mode using commands like no switchport, allowing the port to be assigned an IP address directly. Routed ports are used in point-to-point connections between switches or between a switch and a router, and they are useful in designs that require Layer 3 connectivity without VLAN tagging. These ports do not carry multiple VLANs like trunks do—they are meant for routing purposes, much like interfaces on a traditional router.\\
 
 In summary, routed subinterfaces are virtual interfaces on a single physical port used mainly in trunking situations with routers; SVIs are logical interfaces on a switch used to route between VLANs internally; and routed switch ports are physical interfaces set to Layer 3 mode for direct IP routing. Each method has its place depending on the network’s scale, hardware capabilities, and design goals.\\
+
+\section*{forwarding}
 
 Content Addressable Memory (CAM), also known as associative memory, is a special type of computer memory that differs fundamentally from traditional memory systems. Instead of accessing memory by specific addresses (like in RAM, where each piece of data is stored at a unique address), CAM allows data to be accessed based on its content. This means that rather than asking “what data is at address X?”, the system can ask “where is the data that matches this value?” and the memory will respond with the location or signal a match.\\
 
@@ -137,44 +145,283 @@ To optimize usage, devices often have specific policies or prioritization rules 
 
 In essence, TCAM is a powerful but finite resource that enables high-speed, flexible pattern matching in network hardware. It’s indispensable in scenarios requiring fast decision-making on packet flows, but it must be managed carefully due to its cost and constraints.\\
 
+The Routing Information Base (RIB) is a critical component of a router's internal architecture. It serves as the central repository for all routing information received from neighboring routers or learned through other means such as static routes, default routes, and routing protocols like OSPF, RIP, or BGP. The RIB contains a database of all known routes, including their next-hop addresses, interface IDs, and metric values. This data is used to determine the best path for forwarding packets.\\
+
+The RIB receives routing updates from various sources, which are then processed and validated by the router's software. Invalid or duplicate routes are discarded, while valid ones are stored in the RIB. The RIB maintains a consistent view of the network topology, allowing routers to make informed decisions about packet forwarding. When a new route is added or an existing one changes, the RIB updates its information accordingly.\\
+
+An adjacency table, also known as an ARP (Address Resolution Protocol) cache or MAC address table, is a critical component of a router's internal architecture. It contains information about neighboring routers and devices on adjacent networks, including their IP addresses, MAC addresses, and interface IDs. The adjacency table is used to populate the FIB with necessary forwarding information.\\
+
+When a router receives an ARP request from a neighbor, it adds an entry to its adjacency table. This table remains populated even after the ARP request has been resolved, ensuring that the router can quickly identify neighboring devices and forward packets accordingly. The adjacency table is essential for routing protocols like OSPF and BGP, as it provides information about neighboring routers and their interface connections.\\
+
+The Forwarding Information Base (FIB) is a critical component of a router's forwarding engine. It serves as the decision-making entity that determines where to forward packets based on routing table entries stored in the RIB. The FIB contains forwarding information, including next-hop addresses, interface IDs, and metric values, which are used to direct packets through the network.\\
+
+When a packet arrives at a router, the FIB is consulted to determine the best path for forwarding it. The FIB uses the routing table entries from the RIB to select the most suitable path based on various factors such as cost, load balancing, and security policies. The FIB then updates its information accordingly to reflect any changes in the network topology.\\
+
+To illustrate how these components work together, consider a scenario where a packet arrives at a router with destination IP address 10.1.1.2. The RIB would contain routing table entries for this destination, including next-hop addresses and interface IDs. The adjacency table would provide information about neighboring routers and their interface connections.\\
+
+The FIB would then consult the RIB to determine the best path for forwarding the packet based on its routing table entries. If multiple paths exist, the FIB would use load balancing or routing protocols like OSPF or BGP to select the most suitable one. Once a decision is made, the FIB updates its information accordingly, ensuring that packets are forwarded correctly through the network.\\
+
+A switch fabric is a high-speed switching matrix within a router or switch that connects multiple ports together. It enables fast packet switching by minimizing latency and improving throughput. The switch fabric is responsible for forwarding packets between different interfaces, ensuring efficient routing and packet delivery.\\
+
+Think of the switch fabric as the "behind-the-scenes" component that handles the actual switching and forwarding of packets. It's often a critical part of high-performance routers or switches, especially those designed for data center or cloud environments.\\
+
+A forwarding engine is a hardware component within a router or switch that performs packet processing and forwarding. Its primary function is to apply the routing decisions made by the route processor (more on this below) to packets in real-time. Forwarding engines are typically specialized ASICs (Application-Specific Integrated Circuits) or NPUs (Network Processing Units).\\
+
+Forwarding engines accelerate packet processing, reducing latency and increasing throughput. They often include features 
+such as:
+	\begin{itemize}
+		\item Hardware-based routing tables 
+		\item Packet classification and filtering 
+		\item Traffic shaping and policing 
+		\item QoS (Quality of Service) enforcement 
+	\end{itemize}
+
+A route processor engine is a hardware component within a router or switch that performs complex tasks such as packet routing, switching, and forwarding. It's responsible for:
+	\begin{itemize}
+		\item Running the control plane software (e.g., operating system, protocols like OSPF or BGP) 
+		\item Processing routing updates and advertisements 
+		\item Maintaining routing tables and FIBs (Forwarding Information Bases) 
+	\end{itemize}
+
+Route processor engines are typically based on general-purpose processors like CPUs or GPUs (Graphics Processing Units). They're often less powerful than forwarding engines but still play a crucial role in the network's operation.\\
+
+Ingress line cards refer to the components within a router or switch that receive incoming packets from external interfaces. These cards are responsible for:
+	\begin{itemize}
+		\item  Packet capture and processing 
+		\item  Applying packet filtering, classification, and policing rules 
+		\item  Forwarding packets to other line cards or the forwarding engine 
+	\end{itemize}
+
+Egress line cards, on the other hand, transmit outgoing packets to external interfaces. They often perform similar tasks as ingress line cards but with a focus on transmitting data rather than receiving it.\\
+
+A distributed forwarding architecture (also known as "distributed routing") distributes the processing load across multiple nodes or line cards within a router or switch. Each node has its own route processor and forwarding engine, which can reduce the overall latency and improve scalability.\\
+
+In contrast, a centralized forwarding architecture (also known as "centralized routing") concentrates all packet processing and forwarding functions on a single node or line card. While this approach simplifies configuration and management, it may introduce scalability limitations due to increased latency and reduced throughput.\\
+
+Process switching is a packet processing method used by routers that forward packets through the control plane. When a 
+router receives an incoming packet, it performs the following steps:
+	\begin{enumerate}
+		\item Packet capture: The router captures the packet and stores it in memory.
+		\item Routing table lookup: The router searches the routing table for a match to the destination IP address of the packet.
+		\item Route computation: If a match is found, the router computes the next-hop address and interface ID using the routing information stored in the RIB (Routing Information Base).
+		\item Packet reassembly: The router reassembles the packet with the computed next-hop address and interface ID.
+	\end{enumerate}
+
+Process switching involves processing each incoming packet through the control plane, which can introduce significant latency and reduce throughput. This method is typically used for smaller networks or when routing complexity is low.\\
+
+Cisco Express Forwarding (CEF) is a high-performance packet forwarding technology developed by Cisco Systems. CEF is designed to accelerate packet forwarding by minimizing the number of control plane interventions.\\
+
+When CEF is enabled, the router builds a FIB (Forwarding Information Base) that maps IP addresses to next-hop addresses and interface IDs. The FIB is used for fast lookup and forwarding decisions, eliminating the need for the control plane to intervene in each packet's path.\\
+
+Cisco's Service Selection (SS) feature, also known as Service Selection Director (SSD), uses a set of pre-defined configurations called SDM (Service Selection) templates. These templates allow network administrators to define the resources required by their network services, such as CPU, memory, and interface bandwidth.\\
+
+When an SDM template is applied to a Cisco router or switch, it configures the device's hardware and software settings according to the specified requirements of each service. This approach simplifies the process of deploying and managing complex networks.\\
+
+In the context of packet forwarding, SDM templates play a crucial role in determining how packets are processed by the router or switch. When CEF is enabled, the router builds a FIB (Forwarding Information Base) that maps IP addresses to next-hop addresses and interface IDs. An SDM template can influence this process by specifying the amount of memory allocated for the FIB, which in turn affects the number of routes stored in the table. In other words, an SDM template determines how much data is available for fast lookup and forwarding decisions through CEF.\\
+
+SDM templates offer several benefits:
+	\begin{itemize}
+		\item Simplified Configuration: By defining a set of pre-configured settings, administrators can quickly deploy complex networks without manually configuring every device.
+		\item Improved Scalability: SDM templates enable the allocation of resources based on network requirements, ensuring that devices are optimized for performance and functionality. 
+		\item Enhanced Network Management: With SDM templates, network administrators can monitor and manage resource utilization in real-time, making it easier to identify potential issues. 
+	\end{itemize}
+
+Cisco offers various SDM template types, including:
+	\begin{itemize}
+		\item  Standard-MIBs: These templates define a set of standard resources (e.g., CPU, memory) for common network services.
+		\item PV4: Templates optimized for IPv4 networks, which allocate resources based on IP address and traffic patterns. 
+		\item IPv6: Similar to IPV4 templates but designed for IPv6 networks. 
+	\end{itemize}
+
+Network administrators can select the most suitable SDM template based on their specific network requirements, ensuring optimal performance and efficiency.\\
+
+\section*{STP/RSTP, and protection mechanisms}
+The Spanning Tree Protocol is a network protocol that enables a loop-free path in a bridged or switched network. It prevents bridge loops and allows for redundant links while ensuring network stability.\\
+
+A BPDU is a special type of frame that contains information about the device sending it, such as its bridge ID, priority, and port ID. It's sent periodically by each bridge or switch on a network, announcing its presence to its neighbors.\\
+
+The primary purpose of BPDU is to enable bridges and switches to communicate with each other, allowing them to determine the best path for forwarding frames in the network. BPDUs are used to:
+	\begin{itemize}
+		\item Detect loops: By comparing the bridge IDs and port numbers in BPDUs, devices can identify potential loops in the network.
+		\item Select a root bridge: Each BPDU contains information about the sending device's bridge ID and priority. Devices compare these values to determine which device is the "root" of the Spanning Tree topology.
+		\item Determine path cost: By comparing the BPDU content, devices can calculate the best path for forwarding frames, taking into account factors like link speed, bandwidth, and network topology.
+	\end{itemize}
+
+A typical BPDU contains the following information:
+	\begin{itemize}
+		\item Version number: Identifies the protocol version of the BPDU.
+		\item Bridge ID (BID): A 8-byte identifier that uniquely identifies each device in the network.
+		\item Priority: An integer value (0-255) used to determine which device is the root bridge.
+		\item Port ID (PID): A unique identifier for each port on a device, used for loop detection and path cost calculation.
+		\item Hello time: The interval at which BPDUs are sent by each device.
+		\item Max age: The maximum amount of time that a BPDU can be stored before it's considered stale.
+	\end{itemize}
+
+There are two main types of BPDUs:
+	\begin{itemize}
+		\item Config BPDU: Sent periodically by the root bridge to announce its presence and update neighbor devices with its bridge ID, priority, and port information.
+		\item Topology Change Notification (TCN) BPDU: Sent by a device that detects a change in the network topology, such as a link failure or addition.
+	\end{itemize}
 
 
-\section*{FIB, other tables ect, RIB}
-\section*{Process Switching, CEF, TCAM, Centralized/Distributed Forwarding}
-\section*{SDM Templates}
-\section*{STP}
-\section*{RSTP}
-\section*{MSTP}
-\section*{STP Protection Mechanisms}
+switch roles (not mutually):
+	\begin{itemize}
+		\item root switch: central hub with lowest BID
+		\item designated switch: elects a switch on each segment to forward frames
+	\end{itemize}
+these roles are determined during the initial STP election process, and switches adjust their port states accordingly to prevent loops and ensure loop-free topology:
+
+port types:
+	\begin{itemize}
+		\item root port: connects to root switch with lowest cost
+		\item designated port: connects to network segments (elected by designated bridge)
+		\item blocking port: typically blocked due to loops in the network preventing unnecessary traffic loops
+	\end{itemize}
+
+port states:
+	\begin{itemize}
+		\item disabled: not participating in STP and does not forward any traffic. It is typically used for administrative purposes, such as: connecting to an uplink or downlink that does not need to be part of the STP topology. 
+		\item blocking: not forwarding any traffic and is not participating in the network's data path. It's typically used for preventing loops in the network: when two or more paths between switches, STP may block some ports to prevent unecessary traffic loops.
+		\item listening: not forwarding traffic and is listening for BPDUs from other ports. It is typically used during the transition period when a new switch or link is added to the network: when a new switch is connect, it starts in a blocking state and listens for BPDUs from its neighbors.
+		\item learning: learning the MAC addresses of devices on the connect network. It is typically used when a new switch or link is added to the newtork: when a new switch is connected, it starts in a listing state and then transitions to a learning state to gether information about the network.
+		\item forwarding: A port in this state is forwarding traffic between devices on the connect network. It is typically used when the STP topology has converged: when all switches have exchanged BPDUs and the STP topology is stable, ports can transition to a forwarding state.
+		\item broken (ErrDisabled): not functioning correctly due to an error or issue. It is typically used when there is a problem with the port or its connection: If a port is not functioning correctly, it may be placed into a broken state until the issue is resolved.
+	\end{itemize}
+
+The interface STP cost is an essential component for root path calculation because the root path is found based on the cumulative interface STP cost to reach the root bridge. The interface STP cost was originally stored as a 16-bit value with a reference value of 20Gbps.\\
+
+Another method, called long mode, uses a 32-bit value and uses a reference speed of 20 Tbps. The original method, known as short mode, has been the default for most switches but has been transitioning to long mode based on specific platform and OS versions.\\
+
+Devices can be configured with the long=mode interface cost with the command \textbf{spanning treee pathcost method long}. The entire Layer 2 topology shoudl use the same setting for every device in the environment to ensure a consistent topology. Before you enable this setting in an environment, it is important to conduct an audi to ensure that the setting will work.\\
+
+timers:
+	\begin{itemize}
+		\item forward delay 15s default (determines how long a device will remina in the listening state before transitioning to the learning state)
+		\item max age 20s default (determines how long a STP topology change message is valid for)
+		\item hello time 2s default (the time between STP Hello messages sent by a switch to its neighbors)
+	\end{itemize}
+
+root bridge election process and convergence
+
+The first step with STP is to indentify the root bridge. As a switch initializes, it assumes that it is the root bridge and uses the local bridge identifier as the root bridge identifier. It then listens to its neighbor's configuration BPDU and does the following:
+	\begin{itemize}
+		\item If the neighbor's configuration BPDU is inferior to its own BPDU, the switch ignores that BPDU
+		\item If the neighbor's configuration BPDU is preferred to its own BPDU, the switch updates it BPDUs to include the new root bridge identifier along with a new root path cost that correlates to the total path cost to reach the new root bridge. this process continues until all switches in a topology have identified the root bridge switch.
+	\end{itemize}
+
+STP deems a switch more preferable if the priority in the bridge identifier is lower than the priority of the other switch's configuration BPDUs. If the priority is the same, then the switch prefers the BPDU with the lower system MAC\\
+
+Generally, older switches have a lower MAC address and are considered more preferable. Configuration changes can be made for optimizing placement of the root bridge in a Layer 2 topology to prevent the insertion of an older switch from becoming the new root bridge.\\
+
+BID (2-bytes + 6-bytes):
+	\begin{itemize}
+		\item priority (16-bits) $2^16 = 65536$ states 0-65535 inclusive
+			\begin{itemize}
+				\item upper 4 bits are the priority $2^4 = 16$ states $0*4096$ - $15*4096$ 0 - 61440
+					why does the priority use a binary representation in multiples of 4096?\\
+						
+					Initially, the full 16 bits of the priority field were intended solely for priority comparison. However, as networks grew and features like VLANs became widespread, there was a need to run separate STP instances per bridge. Ciscos PVST+ addresses this need by running a separate instance of STP for each VLAN. But this created a problem: How could each VLAN-specific STP instance uniquely identified if all VLANs on a switch share the same MAC address?\\
+
+					To solve this, Cisco and others started using the lower 12 bits of the 16-bit priority field to store the VLAN ID, called this the extended system ID. This allowed each VLAN's STP instance to have a unique Bridge ID without requiring a different MAC address for each VLAN. Essentially, the 16-bit priority field was divided into two parts: upper 4 bits (priority) and lower 12 bits for the VLAN ID.\\
+
+					Now here is why the increments are multiples of 4096: if only the upper 4 bits are configurable, and each of those bits corresponds to a shift of 12 bit ($2^12 = 4096$), then valid values of priority must be 0, 4096, 8192, 12288, ..., 61440. This constraint ensures that when VLAN IDs are inserted into the lower 12 bits, they do not overwrite or corrupt the priority portion.\\
+
+					This approach is elegant because it preserves compatibility with the STP standard, allows for VLAN-aware spanning tree instances, and avoids the need for additional fields or complex rewrites of the protocol. It is a trade-off: slightly resuced granularity in setting priority (only 16 values instead of 65,636), but dramastically increased capability and clarity in VLAN-based network topolgies.
+
+				\item lower 12 bits are the extended system ID (VLAN ID) $2^12 = 4096$
+			\end{itemize}
+		\item MAC address 6-bytes
+	\end{itemize}
+
+	In a stable Layer 2 topology, configuration BPDUs always flow from the root bridge towards the edge switches. However, changes in the topology have an impact on all the switches in the Layer 2 topology.\\
+
+	The switch that detects a link status change sends a topology change notification (TCN) BPDU with the Topology Change flag set, all switches change their MAC address aging timer (independent of STP...controls how long a switch keeps a MAC address in its MAC address table after it was last seen) to the forward delay timer. This flushes out MAC addresses for devices that have not communicated in that 15s window but maintains MAC addresses for devices that are actively communicating.\\	
+
+	Flushing the MAC address table prevents a switch from sending traffic to a host that is no longer reachable by that port. However, a side effect of flushing the MAC address table is that temporarily increases the unknown unicast flooding while it is rebuilt. Remember that this can impact hosts because of their CSMA/CD behavior. The MAC address timer is then reset to normal after the second configuration BPDU is received.\\
+
+	TCNs are generated on a VLAN basis, so the impact of TCNs directly correlates to the number of hosts in a VLAN. As the number of hosts increases, the more likely TCN generation is to occur and the more hosts that are impacted by the broadcasts. Topology changes should be checked as part of the troubleshooting process.\\
+
+	When a switch loses power or reboots, or when a cable is removed from a port, the Layer 1 signaling places the port into a down state, which can notify other processes, such as STP. STP considers such an even a direct link failure and can react in one of three ways, depending on the topology.\\
+
+	Topology:
+		\begin{itemize}
+			\item SW1 (root), Gi1/0/2, Gi1/03
+			\item SW2, Gi1/0/1 (RP), Gi1/0/3 (DP)
+			\item SW3, Gi1/0/1 (RP), Gi1/0/2 (B)
+		\end{itemize}
+
+	Scenario 1: direct link failure\\
+		In the first scenario, the link between SW2 and SW3 fails. SW2's Gi1/0/3 port is the DP, and SW3's Gi1/0/2 port is in a blocking state. Because SW3's Gi1/0/2 port is already in a blocking state, there is no impact to traffic between the two switches as they both transmit data through SW1. Both SW2 and SW3 will advertise a TCN toward the root switch, which results in the Layer 2 topology flushing its MAC address table.	
+
+	Scenario 2: direct link failure\\
+		In the second scenario, the link between SW1 and SW3 fails. Network traffic from SW1 or SW2 towards SW3 is impacted because SW3's Gi1/0/2 port is in a blocking state.	
+		\begin{enumerate}
+			\item SW1 detects a link failure on its Gi1/0/3 interface. SW3 detects a link failure on its Gi1/0/1 interface.
+			\item Normally, SW1 would generate a TCN flag out its root port, but it is the root bridge, so it does not. SW1 would advertise a TCN if it were not the root bridge.
+				SW3 removes its best BPDU received from SW1 on its Gi1/0/1 interface because it is now in a down state. At this point, SW3 would attempt to send a TCN towards the root switch to notify it of a topology change; however, its root port is down.
+			\item SW1 advertises a configuration BPDU with the Topology Change flag out of all its ports. This BPDU is received and relayed to all switches in the environment.\\
+				If other switches were connected to SW1, they would receive a configuration BPDU with the Topology Change flag set also. These packets have an impact for all switches in the same Layer 2 domain.
+			\item SW2 and SW3 receive the configuration BPDU with the Topology Change flag. These switches then reduce the MAC address age timer to the forward delay timer to flush out older MAC entries. In this phase, SW2 does not know what changed in the topology.
+			\item There is no need to wait for the Max Age timer (default value of 20s) to age out with a link failure. SW3 restarts the STP listening and learning states to learn about the root bridge on the Gi1/0/2 interface (which was in the blocking state previously)
+		\end{enumerate}
+
+	Scenario 3: direct link failure\\
+	In the third scenario, the link between SW1 and SW2 fails. Network traffic from SW1 or SW3 towards SW2 is impacted because SW3's Gi1/0/2 port is in a blocking state.
+		\begin{enumerate}
+			\item SW1 detects a link failure on it Gi1/0/2 interface. SW2 detects a link failure on its Gi1/0/1 interface.
+			\item Normally SW1 would generate a TCN flag out its root port, but it is the root bridge, so it does not. SW1 would advertise a TCN if it were not the root bridge.\\
+				SW2 removes its best BPDU received from SW1 on its Gi1/0/1 interface because it is now in a down state. At this point, SW2 would attempt to send a TCN toward the root switch to notify it of a topology change; however, its root port is down.
+			\item SW1 advertises a configuration BPDU with the Topology Change flag out of all its ports. This BPDU is then received and relayed to SW3. SW3 cannot relay this to SW2 because its Gi1/0/2 port is still in a blocking state.\\
+				SW2 assumes that it is now the root bridge and advertises configuration BPDUs with itself as the root bridge
+			\item SW3 receives the configuration BPDU with the Topology Change flag from SW1. SW3 reduces the MAC address age timer to the forward delay timer to flush out older MAC entries. SW3 receives SW2's inferior BPDUs and discards them as it is still receiving superior BPDUs from SW1. 
+			\item The Max Age timer on SW3 expires, and now SW3's Gi1/0/2 port transitions from blocking to listening state. SW3 can now forward the next configuration BPDU it receives from SW1 to SW2.
+			\item SW2 receives SW1's configuration BPDU via SW3 and recognizes it as superior. It marks it Gi1/0/3 interface as the root port and transitions it to the listening state.
+		\end{enumerate}
+			The total convergence time for SW2 is 50 seconds: 20 seoncds for the Max Age timer on SW3, 15 seconds for the listening state on SW2, and 15s for the learning state.\\
+
+	Indirect Failures:\\
+		In some failure scenarios, STP communication between switches is impaired or filtered while the network link remains up. This situation is known as an indirect link failure, and timers are required to detect and remediate the topology.
+		\begin{enumerate}
+			\item An event occurs that impairs or corrupts data on the link. SW1 and SW3 still report a link up condition.
+			\item SW3 stops receiving configuration BPDU on its RP. It keeps a cached entry for the RP on Gi1/0/1. SW1's configuration BPDUs that are being transmitted via SW2 are discarded because SW3's Gi1/0/2 port is in a blocking state.
+			After SW3's Max Age timer expires and flushes the RP's cached entry, SW3 transitions Gi1/0/2 from blocking to listening state.	
+			\item SW2 continues to advertise SW1's configuraiton BPDUs towards SW3.
+			\item SW3 receives SW1's configuration BPDU via SW2 on its Gi1/0/2 interface. This port is now marked as the RP and continues to transition through the listening and learning state.
+		\end{enumerate}
+
+	The total time for reconvergence on SW3 is 50s: 20 seconds for the Max Age timer on SW3, 15s for the listening state on SW3, and 15s for the learning state on SW3.
+
+RSTP\\
+
+root guard\\
+portfast\\
+BPDU guard\\
+BPDU filter\\
+problems with unidirections links\\
+loop guard\\
+UDLD\\
+MSTP, CST, MST regions, MSTIs (IST)\\  
+
+
 \section*{VTP/DTP}
 \section*{Ethernchannel Bundles}
+
+
 \section*{IPv4 and IPv6}
-\section*{AAA, terminal lines and password protection}
-\section*{ACL}
-\section*{DHCP and EUI-64}
-\section*{NAT}
-\section*{FHRP}
-\section*{DNS}
-\section*{static routing}
-\section*{routing algorithms}
-\section*{RIP}
-\section*{EIGRP}
-\section*{OSPF}
-\section*{BGP}
-\section*{multicast}
-\section*{QoS}
-\section*{Overlay tunnels}
-\section*{wireless infrastructure signal modulation roaming location services authentication and troubleshooting}
-\section*{enterprise network architecture}
-\section*{fabric technologies}
-\section*{network assurance}
-\section*{secure network access control (Talos group)}
-\section*{SDN}
-\section*{foundational network programmability concepts, introduction to automation tools}
+
+
+
+
+
+
+
+
+
+
+
 
 
 \end{document}
-
 
 
 
