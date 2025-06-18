@@ -1,0 +1,79 @@
+\documentclass{article}
+\title{Operating Systems: Internals and Design Principles (Eighth Edition) notes}
+\date{\today}
+\begin{document}
+
+CPU - control operations, perform data processing, exchanges data with memory 
+	\begin{itemize}
+		\item PC: typically holds the address of the next instruction to be fetched
+		\item IR: fetched instructions loaded here
+		\item MAR: address in memory for the next read or write
+		\item MBR: data to be written into memoroy or receives the data read
+		\item I/O AR
+		\item I/O BR
+		\item execution unit
+	\end{itemize}
+
+general purpose processors\\
+microprocessors\\
+multiprocessors\\
+chip (socket)\\
+core\\
+hardware thread\\
+logical processors\\
+graphical processing unit (GPU)\\
+single instruction multiple data (SIMD)\\
+digital signal processor (DSP)\\
+codecs\\
+SoC (handhelds)\\
+
+program execution consists of repeating the process of instruction fetch and instruction execution. instruction execution may involve several operations and depends on the nature of the instruction.\\
+
+an instruction contains bits that specify the action the processor is to take:
+	\begin{itemize}
+		\item processor-memory
+		\item processor-i/o
+		\item data processing
+		\item control
+	\end{itemize}
+
+consider a simple computer which has 16-bit instructions...the processor contains a register called the accumulator...the instruction format consists of 4-bits for the opcode and 12-bits that can be directly addressed\\
+
+most modern processors include instructions that contain more than more than one address. also, an instruction may specify an i/o operations instead of memory reference\\
+
+classes of interrupts
+	\begin{itemize}
+		\item program
+		\item timer
+		\item i/o
+		\item hardware failure
+	\end{itemize}
+
+interrupts primarily improve processor utilization\\
+consider the following:\\
+a computer operating at 1GHz and a HDD $\frac{7200revolutions}{minute}$ and a half-track rotation time of 4ms\\
+
+the user program does not have to contain special code to accommodate interrupts; the processor and OS are responsible for suspending the user program and then resuming it at that same point\\
+
+PSW is the minimum information required, location of next instruction to be executed, other register, ect...\\
+
+interrupt processing
+	\begin{enumerate}
+		\item the device issues an interrupt signal to the processor.
+		\item the processor finishes execution of the current instruction before respongin to the interrupt.
+		\item the processor tests for a pending interrupt request, determines that there is one, and sends an acknowledgment signal to the device that issued the interrupt. the acknowledgment allows the device to remove its interrupt signal.
+		\item the processor next needs to prepare to transfer control to the interrupt routine. to begin, it saves information needed to resume the current program at the point of interrupt. the minimum information required is the program status word (PSW) and the location of the next instruction to be executed, which is contained in the program counter (PC). these can be pused onto a control stack.
+		\item the processor then loads the program counter with the entry location of the interrupt-handling routine that will respond to this interrupt. depending on the computer architecture and OS design, there may be a single program, one for each type of interrupt, or one for each device and each type of interrupt. if there is more than one interrupt-handling routing, the processor must determine which one to invoke. this information may have been included in the original interrupt signal, or the processor may have to issue a request to the device that issued the interrupt to get a response that contains the needed information.
+		Once the program counter has been loaded, the processor proceeds to the next instruction cycle, which begins with an instruction fetch. because the instruction fetch is detemined by the contents of the program counter, control is transferred to the interrupt-handler program. the execution of this program results in the following operations:
+
+	\item at this point, the program counter and PSW relating to the interrupted program have been saved on the control stack. however, there is other information that is considered part of the state of the executing program. in these registers may be used by the interrupt handler. so all of these values, plus any other state information, need to be saved. typically, ine interrupt handler will begin by saving the contents of all registers on the stack. other state information that must be saved is discussed later. in this case, a user program is interrupted after the instruction at location N. the contents of all of the registers plus the address of the next instruction N+1, a total of M words, are pushed onto the control stack. the stack pointer is updated to point to the new top of stack, and the program counter is updated to point to the beginning of the interrupt service routine.
+		\item
+		\item
+		\item
+	\end{enumerate}
+
+
+
+
+\maketitle
+\end{document}

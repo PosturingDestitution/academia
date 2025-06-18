@@ -25,13 +25,45 @@
 	circle: $(x - h)^2 + (y - k)^2 = r^2$\\
 	pythagorean: $c^2 = a^2 + b^2$\\
 
-	triangle\\
-	circle\\
-	sector of circle\\
-	sphere\\
-	cylinder\\
-	cone\\
-	cone with arbitrary base\\
+	triangle:
+		\begin{itemize}
+			\item $A = \frac{1}{2}bh$
+			\item $A = \frac{1}{2}ab\sin(\theta)$
+		\end{itemize}
+
+	circle:
+		\begin{itemize}
+			\item $A = \pi r^2$
+			\item $C = 2\pi r$
+		\end{itemize}
+
+	sector of circle:
+		\begin{itemize}
+			\item $A = \frac{1}{2}r^2\theta$
+			\item $S = r\theta$
+		\end{itemize}
+
+	sphere:
+		\begin{itemize}
+			\item $V = \frac{4}{3}\pi r^3$
+			\item $A_s = 4\pi r^2$
+		\end{itemize}
+
+	cylinder:
+		\begin{itemize}
+			\item $V = \pi r^2h$
+		\end{itemize}
+
+	cone:
+		\begin{itemize}
+			\item $V = \frac{1}{3}\pi r^2h$
+			\item $A_s = \pi r\sqrt{r^2+h^2}$
+		\end{itemize}
+
+	cone with arbitrary base: where A is the area of the base
+		\begin{itemize}
+			\item $V = \frac{1}{3}Ah$
+		\end{itemize}
 
 \textbf{laws of exponents:} 
 	\begin{itemize}
@@ -72,7 +104,7 @@
 		\item $x^3 - y^3 = (x - y)(x^2 + xy + y^2)$
 	\end{itemize}
 
-\textbf{binomial}
+\textbf{binomial, ect?}
 	\begin{itemize}
 		\item $(x + y)^2 = x^2 + 2xy + y^2$
 		\item $(x - y)^2 = x^2 - 2xy + y^2$
@@ -134,6 +166,7 @@ $(a, b) = {x \in \mathbb{R} : a < x < b}$\\
 $[a, b) = {x \in \mathbb{R} : a \leq x < b}$\\
 $(a, b] = {x \in \mathbb{R} : a < x \leq b}$\\
 $(-r, r) = {x : \lvert x\rvert < r}$\\
+$(c - a, c + a) = {\lvert x - c\rvert < a} = c - a < x < c + a$\\
 
 \textbf{composing new functions}\\
 	If $f$ and $g$ are functions, we may construct new functions by forming the sum, difference, product, and quotient functions:\\
@@ -208,7 +241,20 @@ the $y$ intercept: plug in $x = 0$\\
 			\end{itemize}
 	\end{itemize}
 
-\textbf{scalars and vectors}
+\section*{complex numbers}
+	$i = \sqrt{-1}, i^2 = -1$\\
+	$z = a + bi$ rectangular form\\
+	$z = r(\cos(\theta) + i\sin(\theta))$ where $r = \lvert z\rvert$ and $\theta = \tan^{-1}(\frac{b}{a})$\\
+
+	$(2 + 3i)(1 - 4i) = 2 - 8i + 3i - 12i^2 = (14 - 5i)$\\
+	$\frac{1 + i}{2 - 3i} = \frac{(1 + i)(2 + 3i)}{(2 - 3i)(2 + 3i)} = \frac{2 + 5i - 3}{4 + 9} = -\frac{1}{13} + \frac{5}{13}i$\\	
+	$a^2 + b^2 = (a + bi)(a - bi)$\\
+
+	multiplying by i has a very cool and geometric meaning in the complex plane: it corresponds to a 90-degree counterclockwise rotation about the origin.\\
+
+	$i(a + bi) = ai + bi^2 = ai - b = -b + ai$ so $i(a + bi) = -b + ai$ that is a new complex number whose real part is -b, and imaginary part is a\\
+
+\section*{scalars and vectors}
 	\begin{itemize}
 		\item a scalar is a quantity that has only magnitude (size or amount) think temperature, mass, time, speed
 		\item a vector has both a magnitude and a direction... think displacement, velocity, force
@@ -229,43 +275,149 @@ the $y$ intercept: plug in $x = 0$\\
 	$\vec{a} + \vec{b} = (3+2, -1+3) = (5, 2)$
 	$\vec{a} - \vec{b} = (3-2, -1-3) = (1, -4)$ (you could also just add the negative of $\vec{b}$)\\
 
-\textbf{complex numbers}\\
-	$i = \sqrt{-1}, i^2 = -1$\\
-	$z = a + bi$ rectangular form\\
-	$z = r(\cos(\theta) + i\sin(\theta))$ where $r = \lvert z\rvert$ and $\theta = \tan^{-1}(\frac{b}{a})$\\
+\section*{matrices}
+\textbf{matrix addition and subtraction}\\
+addition and subtraction are element-wise operations\\
+$A + B =$ a new matrix where each element is $A_{ij} + B_{ij}$\\
+so if, A is $m x n$ then B must also be $m x n$\\
 
-	$(2 + 3i)(1 - 4i) = 2 - 8i + 3i - 12i^2 = (14 - 5i)$\\
-	$\frac{1 + i}{2 - 3i} = \frac{(1 + i)(2 + 3i)}{(2 - 3i)(2 + 3i)} = \frac{2 + 5i - 3}{4 + 9} = -\frac{1}{13} + \frac{5}{13}i$\\	
-	$a^2 + b^2 = (a + bi)(a - bi)$\\
+\textbf{multiplying matrices}:\\
+	\begin{itemize}
+		\item if A is $m x n$ (m rows, n columns)
+		\item and B is $n x p$
+	\end{itemize}
+then the multiplication AB is defined, and the result is an $m x p$ matrix..also notice how the columns of the first must be equal to the rows of the second...\\
+	
+Associativity (YES)\\
+$(AB)C = A(BC)$
+	\begin{itemize}
+		\item this comes from how linear transformations work: applying them in grouped sequences leads to the same final transformation
+		\item you are not changing the order of operation, just the grouping
+		\item it holds true as long as all dimensions match up correctly
+	\end{itemize}
+associativity allows you to write things like ABC without parentheses, assuming it is well-defined\\
 
-	multiplying by i has a very cool and geometric meaning in the complex plane: it corresponds to a 90-degree counterclockwise rotation about the origin.\\
+Communtativity - (NO)\\
+$AB \neq BA$ (in general)\\
+why not?
+	\begin{itemize}
+		\item AB might be defined, but BA might not even exist!
+		\item even if both are defined and square, the result is usually not the same
+	\end{itemize}
 
-	$i(a + bi) = ai + bi^2 = ai - b = -b + ai$ so $i(a + bi) = -b + ai$ that is a new complex number whose real part is -b, and imaginary part is a\\
+the zero matrix is a matrix where every entry is zero\\
+$A + 0 = A$\\
+$A \cdot 0 = 0$\\
 
-\textbf{matrices}\\
-scalar multiplication\\
-adding/subtracting\\
-determinant\\
-matmul\\
-communitive and associative\\
-the indentity matrix\\
-the zero matrix\\
-the inverse matrix and the adjugate
+the identity matrix acts like the number 1: multiplying by it does nothing\\
 
-\textbf{probability and combinatorics}\\
-the addition rule to prevent double counting (anding and oring)\\
-mutually exclusive\\
-the multiplication rule\\
-independent events\\
-dependent probability (replacment)\\
-the general multiplication rule\\
-permutations and factorial\\
-zero factoiral\\
+$
+\begin{bmatrix}
+1 & 0\\
+0 & 1
+\end{bmatrix}
+$\\
 
-\textbf{series}\\
+$AI = IA = A$\\
+
+the inverse matrix "undoes" a matrix\\
+$AA^{-1} = A^{-1}A = I$\\
+
+the determinant is a number you compute from a square matrix. it tells you if the matrix is:
+	\begin{itemize}
+		\item invertable (if $det(A) \neq 0$)
+		\item singular (if $det(A) = 0$)
+	\end{itemize}
+
+in 2D, det(A) tells how much the matrix scales area\\
+if the area is zero (like squishing to a line), the matrix cannot be reversed - no inverse\\
+
+$
+\begin{bmatrix}
+a & b\\
+c & d
+\end{bmatrix}
+$\\
+
+once we have a nonzero determinant, we know the matrix is safe to invert. but how do we build the inverse? youll need the adjugate\\
+
+the adjugate (or adjoint) matrix is the matrix of cofactors, transposed. it helps us construct the inverse when $det(A) \neq 0$\\
+
+$A^{-1} = \frac{1}{det(A)}\dot adj(A)$\\
+so: no determinant, no adjugate $\rightarrow$ no inverse\\
+
+the adjugate connects the determinant to the inverse. it is built from minors and cofactos, which break down a matrix piece by piece.
+
+\section*{probability and combinatorics}
+consider a standard deck of cards (no jokers)\\
+$P(jack) = \frac{4}{52} = \frac{1}{13}$\\
+$P(hearts) = \frac{13}{52}$\\
+
+now consider a venn diagram for the following:
+$P(J \cup H) = \frac{4 + 13 - 1}{52}$\\
+since the probability of hearts overlaps with the probability of jacks (jack of hearts) youll have to subtract out the double counting...we say that that are not mutually exclusive otherwise you could just add $P(J) + P(H)$ if they were mutually exclusive\\
+
+addition rule:\\
+$P(A \cup B) = P(A) + P(B) - P(A \cap B)$\\
+
+now consider mutually exclusive events:\\
+$P(A \cap B) = 0$\\
+$P(A \cup B) = P(A) + P(B)$\\
+
+multiplication rule for independent events:\\
+if two events, A and B, are independent (meaning the occurrence of one does not affect the other), then: $P(A \cap B) = P(A) \dot P(B)$\\
+
+consider a fair coin:\\
+$P(HH) = \frac{1}{2} \cdot \frac{1}{2}$
+
+now consider dependent events say you have a bag with 3 blue and 2 red balls...what is the probability that the first pull is blue and the second is blue\\
+$P(1st blue) \dot P(2nd blue \mid 1st blue)$\\
+
+$P(A \cap B) = P(B) \dot P(A \mid B) = P(A) \dot P(B \mid A)$\\
+
+permutations (order matters)\\
+$P(n, k) = \frac{n!}{(n - k)!}$\\
+
+combinations (order does not matter)\\
+$\binom{n}{k} = \frac{n!}{k!(n - k)!}$\\
+
+a probability distribution describes how likely different outcomes are for a random variable
+	\begin{itemize}
+		\item a random variable is something that can take on different values due to chance (like rolling a die or counting the number of heads in coin flips)
+		\item a probability distribution assigns a probability to each possible value that the variable can take
+	\end{itemize}
+
+the expected value of a random variable is the long-run average outcome you would expect if you repeated an experiment many times. think of it as the center or balance point of a probability distribution.\\
+
+$E[X] = \sum_{i=1}^{n} x^i \cdot P(x_i)$\\
 
 
+\section*{sequences, series}
+an arithmetic series is the sum of the terms in an arithmetic sequence, where each term increases or decreases by a constant value (common difference)\\
+nth term:\\
+$a_n = a_1 + (n-1)d$
+sum of the first n terms:\\
+$S_n = \frac{n}{2}(a_1 + a_n)$\\
+$S_n = \frac{n}{2}(2a_1 + (n-1)d)$\\
+$a, a + d, a + 2d, \dots, a + (n - 1)d$\\
+the sum of the first $n$ terms: $\sum_{k=0}^{n-1} (a + kd)$\\
 
+a geometric seriew is the sum of the terms in a geometric sequence, where each term is multiplied by a constant (common ration)\\
+nth term:\\
+$a_n = a_1 \dot r^{n-1}$\\
+sum of the first n terms (when $r \neq 1$):\\
+$S_n = a_1 \cdot \frac{1 - r^n}{1 - r}$\\
+if $\lvert r\rvert < 1$ and $n \to \infty$, then the infinite sum:\\
+$S = \frac{a_1}{1 - r}$
+$a, ar, ar^2, \dots, ar^{n-1}$\\
+the sum of the first n elements: $\sum_{k=0}^{n-1} (ar^k)$\\
+
+the binomial theorem is a powerful tool to expand expressions of the form $(a + b)^n$ where $a$ and $b$ are any numbers or variables and $n$ is non-negative\\
+$(a + b)^n = \sum_{k=0}^{n} \binom{n}{k}a^{n-k}b{k}$\\
+
+pascal's triangle is a triangular array of numbers that shows the binomial coeffiecients - which appear in the binomial therem expansions\\
+
+each number is the sum of the two numbers directly above it $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$ where for $\binom{n}{k}$ the value at row $n$, position $k$, the rows start at $n=0$, each row gives the coefficients for $(a+b)^n$
 
 
 \section*{trigonometry}
@@ -299,14 +451,15 @@ $
 \end{array}
 $\\
 
-$1^\circ = \frac{\pi}{180}$rad\\
-$1 rad = \frac{180^\circ}{pi}$\\
+$\pi$ radians = $180^{\circ}$\\
+$1^\circ = \frac{\pi}{180}$ radians\\
+$1$ radian = $\frac{180^\circ}{\pi}$\\
 
 Trigonometric functions are special mathematical functions that originally come from studying right triangles. They relate the size of an angle in a triangle to the ratios of the lengths of the triangle's sides.\\
 
 \textbf{SOH-CAH-TOA} is a mnemonic device that expresses the relationship between the basic trigonometric functions and the ratios of the sides in a right triangle.\\
 
-The triangle definition only works for angles between 0 and $\frac{\pi}{2}$. To extend trig functions to all angles (including negative angles and angles larger then ($2\pi or 360^{\circ}$), mathematicians use the unit circle. Thus allowing use to use trig functions on the coordinate plane, enabling graphing and calculus.\\
+The triangle definition only works for angles between 0 and $\frac{\pi}{2}$. To extend trig functions to all angles (including negative angles and angles larger then ($2\pi$ or $360^{\circ}$), mathematicians use the unit circle. Thus allowing use to use trig functions on the coordinate plane, enabling graphing and calculus.\\
 
 To derive the rest of the fundamental trigonometric identities, you need a combination of a few key identities and principles. The most important starting point is the Pythagorean identity, but you’ll also need the basic relationships between the trigonometric functions, such as the definitions of sine, cosine, tangent, secant, cosecant, and cotangent in terms of a right triangle or the unit circle. \\
 
