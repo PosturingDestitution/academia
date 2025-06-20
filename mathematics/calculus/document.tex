@@ -20,6 +20,8 @@
 
 \section*{introduction}
 
+	A real number ($a \in \mathbb{R}$) is a number represented by a decimal or decimal expansion. There are three types of decimal expansions: finite, repeating, and infinite but nonrepeating. The set of integers is commonly denoted by the letter $\mathbb{Z} = {\dots, -2, -1, 0, 1 , 2, \dots}$. Natural numbers ($\mathbb{N}$) are the set of numbers used for couting and sometimes ordering. A whole number is a non-negative integer. A number is rational ($\mathbb{Q}$) if it can be represented by a fraction $\frac{p}{q}$ where $p$ and $q$ are integers with $q \neq 0$. Rational numbers have a finite or repeating decimal expansions and irrational numbers have infinite, nonrepeating decimal expansions. Furthermore, the decimal expansion of a number is unique, apart from the following exception: Every finite decimal is equal to an infinite decimal in which the digit 9 repeats.\\
+
 	midpoint: $(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2})$\\
 	distance: $\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$\\
 	circle: $(x - h)^2 + (y - k)^2 = r^2$\\
@@ -495,7 +497,7 @@ $\sin \alpha \sin \beta = \frac{1}{2} [\cos(\alpha - \beta) - \cos(\alpha + \bet
 $\cos \alpha \cos \beta = \frac{1}{2} [\cos(\alpha - \beta) + \cos(\alpha + \beta)] $\\
 $\sin \alpha \cos \beta = \frac{1}{2} [\sin(\alpha + \beta) + \sin(\alpha - \beta)] $\\
 
-\textbf{law of sines and cosines}
+\textbf{law of sines and cosines}\\
 	$\frac{\sin(A)}{a} = \frac{\sin(B)}{b} \frac{\sin(C)}{c}$\\
 	$a^2 = b^2 + c^2 - 2bc\cos(A)$\\
 
@@ -521,7 +523,128 @@ $\sin \alpha \cos \beta = \frac{1}{2} [\sin(\alpha + \beta) + \sin(\alpha - \bet
 
 	If the values of $f(x)$ do not converge to any limit as $x \to c$, we say that $\lim_{x \to c}f(x)$ DNE. It is important to note that the value $f(c)$ itself, which may or may not be defined, plays no role in the limit. All that matters are the values $f(x)$ for $x$ close to c. Furthermore, if $f(x)$ approaches a limit as $x \to c$, then the limiting value $L$ is unique.\\
 
-	We say the $\lim_{x \to c}f(x) = \infty$ if $f(x)$ increases beyond bound as $x$ approaches $c$, and $\lim_{x \to c}f(x) = -\infty$ if $f(x)$ becomes arbitrarily large (in absolute value) but negative as $x$ approaches $c$
+	We say the $\lim_{x \to c}f(x) = \infty$ if $f(x)$ increases beyond bound as $x$ approaches $c$, and $\lim_{x \to c}f(x) = -\infty$ if $f(x)$ becomes arbitrarily large (in absolute value) but negative as $x$ approaches $c$\\
+
+	The Limit Laws state that if $lim_{x \to c}f(x)$ and $lim_{x \to c}g(x)$ both exist, then
+		\begin{itemize}
+			\item $lim_{x \to c}(f(x) + g(x)) = lim_{x \to c}f(x) + lim_{x \to c}g(x)$
+			\item $lim_{x \to c}kf(x) = klim_{x \to c}f(x)$
+			\item $lim_{x \to c}f(x)g(x) = (lim_{x \to c}f(x))(lim_{x \to c}g(x))$
+			\item if $lim_{x \to c}g(x) \neq 0$, then $lim_{x \to c}\frac{f(x)}{g(x)} = \frac{lim_{x \to c}f(x)}{lim_{x \to c}g(x)}$
+			\item if $lim_{x \to c}f(x)$ or $lim_{x \to c}g(x) DNE$, then the Limit Laws cannot be applied
+		\end{itemize}
+
+	Assume that $f(x)$ is defined on an open interval containing $x = c$. Then $f$ is continuous at $x = c$ if $lim_{x \to c}f(x) = f(c)$ If the limit does not exist, or if it exists but is not equal to $f(c)$, we say that $f$ has a discontinuity (or is discontinuous) at $x = c$.\\
+
+	A function $f(x)$ may be continuous at some points and discontinuous at others. if $f(x)$ is continuous at all points in an interval $I$, then $f(x)$ is said to be continuous on $I$. Here, if I is an interval $[a, b]$ or $[a, b)$ that includes $a$ as a left-endpoint, we require that $lim_{x \to a+}f(x) = f(a)$. Similarly, we require that $lim_{x \to b-}f(x) = f(b)$ if $I$ includes $b$ as a right-endpoint $b$. If $f(x)$ is continuous at all points in its domain, then $f(x)$ is simply called continuous.\\
+
+	Lets look at how a function can fail to be continuous...remeber that point discontinuity requires that the limit exist at that point, the value of the function exists at that point, and those two equal. If the first two conditions hold but that last one fails then we say that the function has a \textbf{removable discontinuity} at that point.\\
+
+	Removable discontinuities are "mild" in the following sense: We can make $f$ continuous at $x = c$ by redefining $f(c)$.\\
+
+	A "worse" type of discontinuity is a \textbf{jump discontinuity}, which occurs if the one-sided limits $lim_{x \to c-}f(x)$ and $lim_{x \to c+}f(x)$ exist but are not equal.\\
+
+	We say that $f(x) has an infinite discontinuity at x = c if one or both of the one-sided limits is infinite (even if f(x) itself is not defined at x = c).$\\
+
+	We should mention that some functions have more "severe" types of discontinuity than those discussed above. For example, $f(x) = \sin(\frac{1}{x})$ oscillates infinitely often between $+1$ and $-1$ as $x \to 0$. Nether the left-nor the right-hand limits exist at $x = 0$, so this discontinuity is no a jump discontinuity. Although of interest from a theoretical point of view, these discontinuities rarely arise in practice.\\
+
+	\textbf{Laws of Continuity}\\
+	Assume that $f(x)$ and $g(x)$ are continuous at a point $x = c$. Then the following functions are also continuous at $x = c$:\\
+		\begin{itemize}
+			\item $f(x) + g(x) and f(x) - g(x)$
+			\item $kf(x) for any constant k$
+			\item $f(x)g(x)$
+			\item $\frac{f(x)}{g(x)}$ if $g(c) \neq 0$
+		\end{itemize}
+
+	\textbf{Continuity of Polynomial and Rational Functions}\\
+	Let $P(x)$ and $Q(x)$ be polynomials. Then:\\
+		\begin{itemize}
+			\item $P(x0 is continuous on the real line$
+			\item $\frac{P(x)}{Q(x)}$ is continuous at all values $c$ such that $Q(x) \neq 0$
+		\end{itemize}
+
+	\textbf{Continuity of Some Basic Functions}\\
+		\begin{itemize}
+			\item $y = \sin(x)$ and $y = \cos(x)$ are continuous on the real line
+			\item For $b > 0$, $y = b^x$ is continuous on the real line
+			\item If $n$ is a natural number, then $y = x^{\frac{1}{n}}$ is continuous on its domain
+		\end{itemize}
+
+	\textbf{Continuity of Composite Functions}\\
+		Let $F(x) = f(g(x))$ be a composite function. If $g$ is continuous at $x = c$ and $f$ is continuous at $x = g(c)$, then $F(x)$ is continuous at $x = c$\\	
+
+		It is easy to evaluate a limit when the function in question is known to be continuous. in this case, by definition, the limit is equal to the function value.\\
+
+		In general, we say that $f(x)$ has an \textbf{indeterminate form} at $x = c$ if, when $f(x)$ is evaluated at $x = c$, we obtain an indefined expression of the type $\frac{0}{0}$, $\frac{\infty}{\infty}$, $\infty \cdot 0$, $\infty - \infty$	\\
+
+Later when we study derivatives, we will be faced with limits $lim_{x \to c}f(x)$, where $f(c)$ is not defined. In such cases, substitution cannot be used directly. However, some of these limits can be evaluated using substitution, provided that we first use algebra to rewrite the formula for $f(x)$\\
+
+	\textbf{Evaluating Limits Algebraically}
+		\begin{itemize}
+			\item $lim_{x \to 4}\frac{x^2 - 16}{x - 4}$\\
+				The function is not defined at $x = 4$ because $f(4) = \frac{4^2 - 16}{4 - 4}  = \frac{0}{0}$ (arithmetically undefined)\\
+
+				However, the numerator of $f(x)$ factors and\\
+				$\frac{x^2 - 16}{x - 4} = \frac{(x+4)(x-4)}{x - 4} = x + 4$ (valid for $x \neq 4$)\\
+				In other words, $f(x)$ coincides with the \textit{continuous} function $x + 4$ for all $x \neq 4$. Sinve the limit depends only on the values of $f(x)$ for $x \neq 4$, we have\\
+				$lim_{x \to 4}\frac{x^2 - 16}{x - 4} = lim_{x \to 4}(x + 4) = 8$\\
+
+				In general, we say that $f(x)$ has an \textbf{indeterminate form)} at $x = c$, we obtain an undefined expression of the type\\
+				
+				$\frac{0}{0}, \frac{\infty}{\infty}, \infty \cdot 0, \infty - \infty$\\
+
+				We also say that $f$ is \textbf{indeterminate} at $x = c$. Our strategy is to \textit{transform $f(x)$ algebraically if possible into a new expression that is defined and continuous at $x = c$, and then evaluate by substitution ("plugging in")}. As you study the following examples, notice that the critical step in each case is to cancel a common factor from the numerator and denominator at the appropriate moment, thereby removing the indeterminacy.
+			\item $lim_{x \to 4}\frac{\sqrt{x} - 2}{x - 4}$\\
+				The function $f(x) = \frac{\sqrt{x} - 2}{x - 4}$ is indeterminate at $x = 4$ since\\
+
+				$f(4) = \frac{\sqrt{4} - 2}{4 - 4} = \frac{0}{0}$ (indeterminate)\\
+
+				$(\frac{\sqrt{x} - 2}{x - 4})(\frac{\sqrt{x} + 2}{\sqrt{x} + 2}) = \frac{x - 4}{(x - 4)(\sqrt{x} + 2)} = \frac{1}{\sqrt{x} + 2}$ (if $x \neq 4$)\\
+
+				Since $\frac{1}{\sqrt{x} + 2}$ is continuous at $x = 4$,\\
+
+				$lim_{x \to 4}\frac{\sqrt{x} - 2}{x - 4} = lim_{x \to 4}\frac{1}{\sqrt{x} + 2} = \frac{1}{4}$
+
+			\item $lim_{x \to 2}\frac{x^2 - x + 5}{x - 2}$\\
+				At $x = 2$ we have\\
+				
+$f(2) = \frac{2^2 - 2 + 5}{2 - 2} = \frac{7}{0}$ (undefined, but not an indeterminate form)\\
+				This is \textit{not} an indeterminate form. In fact, shows that the one-sided limits are infinte:\\
+
+				$lim_{x \to 2-}\frac{x^2 - x + 5}{x - 2} = -\infty$, $lim_{x \to 2+}\frac{x^2 - x + 5}{x - 2} = \infty$\\
+
+				The limit itself does not exist.
+		\end{itemize}
+
+	\textbf{The Squeeze Theorem}
+	In our study of the derivative, we will need to evaluate certain limits involving transcendental functions such as sine and cosine. The algebraic techniques of the previous section are often ineffective for such functions and other tools are required. One such tool is the Squeeze Theorem, which we discuss in this section and use to evaluate the trigonometric limits later.\\
+
+	Consider a function $f(x)$ that is trapped between two functions $l(x)$ and $u(x)$ on an interval $I$. In other words,\\
+
+	$l(x) \leq f(x) \leq u(x)$ for all $x \in I$\\
+
+	In this case, the graph of $f(x)$ lies between the graphs of $l(x)$ and $u(x)$, with $l(x)$ as the lower and $u(x)$ as the upper function.\\
+
+	The Squeeze Theorem applies when $f(x)$ is not just trapped, but actually \textbf{squeezed} at a point $x = c$ by $l(x)$ and $u(x)$. By this we mean that for all $x \neq c$ in some open interval containing $c$,\\
+
+	$l(x) \leq f(x) \leq u(x)$ and $lim+{x \to c}l(x) = lim_{x \to c}u(x) = L$\\
+
+	We do not require that $f(x)$ be defined at $x = c$, but it is clear graphically that $f(x)$ must approach the limit $L$. We state this formally:\\
+
+	Assume that for $x \neq c$ (in some open interval containing $c$),\\
+
+	$l(x) \leq f(x) \leq u(x)$ and $lim_{x \to c}l(x) = lim{x \to c}u(x) = L$\\
+
+	Then $lim_{x \to c}f(x)$ exists and\\
+
+	$lim_{x \to c}f(x) = L$\\
+
+	Show that $lim_{x \to 0}x\sin(\frac{1}{x}) = 0$\\
+
+	\textbf{Intermediate Value Theorem}
+	
+	\textbf{The Formal Definition of a Limit}
 
 \section*{differentiation}
 $\frac{d}{dx}(c) = 0$\\
