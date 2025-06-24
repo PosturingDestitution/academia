@@ -243,7 +243,7 @@ the $y$ intercept: plug in $x = 0$\\
 			\end{itemize}
 	\end{itemize}
 
-\section*{complex numbers}
+\textbf{complex numbers}
 	$i = \sqrt{-1}, i^2 = -1$\\
 	$z = a + bi$ rectangular form\\
 	$z = r(\cos(\theta) + i\sin(\theta))$ where $r = \lvert z\rvert$ and $\theta = \tan^{-1}(\frac{b}{a})$\\
@@ -256,7 +256,7 @@ the $y$ intercept: plug in $x = 0$\\
 
 	$i(a + bi) = ai + bi^2 = ai - b = -b + ai$ so $i(a + bi) = -b + ai$ that is a new complex number whose real part is -b, and imaginary part is a\\
 
-\section*{scalars and vectors}
+\textbf{scalars and vectors}
 	\begin{itemize}
 		\item a scalar is a quantity that has only magnitude (size or amount) think temperature, mass, time, speed
 		\item a vector has both a magnitude and a direction... think displacement, velocity, force
@@ -277,63 +277,7 @@ the $y$ intercept: plug in $x = 0$\\
 	$\vec{a} + \vec{b} = (3+2, -1+3) = (5, 2)$
 	$\vec{a} - \vec{b} = (3-2, -1-3) = (1, -4)$ (you could also just add the negative of $\vec{b}$)\\
 
-\section*{matrices}
-\textbf{matrix addition and subtraction}\\
-addition and subtraction are element-wise operations\\
-$A + B =$ a new matrix where each element is $A_{ij} + B_{ij}$\\
-so if, A is $m x n$ then B must also be $m x n$\\
-
-\textbf{multiplying matrices}:\\
-	\begin{itemize}
-		\item if A is $m x n$ (m rows, n columns)
-		\item and B is $n x p$
-	\end{itemize}
-then the multiplication AB is defined, and the result is an $m x p$ matrix..also notice how the columns of the first must be equal to the rows of the second...\\
-	
-Associativity (YES)\\
-$(AB)C = A(BC)$
-	\begin{itemize}
-		\item this comes from how linear transformations work: applying them in grouped sequences leads to the same final transformation
-		\item you are not changing the order of operation, just the grouping
-		\item it holds true as long as all dimensions match up correctly
-	\end{itemize}
-associativity allows you to write things like ABC without parentheses, assuming it is well-defined\\
-
-Communtativity - (NO)\\
-$AB \neq BA$ (in general)\\
-why not?
-	\begin{itemize}
-		\item AB might be defined, but BA might not even exist!
-		\item even if both are defined and square, the result is usually not the same
-	\end{itemize}
-
-the zero matrix is a matrix where every entry is zero\\
-$A + 0 = A$\\
-$A \cdot 0 = 0$\\
-
-the identity matrix acts like the number 1: multiplying by it does nothing\\
-
-$
-\begin{bmatrix}
-1 & 0\\
-0 & 1
-\end{bmatrix}
-$\\
-
-$AI = IA = A$\\
-
-the inverse matrix "undoes" a matrix\\
-$AA^{-1} = A^{-1}A = I$\\
-
-the determinant is a number you compute from a square matrix. it tells you if the matrix is:
-	\begin{itemize}
-		\item invertable (if $det(A) \neq 0$)
-		\item singular (if $det(A) = 0$)
-	\end{itemize}
-
-in 2D, det(A) tells how much the matrix scales area\\
-if the area is zero (like squishing to a line), the matrix cannot be reversed - no inverse\\
-
+\textbf{matrices}\\
 $
 \begin{bmatrix}
 a & b\\
@@ -341,16 +285,7 @@ c & d
 \end{bmatrix}
 $\\
 
-once we have a nonzero determinant, we know the matrix is safe to invert. but how do we build the inverse? youll need the adjugate\\
-
-the adjugate (or adjoint) matrix is the matrix of cofactors, transposed. it helps us construct the inverse when $det(A) \neq 0$\\
-
-$A^{-1} = \frac{1}{det(A)}\dot adj(A)$\\
-so: no determinant, no adjugate $\rightarrow$ no inverse\\
-
-the adjugate connects the determinant to the inverse. it is built from minors and cofactos, which break down a matrix piece by piece.
-
-\section*{probability and combinatorics}
+\textbf{probability and combinatorics}
 consider a standard deck of cards (no jokers)\\
 $P(jack) = \frac{4}{52} = \frac{1}{13}$\\
 $P(hearts) = \frac{13}{52}$\\
@@ -367,15 +302,15 @@ $P(A \cap B) = 0$\\
 $P(A \cup B) = P(A) + P(B)$\\
 
 multiplication rule for independent events:\\
-if two events, A and B, are independent (meaning the occurrence of one does not affect the other), then: $P(A \cap B) = P(A) \dot P(B)$\\
+if two events, A and B, are independent (meaning the occurrence of one does not affect the other), then: $P(A \cap B) = P(A) \cdot P(B)$\\
 
 consider a fair coin:\\
 $P(HH) = \frac{1}{2} \cdot \frac{1}{2}$
 
 now consider dependent events say you have a bag with 3 blue and 2 red balls...what is the probability that the first pull is blue and the second is blue\\
-$P(1st blue) \dot P(2nd blue \mid 1st blue)$\\
+$P(1st blue) \cdot P(2nd blue \mid 1st blue)$\\
 
-$P(A \cap B) = P(B) \dot P(A \mid B) = P(A) \dot P(B \mid A)$\\
+$P(A \cap B) = P(B) \cdot P(A \mid B) = P(A) \cdot P(B \mid A)$\\
 
 permutations (order matters)\\
 $P(n, k) = \frac{n!}{(n - k)!}$\\
@@ -393,8 +328,7 @@ the expected value of a random variable is the long-run average outcome you woul
 
 $E[X] = \sum_{i=1}^{n} x^i \cdot P(x_i)$\\
 
-
-\section*{sequences, series}
+\textbf{sequences, series}\\
 an arithmetic series is the sum of the terms in an arithmetic sequence, where each term increases or decreases by a constant value (common difference)\\
 nth term:\\
 $a_n = a_1 + (n-1)d$
@@ -404,7 +338,7 @@ $S_n = \frac{n}{2}(2a_1 + (n-1)d)$\\
 $a, a + d, a + 2d, \dots, a + (n - 1)d$\\
 the sum of the first $n$ terms: $\sum_{k=0}^{n-1} (a + kd)$\\
 
-a geometric seriew is the sum of the terms in a geometric sequence, where each term is multiplied by a constant (common ration)\\
+a geometric series is the sum of the terms in a geometric sequence, where each term is multiplied by a constant (common ration)\\
 nth term:\\
 $a_n = a_1 \dot r^{n-1}$\\
 sum of the first n terms (when $r \neq 1$):\\
@@ -421,7 +355,7 @@ pascal's triangle is a triangular array of numbers that shows the binomial coeff
 
 each number is the sum of the two numbers directly above it $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$ where for $\binom{n}{k}$ the value at row $n$, position $k$, the rows start at $n=0$, each row gives the coefficients for $(a+b)^n$
 
-
+\newpage
 \section*{trigonometry}
 
 $
@@ -463,46 +397,40 @@ Trigonometric functions are special mathematical functions that originally come 
 
 The triangle definition only works for angles between 0 and $\frac{\pi}{2}$. To extend trig functions to all angles (including negative angles and angles larger then ($2\pi$ or $360^{\circ}$), mathematicians use the unit circle. Thus allowing use to use trig functions on the coordinate plane, enabling graphing and calculus.\\
 
-To derive the rest of the fundamental trigonometric identities, you need a combination of a few key identities and principles. The most important starting point is the Pythagorean identity, but you’ll also need the basic relationships between the trigonometric functions, such as the definitions of sine, cosine, tangent, secant, cosecant, and cotangent in terms of a right triangle or the unit circle. \\
+To derive the rest of the fundamental trigonometric identities, you need a combination of a few key identities and principles. The most important starting point is the Pythagorean identity, but you’ll also need the basic relationships between the trigonometric functions, such as the definitions of sine, cosine, tangent, secant, cosecant, and cotangent in terms of a right triangle or the unit circle.
+	\begin{itemize}
+		\item $\frac{1}{\cos(\theta)} = \sec(\theta)$	
+		\item $\frac{1}{\sin(\theta)} = \csc(\theta) $
+		\item $\frac{1}{\tan(\theta)} = \cot(\theta)$
+		\item $\cos(\frac{\pi}{2} - \theta) = \sin(\theta)$
+		\item $\sin(\frac{\pi}{2} - \theta) = \cos(\theta)$
+		\item $\tan(\frac{\pi}{2} - \theta) = \cot(\theta)$
+		\item $\sin(-\theta) = -\sin(\theta)$
+		\item $\cos(-\theta) = \cos(\theta)$
+		\item $\tan(\theta) = -\tan$
+		\item $\sin^2(\theta) + \cos^2(\theta) = 1$
+		\item $1 + \tan^2(\theta) = \sec^2(\theta)$
+		\item $1 + \cot^2(\theta) = \csc^2(\theta)$
+		\item $\cos(A \pm B) = \cos(A)\cos(B) \mp \sin(A)\sin(B)$		
+		\item $\sin(A \pm B) = \sin(A)\cos(B) \pm \cos(A)\sin(B)$
+		\item $\tan(A \pm B) = \frac{\tan(A) \pm \tan(B)}{1 \mp \tan(A)\tan(B)}$
+		\item $\sin(2\theta) = 2\sin(\theta)\cos(\theta)$
+		\item $\cos(2\theta) = \cos^2(\theta) - \sin^2(\theta)$		
+		\item $\cos(2\theta) = 2\cos^2(\theta) - 1$
+		\item $\cos(2\theta) = 1 - 2\sin^2(\theta)$
+	\end{itemize}
 
-$\sin(-\theta) = -\sin(\theta)$\\
-$\cos(-\theta) = \cos(\theta)$\\
-$\tan(-\theta) = -\tan(\theta)$\\
-$\sin(\frac{\pi}{2} - \theta) = \cos(\theta)$\\
-$\cos(\frac{\pi}{2} - \theta) = \sin(\theta)$\\
-$\tan(\frac{\pi}{2} - \theta) = \cot(\theta)$\\
-$\sin^2 \theta + \cos^2 \theta = 1 $\\
-$\sec \theta = \frac{1}{\cos \theta}, \quad \csc \theta = \frac{1}{\sin \theta}, \quad \cot \theta = \frac{1}{\tan \theta} $\\
-$\tan \theta = \frac{\sin \theta}{\cos \theta}, \quad \cot \theta = \frac{\cos \theta}{\sin \theta} $\\
-$1 + \tan^2 \theta = \sec^2 \theta $\\
-$1 + \cot^2 \theta = \csc^2 \theta $\\
-$\sin(\alpha + \beta) = \sin \alpha \cos \beta + \cos \alpha \sin \beta $\\
-$\cos(\alpha + \beta) = \cos \alpha \cos \beta - \sin \alpha \sin \beta $\\
-$\tan(\alpha + \beta) = \frac{\tan \alpha + \tan \beta}{1 - \tan \alpha \tan \beta} $\\
-$\sin(\alpha - \beta) = \sin \alpha \cos \beta - \cos \alpha \sin \beta $\\
-$\cos(\alpha - \beta) = \cos \alpha \cos \beta + \sin \alpha \sin \beta $\\
-$\tan(\alpha - \beta) = \frac{\tan \alpha - \tan \beta}{1 + \tan \alpha \tan \beta} $\\
-$\sin(2\theta) = 2\sin \theta \cos \theta $\\
-$\cos(2\theta) = \cos^2 \theta - \sin^2 \theta = 2\cos^2 \theta - 1 = 1 - 2\sin^2 \theta $\\
-$\tan(2\theta) = \frac{2\tan \theta}{1 - \tan^2 \theta} $\\
-$\sin^2(2\theta) = \frac{1 - \cos^2(2\theta)}{2} $\\
-$\cos^2(2\theta) = \frac{1 + \cos(2\theta)}{2} $\\
-$\sin(90^\circ - \theta) = \cos \theta, \quad \cos(90^\circ - \theta) = \sin \theta $\\
-$\tan(90^\circ - \theta) = \cot \theta, \quad \cot(90^\circ - \theta) = \tan \theta $\\
-$\sec(90^\circ - \theta) = \csc \theta, \quad \csc(90^\circ - \theta) = \sec \theta $\\
-$\sin(-\theta) = -\sin(\theta), \quad \cos(-\theta) = \cos(\theta) $\\
-$\tan(-\theta) = -\tan(\theta), \quad \sec(-\theta) = \sec(\theta) $\\
-$\csc(-\theta) = -\csc(\theta), \quad \cot(-\theta) = -\cot(\theta) $\\
-$\sin \alpha \sin \beta = \frac{1}{2} [\cos(\alpha - \beta) - \cos(\alpha + \beta)] $\\
-$\cos \alpha \cos \beta = \frac{1}{2} [\cos(\alpha - \beta) + \cos(\alpha + \beta)] $\\
-$\sin \alpha \cos \beta = \frac{1}{2} [\sin(\alpha + \beta) + \sin(\alpha - \beta)] $\\
+
 
 \textbf{law of sines and cosines}\\
+
 	$\frac{\sin(A)}{a} = \frac{\sin(B)}{b} \frac{\sin(C)}{c}$\\
 	$a^2 = b^2 + c^2 - 2bc\cos(A)$\\
 
 \textbf{sinusoidal equations}
 
+
+\newpage
 \section*{limits}
 	so let us consider $f(x) = \frac{\sin(x)}{x}$ ($x$ in radians)\\
 	the value of $f(0)$ is not defined because\\
@@ -544,7 +472,7 @@ $\sin \alpha \cos \beta = \frac{1}{2} [\sin(\alpha + \beta) + \sin(\alpha - \bet
 
 	A "worse" type of discontinuity is a \textbf{jump discontinuity}, which occurs if the one-sided limits $lim_{x \to c-}f(x)$ and $lim_{x \to c+}f(x)$ exist but are not equal.\\
 
-	We say that $f(x) has an infinite discontinuity at x = c if one or both of the one-sided limits is infinite (even if f(x) itself is not defined at x = c).$\\
+	We say that $f(x)$ has an infinite discontinuity at $x = c$ if one or both of the one-sided limits is infinite (even if $f(x)$ itself is not defined at $x = c$).\\
 
 	We should mention that some functions have more "severe" types of discontinuity than those discussed above. For example, $f(x) = \sin(\frac{1}{x})$ oscillates infinitely often between $+1$ and $-1$ as $x \to 0$. Nether the left-nor the right-hand limits exist at $x = 0$, so this discontinuity is no a jump discontinuity. Although of interest from a theoretical point of view, these discontinuities rarely arise in practice.\\
 
@@ -552,7 +480,7 @@ $\sin \alpha \cos \beta = \frac{1}{2} [\sin(\alpha + \beta) + \sin(\alpha - \bet
 	Assume that $f(x)$ and $g(x)$ are continuous at a point $x = c$. Then the following functions are also continuous at $x = c$:\\
 		\begin{itemize}
 			\item $f(x) + g(x) and f(x) - g(x)$
-			\item $kf(x) for any constant k$
+			\item $kf(x)$ for any constant $k$
 			\item $f(x)g(x)$
 			\item $\frac{f(x)}{g(x)}$ if $g(c) \neq 0$
 		\end{itemize}
@@ -617,7 +545,7 @@ $f(2) = \frac{2^2 - 2 + 5}{2 - 2} = \frac{7}{0}$ (undefined, but not an indeterm
 				The limit itself does not exist.
 		\end{itemize}
 
-	\textbf{The Squeeze Theorem}
+	\textbf{The Squeeze Theorem}\\
 	In our study of the derivative, we will need to evaluate certain limits involving transcendental functions such as sine and cosine. The algebraic techniques of the previous section are often ineffective for such functions and other tools are required. One such tool is the Squeeze Theorem, which we discuss in this section and use to evaluate the trigonometric limits later.\\
 
 	Consider a function $f(x)$ that is trapped between two functions $l(x)$ and $u(x)$ on an interval $I$. In other words,\\
@@ -640,13 +568,61 @@ $f(2) = \frac{2^2 - 2 + 5}{2 - 2} = \frac{7}{0}$ (undefined, but not an indeterm
 
 	$lim_{x \to c}f(x) = L$\\
 
-	Show that $lim_{x \to 0}x\sin(\frac{1}{x}) = 0$\\
+	\textbf{two important limits}\\
+	$lim_{\theta \to 0}\frac{\sin(\theta)}{\theta} = 1$\\
+	$lim_{\theta \to 0}\frac{1 - \cos{\theta}}{\theta} = 0$\\
 
-	\textbf{Intermediate Value Theorem}
+	The \textbf{Intermediate Value Theorem} is a basic result which states that \textit{a continuous function on an interval cannot skip values.}\\
 	
-	\textbf{The Formal Definition of a Limit}
+	If $f(x)$ is continuous on a closed interval $[a, b]$ and $f(a) \neq f(b)$, then for every value $M$ between $f(a)$ and $f(b)$, there exists at least one value $c \in (a, b)$ such that $f(c) = M$\\
 
+	Prove that the equation $\sin(x) = 0.3$ has at least one solution.\\
+
+	We may apply the IVT since $\sin(x)$ is continuous. We choose an interval where we suspect that a solution exists. The desired value 0.3 lies between the two function value $\sin(0) = 0$ and $\sin(\frac{\pi}{2} = 1$\\
+
+	so the interval $[0 , \frac{\pi}{2}]$ will work. The IVT tells us that $\sin(x) = 0.3$ has at least one solution in $(0, \frac{\pi}{2})$. Since $\sin(x)$ is periodic, $\sin(x)$ actually has infinitely many solutions.\\
+
+	The IVT can be used to show the existence of zeros of functions. If $f(x)$ is continuous and takes on both positive and negative values, say, $f(a) < 0$ and $f(b) > 0$, then the IVT guarantees that $f(c) = 0$ for some $c$ between $a$ and $b$.\\
+
+	If $f(x)$ is continuous on $[a, b]$ and if $f(a)$ and $f(b)$ are nonzero and have opposite signs, then $f(x)$ has a zero in $(a, b)$.\\
+
+	We can locate zeros of functions to arbitrary accuracy using the \textbf{Bisection Method}.\\
+
+	Show that $f(x) = \cos^2(x) - 2\sin(\frac{x}{4})$ has a zero in $(0, 2)$. Then locate the zero more accurately using the Bisecition Method.\\
+
+	Using a calculator, we find that $f(0)$ and $f(2)$ have opposite signs: $f(0) = 1 > 0$, $f(2) \approx -0.786 < 0$\\
+
+	We can locate a zero more accurately by dividing $[0, 2]$ into two intervals $[0, 1]$ and $[1, 2]$. One of these must contain a zero of $f(x)$. To determine which, we evaluate $f(x)$ at the midpoint $m = 1$. A calculator gives $f(1) \approx -0.203$, and since $f(0) = 1$, we see that\\
+
+	$f(x)$ takes on opposite signs at the endpoints of $[0, 1]$\\
+
+	Therefore, $(0, 1)$ must contain a zero. We discard the $[1, 2]$ because both $f(1)$ and $f(2)$ are negative. The Bisection Method consists of continuing this process until we narrow down the location of the zero to the desired accuracy.\\
+
+	The IVT seems to state the obvious, namely that a continuous function cannot skip values. Yet its proof is quite subtle because it depends on the \textit{completeness property} of the real numbers. To highlight the subtlety observe that IVT is false for functions defined only on the \textit{rational numbers}. For example, $f(x) = x^2$ does not have the intermediate value property if we restrict its domain to the rational numbers. Indeed, $f(0) = 0$ and $f(2) = 4$ but $f(c) = 2$ \textit{has no solution} for $c$ rational. The solution $c = \sqrt{2}$ is "missing" from the set of rational numbers because it is irrational. From the beginnings of calculus, the IVT was surely regarded as obvious. However, it was not possible to give a genuinely rigorous proof until the completeness property was clarified in the second half of the ninteenth century.\\
+
+	\textbf{The Size of the Gap}\\
+	Recall that the distance from $f(x)$ to $L$ is $\lvert f(x) - L\rvert$. It is convenient to refer to that quantity $\lvert f(x) - L\rvert$ as the \textit{gap} between the value $f(x)$ and the limit $L$.\\
+
+	Let us reexamine the basic trigonometric limit $lim_{x \to 0}\frac{\sin(x)}{x} = 1$\\
+
+	In this example, $f(x) = \frac{\sin(x)}{x}$ and $L = 1$, so (1) tells us that the gap $\lvert f(x) - 1\rvert$ gets arbitrarily small when $x$ is sufficiently close but not equal to 0.\\
+	Suppose we want the gap $\lvert f(x) - 1\rvert$ to be less than 0.2. How close to 0 must $x$ be?\\
+	The following statement is true: $\lvert \frac{\sin(x)}{x} - 1\rvert < 0.2$ if $0 < \lvert x\rvert < 1$\\
+
+	If we insist instead that the gap be smaller than 0.004... $\lvert \frac{\sin(x)}{x} - 1 < 0.004$ if $0 < \lvert x\rvert$\\
+
+	It would seem that this process can be continued: By zooming in on the graph, we can find a small interval around $c = 0$ where the gap $\lvert f(x) - 1\rvert$ is smaller than any prescribed positive number.\\
+	To express this in a precise fashion, we follow time-honored tradition and use the Greek letter $\epsilon$ and $\delta$ to denote small numbers specifying the size of the gap and the quantity $\lvert x - c\rvert$, respectively. In our case, $c = 0$ and $\lvert x - c\rvert$ = $\lvert x - 0\rvert$ = $\lvert x\rvert$. The precise meaning is that for every choise of $\epsilon > 0$, there exists some $\delta$ (depending on $\epsilon$) such that $\lvert \frac{\sin(x)}{x} - 1\rvert < \epsilon$ if $0 < \lvert x\rvert < \delta$\\
+
+	The number $\delta$ tells us how close is sufficiently close for a given $\epsilon$. With this motivation, we are ready to state the formal definition of the limit.\\
+
+	\textbf{FORMAL DEFINITION OF A LIMIT} Suppose the $f(x)$ is defined for all $x$ in an open interval containing $c$ (but no necessarily at $x = c$). Then \begin{center}$lim_{x \to c}f(x) = L$\end{center} if for all $\epsilon > 0$, there exists $\delta > 0$ such that \begin{center}$\lvert f(x) - L\rvert<\epsilon$ if $0<\lvert x - c\rvert<\delta$\end{center} The condition $0 < \lvert x - c\rvert < \delta$ in this definition excludes $x = c$. As in our previous informal definition, we formulate it this way so that the limit depends only on values of $f(x)$ near $c$ but no on $f(c)$ itself. As we have seen, in many cases the limit exists even when $f(c)$ is not defined.
+
+\newpage
 \section*{differentiation}
+
+\begin{center} $f'(a) = lim_{h \to 0}\frac{f(a + h) - f(a)}{h}$ \end{center}
+
 $\frac{d}{dx}(c) = 0$\\
 $\frac{d}{dx}x = 1$\\
 $\frac{d}{dx}(x^n) = nx^{-1}$ (power rule)\\
@@ -674,20 +650,17 @@ $\frac{d}{dx}\log_ax = \frac{1}{(\ln a)x}$\\
 
 
 
-\section*{essential theorems}
-	\begin{itemize}
-		\item the fundamental theorem of algebra
-		\item squeeze theorem
-		\item intermediate value theorem
-		\item mean value theorem
-		\item extreme value theorem
-		\item fundamental theorem of calculus part I and II
-	\end{itemize}
-
-\newpage
-\section*{review problems}
-
-
+\section*{review plan}
+graphing scaled equations by hand\\
+factoring quadratics\\
+geometric proof the laws of sin/cosine\\
+manipulation of trigonometric identities\\
+solving basic equations\\
+solving sinusoidal equations (should do bounded and unbounded)\\
+review (some) linear algebra concepts: row/column vecotrs, dot product, matrix multiplication by hand $2x2$ and $3x3$, IA, $A^{-1}$, A0, $\lvert A\rvert$, ect?\\
+limits (basic), limits at infty, squeeze theorem, IVT, $\delta \epsilon$ proof\\
+differentiation $\frac{d}{dx}$ and $\frac{dy}{dx}$, related rates, linear approx, finding local extrema and critical points, the shape of graphs, asymptotic behavior, optimization, newtons method\\
+integration: u sub, by parts, trig sub, partial fraction, and other methods of integration...?
 
 
 \end{document}

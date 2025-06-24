@@ -1,8 +1,12 @@
-\documentclass{article}
+\documentclass[parindent=0pt]{article}
+\usepackage[margin=1in]{geometry}
+
 \title{Operating Systems: Internals and Design Principles (Eighth Edition) notes}
 \date{\today}
 \begin{document}
+\maketitle
 
+\section*{architecture, interrupts, and memory}
 CPU - control operations, perform data processing, exchanges data with memory 
 	\begin{itemize}
 		\item PC: typically holds the address of the next instruction to be fetched
@@ -66,14 +70,62 @@ interrupt processing
 		\item the processor then loads the program counter with the entry location of the interrupt-handling routine that will respond to this interrupt. depending on the computer architecture and OS design, there may be a single program, one for each type of interrupt, or one for each device and each type of interrupt. if there is more than one interrupt-handling routing, the processor must determine which one to invoke. this information may have been included in the original interrupt signal, or the processor may have to issue a request to the device that issued the interrupt to get a response that contains the needed information.
 		Once the program counter has been loaded, the processor proceeds to the next instruction cycle, which begins with an instruction fetch. because the instruction fetch is detemined by the contents of the program counter, control is transferred to the interrupt-handler program. the execution of this program results in the following operations:
 
-	\item at this point, the program counter and PSW relating to the interrupted program have been saved on the control stack. however, there is other information that is considered part of the state of the executing program. in these registers may be used by the interrupt handler. so all of these values, plus any other state information, need to be saved. typically, ine interrupt handler will begin by saving the contents of all registers on the stack. other state information that must be saved is discussed later. in this case, a user program is interrupted after the instruction at location N. the contents of all of the registers plus the address of the next instruction N+1, a total of M words, are pushed onto the control stack. the stack pointer is updated to point to the new top of stack, and the program counter is updated to point to the beginning of the interrupt service routine.
-		\item
-		\item
-		\item
+		\item at this point, the program counter and PSW relating to the interrupted program have been saved on the control stack. however, there is other information that is considered part of the state of the executing program. in these registers may be used by the interrupt handler. so all of these values, plus any other state information, need to be saved. typically, ine interrupt handler will begin by saving the contents of all registers on the stack. other state information that must be saved is discussed later. in this case, a user program is interrupted after the instruction at location N. the contents of all of the registers plus the address of the next instruction N+1, a total of M words, are pushed onto the control stack. the stack pointer is updated to point to the new top of stack, and the program counter is updated to point to the beginning of the interrupt service routine.
+		
+		\item The interrupt handler may now proceed to process the interrupt. This includes an examination of the staus information relating to th I/o operation or other even that caused an interrupt. It may alos involve sending additional commands or acknowledgments to the I/O device.
+		
+		\item When interrupt processing is complete, the saved register values are retrived from the stack and restored to the registers.
+		
+		\item The final act is to restore the PSW and program counter values from the stack. As a result, the next instruction to be executed will be from the previously interrupted program.
 	\end{enumerate}
 
+sequential vs nested interrupts\\
+priority\\
 
+design contraints of memory really boils down to how much? how fast? and how expensive?\\
 
+order of magnitude (time):
+	\begin{itemize}
+		\item decisecond: 0.1s
+		\item centisecond: 0.01s
+		\item millisecond: 0.001s
+		\item microsecond: 0.000001s
+		\item nanosecond: 0.000000001s
+		\item picosecond: 0.000000000001s
+		\item femtosecond: 0.000000000000001s
+		\item attosecond: 0.000000000000000001s
+		\item zeptosecond: 0.000000000000000000001s
+		\item yoctosecond: 0.000000000000000000000001
+	\end{itemize} 
 
-\maketitle
+faster access time means a greater cost per bit\\
+greater capacity means a smaller cost per bit
+greater capacity means slower access speeds\\
+
+so we imploy a memory hierarchy to not soley rely on one memory component\\
+
+as you go down the hierarchy $\downarrow$
+	\begin{itemize}
+		\item decreased cost per bit
+		\item increasing capacity
+		\item increasing access times
+		\item decreased frequency of access to the memory by the processor
+	\end{itemize}
+
+consider the following: two levels of memory the first has 1000B and the access time is 0.1 micro seconds...the second level has 100,000B and the access time is 1 microsecond...our rule is if the data we want is in the first level we access it directly and if it is in the second level we tranfer it to level one and access it there...for simplicity ignore the time it takes for the processor to determine if the data is in level one or two.\\
+
+suppose 95\% of memory access are found in the cache ($H = 0.95$) then the average time to access a byte can be expressed as: $(0.95)(0.1\mu s) + (0.05)(0.1\mu s + 1\mu s) = 0.095 + 0.055 = 0.15 \mu s$ the result is closer to the access time of level 1.\\
+
+so the strategy of using two levels works in principle, but only if the conditions of the memory hierarchy apply...by employing a variety of technologies, a spectrum of memory systems exists that satisfies the first three conditions...fortunately the last condition is also generally valid.\\
+
+the basis for the validity of the last condition (decreased frequency of access to the memory by the processor) is the principle known as \textbf{locality of reference}.\\
+
+During the execution of a program, memory references by the processor, for both instructions and data, tend to cluster\\
+
+consider loops and subroutines...there will be repeated references to a small set of instructions and similarly operations on arrays and tables involve access to a clustered set of data bytes.\\
+
+over a long period, the clusters change...and over a short period, the processor is primarily working with fixed clusters of memory references...\\
+
+main memory is usually extended with a higher-speed, small cache. the cache is not usually visible to the programmer or indeed to the processor. it is a device for staging the movement of data between main memory and processor registers to improve performance.
+
 \end{document}
