@@ -1,6 +1,7 @@
-\documentclass[parindent=0pt]{article}
+\documentclass{article}
 
 \usepackage[margin=1in]{geometry}
+\setlength{\parindent}{0pt}
 
 \title{ENCOR Study Guide}
 \author{alexander}
@@ -34,7 +35,34 @@ used in modern networking.
 		\item Application
 	\end{enumerate}
 
-\textbf{crossover, rollover wiring, bandwidth vs speed vs capacity ect, understanding ethernet specifications and their speeds}
+A \textbf{crossover cable} is used to connect similar devices (switch to switch, router to router, pc to pc)  directly to each other. Most modern devices support \textbf{Auto-MDI/MDI-X}, which means they can auto-detect the cable type - so crossover cables are often not required anymore.\\
+
+1 (green/white) $\leftrightarrow$ 3 (orange/white)\\
+2 (green) $\leftrightarrow$ 6 (orange)\\
+3 (orange/white) $\leftrightarrow$ 1 (green/white)\\
+6 (orange) $\leftrightarrow$ 2 (green)\\
+
+A \textbf{straight-through cable} is used to connect different types of devices in a network. It is the standard Ethernet cable you typically use in most home and office networks.\\
+
+A \textbf{rollover cable} is used to connect a computer's serial port (via console cable or USB adapter) to a network device's console port. It is not used for data networking, but for console/management access to configure devies. The first pin on one end will go to the last pin on the other and second pin on one end will go to the second to last pin on the other and so on.\\
+
+Consider a 1 Gbps link:\\
+\textbf{Bandwidth} is the theoretical maximum capacity of a network link - how much data could be sent per unit time under perfect conditions. (think the size of the pipe or the meximum volume it can carry)\\
+\textbf{Speed} is the rate at which data is actually sent over the link - how fast bits are transmitted per second. (think how fast you are pusing data through the pipe)\\
+
+In ideal conditions (no interference, no delays), speed matches bandwidth - but in reality, speed can be lower, and that is where throughput comes in.\\
+
+\textbf{Throughput} is the actual amount of data successfully delivered across the network per unit time - what you effectively get after losses, overhead, and other real-world factors. (think the water that actually comes out of the pipe's end)\\
+
+What reduces throughtput?
+	\begin{itemize}
+		\item network overhead (headers, acknowledgements, ect.)
+		\item collisions or retransmisssions
+		\item packet loss
+		\item congestion or bottlenecks
+		\item hardware limits (CPU, buffers, etc.)
+		\item distance or signal interference (especially in wireless)
+	\end{itemize}
 
 \section*{network access / data link layer}
 
@@ -52,23 +80,7 @@ LLC has become largely obsolete in most Ethernet-based networks. Most modern pro
 \section*{collisions}
 When two or more devices transmit data at the same time, expect collisions. This occurs when the signals from both devices overlap creating an unpredicatable and potential corrupted transmission. Device may retransmit the data, wasting bandwidth and increasing latency.\\ 
 
-In a half-duplex system, devices can either send or receive data at any given time but cannot do both simulataneously. This means the device must wait for its turn to transmit data after it has received some.\\
-
-In a full-duplex system, devices can simultaneously transmit and receive data. This allows for two-way real-time communication without any need to switch between modes or operation.\\
-
-The concept of simultaneous communication in full-duplex networks is slightly misleading. In reality, even in bidirectional transmission scenarios:
-	\begin{itemize}
-		\item The transmitter (TX) sends data on the forward path while listening for incoming data (RX).
-		\item At the same time, the receiver listens to the forward path and transmits its response back to the original sender.
-	\end{itemize}
-
-This process appears as simultaneous because the TX and RX operations are happening in parallel. However, from a CSMA/CD perspective, only one device is actively using the medium at any given moment (either sending or receiving data).\\
-
-CSMA/CD effectively manages shared media access by ensuring that only one device can transmit data at a time. The protocol ensures efficient use of bandwidth and prevents collisions in multi-device networks.\\
-
-An Ethernet segment is a common example of a collision domain. When multiple devices are connected to an Ethernet hub, they share the same bandwidth and can cause collisions because only one device can transmit at a time. In contrast, when devices are connected to an Ethernet switch, each port typically represents a separate collision domain, effectively eliminating collisions. In wireless networks, a collision domain exists because multiple devices share the same radio frequency. If two or more devices transmit at the same time, it can result in interference and collisions, affecting network performance.\\
-
-A hub is a simple, passive device that connects multiple devices to a network by repeating incoming signals to all connected ports. It does not analyze or filter traffic; instead, it simply amplifies the signal to ensure it reaches all connected devices.\\
+\textbf{CSMA/CD} is a protocol designed to avoid and handle collision in shared media, where multiple devices use the same physical channel to send data. This happens in \textbf{half-duplex} Ethernet, where devices take turns to transmit because sending simultaneously causes collisions. Here, the entire shard medium is the collision domain - it is not about individual wires but the whole channel. \textbf{Full duplex} means devices can send and receive at the same time - truly simultaneously. This is possible because each devices has its own dedicated point-to-point connection to a switch, not a shared medium. The link uses separate pairs of wires (or separate channels) for sending and receiving. Because the medium is not shared, collisions do not happen, so CSMA/CD is not used or needed in full duplex. A hub simpley connects multiple network devices and it repeats (amplifies) incoming signals to all connect ports. So, all of the connect devices are in one collision domain. Unlike the hub, each port on a switch is its own collision domain. Remember that collisions domains are only relevant in half-duplex environments. In wireless networks, a collision domain exists because multiple devices share the same radio frequency. If two or more devices transmit at the same time, it can result in interference and collisions, affecting network performance.\\
 
 \section*{switching, VLANs, trunks, ARP}
 A switch is a more intelligent device than a hub, as it can analyze incoming traffic and forward packets only to the inteded destination. Switches use MAC addresses to identify the source and destination of each packet\\
@@ -235,7 +247,7 @@ Cisco offers various SDM template types, including:
 
 Network administrators can select the most suitable SDM template based on their specific network requirements, ensuring optimal performance and efficiency.\\
 
-\section*{STP/RSTP, and protection mechanisms}
+\section*{STP}
 The Spanning Tree Protocol is a network protocol that enables a loop-free path in a bridged or switched network. It prevents bridge loops and allows for redundant links while ensuring network stability.\\
 
 A BPDU is a special type of frame that contains information about the device sending it, such as its bridge ID, priority, and port ID. It's sent periodically by each bridge or switch on a network, announcing its presence to its neighbors.\\
@@ -391,23 +403,79 @@ BID (2-bytes + 6-bytes):
 
 	The total time for reconvergence on SW3 is 50s: 20 seconds for the Max Age timer on SW3, 15s for the listening state on SW3, and 15s for the learning state on SW3.
 
-RSTP\\
+\textbf{Traffic steering} can be done by a networking engineer to steer traffic over a preferred path. This is dont by manipulating the STP parameters: BID, port cost, port priority.
 
-root guard\\
-portfast\\
-BPDU guard\\
-BPDU filter\\
-problems with unidirections links\\
-loop guard\\
-UDLD\\
+802.1w port states:
+	\begin{itemize}
+		\item discarding: The switch port is enabled, but the port is not forwarding any traffic to ensure that a loop is not created. This state combines the traditional STP states disabled, blocking, and listening.
+		\item learning: The switch port modifies the MAC address table with any network traffic it receives. The switch still does not forward any other network traffic besides BPDUs.
+		\item forwarding: The switch port forwards all network traffic and updates the MAC address table as expected. This is the final state for a switch port to forward network traffic.
+	\end{itemize}
+
+A switch tries to establish an RSTP hand shake with the device connected to the other end of the cable. If a handshake does not ocur, the other device is assumed to be non-RSTP compatible, and the port defaults to regular 802.1D behavior. This means that host devices such as computers, printers, and so on still encounter a significant transmission delay (around 30 seconds) after the network link is established.\\
+
+802.1w port roles:
+	\begin{itemize}
+		\item root port: A network port that connects to the root switch or an upstream switch in the spanning-tree topology. There should be only one root port per VLAN on a switch.
+		\item designared port: A network port that receives and forwards frames to other switches. Designated ports provide connectivity to downstream devices and switches. There should be only one active designated port on a link.
+		\item alternate port: A network port that provides alternate connectivity toward the root switch through a different switch.
+		\item backup port: A network port that provides link redundancy toward thee shared segment within the same collision domain. which is typically a network hub.
+	\end{itemize}
+
+802.1w port types: RSTP defines three types of ports that are used for building the STP topology
+	\begin{itemize}
+		\item edge port: A port at the edge of the network where host connect to the Layer 2 topology with one interface and cannot form a loop. The ports directly correlate to ports that have the STP portfast feature enabled.
+		\item non-edge port: A port that has received a BPDU
+		\item point-to-point: Any port that connects to another RSTP switch with full duplex. Full-duplex links do not permit more than two devices on a network segment, so determining whether a link is full duplex is the fastest way to check feasibility of being connected to a switch.
+	\end{itemize}
+
+Multi-access Layer 2 devices such as hubs can connect only at half duplex. If a port can connect only via half duplex, it must operate under traditional 802.1D forwarding states.\\
+
+With RSTP, switches exchange handshakes with other RSTP switches to transition through the following STP states faster. When two switches first connect, they establish a bidirectional handshake across the shared link to identify the root bridge. This is straightforward for an environment with only two switches; however, large environments require greater care to avoid creating a forwarding loop. RSTP uses a synchronization process to add a switch to the RSTP topology without introducing a forwarding loop. The synchronization process starts when two  switches are first connected. The process proceeds as follows:
+	\begin{enumerate}
+		\item As the first two switches connect to each other, they verify that they are connected with a point-to-point link by checking the full-duplex status.
+		\item They establish a handshake with each other to advertise a proposal (in configuration BPDUs) that their interface should be the DP for that segment.
+		\item There can be only one DP per segment, so each switch identifies whether it is thhe superior or inferior switch, using the same logic as in 802.1D for the system identifier (that is, the lowest priority and then the lowest MAC address). 
+		\item The inferior switch recognizes that it is inferior and marks its local port as the RP. At that same time, it moves all non-edge ports to a discarding state. At this point in time, the switch has stopped all local switching for non-edge ports.
+		\item The inferior switch sends an agreement (configuration BPDU) to the root bridge, which signifies to the root bridge that synchronization is occurring on that switch.
+		\item The inferior switch moves its RP to a forwarding state. The superior switch moves its DP to a forwarding state too.
+		\item The inferior switch repeats the process for any downstream switch connected to it.
+	\end{enumerate}
+
+The RSTP convergence process can occur quickly. RSTP ages out the port information after it has not received hellos in three consecutive cycles. Using default timers, the Max Age would take 20 seconds, but RSTP requires only 6 seconds. And thanks to the new synchronization, ports can transition from discarding to forwarding in an extremely low amount of time.\\
+
+If a downstream switch fails to acknowledge the proposal, the RSTP switch must default to 802.1D behaviors to prevent a forwarding loop.\\
+
+Root Guard is a feature that helps maintain control over the root bridge election in a Spanning Tree Protocol (STP) topology. In STP, all switches agree on a single root bridge — the logical center of the Layer 2 network. If a device on an unauthorized port (like a rogue switch) starts sending superior Bridge Protocol Data Units (BPDUs) claiming to be the root bridge, it can disrupt the entire topology. Enabling Root Guard on designated ports prevents them from becoming the root port. If such a port receives a superior BPDU, it goes into a "root-inconsistent" state, effectively disabling it until the offending BPDUs stop. This helps enforce network design by ensuring only trusted switches can become the root bridge.\\
+
+PortFast is a feature applied to access ports — the ports connecting end devices like PCs, printers, or servers. Normally, STP causes ports to go through several states (Blocking → Listening → Learning → Forwarding) when they come up, which can take 30–50 seconds. This delay is unnecessary for access ports, since end devices don’t cause loops. PortFast skips the intermediate STP states and puts the port directly into the forwarding state, allowing devices to connect more quickly (e.g., during boot-up or DHCP requests). However, PortFast should never be enabled on trunk or switch-to-switch links, as it can introduce loops if misused.\\
+
+BPDU Guard is a safety mechanism that works alongside PortFast. If a PortFast-enabled port receives a BPDU (which should only come from another switch), BPDU Guard treats it as a violation and immediately puts the port into an error-disabled state (i.e., shuts it down). This protects the network from accidental or malicious connections of switches on access ports, which could otherwise send BPDUs and interfere with STP operation. BPDU Guard is especially useful in preventing rogue switches from joining the network on access ports.\\
+
+BPDU Filter suppresses the sending or receiving of BPDUs on a port. It can be applied globally or per interface. When used globally, it works in conjunction with PortFast and stops sending BPDUs unless one is received, in which case the port stops behaving like a PortFast port. When used on a specific port, it completely disables BPDUs, meaning the port will neither send nor process any BPDUs. This is dangerous if misused, as it effectively disables STP on that port, which can cause network loops if a switch is connected there. BPDU Filter should be used with extreme caution and only in specific, controlled scenarios (e.g., connecting a known, non-switch device).\\
+
+Fiber-optic cables consist of strands of glass/plastic that transmit light. A cable typically consists of one strand for sending data and another strand for receiving data on one side; the order is directly opposite at the remote site. Network devices that use fiber for connectivity can encounter unidirectional traffic flows if one strand is broken. In such scenarios, the interface still shows a line-protocol up state; however, BPDUs are not able to be transmitted, and the downstream switch eventually times out the existing root port and identifies a different port as the root port. Traffic is then received on the new root port and forwarded out the strand that is still working, thereby creating a forwarding loop. A couple solutions can resolve this scenario: STP loop guard, and Unidirectional Link Detection.\\
+
+\textbf{STP loop guard}
+
+
+\textbf{Unidirectional LInk Detection (UDLD)} allows for the bidirectional monitoring of fiber-optic cables. UDLD operates by transmitting UDLD packets to a neighbor devices that includes the system ID and port ID of the interface transmitting the UDLD packet. The receiving device then repeats that information, including its system ID and port ID, back to the originating device. The process continues indefinitely. UDLD operates in two different modes:
+	\begin{itemize}
+		\item normal: if a frame is not acknowledged, the link is considered undetermined and the port remains active
+		\item aggressive: when a frame is not acknowledged, the switch sends another eight packets in 1-second intervals. If those packets are not acknowledged, the port is pplaced into an error state.
+	\end{itemize}
+UDLD must be enabled on the remote switch as well. After it is configured, the status of UDLD neighborship can be verified.
+
+
 MSTP, CST, MST regions, MSTIs (IST)\\  
 
 
 \section*{VTP/DTP}
+
 \section*{Ethernchannel Bundles}
 
 
-\section*{IPv4 and IPv6}
+\section*{IPv4 and IPv6 review}
 
 
 
