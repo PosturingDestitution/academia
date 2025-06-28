@@ -10,7 +10,7 @@
 \begin{document}
 \maketitle
 
-\section*{network stack models}
+\section*{Introduction}
 
 TCP/IP and OSI are frameworks, and protocols can overlap or span multiple layers. In reality, many protocols do not strictly adhere to a single layer, and some functions can be performed at multiple levels.\\
 
@@ -77,12 +77,12 @@ what is multiplexing? multiplexing is the process of combining multiple signals,
 
 LLC has become largely obsolete in most Ethernet-based networks. Most modern protocols assume Ethernet is carrying IP traffic directly bypassing the need for LLC. Splitting into LLC and MAC adds complexity and processing time. Enterprise and service provider networks prioritize speed and scalability, often bypassing LLC. Many networking devices implement the layers in ways that are optimized for performace or proprietary integration (e.g, Cisco HDLC, MPLS). IP has become dominant at Layer 3, eliminating the need for a multiplexing function (which was LLC's role when multiple protocols like IP, IPX, AppleTalk were common).\\
 
-\section*{collisions}
+\section*{Collisions}
 When two or more devices transmit data at the same time, expect collisions. This occurs when the signals from both devices overlap creating an unpredicatable and potential corrupted transmission. Device may retransmit the data, wasting bandwidth and increasing latency.\\ 
 
 \textbf{CSMA/CD} is a protocol designed to avoid and handle collision in shared media, where multiple devices use the same physical channel to send data. This happens in \textbf{half-duplex} Ethernet, where devices take turns to transmit because sending simultaneously causes collisions. Here, the entire shard medium is the collision domain - it is not about individual wires but the whole channel. \textbf{Full duplex} means devices can send and receive at the same time - truly simultaneously. This is possible because each devices has its own dedicated point-to-point connection to a switch, not a shared medium. The link uses separate pairs of wires (or separate channels) for sending and receiving. Because the medium is not shared, collisions do not happen, so CSMA/CD is not used or needed in full duplex. A hub simpley connects multiple network devices and it repeats (amplifies) incoming signals to all connect ports. So, all of the connect devices are in one collision domain. Unlike the hub, each port on a switch is its own collision domain. Remember that collisions domains are only relevant in half-duplex environments. In wireless networks, a collision domain exists because multiple devices share the same radio frequency. If two or more devices transmit at the same time, it can result in interference and collisions, affecting network performance.\\
 
-\section*{switching, VLANs, trunks, ARP}
+\section*{Switching, VLANs, Trunks, ARP}
 A switch is a more intelligent device than a hub, as it can analyze incoming traffic and forward packets only to the inteded destination. Switches use MAC addresses to identify the source and destination of each packet\\
 
 A broadcast domain is the group of devices within a network that can directly receive a broadcast frame sent by any other device - typically those connected to the same VLAN or switch without a router separating them. Too many devices in one broadcast domain can cause congestion and reduce performance. Routers break up broadcast domains. Switches do not break broadcast by default - unless VLANs are configured. A VLAN is a logical grouping of devices within a switch (or across multiple switches) that behaves as if they are on the same physical LAN - even if they are not physically connected to the same switch. Devices in separate VLANs cannot talk without a router or L3 switch. VLANs dont just help with performance consider potential benifits with respect to management and security for different departments in a company for example.\\
@@ -133,7 +133,7 @@ Routed switch ports, on the other hand, are physical interfaces on a Layer 3 swi
 
 In summary, routed subinterfaces are virtual interfaces on a single physical port used mainly in trunking situations with routers; SVIs are logical interfaces on a switch used to route between VLANs internally; and routed switch ports are physical interfaces set to Layer 3 mode for direct IP routing. Each method has its place depending on the network’s scale, hardware capabilities, and design goals.\\
 
-\section*{forwarding}
+\section*{Forwarding}
 
 Content Addressable Memory (CAM), also known as associative memory, is a special type of computer memory that differs fundamentally from traditional memory systems. Instead of accessing memory by specific addresses (like in RAM, where each piece of data is stored at a unique address), CAM allows data to be accessed based on its content. This means that rather than asking “what data is at address X?”, the system can ask “where is the data that matches this value?” and the memory will respond with the location or signal a match.\\
 
@@ -247,7 +247,7 @@ Cisco offers various SDM template types, including:
 
 Network administrators can select the most suitable SDM template based on their specific network requirements, ensuring optimal performance and efficiency.\\
 
-\section*{STP}
+\section*{Spanning Tree Protocols}
 The Spanning Tree Protocol is a network protocol that enables a loop-free path in a bridged or switched network. It prevents bridge loops and allows for redundant links while ensuring network stability.\\
 
 A BPDU is a special type of frame that contains information about the device sending it, such as its bridge ID, priority, and port ID. It's sent periodically by each bridge or switch on a network, announcing its presence to its neighbors.\\
@@ -456,39 +456,203 @@ BPDU Filter suppresses the sending or receiving of BPDUs on a port. It can be ap
 
 Fiber-optic cables consist of strands of glass/plastic that transmit light. A cable typically consists of one strand for sending data and another strand for receiving data on one side; the order is directly opposite at the remote site. Network devices that use fiber for connectivity can encounter unidirectional traffic flows if one strand is broken. In such scenarios, the interface still shows a line-protocol up state; however, BPDUs are not able to be transmitted, and the downstream switch eventually times out the existing root port and identifies a different port as the root port. Traffic is then received on the new root port and forwarded out the strand that is still working, thereby creating a forwarding loop. A couple solutions can resolve this scenario: STP loop guard, and Unidirectional Link Detection.\\
 
-\textbf{STP loop guard}
-
-
 \textbf{Unidirectional LInk Detection (UDLD)} allows for the bidirectional monitoring of fiber-optic cables. UDLD operates by transmitting UDLD packets to a neighbor devices that includes the system ID and port ID of the interface transmitting the UDLD packet. The receiving device then repeats that information, including its system ID and port ID, back to the originating device. The process continues indefinitely. UDLD operates in two different modes:
 	\begin{itemize}
 		\item normal: if a frame is not acknowledged, the link is considered undetermined and the port remains active
 		\item aggressive: when a frame is not acknowledged, the switch sends another eight packets in 1-second intervals. If those packets are not acknowledged, the port is pplaced into an error state.
 	\end{itemize}
-UDLD must be enabled on the remote switch as well. After it is configured, the status of UDLD neighborship can be verified.
+UDLD must be enabled on the remote switch as well. After it is configured, the status of UDLD neighborship can be verified.\\
+
+The original 802.1D standard supported only one STP instance for an entire switch network. In this situation, referred to as \textbf{Common Spanning Tree (CST)}, all VLANs used the same topology, which meant it was not possible to load share traffic across links by blocking for specific VLANs on one link and then blocking for other VLANs on alternate links.\\
+
+Cisco developed the Per-VLAN spanning Tree (PVST) protocol to allow for an STP topology for each VLAN. With PVST, the root bridge can be placed on a different switch or can cost ports differently, on a VLAN-by-VLAN basis. This allows for a link to be blocked for one VLAN and forwarding for another.\\
+
+Now, in environments with thousands of VLANs, maintaining an STP state for all the VLANs can become a burden to the switch's processors. The switch must process BPDUs for every VLAN, and when a major trunk link fails, they must compute multiple STP operations to converge the network. MST provides a blended approach by mapping one or multiple VLANs onto a single STP tree, called an \textbf{MST instance (MSTI)}.\\
+
+A grouping of MST switches with the same high-level configuraiton is known as an \textbf{MST region}. MST incorporates mechanisms that make an MST region. MST incorporates mechanisms that make an MST region appear as a single virtual switch to external switches as part of a compatibility mechanism.\\
+
+MST uses a special STP instance called the \textbf{internal spanning tree (IST)}, which is always the first instance, instance 0. The IST runs on all switch port interfaces for switches in the MST region, regardless of the VLANs associated with the ports. Addittional information about other MSTIs is included (nested) in the IST BPDU that is transmitted throughout the MST region. This enables the MST to advertise only one set of BPDUs, minimizing STP traffic regardless of the number of instances while providing the necessary information to calculate the STP for other MSTIs.\\
+
+The number of MST instances varies by platform, and should have at least 16 instances. The IST is always instance 0, so instances 1 to 15 can support other VLANs. There is not a special name for instances 1 to 15; they are simply known as MSTIs.\\
+
+common MST misconfigurations:
+	\begin{itemize}
+		\item VLAN assignment ot the IST
+		\item Trunk link pruning
+	\end{itemize}
+
+Remeber that the IST operates across all links in the MST region, regardless of the VLAN assigned to the actual port. The IST topology may not correlate to the access layer and might introduce a blocking port that was not intentional.\\
+
+consider the following \textbf{VLAN assignment to the IST}:
+	\begin{itemize}
+		\item PC1: connects to switch 1 and is in vlan 10
+		\item PC2: connects to switch 2 and is in vlan 10
+		\item SW1 (root) : two redundant links to switch 2...Gi1/0/1 and Gi1/0/2 
+		\item SW2: two redundant links to switch 1...Gi1/01 and Gi1/0/2
+		\item Gi1/0/1 $\leftrightarrow$ Gi1/0/1 vlan 20 (instance 1)\\
+		\item Gi1/0/2 $\leftrightarrow$ Gi1/0/2 vlan 10 (instance 0)
+	\end{itemize}
+
+it would appear as if traffic between the two computers would flow across the Gi1/0/2 interface, as it is an access port assigned to VLAN 10...however, all interfaces belong to the IST instance. SW1 is the root switch all its ports are DP so SW2 must block one of its ports...SW2 blocks Gi1/0/2 based on the port identifier from SW1, which is Gi1/0/2...so now SW2 is blocking the Gi1/02 for the IST instance... which is the instance that VLAN 10 is mapped to. There are two solutions for this scenario:
+	\begin{itemize}
+		\item Move VLAN 10 to an MSTI instance other than the IST. If you do this, the switches will build a topology based on the links in use by that MSTI.
+		\item Allow the VLANs associated with the IST on all interswitch (trunk) links.
+	\end{itemize}
+
+consider the following \textbf{trunk link pruning}:
+	\begin{itemize}
+		\item SW1 (root)
+		\item SW2
+		\item SW3 (blocking port towards SW2)
+	\end{itemize}
+in this topology VLAN 10 and 20 are throughout the entire topology...if an engineer was to prune VLAN 10 on SW3 $\leftrightarrow$ SW1 and prune VLAN 20 from the SW2 $\leftrightarrow$ SW1 in an attempt to load balance traffic...shortly after implementing this cahnge, users attavhed to SW1 and SW3 cannot talk to the servers on SW2...the reason is that although the VLANs on the trunk links have vhanged, the MSTI topology has not...a simple rule to follow is to prune all the VLANs in the same MSTI for a tunk link.\\
+
+An \textbf{MST region boundary} is any port that connects to a switch that is in a different MST region or that connects to 802.1D or 801.1W BPDUs\\
+
+\textbf{what is PVST simulation mechanism?}\\
+
+\textbf{MST region as the root bridge}\\
+\textbf{MST region not a root bridge for any VLAN}\\
+
+\section*{VTP, DTP, Etherchannels}
+Before APIs were available on Cisco platforms, configuring a switch was a manual process. Cisco created the proprietary protocol called \textbf{VLAN Trunking Protocol (VTP)} to reduce the burden of provisioning VLANs on switches. Thanks to VTP, switches that participate in the same VTP domain can have a VLAN created once on a VTP server and propaged to other VTP client switches in the same VTP domain. There are four roles in the VTP architecture:
+	\begin{itemize}
+		\item server: The server switch is responsible for the creation, modification, and deletion of VLANs within the VTP domain.
+		\item client: The client switch receives VTP advertisements and modifies the VLANs on that switch. VLANs cannot be configured locally on a VTP client.
+		\item transparent: VTP transparent switches receive and forward VTP advertisements but do not modify the local VLAN database. VLANs are configured only locally.
+		\item off: A switch does not participate in VTP advertisements and does not forward them out of any ports either. VLANs are configured only locally.
+	\end{itemize}
+
+There are three versions of VTP, and Version 1 is the default. At its simplest, VTP Versions 1 and 2 limited propagation to VLANs numbered 1 to 1005. VTP Version 3 allows for the full range of VLANs 1 to 4094.\\
+
+VTP supports having multiple VTP servers in a domain. These servers process updates from other VTP servers just as a client does. If a VTP domain is Version 3, the primary VTP server must be set with the executive command \textbf{vtp primary}\\
+
+VTP advertises updates by using a multicast address across the trunk links for advertising updates to all the switches in the VTP domain. There are three main types of advertisements:
+	\begin{itemize}
+		\item summary: This advertisement occurs every 300s or when a VLAN is added, removed, or changed. It includes the VTP version, domain, confiugration revision number, and time stamp.
+		\item subset: This advertisement occurs after a VLAN configuration change occurs. It contains all the relevant information for the switches to make changes to the VLANs on them.
+		\item client requests: This advertisement is a request by a client to receive the more detailed subset advertisement. Typically, this occurs when a switch with a lower revision number joins the VTP domain and observes a summary advertisement with a higher revision than it has stored locally.
+	\end{itemize}
 
 
-MSTP, CST, MST regions, MSTIs (IST)\\  
+\textbf{need to flush out MSTP ideas}
 
 
-\section*{VTP/DTP}
+\section*{Resources}
+When we talk about the internet, nearly everything you interact with - from web pages and images to videos, documents, and even online services - is considered a resource. A resource is any entity that can be identified and accessed over a network. It is a broad and flexible term that encompasses not just tangible files but also abstract concepts like a user's mailbox or a particular section within a web page. This universality is crucial because the internet is not just a collection of files; it is a vast ecosystem of interconnvected data, services, and information that needs to be precisely identified and addressed so computers and humans can find, retrieve, and interact with them efficiently.\\
 
-\section*{Ethernchannel Bundles}
+To enable this, the internet relies on a system of Uniform Resource Identifiers (URIs)-standardized strings that uniquely name or locate these resources. Think of a URI as universal label or address for a resource, providing a consistent and unambiguous way to refer to something no matter where it lives or what it is. The most familiar kind of URI is the Uniform Resource Locator (URL), which not only identifies a resource but also describes how to access it, specifying the protocol to use and the resource's location on a server. Together, URIs and URLs form the backbone of the web, allowing browsers to translate human-friendly addresses into precise instructions for fetching and displaying content.\\
 
+A URI is composed of several key components, each serving a distinct purpose in guiding you web browser to the desired resource. At the start is the \textbf{scheme} (such as http or https), which tells the browser the protocol to use - essentially the language and method for communication with the server. User information is optional (username:password@) this is used for authentication on the server. Following this is the \textbf{authority} (host), which usually contains the domain name (like www.example.com) and optionally a port numbe , indicating the exact server to contact. The \textbf{path} specifies the location of the resource on that server, similar to a file path in a filesystem. Optional components include the \textbf{query string}, which provides additional parameters or instructions to the server (such as search terms or filters), and the \textbf{fragment}, which directs the browser to a specific section within the resource, like a chapter in a document or a heading on a webpage. When you enter a URL into your browser, it parses these components to resolve the domain via DNS, establish a connection using the specified protocol, and request the exact resource, ultimately rendering the content for you to interact with.
 
-\section*{IPv4 and IPv6 review}
+\begin{center} https://username:password@www.example.com:8443/products/list.html?category=books\&sort=price\#reviews \end{center}
 
+\section*{DNS}
+In general, a distributed system is one where components are spread across multiple computers (often in different locations) but work together to achieve a common goal. For DNS, that goal is: translating domain names into IP addresses (and vice versa) efficiently, accurately, and reliably — across the entire globe.\\
 
+Instead of one massive, central database that maps every domain to an IP address, DNS is built as a hierarchical, decentralized network of many servers that each manage a portion of the overall namespace.\\
 
+In computing, a namespace is a way to organize and uniquely identify items - like names, addresses, or identifiers - so that there are no conflicts and each name refers to exactly one thing within its context.\\
 
+In the context of DNS, a namespace refers to the structured system of domain names that allows every domain to have a unique, unambiguous place in the global hierarchy of names.\\
 
+DNS is structured as a tree, with each level of the tree managed independently by different entities. Here is how it breaks down:
+	\begin{itemize}
+		\item Root zone:\\
+			The root zone is the very top of the DNS hierarchy. It does not contain information about specific websites like example.com, but it contains pointers (delegations) to all the TLDs such as .com, .org, .net, and country codes like .uk, .jp, .ca.\\
 
+			When you perform a DNS lookup (e.g., to resolve www.example.com), if your resolver does not know where to go, it starts at the root zone. The root zone says: "I do not know what www.example.com is, but I do know who runs .com. Go ask them."\\
 
+			It is maintained by ICANN, with cahnges managed by IANA, and hosted on globally distributed root servers using anycast for resilience and performance.
 
+		\item Top-Level Domains (TLDs):\\
+			The TLDs are the first level beneath the root. common examples include: generic TLDs: .com, .org, .net, sponsored TLDs: .gov, .edu, .mil, and country-code TLDs (ccTLDs): .uk, .fr, .jp, .br\\
 
+			Each TLD is a DNS zone managed by a specific registry (e.g., Verisign for .com). The TLD name servers are authoritative for the TLD zone. When asked about a domain like example.com, a .com TLD server replies: "I do not know www.example.com, but I do know who manages example.com. Here are its name servers."\\
 
+			So TLDS handle delegation - they point queries to the appropriate second-level domain's authoritative servers.
 
+		\item Second-Level Domains:\\
+			This is whay you typically register from a domain registrar. In example.com, the second-level domain is example. It sits directly under a TLD. The owner of a second-level domain controls the DNS zone for everything under that name. They can: set IP addresses for www.example.com, create subdomains like mail.example.com, blog.example.com, and delegate subdomains to other name servers if needed. The authoritative name servers for example.com are responsible for answering queries about any DNS record within that domain (e.g., A, MX, CNAME, TXT records).
 
+		\item Subdomains:\\
+			Subdomains are any domains that exist beneath a second-level domain. They allow the owner to create a more structured namespace. In www.example.com: www is a subdomain of example.com, so is mail.example.com, shop.example.com, etc.\\
 
+			Subdomains can point to different services or servers, or they can even be delegated to other name servers if the domain owner chooses to. There is no technical limit to how deep you can go (a.b.c.d.example.com), though in practice depth is limited by manageability and DNS rules.
+	\end{itemize}
+
+This structure makes DNS highly scalable and fault-tolerant. No single server holds the entire DNS database. Instead, each domain or zone has authoritative name servers that are responsible for answering queries about it. These authoritative servers can be operated by: hosting companies, domain registrars, organizations managing their own infrastructure, Content Delivery Networks (CDNs), etc.
+
+\section*{Internetwork}
+At the bottom level, individual LANs connect users and local devices within a building or campus. These LANs are connected to wider networks through routers, which typically serve as default gateways. These routers mark the edge of the LAN and connect to a broader network — often the ISP — using longer-distance links. Within an organization or local network domain, routers use Interior Gateway Protocols (IGPs) such as OSPF or EIGRP to exchange routing information and determine how to move packets internally.\\
+
+This brings us to the concept of an Autonomous System, or AS. An Autonomous System is a large collection of IP networks and routers under the control of a single organization that presents a unified routing policy to the rest of the internet. Each AS is assigned a unique Autonomous System Number (ASN), which identifies it when exchanging routing information with other systems. ISPs, large enterprises, universities, and content delivery networks all operate Autonomous Systems. Essentially, an AS acts as a self-contained administrative domain for routing.\\
+
+ISPs in particular often operate one or more ASes. These ASes are not isolated — they must connect with other ASes to reach parts of the internet they don’t directly control. The protocol used to manage routing between different Autonomous Systems is called the Border Gateway Protocol (BGP). BGP is an Exterior Gateway Protocol (EGP), and its purpose is to advertise which IP prefixes (blocks of IP addresses) are reachable through which AS paths. In other words, BGP helps routers in one AS learn about networks that are reachable via other ASes and determine the best way to get to them.\\
+
+The reason we need Autonomous Systems and BGP is that the internet is not one massive, flat network. It is instead a decentralized collection of thousands of interconnected networks, each with its own routing policies, priorities, and constraints. BGP allows each AS to control how it shares routing information and which routes it prefers, enabling organizations to balance cost, performance, redundancy, and traffic engineering goals. While IGPs handle routing within a single AS, BGP handles routing between them — making the global internet function as a cohesive whole.\\
+
+\textbf{the internet's backbone}\\
+Tier 1 Internet Service Providers (ISPs) are the giants of global internet infrastructure. These companies operate vast international fiber-optic networks and maintain direct, settlement-free peering relationships with every other Tier 1 provider. This means they do not have to pay anyone to reach any part of the internet - they can route data to any destination entirely through their own netowrk or through peers who mutually agree to exchange traffic for free. Because of this, Tier 1 ISPs form the core of the internet, often described as the "backbone". They manage high-capacity links between continents, operate core routers at strategic point worldwide, and are essential for the global availability of online services. Examples of Tier 1 providers include Lumen (formerly Level 3), AT\&T, NTT Communications, GTT, and Telia Carrier. These companies primarily serve other ISPs and large enterprises, rather than individual consumers.\\
+
+\textbf{regional middlemen}\\
+Tier 2 ISPs occupy a middle ground in the internet ecosystem. They often operate large national or regional networks and have their own infrastructure, but unlike Tier 1 providers, they still pay other providers (usually Tier 1s) for transit to reach parts of the internet they cannot access via peering. However, they also establish peering agreements with other networks - especially at Internet Exchange Points (IXPs) - to exchange traffic cost-effectively. Tier 2 ISPs are frequently regional carriers or large commercial ISPs, such as Comcast, British Telecom, or Spectrum. They serve a mix of customers, including smaller ISPs, businesses, and sometimes residential users. Because they maintain peering and transit relationship, they have more flexibility than Tier 3 providers, but they are still dependent on higher-tier ISPs to complete global traffic routes.\\
+
+\textbf{local access providers}\\
+Tier 3 ISPs are the last-mile providers - the ones that actually deliver internet access to homes, schools, and small businesses. These providers typically do not have their own global or large-scale networks and rely entirely on upstream Tier 2 or Tier 1 ISPs for connectivity to the broader internet. Their focus is on access techonologies like fiber-to-the-home (FTTH), DSL, cable, or fixed wireless. Tier 3 ISPs purchase internet transit from higher-tier providers and specialize in local coverage and customer support. Some may operate in rural areas underserved by larger carriers. They are responsible for managing customer premise equipment (CPE), assigning local IP addresses (often using DHCP and NAT), and ensuring that customers can access online services with acceptable performance.\\
+
+Tier 1 ISPs often perform roles typically associated with Tier 3 ISPs in large cities and densely populated regions. While Tier 1 ISPs are primarily known for operating global internet backbone infrastructure and exchanging traffic through settlement-free peering with other Tier 1s, they also frequently offer direct internet access services to end-users — especially in markets where they already have local infrastructure in place. In these cases, they act as both the core transit provider and the last-mile provider.\\
+
+For example, a Tier 1 provider like AT\&T or Lumen (formerly Level 3) may own long-haul fiber routes across continents, but also deliver fiber or DSL internet to homes and businesses in cities like New York, Los Angeles, or Chicago. In this context, they are essentially functioning as a Tier 3 ISP — handling customer premise equipment (CPE), assigning local IP addresses, managing access networks, and providing customer support. Their global capabilities do not prevent them from also building and managing regional or local infrastructure where it makes economic or strategic sense.\\
+
+This dual role is quite common because it allows large providers to capture more of the value chain. By offering both transit services to other ISPs and direct access services to end customers, Tier 1 ISPs can generate multiple streams of revenue while also having greater control over performance, latency, and customer experience. It’s also more efficient for them to leverage existing infrastructure, such as fiber routes and data centers, to deliver services across multiple layers of the internet ecosystem.\\
+
+\section*{IPv4}
+$2^{32} = 4,294,967,296$ 0.0.0.0 - 255.255.255.255\\
+In the early days of IPv4, to organize address allocation, IP addresses were divided into five classes (A-E), distinguished by their first few bits. Each class had a default subnet mask defining which bits represented the network and which represented the host.
+
+	\begin{itemize}
+		\item Class A:
+			\begin{itemize}
+				\item address range: 0.0.0.0 - 127.255.255.255
+				\item default subnet mask: 255.0.0.0 (/8)
+				\item supports a small number of networks with a huge number of hosts each
+			\end{itemize}
+		\item Class B:
+			\begin{itemize}
+				\item address range: 128.0.0.0 - 191.255.255.255
+				\item default subnet mask: 255.255.0.0 (/16)
+				\item balanced number of networks and hosts
+			\end{itemize}
+		\item Class C:
+			\begin{itemize}
+				\item address range: 192.0.0.0 - 223.255.255.255
+				\item default subnet mask: 255.255.255.0 (/24)
+				\item many networks with few hosts each
+			\end{itemize}
+		\item Class D:
+			\begin{itemize}
+				\item address range: 224.0.0.0 to 239.255.255.255
+				\item used for multicast addresses, not assigned to host
+			\end{itemize}
+		\item Class E:
+			\begin{itemize}
+				\item address range: 240.0.0.0 - 255.255.255.255
+				\item reserved for experimental or future use
+			\end{itemize}
+	\end{itemize}
+
+With Classless Inter-Domain Routing (CIDR), there is no longer an implicit default mask tied to the first octects bits. Now the mask is explicitly part of the address (172.16.0.0/13).\\
+
+Route aggregation, also known as supernetting, is a technique that reduces the number of entries in a routing table by grouping mutliple smaller networks into a single, larger one. Say you have the following: 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24, 192.168.3.0/24. Instead of advertising all four /24 routes, the you can summarize them as: 192.168.0.0/22. Supernetting is the inverse of subnetting: you combine smaller subnets into a larger one for routing simplicity.\\
+
+Variable Length Subnet Masking (VLSM) allows you to apply different subnet mask to different subnets within the same network block. This lets you match subnet sizes to actual need, conserving address space. Say you have the following: 192.168.10.0/24 (256 addresses). Let us say that we want four subnets with 100 hosts, 50 hosts, 25 hosts, and 10 hosts...well you might divide in like this: 192.168.10.0/25 (126 usable), 192.168.10.0/26 (62 usable), 192.168.10.0/27 (30 usable), 192.168.10.0/28 (14 usable). Each smaller subnet uses a longer subnet mask (more network bits), and you get very tight, efficient allocation.\\
+
+Conceptually, Network Address Translation (NAT) allows you to multiply the utility of an IPv4 address by combining it with port numbers, giving you a space closer to: $2^{32} \cdot 2^{16}$ In practice, a single public IPv4 address with NAT can support tens of thousands of concurrent outbound connections, and you do not get more IP addresses you get more address/port combinations, which helps you multiplex more private devices through a limited public space.
+
+\section*{IPv6}
+ 
+ 
 \end{document}
 
 
