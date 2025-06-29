@@ -34,9 +34,9 @@
 		\end{itemize}
 
 	circle:
-		\begin{itemize}
-			\item $A = \pi r^2$
+		\begin{itemize}	
 			\item $C = 2\pi r$
+			\item $A = \pi r^2$ how to get here using integration
 		\end{itemize}
 
 	sector of circle:
@@ -67,7 +67,7 @@
 			\item $V = \frac{1}{3}Ah$
 		\end{itemize}
 
-\textbf{laws of exponents:} 
+\textbf{exponents and logs:} 
 	\begin{itemize}
 		\item $x^mx^n = x^{m+n}$
 		\item $\frac{x^m}{x^n} = x^{m-n}$
@@ -76,10 +76,6 @@
 		\item $(xy)^n = x^ny^n$
 		\item $(\frac{x}{y})^n = \frac{x^n}{y^n}$ \item $x^{1/n} = \sqrt[n]{x}$
 		\item $x^{\frac{m}{n}} = \sqrt[n]{x^m} = (\sqrt[n]{x})^m$
-	\end{itemize}
-
-\textbf{exponential and logarithmic functions:}
-	\begin{itemize}
 		\item $\log_ax = y \leftrightarrow a^y = x$
 		\item $\log_a(xy) = \log_ax + \log_ay$
 		\item $\log_a(a^x) = x$
@@ -88,19 +84,21 @@
 		\item $\log_a1 = 0$
 		\item $\log_aa = 1$
 		\item $\log_a(x^r) = r\log_ax$
-
-
-			\textbf{insert change of base formulae here}
+		\item $\log_ba = \frac{\log_ca}{\log_cb}$
 	\end{itemize}
 
-\textbf{special factorizations:}
+\textbf{factoring, completing the sqaure, quadratic formulae, fundamental theorem of algebra:}\\
+
+
+
+\textbf{special factorizations, sum/difference of squares/cubes:}
 	\begin{itemize}
 		\item $x^2 - y^2 = (x + y)(x - y)$
 		\item $x^3 + y^3 = (x + y)(x^2 - xy + y^2)$
 		\item $x^3 - y^3 = (x - y)(x^2 + xy + y^2)$
 	\end{itemize}
 
-\textbf{binomial, ect?}
+\textbf{binomial, squares/cubes/ect of sums/differences, ect.:}
 	\begin{itemize}
 		\item $(x + y)^2 = x^2 + 2xy + y^2$
 		\item $(x - y)^2 = x^2 - 2xy + y^2$
@@ -121,18 +119,12 @@ where:
 	\end{itemize}
 
 so $\frac{1}{x} + 2$ and $\sqrt{x} + 1$ are not polynomials\\
-
 domain: set of all input values for which the function is defined\\
-
 range: set of all possible output values of the function\\
-
 continuity: most algebaic functions are continuous (no breaks of jumps), but for example rational functions have discontinuities at points\\
-
 behavior: the functions behavior is influenced by the degree of the polynomial and the nature of the function (consider even functions like $x^2$ or $x^4$ and their symmetry about the y-axis also consider odd functions like $x^3$ or $x^5$ that have point symmetry)\\
-
 odd function: $f(-x) = -f(x)$\\
 even function: $f(-x) = f(-x)$\\
-
 vertical scaling (scaling along the y-axis): multiplying the output (y-values) of a function by a constant
 	\begin{itemize}
 		\item if $a > 1$: stretches the graph vertically (makes it taller)
@@ -150,13 +142,10 @@ consider $f(x) = x^2$:\\
 $g(x) = 3x^2$ (vertical scaling)\\
 $h(x) = (3x)^2$ (horizontal scaling) notice how here you will be squaring the scaling factor\\
 
-BONUS $f(x) = x$ (consider why vertical and horizontal scaling looks the same for linear)\\
-
 $\lvert a\rvert = \lvert -a\rvert$, $\lvert ab\rvert = \lvert a\rvert\lvert b\rvert$\\
 The \textbf{distance} between two real numbers $a$ and $b$ is $\lvert b - a \rvert$, which is the length of the line segment joining $a$ and $b$.\\
 Two real numbers $a$ and $b$ are close to each other if $\lvert b - a\rvert$ is small, and this is the case if their decimal expansions agree to many places. More precisely, \textit{if the decimal expansions of a and b agree to k places (to the right of the decimal point), then the distance $\lvert b - a\rvert$ is at most $10^-k$. Thus, the distance between a = 3.1415 and b = 3.1478 is at most $10^{-2}$ because a and b agree to two places. In fact, the distance is exactly $\lvert3.1415 - 3.1478\rvert = 0.0063$.}\\
 Beware that $\lvert a + b\rvert$ is not equal to $\lvert a\rvert + \lvert b\rvert$ unless $a$ and $b$ have the same sign or at least one of $a$ and $b$ is zero. If they have opposite sins, cancellation occurs in the sum $a + b$ and $\lvert a+b\rvert < \lvert a\rvert + \lvert b\rvert$. For example, $\lvert 2 + 5\rvert = \lvert2\rvert + \lvert5\rvert$ but $\lvert-2 + 5\rvert = 3$, which is less than $\lvert-2\rvert + \lvert5\rvert = 7$. In any case, $\lvert a + b\rvert$ is never larger than $\lvert a\rvert + \lvert b\rvert$ and this gives us the simple but important \textbf{triangle inequality}: $\lvert a + b\rvert \leq \lvert a\rvert + \lvert b\rvert$\\
-
 $[a, b] = {x \in \mathbb{R} : a \leq x \leq b}$\\
 $(a, b) = {x \in \mathbb{R} : a < x < b}$\\
 $[a, b) = {x \in \mathbb{R} : a \leq x < b}$\\
@@ -272,6 +261,7 @@ the $y$ intercept: plug in $x = 0$\\
 	$\vec{a} - \vec{b} = (3-2, -1-3) = (1, -4)$ (you could also just add the negative of $\vec{b}$)\\
 
 \textbf{matrices}\\
+insert some information here dont overdo it now\\
 $
 \begin{bmatrix}
 a & b\\
@@ -323,31 +313,11 @@ the expected value of a random variable is the long-run average outcome you woul
 $E[X] = \sum_{i=1}^{n} x^i \cdot P(x_i)$\\
 
 \textbf{sequences, series}\\
-an arithmetic series is the sum of the terms in an arithmetic sequence, where each term increases or decreases by a constant value (common difference)\\
-nth term:\\
-$a_n = a_1 + (n-1)d$
-sum of the first n terms:\\
-$S_n = \frac{n}{2}(a_1 + a_n)$\\
-$S_n = \frac{n}{2}(2a_1 + (n-1)d)$\\
-$a, a + d, a + 2d, \dots, a + (n - 1)d$\\
-the sum of the first $n$ terms: $\sum_{k=0}^{n-1} (a + kd)$\\
+insert some basic infomration here dont over do this now
 
-a geometric series is the sum of the terms in a geometric sequence, where each term is multiplied by a constant (common ration)\\
-nth term:\\
-$a_n = a_1 \dot r^{n-1}$\\
-sum of the first n terms (when $r \neq 1$):\\
-$S_n = a_1 \cdot \frac{1 - r^n}{1 - r}$\\
-if $\lvert r\rvert < 1$ and $n \to \infty$, then the infinite sum:\\
-$S = \frac{a_1}{1 - r}$
-$a, ar, ar^2, \dots, ar^{n-1}$\\
-the sum of the first n elements: $\sum_{k=0}^{n-1} (ar^k)$\\
 
-the binomial theorem is a powerful tool to expand expressions of the form $(a + b)^n$ where $a$ and $b$ are any numbers or variables and $n$ is non-negative\\
-$(a + b)^n = \sum_{k=0}^{n} \binom{n}{k}a^{n-k}b{k}$\\
 
-pascal's triangle is a triangular array of numbers that shows the binomial coeffiecients - which appear in the binomial therem expansions\\
 
-each number is the sum of the two numbers directly above it $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$ where for $\binom{n}{k}$ the value at row $n$, position $k$, the rows start at $n=0$, each row gives the coefficients for $(a+b)^n$
 
 \newpage
 \section*{trigonometry}
@@ -381,6 +351,7 @@ $
 \end{array}
 $\\
 
+$\pi = \frac{circumference}{diameter}$
 $\pi$ radians = $180^{\circ}$\\
 $1^\circ = \frac{\pi}{180}$ radians\\
 $1$ radian = $\frac{180^\circ}{\pi}$\\
@@ -389,40 +360,40 @@ Trigonometric functions are special mathematical functions that originally come 
 
 \textbf{SOH-CAH-TOA} is a mnemonic device that expresses the relationship between the basic trigonometric functions and the ratios of the sides in a right triangle.\\
 
-The triangle definition only works for angles between 0 and $\frac{\pi}{2}$. To extend trig functions to all angles (including negative angles and angles larger then ($2\pi$ or $360^{\circ}$), mathematicians use the unit circle. Thus allowing use to use trig functions on the coordinate plane, enabling graphing and calculus.\\
+The triangle definition only works for angles between 0 and $\frac{\pi}{2}$. To extend trig functions to all angles (including negative angles and angles larger then ($2\pi$ or $360^{\circ}$), mathematicians use the unit circle. Thus allowing use to use trig functions on the coordinate plane, enabling graphing and calculus.\\	
 
-To derive the rest of the fundamental trigonometric identities, you need a combination of a few key identities and principles. The most important starting point is the Pythagorean identity, but you’ll also need the basic relationships between the trigonometric functions, such as the definitions of sine, cosine, tangent, secant, cosecant, and cotangent in terms of a right triangle or the unit circle.
-	\begin{itemize}
-		\item $\frac{1}{\cos(\theta)} = \sec(\theta)$	
-		\item $\frac{1}{\sin(\theta)} = \csc(\theta) $
-		\item $\frac{1}{\tan(\theta)} = \cot(\theta)$
-		\item $\sin(\theta + 2\pi) = \sin(\theta)$
-		\item $\cos(\theta + 2\pi) = \cos(\theta)$
-		\item $\tan(\theta + \pi) = \tan(\theta)$
-		\item $\cos(\frac{\pi}{2} - \theta) = \sin(\theta)$
-		\item $\sin(\frac{\pi}{2} - \theta) = \cos(\theta)$
-		\item $\tan(\frac{\pi}{2} - \theta) = \cot(\theta)$
-		\item $\sin(-\theta) = -\sin(\theta)$
-		\item $\cos(-\theta) = \cos(\theta)$
-		\item $\tan(\theta) = -\tan$
-		\item $\sin^2(\theta) + \cos^2(\theta) = 1$
-		\item $1 + \tan^2(\theta) = \sec^2(\theta)$
-		\item $1 + \cot^2(\theta) = \csc^2(\theta)$
-		\item $\cos(A \pm B) = \cos(A)\cos(B) \mp \sin(A)\sin(B)$		
-		\item $\sin(A \pm B) = \sin(A)\cos(B) \pm \cos(A)\sin(B)$
-		\item $\tan(A \pm B) = \frac{\tan(A) \pm \tan(B)}{1 \mp \tan(A)\tan(B)}$
-		\item $\sin(2\theta) = 2\sin(\theta)\cos(\theta)$
-		\item $\cos(2\theta) = \cos^2(\theta) - \sin^2(\theta)$		
-		\item $\cos(2\theta) = 2\cos^2(\theta) - 1$
-		\item $\cos(2\theta) = 1 - 2\sin^2(\theta)$
-	\end{itemize}
+IMO you really only need to understand some basic trigonometric function definitions which you can obtain from the unit circle...you can use some geometry to obtain the pythagorean identity as well as the sum and difference formulaes and from there you should be good to derive the rest of the identities you may need (i.e. double angles, ect)...\\
 
-
+\begin{itemize}
+	\item $\frac{1}{\cos(\theta)} = \sec(\theta)$	
+	\item $\frac{1}{\sin(\theta)} = \csc(\theta) $
+	\item $\frac{1}{\tan(\theta)} = \cot(\theta)$
+	\item $\sin(\theta + 2\pi) = \sin(\theta)$
+	\item $\cos(\theta + 2\pi) = \cos(\theta)$
+	\item $\tan(\theta + \pi) = \tan(\theta)$
+	\item $\cos(\frac{\pi}{2} - \theta) = \sin(\theta)$
+	\item $\sin(\frac{\pi}{2} - \theta) = \cos(\theta)$
+	\item $\tan(\frac{\pi}{2} - \theta) = \cot(\theta)$
+	\item $\sin(-\theta) = -\sin(\theta)$
+	\item $\cos(-\theta) = \cos(\theta)$
+	\item $\tan(\theta) = -\tan$
+	\item $\sin^2(\theta) + \cos^2(\theta) = 1$
+	\item $1 + \tan^2(\theta) = \sec^2(\theta)$
+	\item $1 + \cot^2(\theta) = \csc^2(\theta)$
+	\item $\cos(A \pm B) = \cos(A)\cos(B) \mp \sin(A)\sin(B)$		
+	\item $\sin(A \pm B) = \sin(A)\cos(B) \pm \cos(A)\sin(B)$
+	\item $\tan(A \pm B) = \frac{\tan(A) \pm \tan(B)}{1 \mp \tan(A)\tan(B)}$
+	\item $\sin(2\theta) = 2\sin(\theta)\cos(\theta)$
+	\item $\cos(2\theta) = \cos^2(\theta) - \sin^2(\theta)$		
+	\item $\cos(2\theta) = 2\cos^2(\theta) - 1$
+	\item $\cos(2\theta) = 1 - 2\sin^2(\theta)$
+\end{itemize}
 
 \textbf{law of sines and cosines}\\
-
+these are quite nice to proof geometrically... one thing to note is how similar the law of sins is to the pythagorean identity...now the law of cosines is for general triangle so obviously more information is needed\\
 	$\frac{\sin(A)}{a} = \frac{\sin(B)}{b} \frac{\sin(C)}{c}$\\
 	$a^2 = b^2 + c^2 - 2bc\cos(A)$\\
+	you can use the law of cosines when you have two sides that sandwich an angle or when you have three sides and want to find an angle.
 
 \newpage
 \section*{limits}
@@ -616,6 +587,8 @@ $f(2) = \frac{2^2 - 2 + 5}{2 - 2} = \frac{7}{0}$ (undefined, but not an indeterm
 \section*{differentiation}
 
 \begin{center} $f'(a) = lim_{h \to 0}\frac{f(a + h) - f(a)}{h}$ \end{center}
+\begin{center} $f'(a) = \lim_{x \to a}\frac{f(x) - f(a)}{x - a}$ \end{center}
+\begin{center} $y - f(a) = f'(a)(x - a)$ \end{center}
 
 $\frac{d}{dx}(c) = 0$\\
 $\frac{d}{dx}x = 1$\\
@@ -640,31 +613,23 @@ $\frac{d}{dx}(a^x) = (\ln a)a^x$\\
 $\frac{d}{dx}\ln\mid x\mid = \frac{1}{x}$\\
 $\frac{d}{dx}\log_ax = \frac{1}{(\ln a)x}$\\
 
+
+implicit differentiation\\
+EVT\\
+rolle's theorem\\
+MVT\\
+newtons method\\
+
+
 \section*{integration}
 
 
 
 \section*{review plan}
-factor some quadratics\\
-practice some trig identity manipulations\\
-solving basic equations and sinusoidal equations\\
-review (some) linear algebra\\
-solve limits (basic algebraic manipulation), trig, limits at infty\\
-some $\delta \epsilon$ proofs\\
 
-review your sequences and series section above\^\\
 
-geometrically understand sectors $S = r\theta$, $A = \frac{1}{2}r^2\theta$, and area of triangle in this form $\frac{1}{2}ab\sin(\theta)$\\ 
 
-add $f'(a) = lim_[x \to a]\frac{f(x) - f(a)}{x - a}$ to differentiation section...\\
-understand formal tangent line definition $y - f(a) = f'(a)(x - a)$\\
-review power, product, quotient, chain rule\\
-implicit differentiation\\
-EVT\\
-rolle's theorem\\
-MVT\\
-newtons methods\\
 
-antiderivatives and integration\\
+
 
 \end{document}
