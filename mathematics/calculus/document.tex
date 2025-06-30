@@ -11,61 +11,94 @@
 \usetikzlibrary{intersections,angles,quotes}
 \usepgfplotslibrary{fillbetween}
 
-\title{calculus review document}
+\title{Calculus 101}
 
+\author{alexander}
 \date{\today}
 
 \begin{document}
 \maketitle
 
-\section*{introduction}
+\section*{Introduction}
 
-	A real number ($a \in \mathbb{R}$) is a number represented by a decimal or decimal expansion. There are three types of decimal expansions: finite, repeating, and infinite but nonrepeating. The set of integers is commonly denoted by the letter $\mathbb{Z} = {\dots, -2, -1, 0, 1 , 2, \dots}$. Natural numbers ($\mathbb{N}$) are the set of numbers used for couting and sometimes ordering. A whole number is a non-negative integer. A number is rational ($\mathbb{Q}$) if it can be represented by a fraction $\frac{p}{q}$ where $p$ and $q$ are integers with $q \neq 0$. Rational numbers have a finite or repeating decimal expansions and irrational numbers have infinite, nonrepeating decimal expansions. Furthermore, the decimal expansion of a number is unique, apart from the following exception: Every finite decimal is equal to an infinite decimal in which the digit 9 repeats.\\
+Calculus is the study of rates of change and the accumulation of quantities.\\
 
-	midpoint: $(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2})$\\
-	distance: $\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$\\
-	circle: $(x - h)^2 + (y - k)^2 = r^2$\\
-	pythagorean: $c^2 = a^2 + b^2$\\
+\textbf{inequalities and absolute value:}
+	\begin{itemize}	
+		\item $[a, b] = a \leq x \leq b$
+		\item $(a, b) = a < x < b$
+		\item $[a, b) = a \leq x < b$
+		\item $(a, b] = a < x \leq b$
+		\item $(-r, r) = \lvert x\rvert < r$
+		\item $(c - a, c + a) = \lvert x - c\rvert < a = c - a < x < c + a$
+	\end{itemize}
 
-	triangle:
-		\begin{itemize}
-			\item $A = \frac{1}{2}bh$
-			\item $A = \frac{1}{2}ab\sin(\theta)$
-		\end{itemize}
+\textbf{triangle inequality}\\
+$\lvert a + b\rvert \leq \lvert a \rvert + \lvert b\rvert \to (\lvert a + b\rvert)^2 \leq (\lvert a \rvert + \lvert b\rvert)^2$\\
+if you square any real number you will get a non-negative result ($(x)^2 = (-x)^2$)
+	\begin{enumerate}
+		\item $(a + b)^2 \leq (\lvert a\rvert + \lvert b\rvert)^2$
+		\item $a^2 + 2ab + b^2 \leq (\lvert a\rvert)^2 + 2\lvert a\rvert\lvert b\rvert + (b)^2$
+		\item $2ab \leq 2\lvert a\rvert\lvert b \rvert$
+		\item $ab \leq \lvert a\rvert\lvert b\rvert$
+	\end{enumerate}
 
-	circle:
-		\begin{itemize}	
-			\item $C = 2\pi r$
-			\item $A = \pi r^2$ how to get here using integration
-		\end{itemize}
+\textbf{eqautions for lines:}
+	\begin{itemize}
+		\item $m = \frac{y_2 - y_1}{x_2 - x_1}$
+		\item $y = mx + b$
+		\item $y - y_1 = m(x - x_1)$
+	\end{itemize}
 
-	sector of circle:
-		\begin{itemize}
-			\item $A = \frac{1}{2}r^2\theta$
-			\item $S = r\theta$
-		\end{itemize}
+\textbf{distance:}	
+	\begin{itemize}
+		\item $\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$
+	\end{itemize}	
 
-	sphere:
-		\begin{itemize}
-			\item $V = \frac{4}{3}\pi r^3$
-			\item $A_s = 4\pi r^2$
-		\end{itemize}
+\textbf{pythagorean:}
+	\begin{itemize}
+		\item $c^2 = a^2 + b^2$
+	\end{itemize}
 
-	cylinder:
-		\begin{itemize}
-			\item $V = \pi r^2h$
-		\end{itemize}
+\textbf{triangle:}
+	\begin{itemize}
+		\item $A = \frac{1}{2}bh$
+		\item $A = \frac{1}{2}ab\sin(\theta)$
+	\end{itemize}
 
-	cone:
-		\begin{itemize}
-			\item $V = \frac{1}{3}\pi r^2h$
-			\item $A_s = \pi r\sqrt{r^2+h^2}$
-		\end{itemize}
+\textbf{circle:}	
+	\begin{itemize}	
+		\item $C = 2\pi r$
+		\item $A = \pi r^2$ 
+	\end{itemize}
 
-	cone with arbitrary base: where A is the area of the base
-		\begin{itemize}
-			\item $V = \frac{1}{3}Ah$
-		\end{itemize}
+\textbf{sector of circle:}
+	\begin{itemize}
+		\item $A = \frac{1}{2}r^2\theta$
+		\item $S = r\theta$
+	\end{itemize}
+
+\textbf{sphere:}
+	\begin{itemize}
+		\item $V = \frac{4}{3}\pi r^3$
+		\item $A_s = 4\pi r^2$
+	\end{itemize}
+
+\textbf{cylinder:}
+	\begin{itemize}
+		\item $V = \pi r^2h$
+	\end{itemize}
+
+\textbf{cone:}
+	\begin{itemize}
+		\item $V = \frac{1}{3}\pi r^2h$
+		\item $A_s = \pi r\sqrt{r^2+h^2}$
+	\end{itemize}
+
+\textbf{cone with arbitrary base: where A is the area of the base:}
+	\begin{itemize}
+		\item $V = \frac{1}{3}Ah$
+	\end{itemize}
 
 \textbf{exponents and logs:} 
 	\begin{itemize}
@@ -87,214 +120,168 @@
 		\item $\log_ba = \frac{\log_ca}{\log_cb}$
 	\end{itemize}
 
-\textbf{factoring, completing the sqaure, quadratic formulae, fundamental theorem of algebra:}\\
+\textbf{factoring:}
+	\begin{enumerate}
+		\item $x^2 - 5x + 6$
+		\item $(x - 3)(x - 2)$
+	\end{enumerate}
 
+\textbf{factoring by grouping:}
+	\begin{enumerate}
+		\item $3x^2 -8x + 4$
+		\item $3x^2 - 6x -2x + 4$
+		\item $(3x^2 - 6x) + (-2x + 4)$
+		\item $3x(x - 2) - 2(x - 2)$
+		\item $(3x - 2)(x-2)$
+	\end{enumerate}
 
+\textbf{completing the square:}
+	\begin{enumerate}
+		\item $3x^2 + 7x + 4$
+		\item $3(x^2 + \frac{7}{3}x + 4)$
+		\item $3((x^2 + \frac{7}{3}x) + 4)$
+		\item $3((x^2 + \frac{7}{3} + \frac{49}{36}) - \frac{49}{36}) + 4$
+		\item $3((x + \frac{7}{6})^2 - \frac{49}{36}) + 4$
+		\item $3(x + \frac{7}{6})^2 - \frac{49}{12} + 4$
+		\item $4(x + \frac{7}{6})^2 - \frac{49}{12} + 4$
+		\item $3(x + \frac{7}{6})^2 - \frac{1}{12}$
+	\end{enumerate}
 
-\textbf{special factorizations, sum/difference of squares/cubes:}
+\textbf{obtaining solutions:}
+	\begin{enumerate}
+		\item $ax^2 + bx + c = 0$
+		\item $a(x - h)^2 + k = 0$
+		\item $a(x - h)^2 = k'$ (if you find that k prime is negative you will have complex solutions) 
+		\item $(x - h)^2 = \frac{k'}{a}$ 
+		\item $x - h = \pm \sqrt{\frac{k'}{a}}$
+		\item $x = \pm \sqrt{\frac{k'}{a}} + h$
+	\end{enumerate}
+
+\textbf{derivation of completing the square:}
+	\begin{enumerate}
+		\item $ax^2 + bx + c = 0$
+		\item $x^2 + \frac{b}{a}x + \frac{c}{a} = 0$
+		\item $x^2 + \frac{b}{a}x + (\frac{b}{2a})^2 - (\frac{b}{2a})^2 + \frac{c}{a} = 0$
+		\item $(x + \frac{b}{2a})^2 = (\frac{b}{2a})^2 - \frac{c}{a}$
+	
+		\item $(x + \frac{b}{2a})^2 = (\frac{b^2}{4a^2}) - \frac{4ac}{4a^2}$
+		\item $(x + \frac{b}{2a})^2 = \frac{b^2 - 4ac}{4a^2}$
+		\item $x + \frac{b}{2a} = \pm \frac{\sqrt{b^2 - 4ac}}{2a}$
+		\item $x = -b \pm \frac{\sqrt{b^2 - 4ac}}{2a}$
+	\end{enumerate}
+
+\textbf{rational root theorem:}\\
+If a polynomial with integer coefficients has any rational roots, then those roots must be of the form: $\frac{p}{q}$ where $p$ is a factor of the constant term and $q$ is a factor of the leading term coefficient.\\
+
+consider $f(x) = x^3 - 6x^2 + 11x - 6$\\
+so, the possible values for $p$: $\pm1$, $\pm2$, $\pm3$, $\pm6$ and the possible values for $q$: $\pm1$\\
+now form all possible $\frac{p}{q}$: $\pm\frac{1}{1}$, $\pm\frac{2}{1}$, $\pm\frac{3}{1}$, $\pm\frac{6}{1}$\\
+You can test each value by plugging into the polynomial to see if it equals 0. If it does, it is a root, and you can factor out that term. Keep in mind that not all polynomials have rational roots. Some roots may be irrational (like $\sqrt{2}$) or complex (involving $i$)\\
+
+$f(1) = 1^3 - 6(1)^2 + 11(1) - 6 = 0$ so now we now that $(x - 1)$ is a factor\\
+we can now reduce the polynomial $\frac{x^3 - 6x^2 + 11x - 6}{(x - 1)}$ and now we know that $x^3 - 6x^2 + 11x - 6 = (x - 1)(x^2 - 5x + 6)$ as you can see the solutions are $(x - 1)(x - 2)(x - 3)$\\ 
+
+\textbf{fundamental theorem of algebra:}\\
+Every non-zero polynomial equation ($f(x) \neq 0$) of degree $n$ has exactly $n$ complex roots including multiplicities.\\
+
+\textbf{conic sections:}\\
+define the following:\\
+vertex\\
+major and minor axis\\
+foci and cofoci\\
+asymptotes\\
+discriminant to determine the type of conic section
+	\begin{itemize}
+		\item circle:\\ 
+			$(x - h)^2 + (y - k)^2 = r^2$
+		\item parabola:\\
+			$(y - k) = a(x - h)^2$ (opens up or down)\\
+			$(x - h) = a(y - k)^2$ (opens left or right)
+		\item ellipes:\\
+			$\frac{(x - h)^2}{a^2} + \frac{(y - k)^2}{b^2} = 1$
+			$\frac{(x - h)^2}{b^2} + \frac{(y - k)^2}{a^2} = 1$
+$\frac{}{} + \frac{}{} = 1$
+		\item hyperbolas:\\
+			$\frac{(x - h)^2}{a^2} - \frac{(y - k)^2}{b^2} = 1$
+			$\frac{(x - h)^2}{a^2} - \frac{(y - k)^2}{b^2} = 1$
+	\end{itemize}
+
+\textbf{basic classes of functions:}\\
+	\begin{itemize}
+		\item polynomials: a sum of terms, where each term is made up of coefficient (a constant multiple) of a power function with a whole number exponent
+		\item rational functions: a quotient of two polynomials
+			\begin{itemize}
+				\item vertical asymptotes: vertical lines $x = a$ where the function grows without bound - usually where the denominator is zero and the numerator is not zero
+				\item removable discontinuity: points where the function is not defined due to a factor that cancels out from both the numerator and denominator
+				\item hotizontal asymptotes: horizontal lines $y = L$ where the function approaches as $x \to \infty$\\
+					\begin{itemize}
+						\item deg $P < \text{deg Q}$ ($y = 0$)
+						\item deg $P = \text{deg Q}$ ($y = \frac{\text{leading coefficient of P}}{\text{leading coefficient of Q}}$) 
+						\item deg $P > \text{deq Q}$ (no horizontal asymptote look for slant instead)
+					\end{itemize}
+				\item slant asymptote: lines $y = mx + b$ that the function approaces as $x \to \infty$, when the numerator's degree is exactly one more than the denominator's degree...to find them perform polynomial long division and the quotient is the slant asymptotoe
+			\end{itemize}
+		\item algebraic functions: produced by taking sums, products and quotients of roots or polynomials and rational functions
+		\item exponential functions: $f(x) = b^x$ where $b > 0$...the inverse of which is $f(x) = log_bx$
+		\item trigonometric functions: built from $\sin(x)$ and $\cos(x)$ are called trigonometric functions.
+	\end{itemize}
+
+\textbf{constructing new functions:}\\
+If $f$ and $g$ are functions, we may construct new functions by forming the sum, difference, product, and quotient functions: $(f + g)(x) = f(x) + g(x)$, $(f - g)(x) = f(x) - g(x)$, $(fg)(x) = f(x)g(x)$, $(\frac{f}{g})(x) = \frac{f(x)}{g(x)}$. We can also multiply functions by constants. We call this a linear combination: $c_1f(x) + c_2g(x)$. Composition is another important way of constructing new functions. The composition of $f$ and $g$ is the function $f \circ g$ defined by $(f \circ g)(x) = f(g(x))$.\\
+
+\textbf{invertable functions:}\\
+A function $f$ is invertible if there exists another function $f^{-1}(x)$ such that: $f^{-1}(f(x)) = x$ and $f(f^{-1}(x)) = x$. This "inverse function" switches input and outputs - it reverses the effect of the original function.\\
+
+A function is invertible if it is one-to-one (horizontal line test). So, this means that different input always produce different outputs.\\
+
+\textbf{special factorizations}
 	\begin{itemize}
 		\item $x^2 - y^2 = (x + y)(x - y)$
 		\item $x^3 + y^3 = (x + y)(x^2 - xy + y^2)$
 		\item $x^3 - y^3 = (x - y)(x^2 + xy + y^2)$
 	\end{itemize}
 
-\textbf{binomial, squares/cubes/ect of sums/differences, ect.:}
+\textbf{binomial theorem}
 	\begin{itemize}
 		\item $(x + y)^2 = x^2 + 2xy + y^2$
 		\item $(x - y)^2 = x^2 - 2xy + y^2$
 		\item $(x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$
 		\item $(x - y)^3 = x^3 - 3x^2y + 3xy^2 - y^3$
-		\item $(x + y)^n = x^n + nx^{n-1}y + \frac{n(n-1)}{2}x^{n-2}y^2 + \ldots + \binom{n}{k}x^{n-k}y^k + \dots + nxy^{n-1} + y^n$
-			where $\binom{n}{k} = \frac{n(n-1) \dots (n-k+1)}{1 \cdot 2 \cdot 3 \cdot \ldots \cdot k}$
+		\item $(x + y)^n = x^n + nx^{n-1}y + \frac{n(n-1)}{2}x^{n-2}y^2 + \ldots + \binom{n}{k}x^{n-k}y^k + \dots + nxy^{n-1} + y^n$ where $\binom{n}{k} = \frac{n(n-1) \dots (n-k+1)}{1 \cdot 2 \cdot 3 \cdot \ldots \cdot k}$
 	\end{itemize}
 
-\textbf{polynomials}
-$a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0$\\
-where:
-	\begin{itemize}
-		\item $a_n, a_{n-1}, \ldots, a_0$ are coefficients (real or complex)
-		\item $x$ is the variable
-		\item $n$ is a non-negative integer
-		\item $a_n \neq 0$ (so the polynomial has degree $n$)
-	\end{itemize}
+\textbf{scalars, vectors, and matrices}\\
+rewrite this section\\
 
-so $\frac{1}{x} + 2$ and $\sqrt{x} + 1$ are not polynomials\\
-domain: set of all input values for which the function is defined\\
-range: set of all possible output values of the function\\
-continuity: most algebaic functions are continuous (no breaks of jumps), but for example rational functions have discontinuities at points\\
-behavior: the functions behavior is influenced by the degree of the polynomial and the nature of the function (consider even functions like $x^2$ or $x^4$ and their symmetry about the y-axis also consider odd functions like $x^3$ or $x^5$ that have point symmetry)\\
-odd function: $f(-x) = -f(x)$\\
-even function: $f(-x) = f(-x)$\\
-vertical scaling (scaling along the y-axis): multiplying the output (y-values) of a function by a constant
-	\begin{itemize}
-		\item if $a > 1$: stretches the graph vertically (makes it taller)
-		\item if $0 < a < 1$: compresses the graph vertical (makes it shorter)
-		\item if $a < 0$ reflects the graph over the x-axis and scales it
-	\end{itemize}
-
-horizontal scaling (scaling along the x-axis): multiplying the input (x-values) by a constand inside the function
-	\begin{itemize}
-		\item if $b > 1$: compresses the graph horizontally (makes it narrower)
-		\item if $0 < b < 1$: stretches the graph horizontally (makes it wider)
-	\end{itemize}
-
-consider $f(x) = x^2$:\\
-$g(x) = 3x^2$ (vertical scaling)\\
-$h(x) = (3x)^2$ (horizontal scaling) notice how here you will be squaring the scaling factor\\
-
-$\lvert a\rvert = \lvert -a\rvert$, $\lvert ab\rvert = \lvert a\rvert\lvert b\rvert$\\
-The \textbf{distance} between two real numbers $a$ and $b$ is $\lvert b - a \rvert$, which is the length of the line segment joining $a$ and $b$.\\
-Two real numbers $a$ and $b$ are close to each other if $\lvert b - a\rvert$ is small, and this is the case if their decimal expansions agree to many places. More precisely, \textit{if the decimal expansions of a and b agree to k places (to the right of the decimal point), then the distance $\lvert b - a\rvert$ is at most $10^-k$. Thus, the distance between a = 3.1415 and b = 3.1478 is at most $10^{-2}$ because a and b agree to two places. In fact, the distance is exactly $\lvert3.1415 - 3.1478\rvert = 0.0063$.}\\
-Beware that $\lvert a + b\rvert$ is not equal to $\lvert a\rvert + \lvert b\rvert$ unless $a$ and $b$ have the same sign or at least one of $a$ and $b$ is zero. If they have opposite sins, cancellation occurs in the sum $a + b$ and $\lvert a+b\rvert < \lvert a\rvert + \lvert b\rvert$. For example, $\lvert 2 + 5\rvert = \lvert2\rvert + \lvert5\rvert$ but $\lvert-2 + 5\rvert = 3$, which is less than $\lvert-2\rvert + \lvert5\rvert = 7$. In any case, $\lvert a + b\rvert$ is never larger than $\lvert a\rvert + \lvert b\rvert$ and this gives us the simple but important \textbf{triangle inequality}: $\lvert a + b\rvert \leq \lvert a\rvert + \lvert b\rvert$\\
-$[a, b] = {x \in \mathbb{R} : a \leq x \leq b}$\\
-$(a, b) = {x \in \mathbb{R} : a < x < b}$\\
-$[a, b) = {x \in \mathbb{R} : a \leq x < b}$\\
-$(a, b] = {x \in \mathbb{R} : a < x \leq b}$\\
-$(-r, r) = {x : \lvert x\rvert < r}$\\
-$(c - a, c + a) = {\lvert x - c\rvert < a} = c - a < x < c + a$\\
-
-\textbf{composing new functions}\\
-	If $f$ and $g$ are functions, we may construct new functions by forming the sum, difference, product, and quotient functions:\\
-	\begin{itemize}
-		\item $(f + g)(x) = f(x) + g(x)$
-		\item $(f - g)(x) = f(x) - g(x)$
-		\item $(fg)(x) = f(x)g(x)$
-		\item $(\frac{f}{g}(x) = \frac{f(x)}{g(x)})$
-	\end{itemize}
-	We can also multiply functions by constants. A function of the form: $c_1f(x) + c_2g(x)$ is called a \textbf{linear combination}.\\
-	\textbf{Composition} is another important way of constructing new functions. The composition of $f$ and $g$ is the function $f \circ g$ defined by $(f \circ g)(x) = f(g(x))$, defined for values of $x$ in the domain of $g$ such that $g(x)$ lies in the domain of $f$.\\
-	ex. Compute the composite functions $f \circ g$ and $g \circ f$ and discuss their domains where $f(x) = \sqrt{x}$ and $g(x) = 1 - x$\\
-	solution: $(f \circ g)(x) = f(g(x)) = f(1 - x) = \sqrt{1 - x}$ The square root $\sqrt{1 - x}$ is defined if $1 - x \geq 0$ or $x \leq 1$, so the domain of $f \circ g$ is ${x : x \leq 1}$.\\
-	On the other hand, $(g \circ f)(x) = g(f(x)) = g(\sqrt{x}) = 1 - \sqrt{x}$ The domain of $g \circ f$ is ${x : x \geq 0}$.\\
-
-\textbf{invertable functions}\\
-	"is this function invertible?" $\Leftrightarrow$ "does an inverse function exist for this function" $\Leftrightarrow$ "is the function one-to-one?" (horizontal line test)
-	\begin{itemize}
-		\item if it is, then the inverse function exists
-		\item if it is not, then the inverse function does not exist, and the function is not invertible (as a function)
-	\end{itemize}
-	consider $f(x) = x^2$ this function is not one-to-one (horizontal line test) this it is not invertable unless you restrict the domain to be $x \geq 0$.\\
-	to find the inverse algeraically you can swap the x's and y's and then solve for y\\
-
-\textbf{rational functionas}\\
-$f(x) = \frac{P(x)}{Q(x)}$ where $P(x)$ and $Q(x)$ are polynomials\\
-$Q(x) \ne 0$\\
-the domian is all real numbers except for where the denominator is 0\\
-a vertial asymptote occurs where the denominator is zero (and not canceled by a common factor)\\
-holes (removable discontinuities) occur if a factor cancels from both the numerator and denominator\\
-horizontal asmptotes take $n$ to be the degree of the numerator and $m$ to be the degree if the denominator
-	\begin{itemize}
-		\item $n < m$: horizontal asymptote at $y = 0$
-		\item $n = m$: horitzontal asymptote at $\frac{\text{leading coeff. of}P(x)}{\text{leading coeff. of}Q(x)}$
-		\item $n > m$: no horizontal asymptote (however there may be an oblique/slant asymptote instead)
-	\end{itemize}
-slant(oblique) asymptotes occur when $n = m+1$ ... use polynomial division to find slant asymptotes
-the $x$ intercepts occur where the numerator is zero (where does the function = 0)\\
-the $y$ intercept: plug in $x = 0$\\
-
-\textbf{conic sections}
-	\begin{itemize}
-		\item ellipses
-			\begin{itemize}
-				\item $(h, k)$ center of the ellipse
-				\item $a$ semi-major axis (long radius)
-				\item $b$ semi-minor axis (short radius)
-				\item $c$ distance from center to each focus $c = \sqrt{a^2 - b^2}$
-			\end{itemize}
-			\begin{itemize}
-				\item horizontal major axis $\frac{(x - h)^2}{a^2} + \frac{(y - k)^2}{b^2} = 1$
-				\item vertical major axis $\frac{(x - h)^2}{b^2} + \frac{(y - k)}{a^2} = 1$
-			\end{itemize}
-
-		\item hyperbolas
-			\begin{itemize}
-				\item $(h, k)$ center
-				\item $a$ distance from center to each vertex (on transverse axis) 
-				\item $b$ related to the asymptotes
-				\item $c = \sqrt{a^2 + b^2}$ distance from center to each focus (note here add not subtract like ellipse)
-				\item asymptotes
-					\begin{itemize}
-						\item for horizontal hyperbola $y - k = \pm\frac{b}{a}(x - h)$
-						\item for vertical hyperbola $y - k = \pm\frac{a}{b}(x - h)$
-					\end{itemize}
-				\item transverse axis: line through both vertices and foci
-				\item conjugate axis: perpendicular to the transverse axis
-			\end{itemize}
-			\begin{itemize}
-				\item opens horizontally $\frac{(x - h)^2}{a^2} - \frac{(y - k)^2}{b^2} = 1$  
-				\item opens vertically $\frac{(x - h)^2}{b^2} - \frac{(y - k)}{a^2} = 1$ 
-			\end{itemize}
-	\end{itemize}
-
-\textbf{complex numbers}
-	$i = \sqrt{-1}, i^2 = -1$\\
-	$z = a + bi$ rectangular form\\
-	$z = r(\cos(\theta) + i\sin(\theta))$ where $r = \lvert z\rvert$ and $\theta = \tan^{-1}(\frac{b}{a})$\\
-
-	$(2 + 3i)(1 - 4i) = 2 - 8i + 3i - 12i^2 = (14 - 5i)$\\
-	$\frac{1 + i}{2 - 3i} = \frac{(1 + i)(2 + 3i)}{(2 - 3i)(2 + 3i)} = \frac{2 + 5i - 3}{4 + 9} = -\frac{1}{13} + \frac{5}{13}i$\\	
-	$a^2 + b^2 = (a + bi)(a - bi)$\\
-
-	multiplying by i has a very cool and geometric meaning in the complex plane: it corresponds to a 90-degree counterclockwise rotation about the origin.\\
-
-	$i(a + bi) = ai + bi^2 = ai - b = -b + ai$ so $i(a + bi) = -b + ai$ that is a new complex number whose real part is -b, and imaginary part is a\\
-
-\textbf{scalars and vectors}
-	\begin{itemize}
-		\item a scalar is a quantity that has only magnitude (size or amount) think temperature, mass, time, speed
-		\item a vector has both a magnitude and a direction... think displacement, velocity, force
-	\end{itemize}
-
-	find the component form of $\vec{a}$ given:\\
-	$\lvert\vec{a}\rvert = 3$ and $\theta = 30^{\circ}$\\
-	$\vec{a} = (3\cos(30^{\circ}), 3\sin(30^{\circ}))$\\
-	$\vec{a} = (\frac{3\sqrt{3}}{2}, \frac{3}{2})$\\
-
-	now find the magnitude and direction of $\vec{b} = (\sqrt{2}, \sqrt{2})$\\
-	$\lvert\vec{b}\rvert = \sqrt{(\sqrt{2})^2 + (\sqrt{2})^2} = 2$\\
-	$\theta = \tan^{-1}(\frac{\sqrt{2}}{\sqrt{2}}) = 45^{\circ}$ (be aware of the quadrants)\\
-
-	$\vec{w} = (1, 2)$ so $3\vec{w} = (3, 6)$\\
-
-	$\vec{a} = (3, -1)$ and $\vec{b} = (2, 3)$\\
-	$\vec{a} + \vec{b} = (3+2, -1+3) = (5, 2)$
-	$\vec{a} - \vec{b} = (3-2, -1-3) = (1, -4)$ (you could also just add the negative of $\vec{b}$)\\
-
-\textbf{matrices}\\
-insert some information here dont overdo it now\\
-$
-\begin{bmatrix}
-a & b\\
-c & d
-\end{bmatrix}
-$\\
+\textbf{complex numbers}\\
+rewrite this section\\	
 
 \textbf{probability and combinatorics}
 consider a standard deck of cards (no jokers)\\
-$P(jack) = \frac{4}{52} = \frac{1}{13}$\\
-$P(hearts) = \frac{13}{52}$\\
+$P(\text{jack}) = \frac{4}{52} = \frac{1}{13}$\\
+$P(\text{hearts}) = \frac{13}{52}$\\
 
 now consider a venn diagram for the following:
-$P(J \cup H) = \frac{4 + 13 - 1}{52}$\\
-since the probability of hearts overlaps with the probability of jacks (jack of hearts) youll have to subtract out the double counting...we say that that are not mutually exclusive otherwise you could just add $P(J) + P(H)$ if they were mutually exclusive\\
+$P(\text{J} \cup \text{H}) = \frac{4 + 13 - 1}{52}$\\
+since the probability of hearts overlaps with the probability of jacks (jack of hearts) youll have to subtract out the double counting...we say that that are not mutually exclusive otherwise you could just add $P(\text{J}) + P(\text{H})$ if they were mutually exclusive\\
 
 addition rule:\\
-$P(A \cup B) = P(A) + P(B) - P(A \cap B)$\\
+$P(\text{A} \cup \text{B}) = P(\text{A}) + P(\text{B}) - P(\text{A} \cap \text{B})$\\
 
 now consider mutually exclusive events:\\
-$P(A \cap B) = 0$\\
-$P(A \cup B) = P(A) + P(B)$\\
+$P(\text{A} \cap \text{B}) = 0$\\
+$P(\text{A} \cup \text{B}) = P(\text{A}) + P(\text{B})$\\
 
 multiplication rule for independent events:\\
-if two events, A and B, are independent (meaning the occurrence of one does not affect the other), then: $P(A \cap B) = P(A) \cdot P(B)$\\
+if two events, A and B, are independent (meaning the occurrence of one does not affect the other), then: $P(\text{A} \cap \text{B}) = P(\text{A}) \cdot P(\text{B})$\\
 
 consider a fair coin:\\
-$P(HH) = \frac{1}{2} \cdot \frac{1}{2}$
+$P(\text{back to back heads}) = \frac{1}{2} \cdot \frac{1}{2}$
 
 now consider dependent events say you have a bag with 3 blue and 2 red balls...what is the probability that the first pull is blue and the second is blue\\
-$P(1st blue) \cdot P(2nd blue \mid 1st blue)$\\
+$P(\text{1st blue}) \cdot P(\text{2nd blue} \mid \text{1st blue})$\\
 
-$P(A \cap B) = P(B) \cdot P(A \mid B) = P(A) \cdot P(B \mid A)$\\
+$P(\text{A} \cap \text{B}) = P(\text{B}) \cdot P(\text{A} \mid \text{B}) = P(\text{A}) \cdot P(\text{B} \mid \text{A})$\\
 
 permutations (order matters)\\
 $P(n, k) = \frac{n!}{(n - k)!}$\\
@@ -313,14 +300,11 @@ the expected value of a random variable is the long-run average outcome you woul
 $E[X] = \sum_{i=1}^{n} x^i \cdot P(x_i)$\\
 
 \textbf{sequences, series}\\
-insert some basic infomration here dont over do this now
-
-
-
+rewrite\\
 
 
 \newpage
-\section*{trigonometry}
+\section*{Trigonometry}
 
 $
 \begin{array}{|c|c|c|c|}
@@ -351,10 +335,10 @@ $
 \end{array}
 $\\
 
-$\pi = \frac{circumference}{diameter}$
+$\pi = \frac{circumference}{diameter}$\\
 $\pi$ radians = $180^{\circ}$\\
-$1^\circ = \frac{\pi}{180}$ radians\\
 $1$ radian = $\frac{180^\circ}{\pi}$\\
+$1^\circ = \frac{\pi}{180}$ radians\\
 
 Trigonometric functions are special mathematical functions that originally come from studying right triangles. They relate the size of an angle in a triangle to the ratios of the lengths of the triangle's sides.\\
 
@@ -390,13 +374,12 @@ IMO you really only need to understand some basic trigonometric function definit
 \end{itemize}
 
 \textbf{law of sines and cosines}\\
-these are quite nice to proof geometrically... one thing to note is how similar the law of sins is to the pythagorean identity...now the law of cosines is for general triangle so obviously more information is needed\\
+can you prove the following?\\
 	$\frac{\sin(A)}{a} = \frac{\sin(B)}{b} \frac{\sin(C)}{c}$\\
-	$a^2 = b^2 + c^2 - 2bc\cos(A)$\\
-	you can use the law of cosines when you have two sides that sandwich an angle or when you have three sides and want to find an angle.
+	$a^2 = b^2 + c^2 - 2bc\cos(A)$ (SAS or SSS)
 
 \newpage
-\section*{limits}
+\section*{Limits}
 	so let us consider $f(x) = \frac{\sin(x)}{x}$ ($x$ in radians)\\
 	the value of $f(0)$ is not defined because\\
 	$f(0) = \frac{\sin(0)}{0} = \frac{0}{0}$\\
@@ -406,7 +389,8 @@ these are quite nice to proof geometrically... one thing to note is how similar 
 	\end{center}
 	recall that the distance between two numbers $\lvert a - b\rvert$...thus we can express the idea that $f(x)$ is close to $L$ by saying that $\lvert f(x) - L\rvert$ is small.\\
 
-	\textbf{informal limit definition} Assume that $f(x)$ is defined for all $x$ near $c$ (i.e., in some open interval containing c), but not necessarily at $c$ itself. We say that:\\
+\textbf{an informal limit definition}\\
+	Assume that $f(x)$ is defined for all $x$ near $c$ (i.e., in some open interval containing c), but not necessarily at $c$ itself. We say that:\\
 	\textit{the limit of $f(x)$ as $x$ approaches $c$ is equal to $L$}\\
 	if $\lvert f(x) - L\rvert$ becomes arbitarily small when $x$ is any number sufficiently close (but not equal) to $c$. In this case, we write:
 	\begin{center}
@@ -418,24 +402,24 @@ these are quite nice to proof geometrically... one thing to note is how similar 
 
 	We say the $\lim_{x \to c}f(x) = \infty$ if $f(x)$ increases beyond bound as $x$ approaches $c$, and $\lim_{x \to c}f(x) = -\infty$ if $f(x)$ becomes arbitrarily large (in absolute value) but negative as $x$ approaches $c$\\
 
-	The Limit Laws state that if $lim_{x \to c}f(x)$ and $lim_{x \to c}g(x)$ both exist, then
+	The Limit Laws state that if $\lim_{x \to c}f(x)$ and $\lim_{x \to c}g(x)$ both exist, then
 		\begin{itemize}
-			\item $lim_{x \to c}(f(x) + g(x)) = lim_{x \to c}f(x) + lim_{x \to c}g(x)$
-			\item $lim_{x \to c}kf(x) = klim_{x \to c}f(x)$
-			\item $lim_{x \to c}f(x)g(x) = (lim_{x \to c}f(x))(lim_{x \to c}g(x))$
-			\item if $lim_{x \to c}g(x) \neq 0$, then $lim_{x \to c}\frac{f(x)}{g(x)} = \frac{lim_{x \to c}f(x)}{lim_{x \to c}g(x)}$
-			\item if $lim_{x \to c}f(x)$ or $lim_{x \to c}g(x) DNE$, then the Limit Laws cannot be applied
+			\item $\lim_{x \to c}(f(x) + g(x)) = \lim_{x \to c}f(x) + \lim_{x \to c}g(x)$
+			\item $\lim_{x \to c}kf(x) = k\lim_{x \to c}f(x)$
+			\item $\lim_{x \to c}f(x)g(x) = (\lim_{x \to c}f(x))(\lim_{x \to c}g(x))$
+			\item if $\lim_{x \to c}g(x) \neq 0$, then $\lim_{x \to c}\frac{f(x)}{g(x)} = \frac{\lim_{x \to c}f(x)}{\lim_{x \to c}g(x)}$
+			\item if $\lim_{x \to c}f(x)$ or $\lim_{x \to c}g(x) DNE$, then the Limit Laws cannot be applied
 		\end{itemize}
 
-	Assume that $f(x)$ is defined on an open interval containing $x = c$. Then $f$ is continuous at $x = c$ if $lim_{x \to c}f(x) = f(c)$ If the limit does not exist, or if it exists but is not equal to $f(c)$, we say that $f$ has a discontinuity (or is discontinuous) at $x = c$.\\
+	Assume that $f(x)$ is defined on an open interval containing $x = c$. Then $f$ is continuous at $x = c$ if $\lim_{x \to c}f(x) = f(c)$ If the limit does not exist, or if it exists but is not equal to $f(c)$, we say that $f$ has a discontinuity (or is discontinuous) at $x = c$.\\
 
-	A function $f(x)$ may be continuous at some points and discontinuous at others. if $f(x)$ is continuous at all points in an interval $I$, then $f(x)$ is said to be continuous on $I$. Here, if I is an interval $[a, b]$ or $[a, b)$ that includes $a$ as a left-endpoint, we require that $lim_{x \to a+}f(x) = f(a)$. Similarly, we require that $lim_{x \to b-}f(x) = f(b)$ if $I$ includes $b$ as a right-endpoint $b$. If $f(x)$ is continuous at all points in its domain, then $f(x)$ is simply called continuous.\\
+	A function $f(x)$ may be continuous at some points and discontinuous at others. if $f(x)$ is continuous at all points in an interval $I$, then $f(x)$ is said to be continuous on $I$. Here, if I is an interval $[a, b]$ or $[a, b)$ that includes $a$ as a left-endpoint, we require that $\lim_{x \to a+}f(x) = f(a)$. Similarly, we require that $\lim_{x \to b-}f(x) = f(b)$ if $I$ includes $b$ as a right-endpoint $b$. If $f(x)$ is continuous at all points in its domain, then $f(x)$ is simply called continuous.\\
 
-	Lets look at how a function can fail to be continuous...remeber that point discontinuity requires that the limit exist at that point, the value of the function exists at that point, and those two equal. If the first two conditions hold but that last one fails then we say that the function has a \textbf{removable discontinuity} at that point.\\
+	Lets look at how a function can fail to be continuous...remeber that point discontinuity requires that the limit exist at that point, the value of the function exists at that point, and those two equal. If the first two conditions hold but that last one fails then we say that the function has a removable discontinuity at that point.\\
 
 	Removable discontinuities are "mild" in the following sense: We can make $f$ continuous at $x = c$ by redefining $f(c)$.\\
 
-	A "worse" type of discontinuity is a \textbf{jump discontinuity}, which occurs if the one-sided limits $lim_{x \to c-}f(x)$ and $lim_{x \to c+}f(x)$ exist but are not equal.\\
+	A "worse" type of discontinuity is a jump discontinuity, which occurs if the one-sided limits $\lim_{x \to c-}f(x)$ and $\lim_{x \to c+}f(x)$ exist but are not equal.\\
 
 	We say that $f(x)$ has an infinite discontinuity at $x = c$ if one or both of the one-sided limits is infinite (even if $f(x)$ itself is not defined at $x = c$).\\
 
@@ -444,7 +428,8 @@ these are quite nice to proof geometrically... one thing to note is how similar 
 	\textbf{Laws of Continuity}\\
 	Assume that $f(x)$ and $g(x)$ are continuous at a point $x = c$. Then the following functions are also continuous at $x = c$:\\
 		\begin{itemize}
-			\item $f(x) + g(x) and f(x) - g(x)$
+			\item $f(x) + g(x)$
+			\item $f(x) - g(x)$
 			\item $kf(x)$ for any constant $k$
 			\item $f(x)g(x)$
 			\item $\frac{f(x)}{g(x)}$ if $g(c) \neq 0$
@@ -453,7 +438,7 @@ these are quite nice to proof geometrically... one thing to note is how similar 
 	\textbf{Continuity of Polynomial and Rational Functions}\\
 	Let $P(x)$ and $Q(x)$ be polynomials. Then:\\
 		\begin{itemize}
-			\item $P(x0 is continuous on the real line$
+			\item $P(x)$ is continuous on the real line
 			\item $\frac{P(x)}{Q(x)}$ is continuous at all values $c$ such that $Q(x) \neq 0$
 		\end{itemize}
 
@@ -469,26 +454,26 @@ these are quite nice to proof geometrically... one thing to note is how similar 
 
 		It is easy to evaluate a limit when the function in question is known to be continuous. in this case, by definition, the limit is equal to the function value.\\
 
-		In general, we say that $f(x)$ has an \textbf{indeterminate form} at $x = c$ if, when $f(x)$ is evaluated at $x = c$, we obtain an indefined expression of the type $\frac{0}{0}$, $\frac{\infty}{\infty}$, $\infty \cdot 0$, $\infty - \infty$	\\
+		In general, we say that $f(x)$ has an indeterminate form at $x = c$ if, when $f(x)$ is evaluated at $x = c$, we obtain an indefined expression of the type $\frac{0}{0}$, $\frac{\infty}{\infty}$, $\infty \cdot 0$, $\infty - \infty$	\\
 
 Later when we study derivatives, we will be faced with limits $lim_{x \to c}f(x)$, where $f(c)$ is not defined. In such cases, substitution cannot be used directly. However, some of these limits can be evaluated using substitution, provided that we first use algebra to rewrite the formula for $f(x)$\\
 
 	\textbf{Evaluating Limits Algebraically}
 		\begin{itemize}
-			\item $lim_{x \to 4}\frac{x^2 - 16}{x - 4}$\\
+			\item $\lim_{x \to 4}\frac{x^2 - 16}{x - 4}$\\
 				The function is not defined at $x = 4$ because $f(4) = \frac{4^2 - 16}{4 - 4}  = \frac{0}{0}$ (arithmetically undefined)\\
 
 				However, the numerator of $f(x)$ factors and\\
 				$\frac{x^2 - 16}{x - 4} = \frac{(x+4)(x-4)}{x - 4} = x + 4$ (valid for $x \neq 4$)\\
 				In other words, $f(x)$ coincides with the \textit{continuous} function $x + 4$ for all $x \neq 4$. Sinve the limit depends only on the values of $f(x)$ for $x \neq 4$, we have\\
-				$lim_{x \to 4}\frac{x^2 - 16}{x - 4} = lim_{x \to 4}(x + 4) = 8$\\
+				$\lim_{x \to 4}\frac{x^2 - 16}{x - 4} = \lim_{x \to 4}(x + 4) = 8$\\
 
-				In general, we say that $f(x)$ has an \textbf{indeterminate form)} at $x = c$, we obtain an undefined expression of the type\\
+				In general, we say that $f(x)$ has an indeterminate form at $x = c$, we obtain an undefined expression of the type\\
 				
 				$\frac{0}{0}, \frac{\infty}{\infty}, \infty \cdot 0, \infty - \infty$\\
 
-				We also say that $f$ is \textbf{indeterminate} at $x = c$. Our strategy is to \textit{transform $f(x)$ algebraically if possible into a new expression that is defined and continuous at $x = c$, and then evaluate by substitution ("plugging in")}. As you study the following examples, notice that the critical step in each case is to cancel a common factor from the numerator and denominator at the appropriate moment, thereby removing the indeterminacy.
-			\item $lim_{x \to 4}\frac{\sqrt{x} - 2}{x - 4}$\\
+				We also say that $f$ is indeterminate at $x = c$. Our strategy is to \textit{transform $f(x)$ algebraically if possible into a new expression that is defined and continuous at $x = c$, and then evaluate by substitution ("plugging in")}. As you study the following examples, notice that the critical step in each case is to cancel a common factor from the numerator and denominator at the appropriate moment, thereby removing the indeterminacy.
+			\item $\lim_{x \to 4}\frac{\sqrt{x} - 2}{x - 4}$\\
 				The function $f(x) = \frac{\sqrt{x} - 2}{x - 4}$ is indeterminate at $x = 4$ since\\
 
 				$f(4) = \frac{\sqrt{4} - 2}{4 - 4} = \frac{0}{0}$ (indeterminate)\\
@@ -497,15 +482,15 @@ Later when we study derivatives, we will be faced with limits $lim_{x \to c}f(x)
 
 				Since $\frac{1}{\sqrt{x} + 2}$ is continuous at $x = 4$,\\
 
-				$lim_{x \to 4}\frac{\sqrt{x} - 2}{x - 4} = lim_{x \to 4}\frac{1}{\sqrt{x} + 2} = \frac{1}{4}$
+				$\lim_{x \to 4}\frac{\sqrt{x} - 2}{x - 4} = \lim_{x \to 4}\frac{1}{\sqrt{x} + 2} = \frac{1}{4}$
 
-			\item $lim_{x \to 2}\frac{x^2 - x + 5}{x - 2}$\\
+			\item $\lim_{x \to 2}\frac{x^2 - x + 5}{x - 2}$\\
 				At $x = 2$ we have\\
 				
 $f(2) = \frac{2^2 - 2 + 5}{2 - 2} = \frac{7}{0}$ (undefined, but not an indeterminate form)\\
 				This is \textit{not} an indeterminate form. In fact, shows that the one-sided limits are infinte:\\
 
-				$lim_{x \to 2-}\frac{x^2 - x + 5}{x - 2} = -\infty$, $lim_{x \to 2+}\frac{x^2 - x + 5}{x - 2} = \infty$\\
+				$\lim_{x \to 2-}\frac{x^2 - x + 5}{x - 2} = -\infty$, $\lim_{x \to 2+}\frac{x^2 - x + 5}{x - 2} = \infty$\\
 
 				The limit itself does not exist.
 		\end{itemize}
@@ -519,25 +504,26 @@ $f(2) = \frac{2^2 - 2 + 5}{2 - 2} = \frac{7}{0}$ (undefined, but not an indeterm
 
 	In this case, the graph of $f(x)$ lies between the graphs of $l(x)$ and $u(x)$, with $l(x)$ as the lower and $u(x)$ as the upper function.\\
 
-	The Squeeze Theorem applies when $f(x)$ is not just trapped, but actually \textbf{squeezed} at a point $x = c$ by $l(x)$ and $u(x)$. By this we mean that for all $x \neq c$ in some open interval containing $c$,\\
+	The Squeeze Theorem applies when $f(x)$ is not just trapped, but actually squeezed at a point $x = c$ by $l(x)$ and $u(x)$. By this we mean that for all $x \neq c$ in some open interval containing $c$,\\
 
-	$l(x) \leq f(x) \leq u(x)$ and $lim+{x \to c}l(x) = lim_{x \to c}u(x) = L$\\
+	$l(x) \leq f(x) \leq u(x)$ and $lim+{x \to c}l(x) = \lim_{x \to c}u(x) = L$\\
 
 	We do not require that $f(x)$ be defined at $x = c$, but it is clear graphically that $f(x)$ must approach the limit $L$. We state this formally:\\
 
 	Assume that for $x \neq c$ (in some open interval containing $c$),\\
 
-	$l(x) \leq f(x) \leq u(x)$ and $lim_{x \to c}l(x) = lim{x \to c}u(x) = L$\\
+	$l(x) \leq f(x) \leq u(x)$ and $\lim_{x \to c}l(x) = \lim{x \to c}u(x) = L$\\
 
-	Then $lim_{x \to c}f(x)$ exists and\\
+	Then $\lim_{x \to c}f(x)$ exists and\\
 
-	$lim_{x \to c}f(x) = L$\\
+	$\lim_{x \to c}f(x) = L$\\
 
-	\textbf{two important limits}\\
-	$lim_{\theta \to 0}\frac{\sin(\theta)}{\theta} = 1$\\
-	$lim_{\theta \to 0}\frac{1 - \cos{\theta}}{\theta} = 0$\\
+\textbf{two important limits}\\
+	$\lim_{\theta \to 0}\frac{\sin(\theta)}{\theta} = 1$\\
+	$\lim_{\theta \to 0}\frac{1 - \cos{\theta}}{\theta} = 0$\\
 
-	The \textbf{Intermediate Value Theorem} is a basic result which states that \textit{a continuous function on an interval cannot skip values.}\\
+\textbf{Intermediate Value Theorem}\\
+	This is a basic result which states that a continuous function on an interval cannot skip values.\\
 	
 	If $f(x)$ is continuous on a closed interval $[a, b]$ and $f(a) \neq f(b)$, then for every value $M$ between $f(a)$ and $f(b)$, there exists at least one value $c \in (a, b)$ such that $f(c) = M$\\
 
@@ -551,7 +537,7 @@ $f(2) = \frac{2^2 - 2 + 5}{2 - 2} = \frac{7}{0}$ (undefined, but not an indeterm
 
 	If $f(x)$ is continuous on $[a, b]$ and if $f(a)$ and $f(b)$ are nonzero and have opposite signs, then $f(x)$ has a zero in $(a, b)$.\\
 
-	We can locate zeros of functions to arbitrary accuracy using the \textbf{Bisection Method}.\\
+	We can locate zeros of functions to arbitrary accuracy using the Bisection Method.\\
 
 	Show that $f(x) = \cos^2(x) - 2\sin(\frac{x}{4})$ has a zero in $(0, 2)$. Then locate the zero more accurately using the Bisecition Method.\\
 
@@ -563,25 +549,25 @@ $f(2) = \frac{2^2 - 2 + 5}{2 - 2} = \frac{7}{0}$ (undefined, but not an indeterm
 
 	Therefore, $(0, 1)$ must contain a zero. We discard the $[1, 2]$ because both $f(1)$ and $f(2)$ are negative. The Bisection Method consists of continuing this process until we narrow down the location of the zero to the desired accuracy.\\
 
-	The IVT seems to state the obvious, namely that a continuous function cannot skip values. Yet its proof is quite subtle because it depends on the \textit{completeness property} of the real numbers. To highlight the subtlety observe that IVT is false for functions defined only on the \textit{rational numbers}. For example, $f(x) = x^2$ does not have the intermediate value property if we restrict its domain to the rational numbers. Indeed, $f(0) = 0$ and $f(2) = 4$ but $f(c) = 2$ \textit{has no solution} for $c$ rational. The solution $c = \sqrt{2}$ is "missing" from the set of rational numbers because it is irrational. From the beginnings of calculus, the IVT was surely regarded as obvious. However, it was not possible to give a genuinely rigorous proof until the completeness property was clarified in the second half of the ninteenth century.\\
+	The IVT seems to state the obvious, namely that a continuous function cannot skip values. Yet its proof is quite subtle because it depends on the completeness property of the real numbers. To highlight the subtlety observe that IVT is false for functions defined only on the rational numbers. For example, $f(x) = x^2$ does not have the intermediate value property if we restrict its domain to the rational numbers. Indeed, $f(0) = 0$ and $f(2) = 4$ but $f(c) = 2$ has no solution for $c$ rational. The solution $c = \sqrt{2}$ is "missing" from the set of rational numbers because it is irrational. From the beginnings of calculus, the IVT was surely regarded as obvious. However, it was not possible to give a genuinely rigorous proof until the completeness property was clarified in the second half of the ninteenth century.\\
 
-	\textbf{The Size of the Gap}\\
+\textbf{The Size of the Gap}\\
 	Recall that the distance from $f(x)$ to $L$ is $\lvert f(x) - L\rvert$. It is convenient to refer to that quantity $\lvert f(x) - L\rvert$ as the \textit{gap} between the value $f(x)$ and the limit $L$.\\
 
-	Let us reexamine the basic trigonometric limit $lim_{x \to 0}\frac{\sin(x)}{x} = 1$\\
+	Let us reexamine the basic trigonometric limit $\lim_{x \to 0}\frac{\sin(x)}{x} = 1$\\
 
 	In this example, $f(x) = \frac{\sin(x)}{x}$ and $L = 1$, so (1) tells us that the gap $\lvert f(x) - 1\rvert$ gets arbitrarily small when $x$ is sufficiently close but not equal to 0.\\
 	Suppose we want the gap $\lvert f(x) - 1\rvert$ to be less than 0.2. How close to 0 must $x$ be?\\
 	The following statement is true: $\lvert \frac{\sin(x)}{x} - 1\rvert < 0.2$ if $0 < \lvert x\rvert < 1$\\
 
-	If we insist instead that the gap be smaller than 0.004... $\lvert \frac{\sin(x)}{x} - 1 < 0.004$ if $0 < \lvert x\rvert$\\
+	If we insist instead that the gap be smaller than 0.004... $\lvert \frac{\sin(x)}{x} - 1\rvert < 0.004$ if $0 < \lvert x\rvert$\\
 
-	It would seem that this process can be continued: By zooming in on the graph, we can find a small interval around $c = 0$ where the gap $\lvert f(x) - 1\rvert$ is smaller than any prescribed positive number.\\
-	To express this in a precise fashion, we follow time-honored tradition and use the Greek letter $\epsilon$ and $\delta$ to denote small numbers specifying the size of the gap and the quantity $\lvert x - c\rvert$, respectively. In our case, $c = 0$ and $\lvert x - c\rvert$ = $\lvert x - 0\rvert$ = $\lvert x\rvert$. The precise meaning is that for every choise of $\epsilon > 0$, there exists some $\delta$ (depending on $\epsilon$) such that $\lvert \frac{\sin(x)}{x} - 1\rvert < \epsilon$ if $0 < \lvert x\rvert < \delta$\\
+	It would seem that this process can be continued: By zooming in on the graph, we can find a small interval around $c = 0$ where the gap $\lvert f(x) - 1\rvert$ is smaller than any prescribed positive number.To express this in a precise fashion, we follow time-honored tradition and use the Greek letter $\epsilon$ and $\delta$ to denote small numbers specifying the size of the gap and the quantity $\lvert x - c\rvert$, respectively. In our case, $c = 0$ and $\lvert x - c\rvert$ = $\lvert x - 0\rvert$ = $\lvert x\rvert$. The precise meaning is that for every choise of $\epsilon > 0$, there exists some $\delta$ (depending on $\epsilon$) such that $\lvert \frac{\sin(x)}{x} - 1\rvert < \epsilon$ if $0 < \lvert x\rvert < \delta$\\
 
-	The number $\delta$ tells us how close is sufficiently close for a given $\epsilon$. With this motivation, we are ready to state the formal definition of the limit.\\
+The number $\delta$ tells us how close is sufficiently close for a given $\epsilon$. With this motivation, we are ready to state the formal definition of the limit.\\
 
-	\textbf{FORMAL DEFINITION OF A LIMIT} Suppose the $f(x)$ is defined for all $x$ in an open interval containing $c$ (but no necessarily at $x = c$). Then \begin{center}$lim_{x \to c}f(x) = L$\end{center} if for all $\epsilon > 0$, there exists $\delta > 0$ such that \begin{center}$\lvert f(x) - L\rvert<\epsilon$ if $0<\lvert x - c\rvert<\delta$\end{center} The condition $0 < \lvert x - c\rvert < \delta$ in this definition excludes $x = c$. As in our previous informal definition, we formulate it this way so that the limit depends only on values of $f(x)$ near $c$ but no on $f(c)$ itself. As we have seen, in many cases the limit exists even when $f(c)$ is not defined.
+\textbf{FORMAL DEFINITION OF A LIMIT}\\
+Suppose the $f(x)$ is defined for all $x$ in an open interval containing $c$ (but no necessarily at $x = c$). Then \begin{center}$\lim_{x \to c}f(x) = L$\end{center} if for all $\epsilon > 0$, there exists $\delta > 0$ such that \begin{center}$\lvert f(x) - L\rvert<\epsilon$ if $0<\lvert x - c\rvert<\delta$\end{center} The condition $0 < \lvert x - c\rvert < \delta$ in this definition excludes $x = c$. As in our previous informal definition, we formulate it this way so that the limit depends only on values of $f(x)$ near $c$ but no on $f(c)$ itself. As we have seen, in many cases the limit exists even when $f(c)$ is not defined.
 
 \newpage
 \section*{differentiation}
@@ -622,14 +608,5 @@ newtons method\\
 
 
 \section*{integration}
-
-
-
-\section*{review plan}
-
-
-
-
-
 
 \end{document}
