@@ -34,7 +34,9 @@ Calculus is the study of rates of change and the accumulation of quantities.\\
 	\end{itemize}
 
 \textbf{triangle inequality}\\
+
 $\lvert a + b\rvert \leq \lvert a \rvert + \lvert b\rvert \to (\lvert a + b\rvert)^2 \leq (\lvert a \rvert + \lvert b\rvert)^2$\\
+
 if you square any real number you will get a non-negative result ($(x)^2 = (-x)^2$)
 	\begin{enumerate}
 		\item $(a + b)^2 \leq (\lvert a\rvert + \lvert b\rvert)^2$
@@ -171,6 +173,7 @@ if you square any real number you will get a non-negative result ($(x)^2 = (-x)^
 	\end{enumerate}
 
 \textbf{rational root theorem:}\\
+
 If a polynomial with integer coefficients has any rational roots, then those roots must be of the form: $\frac{p}{q}$ where $p$ is a factor of the constant term and $q$ is a factor of the leading term coefficient.\\
 
 consider $f(x) = x^3 - 6x^2 + 11x - 6$\\
@@ -179,18 +182,84 @@ now form all possible $\frac{p}{q}$: $\pm\frac{1}{1}$, $\pm\frac{2}{1}$, $\pm\fr
 You can test each value by plugging into the polynomial to see if it equals 0. If it does, it is a root, and you can factor out that term. Keep in mind that not all polynomials have rational roots. Some roots may be irrational (like $\sqrt{2}$) or complex (involving $i$)\\
 
 $f(1) = 1^3 - 6(1)^2 + 11(1) - 6 = 0$ so now we now that $(x - 1)$ is a factor\\
-we can now reduce the polynomial $\frac{x^3 - 6x^2 + 11x - 6}{(x - 1)}$ and now we know that $x^3 - 6x^2 + 11x - 6 = (x - 1)(x^2 - 5x + 6)$ as you can see the solutions are $(x - 1)(x - 2)(x - 3)$\\ 
+we can now reduce the polynomial $\frac{x^3 - 6x^2 + 11x - 6}{(x - 1)}$ and now we know that $x^3 - 6x^2 + 11x - 6 = (x - 1)(x^2 - 5x + 6)$ as you can see the solutions are $(x - 1)(x - 2)(x - 3)$\\
+
+
+\textbf{complex numbers $\sqrt{-1} = i$}\\
+
+a complex number is made up of a real part ($a$) and an imaginary part ($b$) like so: $z = a + bi$ a complex conjugate would be written as so: $\overline{z} = a - bi$...notice that $z + \overline{z} = 2Re(z)$ you can use the complex conguate to help in divition problems with complex numbers like so:
+	\begin{enumerate}
+		\item $\frac{1 + 2i}{4 - 5i}$
+		\item $\frac{1 + 2i}{4 - 5i}\frac{4 + 5i}{4 + 5i}$
+		\item $\frac{4 + 5i + 8i - 10}{16 - 20i + 20i - 25i^2}$
+		\item $\frac{-6 + 13i}{41}$
+		\item $\frac{-6}{41} + \frac{13i}{41}$	
+	\end{enumerate}
+
+note that multiplying a complex number by its complex conjugate will give you a real number: $z \cdot \overline{z} = (a + bi)(a - bi) = (a^2) - (bi^2) = a^2 + b^2 = (\lvert z \rvert)^2$\\
+
+difference of squares:
+	\begin{itemize}
+		\item $x^2 - y^2$
+		\item $(x + y)(x - y)$
+		\item $x^2 + xy -xy - y^2$
+	\end{itemize}
+
+sum of squares:
+	\begin{enumerate}
+		\item $x^2 + y^2 = x^2 - (-1y^2)$
+		\item $x^2 - i^2y^2 = x^2 - (iy)^2$
+		\item $(x + iy)(x - iy)$
+	\end{enumerate}
+
+example:
+	\begin{enumerate}
+		\item $36a^8 + 2b^6$
+		\item $(6a^4)^2 + (\sqrt{2}b^3)^2$
+		\item $(6a^4)^2 - (-1)(\sqrt{2}b^3)^2$
+		\item $(6a^4)^2 - (i\sqrt{2}b^3)^2$
+		\item $(6a^4 + i\sqrt{2}b^3)(6a^4 - i\sqrt{2}b^3)$
+	\end{enumerate}
+
+rectangular form: $z = a + bi$\\
+	\begin{itemize}
+		\item $\cos(\theta) = \frac{a}{r}$ and $\sin(\theta) = \frac{b}{r}$
+		\item $r\cos(\theta) = a$ and $r\sin(\theta) = b$
+	\end{itemize}
+polar form: $z = r(\cos(\theta) + i\sin(\theta))$
+	\begin{itemize}
+		\item $r = \overline{z} = \sqrt{a^2 + b^2}$
+		\item $\theta = \tan^{-1}(\frac{b}{a})$
+	\end{itemize}
+eulers form: $re^{i\theta}$\\
+
+given $z = -1 + i\sqrt{3}$ find $z^4$ in both polar and rectangular form
+	\begin{enumerate}
+		\item $\lvert z\rvert = \sqrt((-1)^2 + (\sqrt(3)^2)) = \sqrt{1 + 3} = 2$ (notice how here we take the principal square root because magnitude (distance) has no direction)
+		\item $\theta = \tan^{-1}(\frac{\frac{\sqrt{3}}{2}}{\frac{-1}{2}}) = -60^{\circ}$ (calculator will give you angles between $\frac{-\pi}{2}$ and $\frac{\pi}{2}$ because that is the period of arctan)
+		\item the vector is in Q2 so $-60^{\circ} + 180^{\circ} = 120^{\circ}$
+		\item $z = 2(\cos(120^{\circ}) + i\sin(120^{\circ}))$
+		\item $z^2 = 4(\cos(240^{\circ}) + i\sin(240^{\circ}))$		
+		\item $z^3 = 8(\cos(360^{\circ}) + i\sin(350^{\circ}))$
+		\item $z^4 = 16(\cos(120^{\circ}) + i\sin(120^{\circ}))$
+		\item $z^4 = 16(\frac{-1}{2}) + 16(\frac{\sqrt{3}}{2})i = -8 + 8\sqrt{3}i$
+	\end{enumerate}
+
+so there are three cube roots of one in the complex plane:\\
+	\begin{itemize}
+		\item $x^3 = 1 \to x^3 - 1 = 0$ 
+		\item $1 = 1 + 0i \to 1 = 1e^{2\pi ni}$
+		\item $x^3 = 1 \to x^3 = e^{2\pi ni}$
+		\item $x = 1^{\frac{1}{3}} \to x = e^{\frac{2\pi n}{3}i}$
+	\end{itemize}
 
 \textbf{fundamental theorem of algebra:}\\
+
 Every non-zero polynomial equation ($f(x) \neq 0$) of degree $n$ has exactly $n$ complex roots including multiplicities.\\
 
+$p(x) = ax^n = bx^{n-1} + \dots + k$ (n complex roots)\\
+
 \textbf{conic sections:}\\
-define the following:\\
-vertex\\
-major and minor axis\\
-foci and cofoci\\
-asymptotes\\
-discriminant to determine the type of conic section
 	\begin{itemize}
 		\item circle:\\ 
 			$(x - h)^2 + (y - k)^2 = r^2$
@@ -198,13 +267,18 @@ discriminant to determine the type of conic section
 			$(y - k) = a(x - h)^2$ (opens up or down)\\
 			$(x - h) = a(y - k)^2$ (opens left or right)
 		\item ellipes:\\
-			$\frac{(x - h)^2}{a^2} + \frac{(y - k)^2}{b^2} = 1$
-			$\frac{(x - h)^2}{b^2} + \frac{(y - k)^2}{a^2} = 1$
-$\frac{}{} + \frac{}{} = 1$
+			$\frac{(x - h)^2}{a^2} + \frac{(y - k)^2}{b^2} = 1$\\
+			$\frac{(x - h)^2}{b^2} + \frac{(y - k)^2}{a^2} = 1$\\
 		\item hyperbolas:\\
-			$\frac{(x - h)^2}{a^2} - \frac{(y - k)^2}{b^2} = 1$
-			$\frac{(x - h)^2}{a^2} - \frac{(y - k)^2}{b^2} = 1$
+			$\frac{(x - h)^2}{a^2} - \frac{(y - k)^2}{b^2} = 1$\\
+			$\frac{(x - h)^2}{a^2} - \frac{(y - k)^2}{b^2} = 1$\\
 	\end{itemize}
+
+vertex\\
+major/minor axcies\\
+foci and co-foci\\
+asymptotes\\
+use the discriminant to determine the type of conic section\\
 
 \textbf{basic classes of functions:}\\
 	\begin{itemize}
@@ -252,9 +326,6 @@ A function is invertible if it is one-to-one (horizontal line test). So, this me
 
 \textbf{scalars, vectors, and matrices}\\
 rewrite this section\\
-
-\textbf{complex numbers}\\
-rewrite this section\\	
 
 \textbf{probability and combinatorics}
 consider a standard deck of cards (no jokers)\\
@@ -335,19 +406,16 @@ $
 \end{array}
 $\\
 
-$\pi = \frac{circumference}{diameter}$\\
-$\pi$ radians = $180^{\circ}$\\
-$1$ radian = $\frac{180^\circ}{\pi}$\\
-$1^\circ = \frac{\pi}{180}$ radians\\
+$\pi = \frac{\text{circumference}}{\text{diameter}}$\\
+$1^\circ = \frac{\pi}{180} \text{radians}$\\
 
 Trigonometric functions are special mathematical functions that originally come from studying right triangles. They relate the size of an angle in a triangle to the ratios of the lengths of the triangle's sides.\\
 
-\textbf{SOH-CAH-TOA} is a mnemonic device that expresses the relationship between the basic trigonometric functions and the ratios of the sides in a right triangle.\\
+SOH-CAH-TOA is a mnemonic device that expresses the relationship between the basic trigonometric functions and the ratios of the sides in a right triangle.\\
 
 The triangle definition only works for angles between 0 and $\frac{\pi}{2}$. To extend trig functions to all angles (including negative angles and angles larger then ($2\pi$ or $360^{\circ}$), mathematicians use the unit circle. Thus allowing use to use trig functions on the coordinate plane, enabling graphing and calculus.\\	
 
-IMO you really only need to understand some basic trigonometric function definitions which you can obtain from the unit circle...you can use some geometry to obtain the pythagorean identity as well as the sum and difference formulaes and from there you should be good to derive the rest of the identities you may need (i.e. double angles, ect)...\\
-
+\textbf{trigonometric identities}
 \begin{itemize}
 	\item $\frac{1}{\cos(\theta)} = \sec(\theta)$	
 	\item $\frac{1}{\sin(\theta)} = \csc(\theta) $
@@ -374,7 +442,7 @@ IMO you really only need to understand some basic trigonometric function definit
 \end{itemize}
 
 \textbf{law of sines and cosines}\\
-can you prove the following?\\
+
 	$\frac{\sin(A)}{a} = \frac{\sin(B)}{b} \frac{\sin(C)}{c}$\\
 	$a^2 = b^2 + c^2 - 2bc\cos(A)$ (SAS or SSS)
 
@@ -390,17 +458,13 @@ can you prove the following?\\
 	recall that the distance between two numbers $\lvert a - b\rvert$...thus we can express the idea that $f(x)$ is close to $L$ by saying that $\lvert f(x) - L\rvert$ is small.\\
 
 \textbf{an informal limit definition}\\
-	Assume that $f(x)$ is defined for all $x$ near $c$ (i.e., in some open interval containing c), but not necessarily at $c$ itself. We say that:\\
-	\textit{the limit of $f(x)$ as $x$ approaches $c$ is equal to $L$}\\
-	if $\lvert f(x) - L\rvert$ becomes arbitarily small when $x$ is any number sufficiently close (but not equal) to $c$. In this case, we write:
+	Assume that $f(x)$ is defined for all $x$ near $c$ (i.e., in some open interval containing c), but not necessarily at $c$ itself. We say that: \textit{the limit of $f(x)$ as $x$ approaches $c$ is equal to $L$} if $\lvert f(x) - L\rvert$ becomes arbitarily small when $x$ is any number sufficiently close (but not equal) to $c$. In this case, we write:
 	\begin{center}
 		$\lim_{x \to c}f(x) = L$
 	\end{center}
 	we also say the $f(x)$ approaches or converges to $L$ as $x \to c$ (and we write $f(x) \to L$)\\
 
-	If the values of $f(x)$ do not converge to any limit as $x \to c$, we say that $\lim_{x \to c}f(x)$ DNE. It is important to note that the value $f(c)$ itself, which may or may not be defined, plays no role in the limit. All that matters are the values $f(x)$ for $x$ close to c. Furthermore, if $f(x)$ approaches a limit as $x \to c$, then the limiting value $L$ is unique.\\
-
-	We say the $\lim_{x \to c}f(x) = \infty$ if $f(x)$ increases beyond bound as $x$ approaches $c$, and $\lim_{x \to c}f(x) = -\infty$ if $f(x)$ becomes arbitrarily large (in absolute value) but negative as $x$ approaches $c$\\
+	If the values of $f(x)$ do not converge to any limit as $x \to c$, we say that $\lim_{x \to c}f(x)$ DNE. It is important to note that the value $f(c)$ itself, which may or may not be defined, plays no role in the limit. All that matters are the values $f(x)$ for $x$ close to c. Furthermore, if $f(x)$ approaches a limit as $x \to c$, then the limiting value $L$ is unique. We say the $\lim_{x \to c}f(x) = \infty$ if $f(x)$ increases beyond bound as $x$ approaches $c$, and $\lim_{x \to c}f(x) = -\infty$ if $f(x)$ becomes arbitrarily large (in absolute value) but negative as $x$ approaches $c$\\
 
 	The Limit Laws state that if $\lim_{x \to c}f(x)$ and $\lim_{x \to c}g(x)$ both exist, then
 		\begin{itemize}
@@ -411,19 +475,7 @@ can you prove the following?\\
 			\item if $\lim_{x \to c}f(x)$ or $\lim_{x \to c}g(x) DNE$, then the Limit Laws cannot be applied
 		\end{itemize}
 
-	Assume that $f(x)$ is defined on an open interval containing $x = c$. Then $f$ is continuous at $x = c$ if $\lim_{x \to c}f(x) = f(c)$ If the limit does not exist, or if it exists but is not equal to $f(c)$, we say that $f$ has a discontinuity (or is discontinuous) at $x = c$.\\
-
-	A function $f(x)$ may be continuous at some points and discontinuous at others. if $f(x)$ is continuous at all points in an interval $I$, then $f(x)$ is said to be continuous on $I$. Here, if I is an interval $[a, b]$ or $[a, b)$ that includes $a$ as a left-endpoint, we require that $\lim_{x \to a+}f(x) = f(a)$. Similarly, we require that $\lim_{x \to b-}f(x) = f(b)$ if $I$ includes $b$ as a right-endpoint $b$. If $f(x)$ is continuous at all points in its domain, then $f(x)$ is simply called continuous.\\
-
-	Lets look at how a function can fail to be continuous...remeber that point discontinuity requires that the limit exist at that point, the value of the function exists at that point, and those two equal. If the first two conditions hold but that last one fails then we say that the function has a removable discontinuity at that point.\\
-
-	Removable discontinuities are "mild" in the following sense: We can make $f$ continuous at $x = c$ by redefining $f(c)$.\\
-
-	A "worse" type of discontinuity is a jump discontinuity, which occurs if the one-sided limits $\lim_{x \to c-}f(x)$ and $\lim_{x \to c+}f(x)$ exist but are not equal.\\
-
-	We say that $f(x)$ has an infinite discontinuity at $x = c$ if one or both of the one-sided limits is infinite (even if $f(x)$ itself is not defined at $x = c$).\\
-
-	We should mention that some functions have more "severe" types of discontinuity than those discussed above. For example, $f(x) = \sin(\frac{1}{x})$ oscillates infinitely often between $+1$ and $-1$ as $x \to 0$. Nether the left-nor the right-hand limits exist at $x = 0$, so this discontinuity is no a jump discontinuity. Although of interest from a theoretical point of view, these discontinuities rarely arise in practice.\\
+	Assume that $f(x)$ is defined on an open interval containing $x = c$. Then $f$ is continuous at $x = c$ if $\lim_{x \to c}f(x) = f(c)$ If the limit does not exist, or if it exists but is not equal to $f(c)$, we say that $f$ has a discontinuity (or is discontinuous) at $x = c$. A function $f(x)$ may be continuous at some points and discontinuous at others. if $f(x)$ is continuous at all points in an interval $I$, then $f(x)$ is said to be continuous on $I$. Here, if I is an interval $[a, b]$ or $[a, b)$ that includes $a$ as a left-endpoint, we require that $\lim_{x \to a+}f(x) = f(a)$. Similarly, we require that $\lim_{x \to b-}f(x) = f(b)$ if $I$ includes $b$ as a right-endpoint $b$. If $f(x)$ is continuous at all points in its domain, then $f(x)$ is simply called continuous. Lets look at how a function can fail to be continuous...remeber that point discontinuity requires that the limit exist at that point, the value of the function exists at that point, and those two equal. If the first two conditions hold but that last one fails then we say that the function has a removable discontinuity at that point. Removable discontinuities are "mild" in the following sense: We can make $f$ continuous at $x = c$ by redefining $f(c)$. A "worse" type of discontinuity is a jump discontinuity, which occurs if the one-sided limits $\lim_{x \to c-}f(x)$ and $\lim_{x \to c+}f(x)$ exist but are not equal. We say that $f(x)$ has an infinite discontinuity at $x = c$ if one or both of the one-sided limits is infinite (even if $f(x)$ itself is not defined at $x = c$). We should mention that some functions have more "severe" types of discontinuity than those discussed above. For example, $f(x) = \sin(\frac{1}{x})$ oscillates infinitely often between $+1$ and $-1$ as $x \to 0$. Nether the left-nor the right-hand limits exist at $x = 0$, so this discontinuity is no a jump discontinuity. Although of interest from a theoretical point of view, these discontinuities rarely arise in practice.\\
 
 	\textbf{Laws of Continuity}\\
 	Assume that $f(x)$ and $g(x)$ are continuous at a point $x = c$. Then the following functions are also continuous at $x = c$:\\
@@ -450,13 +502,7 @@ can you prove the following?\\
 		\end{itemize}
 
 	\textbf{Continuity of Composite Functions}\\
-		Let $F(x) = f(g(x))$ be a composite function. If $g$ is continuous at $x = c$ and $f$ is continuous at $x = g(c)$, then $F(x)$ is continuous at $x = c$\\	
-
-		It is easy to evaluate a limit when the function in question is known to be continuous. in this case, by definition, the limit is equal to the function value.\\
-
-		In general, we say that $f(x)$ has an indeterminate form at $x = c$ if, when $f(x)$ is evaluated at $x = c$, we obtain an indefined expression of the type $\frac{0}{0}$, $\frac{\infty}{\infty}$, $\infty \cdot 0$, $\infty - \infty$	\\
-
-Later when we study derivatives, we will be faced with limits $lim_{x \to c}f(x)$, where $f(c)$ is not defined. In such cases, substitution cannot be used directly. However, some of these limits can be evaluated using substitution, provided that we first use algebra to rewrite the formula for $f(x)$\\
+		Let $F(x) = f(g(x))$ be a composite function. If $g$ is continuous at $x = c$ and $f$ is continuous at $x = g(c)$, then $F(x)$ is continuous at $x = c$. It is easy to evaluate a limit when the function in question is known to be continuous. in this case, by definition, the limit is equal to the function value. In general, we say that $f(x)$ has an indeterminate form at $x = c$ if, when $f(x)$ is evaluated at $x = c$, we obtain an indefined expression of the type $\frac{0}{0}$, $\frac{\infty}{\infty}$, $\infty \cdot 0$, $\infty - \infty$. Later when we study derivatives, we will be faced with limits $lim_{x \to c}f(x)$, where $f(c)$ is not defined. In such cases, substitution cannot be used directly. However, some of these limits can be evaluated using substitution, provided that we first use algebra to rewrite the formula for $f(x)$\\
 
 	\textbf{Evaluating Limits Algebraically}
 		\begin{itemize}
@@ -496,75 +542,17 @@ $f(2) = \frac{2^2 - 2 + 5}{2 - 2} = \frac{7}{0}$ (undefined, but not an indeterm
 		\end{itemize}
 
 	\textbf{The Squeeze Theorem}\\
-	In our study of the derivative, we will need to evaluate certain limits involving transcendental functions such as sine and cosine. The algebraic techniques of the previous section are often ineffective for such functions and other tools are required. One such tool is the Squeeze Theorem, which we discuss in this section and use to evaluate the trigonometric limits later.\\
-
-	Consider a function $f(x)$ that is trapped between two functions $l(x)$ and $u(x)$ on an interval $I$. In other words,\\
-
-	$l(x) \leq f(x) \leq u(x)$ for all $x \in I$\\
-
-	In this case, the graph of $f(x)$ lies between the graphs of $l(x)$ and $u(x)$, with $l(x)$ as the lower and $u(x)$ as the upper function.\\
-
-	The Squeeze Theorem applies when $f(x)$ is not just trapped, but actually squeezed at a point $x = c$ by $l(x)$ and $u(x)$. By this we mean that for all $x \neq c$ in some open interval containing $c$,\\
-
-	$l(x) \leq f(x) \leq u(x)$ and $lim+{x \to c}l(x) = \lim_{x \to c}u(x) = L$\\
-
-	We do not require that $f(x)$ be defined at $x = c$, but it is clear graphically that $f(x)$ must approach the limit $L$. We state this formally:\\
-
-	Assume that for $x \neq c$ (in some open interval containing $c$),\\
-
-	$l(x) \leq f(x) \leq u(x)$ and $\lim_{x \to c}l(x) = \lim{x \to c}u(x) = L$\\
-
-	Then $\lim_{x \to c}f(x)$ exists and\\
-
-	$\lim_{x \to c}f(x) = L$\\
+	In our study of the derivative, we will need to evaluate certain limits involving transcendental functions such as sine and cosine. The algebraic techniques of the previous section are often ineffective for such functions and other tools are required. One such tool is the Squeeze Theorem, which we discuss in this section and use to evaluate the trigonometric limits later. Consider a function $f(x)$ that is trapped between two functions $l(x)$ and $u(x)$ on an interval $I$. In other words, $l(x) \leq f(x) \leq u(x)$ for all $x \in I$. In this case, the graph of $f(x)$ lies between the graphs of $l(x)$ and $u(x)$, with $l(x)$ as the lower and $u(x)$ as the upper function. The Squeeze Theorem applies when $f(x)$ is not just trapped, but actually squeezed at a point $x = c$ by $l(x)$ and $u(x)$. By this we mean that for all $x \neq c$ in some open interval containing $c$, $l(x) \leq f(x) \leq u(x)$ and $\lim_{x \to c}l(x) = \lim_{x \to c}u(x) = L$. We do not require that $f(x)$ be defined at $x = c$, but it is clear graphically that $f(x)$ must approach the limit $L$. We state this formally: Assume that for $x \neq c$ (in some open interval containing $c$), $l(x) \leq f(x) \leq u(x)$ and $\lim_{x \to c}l(x) = \lim_{x \to c}u(x) = L$. Then $\lim_{x \to c}f(x)$ exists and $\lim_{x \to c}f(x) = L$\\
 
 \textbf{two important limits}\\
 	$\lim_{\theta \to 0}\frac{\sin(\theta)}{\theta} = 1$\\
 	$\lim_{\theta \to 0}\frac{1 - \cos{\theta}}{\theta} = 0$\\
 
 \textbf{Intermediate Value Theorem}\\
-	This is a basic result which states that a continuous function on an interval cannot skip values.\\
-	
-	If $f(x)$ is continuous on a closed interval $[a, b]$ and $f(a) \neq f(b)$, then for every value $M$ between $f(a)$ and $f(b)$, there exists at least one value $c \in (a, b)$ such that $f(c) = M$\\
-
-	Prove that the equation $\sin(x) = 0.3$ has at least one solution.\\
-
-	We may apply the IVT since $\sin(x)$ is continuous. We choose an interval where we suspect that a solution exists. The desired value 0.3 lies between the two function value $\sin(0) = 0$ and $\sin(\frac{\pi}{2} = 1$\\
-
-	so the interval $[0 , \frac{\pi}{2}]$ will work. The IVT tells us that $\sin(x) = 0.3$ has at least one solution in $(0, \frac{\pi}{2})$. Since $\sin(x)$ is periodic, $\sin(x)$ actually has infinitely many solutions.\\
-
-	The IVT can be used to show the existence of zeros of functions. If $f(x)$ is continuous and takes on both positive and negative values, say, $f(a) < 0$ and $f(b) > 0$, then the IVT guarantees that $f(c) = 0$ for some $c$ between $a$ and $b$.\\
-
-	If $f(x)$ is continuous on $[a, b]$ and if $f(a)$ and $f(b)$ are nonzero and have opposite signs, then $f(x)$ has a zero in $(a, b)$.\\
-
-	We can locate zeros of functions to arbitrary accuracy using the Bisection Method.\\
-
-	Show that $f(x) = \cos^2(x) - 2\sin(\frac{x}{4})$ has a zero in $(0, 2)$. Then locate the zero more accurately using the Bisecition Method.\\
-
-	Using a calculator, we find that $f(0)$ and $f(2)$ have opposite signs: $f(0) = 1 > 0$, $f(2) \approx -0.786 < 0$\\
-
-	We can locate a zero more accurately by dividing $[0, 2]$ into two intervals $[0, 1]$ and $[1, 2]$. One of these must contain a zero of $f(x)$. To determine which, we evaluate $f(x)$ at the midpoint $m = 1$. A calculator gives $f(1) \approx -0.203$, and since $f(0) = 1$, we see that\\
-
-	$f(x)$ takes on opposite signs at the endpoints of $[0, 1]$\\
-
-	Therefore, $(0, 1)$ must contain a zero. We discard the $[1, 2]$ because both $f(1)$ and $f(2)$ are negative. The Bisection Method consists of continuing this process until we narrow down the location of the zero to the desired accuracy.\\
-
-	The IVT seems to state the obvious, namely that a continuous function cannot skip values. Yet its proof is quite subtle because it depends on the completeness property of the real numbers. To highlight the subtlety observe that IVT is false for functions defined only on the rational numbers. For example, $f(x) = x^2$ does not have the intermediate value property if we restrict its domain to the rational numbers. Indeed, $f(0) = 0$ and $f(2) = 4$ but $f(c) = 2$ has no solution for $c$ rational. The solution $c = \sqrt{2}$ is "missing" from the set of rational numbers because it is irrational. From the beginnings of calculus, the IVT was surely regarded as obvious. However, it was not possible to give a genuinely rigorous proof until the completeness property was clarified in the second half of the ninteenth century.\\
+	This is a basic result which states that a continuous function on an interval cannot skip values. If $f(x)$ is continuous on a closed interval $[a, b]$ and $f(a) \neq f(b)$, then for every value $M$ between $f(a)$ and $f(b)$, there exists at least one value $c \in (a, b)$ such that $f(c) = M$. Prove that the equation $\sin(x) = 0.3$ has at least one solution. We may apply the IVT since $\sin(x)$ is continuous. We choose an interval where we suspect that a solution exists. The desired value 0.3 lies between the two function value $\sin(0) = 0$ and $\sin(\frac{\pi}{2} = 1$. so the interval $[0 , \frac{\pi}{2}]$ will work. The IVT tells us that $\sin(x) = 0.3$ has at least one solution in $(0, \frac{\pi}{2})$. Since $\sin(x)$ is periodic, $\sin(x)$ actually has infinitely many solutions. The IVT can be used to show the existence of zeros of functions. If $f(x)$ is continuous and takes on both positive and negative values, say, $f(a) < 0$ and $f(b) > 0$, then the IVT guarantees that $f(c) = 0$ for some $c$ between $a$ and $b$. If $f(x)$ is continuous on $[a, b]$ and if $f(a)$ and $f(b)$ are nonzero and have opposite signs, then $f(x)$ has a zero in $(a, b)$. We can locate zeros of functions to arbitrary accuracy using the Bisection Method. Show that $f(x) = \cos^2(x) - 2\sin(\frac{x}{4})$ has a zero in $(0, 2)$. Then locate the zero more accurately using the Bisecition Method. Using a calculator, we find that $f(0)$ and $f(2)$ have opposite signs: $f(0) = 1 > 0$, $f(2) \approx -0.786 < 0$. We can locate a zero more accurately by dividing $[0, 2]$ into two intervals $[0, 1]$ and $[1, 2]$. One of these must contain a zero of $f(x)$. To determine which, we evaluate $f(x)$ at the midpoint $m = 1$. A calculator gives $f(1) \approx -0.203$, and since $f(0) = 1$, we see that $f(x)$ takes on opposite signs at the endpoints of $[0, 1]$. Therefore, $(0, 1)$ must contain a zero. We discard the $[1, 2]$ because both $f(1)$ and $f(2)$ are negative. The Bisection Method consists of continuing this process until we narrow down the location of the zero to the desired accuracy. The IVT seems to state the obvious, namely that a continuous function cannot skip values. Yet its proof is quite subtle because it depends on the completeness property of the real numbers. To highlight the subtlety observe that IVT is false for functions defined only on the rational numbers. For example, $f(x) = x^2$ does not have the intermediate value property if we restrict its domain to the rational numbers. Indeed, $f(0) = 0$ and $f(2) = 4$ but $f(c) = 2$ has no solution for $c$ rational. The solution $c = \sqrt{2}$ is "missing" from the set of rational numbers because it is irrational. From the beginnings of calculus, the IVT was surely regarded as obvious. However, it was not possible to give a genuinely rigorous proof until the completeness property was clarified in the second half of the ninteenth century.\\
 
 \textbf{The Size of the Gap}\\
-	Recall that the distance from $f(x)$ to $L$ is $\lvert f(x) - L\rvert$. It is convenient to refer to that quantity $\lvert f(x) - L\rvert$ as the \textit{gap} between the value $f(x)$ and the limit $L$.\\
-
-	Let us reexamine the basic trigonometric limit $\lim_{x \to 0}\frac{\sin(x)}{x} = 1$\\
-
-	In this example, $f(x) = \frac{\sin(x)}{x}$ and $L = 1$, so (1) tells us that the gap $\lvert f(x) - 1\rvert$ gets arbitrarily small when $x$ is sufficiently close but not equal to 0.\\
-	Suppose we want the gap $\lvert f(x) - 1\rvert$ to be less than 0.2. How close to 0 must $x$ be?\\
-	The following statement is true: $\lvert \frac{\sin(x)}{x} - 1\rvert < 0.2$ if $0 < \lvert x\rvert < 1$\\
-
-	If we insist instead that the gap be smaller than 0.004... $\lvert \frac{\sin(x)}{x} - 1\rvert < 0.004$ if $0 < \lvert x\rvert$\\
-
-	It would seem that this process can be continued: By zooming in on the graph, we can find a small interval around $c = 0$ where the gap $\lvert f(x) - 1\rvert$ is smaller than any prescribed positive number.To express this in a precise fashion, we follow time-honored tradition and use the Greek letter $\epsilon$ and $\delta$ to denote small numbers specifying the size of the gap and the quantity $\lvert x - c\rvert$, respectively. In our case, $c = 0$ and $\lvert x - c\rvert$ = $\lvert x - 0\rvert$ = $\lvert x\rvert$. The precise meaning is that for every choise of $\epsilon > 0$, there exists some $\delta$ (depending on $\epsilon$) such that $\lvert \frac{\sin(x)}{x} - 1\rvert < \epsilon$ if $0 < \lvert x\rvert < \delta$\\
-
-The number $\delta$ tells us how close is sufficiently close for a given $\epsilon$. With this motivation, we are ready to state the formal definition of the limit.\\
+	Recall that the distance from $f(x)$ to $L$ is $\lvert f(x) - L\rvert$. It is convenient to refer to that quantity $\lvert f(x) - L\rvert$ as the \textit{gap} between the value $f(x)$ and the limit $L$. Let us reexamine the basic trigonometric limit $\lim_{x \to 0}\frac{\sin(x)}{x} = 1$. In this example, $f(x) = \frac{\sin(x)}{x}$ and $L = 1$, so (1) tells us that the gap $\lvert f(x) - 1\rvert$ gets arbitrarily small when $x$ is sufficiently close but not equal to 0. Suppose we want the gap $\lvert f(x) - 1\rvert$ to be less than 0.2. How close to 0 must $x$ be? The following statement is true: $\lvert \frac{\sin(x)}{x} - 1\rvert < 0.2$ if $0 < \lvert x\rvert < 1$. If we insist instead that the gap be smaller than 0.004... $\lvert \frac{\sin(x)}{x} - 1\rvert < 0.004$ if $0 < \lvert x\rvert$. It would seem that this process can be continued: By zooming in on the graph, we can find a small interval around $c = 0$ where the gap $\lvert f(x) - 1\rvert$ is smaller than any prescribed positive number.To express this in a precise fashion, we follow time-honored tradition and use the Greek letter $\epsilon$ and $\delta$ to denote small numbers specifying the size of the gap and the quantity $\lvert x - c\rvert$, respectively. In our case, $c = 0$ and $\lvert x - c\rvert$ = $\lvert x - 0\rvert$ = $\lvert x\rvert$. The precise meaning is that for every choise of $\epsilon > 0$, there exists some $\delta$ (depending on $\epsilon$) such that $\lvert \frac{\sin(x)}{x} - 1\rvert < \epsilon$ if $0 < \lvert x\rvert < \delta$. The number $\delta$ tells us how close is sufficiently close for a given $\epsilon$. With this motivation, we are ready to state the formal definition of the limit.\\
 
 \textbf{FORMAL DEFINITION OF A LIMIT}\\
 Suppose the $f(x)$ is defined for all $x$ in an open interval containing $c$ (but no necessarily at $x = c$). Then \begin{center}$\lim_{x \to c}f(x) = L$\end{center} if for all $\epsilon > 0$, there exists $\delta > 0$ such that \begin{center}$\lvert f(x) - L\rvert<\epsilon$ if $0<\lvert x - c\rvert<\delta$\end{center} The condition $0 < \lvert x - c\rvert < \delta$ in this definition excludes $x = c$. As in our previous informal definition, we formulate it this way so that the limit depends only on values of $f(x)$ near $c$ but no on $f(c)$ itself. As we have seen, in many cases the limit exists even when $f(c)$ is not defined.
@@ -572,7 +560,7 @@ Suppose the $f(x)$ is defined for all $x$ in an open interval containing $c$ (bu
 \newpage
 \section*{differentiation}
 
-\begin{center} $f'(a) = lim_{h \to 0}\frac{f(a + h) - f(a)}{h}$ \end{center}
+\begin{center} $f'(a) = \lim_{h \to 0}\frac{f(a + h) - f(a)}{h}$ \end{center}
 \begin{center} $f'(a) = \lim_{x \to a}\frac{f(x) - f(a)}{x - a}$ \end{center}
 \begin{center} $y - f(a) = f'(a)(x - a)$ \end{center}
 
