@@ -23,6 +23,18 @@
 
 Calculus is the study of rates of change and the accumulation of quantities.\\
 
+the least common multiple of two (or more) numbers is the smallest number that is a multiple of both (or all) of them:\\
+	\begin{itemize}
+		\item multiples of 4: 4, 8, \textcolor{red}{12}, 16, 20
+		\item multiples of 6: 6, \textcolor{red}{12}, 18, 24
+	\end{itemize}
+
+the greatest common factor of two (or more) numbers is the largest number that divides both (or all) of them without a remainder:
+	\begin{itemize}
+		\item factors of 12: 1, 2, 3, 4, \textcolor{red}{6}, 12
+		\item factors of 18: 1, 2, 3, \textcolor{red}{6}, 9, 18
+	\end{itemize}
+
 \textbf{inequalities and absolute value:}
 	\begin{itemize}	
 		\item $[a, b] = a \leq x \leq b$
@@ -271,14 +283,28 @@ $p(x) = ax^n = bx^{n-1} + \dots + k$ (n complex roots)\\
 			$\frac{(x - h)^2}{b^2} + \frac{(y - k)^2}{a^2} = 1$\\
 		\item hyperbolas:\\
 			$\frac{(x - h)^2}{a^2} - \frac{(y - k)^2}{b^2} = 1$\\
-			$\frac{(x - h)^2}{a^2} - \frac{(y - k)^2}{b^2} = 1$\\
+			$y = \pm \frac{b}{a}x$\\
+			$\frac{(y - k)^2}{a^2} - \frac{(x - h)^2}{b^2} = 1$\\
+			$y = \pm \frac{a}{b}x$	
 	\end{itemize}
 
-vertex\\
-major/minor axcies\\
-foci and co-foci\\
-asymptotes\\
-use the discriminant to determine the type of conic section\\
+The vertex is a point where the conic section curves the most. For the parabola, the vertex is the point where the curve changes direction. For ellipse and hyperbolas the vertices lie on the major axis and transverse axis, respectfully, and are the points closest to or farthest from the center.\\
+
+The foci are special point such that the sum (ellipse) or difference (hyperbola) of distances from any point on the curve to the foci is a constant.\\
+
+The major axes is the longest line that can be drawn through the center of the ellipse. It passes through the two foci and the vertices. The minor axes is the shortest line through the center, perpendicular to the major axis. It does not pass through the foci unless the ellipse is a circle.\\
+
+The transverse axis is the line that connects the two vertices of a hyperbola. It lies along the direction in which the hyperbola opens. The conjugate axis is perpendicular to the transverse axis, going through the center. It does not intersect the hyperbola but is used to help define its shape.\\
+
+A hyperbola has two separate branches that open outward. As the branches move farther from the center, they get closer and closer to two diagonal lines - these are the asymptotes. The equations come from setting the conic equation equal to 0, which simplifies to the lines the hyperbola approaches at infinity.\\
+
+general equation: $Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$\\
+discriminant: $\Delta = B^2 - 4AC$
+	\begin{itemize}
+		\item $\Delta < 0$ (circle or ellipse)
+		\item $\Delta = 0$ (parabola)
+		\item $\Delta > 0$ (hyperbola)
+	\end{itemize}
 
 \textbf{basic classes of functions:}\\
 	\begin{itemize}
@@ -325,7 +351,189 @@ A function is invertible if it is one-to-one (horizontal line test). So, this me
 	\end{itemize}
 
 \textbf{scalars, vectors, and matrices}\\
-rewrite this section\\
+
+scalar multiplication:\\
+$\vec{w} = (1 , 2)$\\
+$3\vec{w} = (3, 6)$\\
+
+component form: $\vec{v} = (x, y)$\\
+polar form: $\vec{v} = (r\cos(\theta), r\sin(\theta))$\\
+
+When you graphically add two vectors you add them tail to head. Vector addition is commutative ($\vec{a} + \vec{b} = \vec{b} + \vec{a}$). Preforming both of these additions graphically will form a parallelogram and the vector that bisects this parallelogram is the solution.\\ 
+
+A system of equations is a set of two or more equations that share the same variables. The goal is to find values for those variable that make all the equations in the system true at the same time. For example, in a system with two equations and two variables (like $x$ and $y$), you are looking for a point $(x, y)$ that satisfies both equations.\\
+
+To solve a system of equations using substitution, you start by solving one of the equations for one variable in terms of the other. Then, you substitute that expression into the second equation. This gives you an equation with just on variable, which you can solve. Once you find that value, you plug it back into one of the original equations to find the second variable.\\
+
+With elimination, the goal is to eliminate one variable by adding or subtracting the equations. You may need to multiply one or both equations first to make the coefficients of a variable match. Once a variable is eliminated, you solve the resulting equation for the remaining variable, then substitute that value back into one of the original equations to find the other variable.\\
+
+$3 \times
+\begin{bmatrix}
+	7 & 5 & -10\\
+	3 & 8 & 0
+\end{bmatrix}
+=
+\begin{bmatrix}
+	21 & 15 & -30\\
+	9 & 24 & 0
+\end{bmatrix}
+$\\
+
+You can only add or subtract matrices if they have the same number of rows and the same number of columns. This is because matrix addition and subtraction is an element-wise operation.\\
+
+$
+\begin{bmatrix}
+	1 & 2 & 3\\
+	4 & 5 & 6
+\end{bmatrix}
++
+\begin{bmatrix}
+	7 & 8 & 9\\
+	0 & 1 & 2
+\end{bmatrix}
+=
+\begin{bmatrix}
+	8 & 10 & 12\\
+	4 & 6 & 6
+\end{bmatrix}
+$\\\\
+
+$A = 
+\begin{bmatrix}
+	-2 & 5 & 6\\
+	5 & 2 & 7
+\end{bmatrix}
+$\\
+
+The dimensions of a matrix give the number of rows and columns of the matrix in that order. Since matrix $A$ has 2 rows and 3 columns, it is called a $2 \times 3$ matrix.\\
+
+A zero matrix is a matrix in which all of the entries are 0.\\
+
+$O_{3 \times 3} = 
+\begin{bmatrix}
+	0 & 0 & 0\\
+	0 & 0 & 0
+\end{bmatrix}
+$\\
+
+Zero matrices play a similar role in operations with matrices as the number zero plays in operations with real numbers. When we add an $m \times n$ zero matrix to any $m \times n$ matrix $A$, we get matrix $A$ back. In other words, $A + O = A$ and $O + A = A$.\\
+
+$
+\begin{bmatrix}
+	4 & 1\\
+	-6 & 2
+\end{bmatrix}
++
+\begin{bmatrix}
+	-4 & -1\\
+	6 & -2
+\end{bmatrix}
+=
+\begin{bmatrix}
+	0 & 0\\
+	0 & 0
+\end{bmatrix}
+$\\
+
+When we add any $m \times n$ matrix to its opposite, we get the $m \times n$ zero matrix. $A + (-A) = O$ and $-A + A = O$ It is also true that $A - A = O$. This is because subtracting a matrix is like adding its opposite.\\
+
+matrix addition properties (A, B, and C are equal dimensions):
+	\begin{itemize}
+		\item commutative property of addition: $A + B = B + A$
+		\item associative property of addition: $A + (B + C) = (A + B) + C$
+		\item additive identity: For any matrix $A$, there is a unique matrix $O$ such that $A + O = A$
+		\item additive inverse property: For each $A$, there is a unique matrix $-A$ such that $A + (-A) = O$
+		\item closure property of addition: $A + B$ is a matrix of the same dimensions $A$ and $B$
+	\end{itemize}
+
+matrix scalar multiplication properties (A and B are matrices of equal dimensions, c and d are scalars, and O is a zero matrix):
+	\begin{itemize}
+		\item associative property of multiplication: $(cd)A = c(dA)$
+		\item distributive properties: $c(A + B) = cA + cB$
+		\item multiplicative identity property: $1A = A$
+		\item multiplicative properties of zero: $0 \cdot A = O$ and $c \cdot O = O$
+		\item closure property of multiplication: $cA$ is a matrix of the same dimensions as $A$
+	\end{itemize}
+
+Matrices can be thought of as transformations of the plane, meaning they take points (or vectors) in a 2D space and move or change them in specific ways. Imagine every point in the plane as a vector $
+\begin{bmatrix}
+x\\
+y
+\end{bmatrix}
+$. When you multiply that vector by a $2 \times 2$ matrix, the output is a new vector $
+\begin{bmatrix}
+x'\\
+y'
+\end{bmatrix}$ that represents the transformed point.\\
+
+What kinds of transformations can matrices do?
+	\begin{itemize}
+		\item scaling: stretching or shrinking the plane along the x- and/or y-axis
+		\item rotation: turning all points around the origin by some angle
+		\item reflection: flipping points over a line, like the x-axis or y-axis
+		\item shearing: slanting the shape, pushing points sideways or vertically
+		\item projection: flattening points onto a line or plane
+	\end{itemize}
+
+A column vector and a row vector can contain the same numbers, but their orientation matters a lot, especially when it comes to matrix operations like multiplication.\\
+
+$
+\begin{pmatrix}
+2 & 5 & -1
+\end{pmatrix}
+$
+$
+\begin{pmatrix}
+4\\
+0\\
+3
+\end{pmatrix}
+=
+(2)(4) + (5)(0) + (-1)(3) = 8 + 0 - 3 = 5
+$
+
+$
+\begin{pmatrix}
+4\\
+0\\
+3
+\end{pmatrix}
+$
+$
+\begin{pmatrix}
+2 & 5 & -1
+\end{pmatrix}
+=
+\begin{pmatrix}
+8 & 0 & 6\\
+	20 & 0 & 15\\
+-4 & 0 & -3
+\end{pmatrix}
+$\\
+
+The determinant is a special number calculated from a square matrix. If the determinant is non-zero, the matrix is invertible. If it is zero, the matrix is not invertible (it's singular). For a 2x2 matrix, the absolute value of the determinant gives the area scaling factor of the transformation. For a 3x3 matrix, it gives you the volume scaling factor. If the determinant is 0, it means the rows or columns of the matrix are linearly dependent - they lie in the same line or plane.\\
+
+If
+$ A = 
+\begin{bmatrix}
+a & b\\
+c & d
+\end{bmatrix}
+$, then $det(A) = ad - bc$\\
+
+If
+$ A = 
+\begin{bmatrix}
+a & b & c\\
+d & e & f\\
+g & h & i\\
+\end{bmatrix}
+$, then $det(A) = a(ei - fh) - b(di - fg) + c(dh - eg)$\\
+
+finish this section with matmul, identity, inverse, ect\\
+
+
+
 
 \textbf{probability and combinatorics}
 consider a standard deck of cards (no jokers)\\
