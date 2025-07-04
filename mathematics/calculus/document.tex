@@ -269,7 +269,7 @@ so there are three cube roots of one in the complex plane:\\
 
 Every non-zero polynomial equation ($f(x) \neq 0$) of degree $n$ has exactly $n$ complex roots including multiplicities.\\
 
-$p(x) = ax^n = bx^{n-1} + \dots + k$ (n complex roots)\\
+$p(x) = ax^n = bx^{n-1} + \ldots + k$ (n complex roots)\\
 
 \textbf{conic sections:}\\
 	\begin{itemize}
@@ -347,7 +347,7 @@ A function is invertible if it is one-to-one (horizontal line test). So, this me
 		\item $(x - y)^2 = x^2 - 2xy + y^2$
 		\item $(x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$
 		\item $(x - y)^3 = x^3 - 3x^2y + 3xy^2 - y^3$
-		\item $(x + y)^n = x^n + nx^{n-1}y + \frac{n(n-1)}{2}x^{n-2}y^2 + \ldots + \binom{n}{k}x^{n-k}y^k + \dots + nxy^{n-1} + y^n$ where $\binom{n}{k} = \frac{n(n-1) \dots (n-k+1)}{1 \cdot 2 \cdot 3 \cdot \ldots \cdot k}$
+		\item $(x + y)^n = x^n + nx^{n-1}y + \frac{n(n-1)}{2}x^{n-2}y^2 + \ldots + \binom{n}{k}x^{n-k}y^k + \ldots + nxy^{n-1} + y^n$ where $\binom{n}{k} = \frac{n(n-1) \ldots (n-k+1)}{1 \cdot 2 \cdot 3 \cdot \ldots \cdot k}$
 	\end{itemize}
 
 \textbf{scalars, vectors, and matrices}\\
@@ -357,27 +357,15 @@ $\vec{w} = (1 , 2)$\\
 $3\vec{w} = (3, 6)$\\
 
 component form: $\vec{v} = (x, y)$\\
-polar form: $\vec{v} = (r\cos(\theta), r\sin(\theta))$\\
+polar form: $\vec{v} = (r\cos(\theta), r\sin(\theta)) = r(\cos(\theta), \sin(\theta))$\\
 
 When you graphically add two vectors you add them tail to head. Vector addition is commutative ($\vec{a} + \vec{b} = \vec{b} + \vec{a}$). Preforming both of these additions graphically will form a parallelogram and the vector that bisects this parallelogram is the solution.\\ 
 
 A system of equations is a set of two or more equations that share the same variables. The goal is to find values for those variable that make all the equations in the system true at the same time. For example, in a system with two equations and two variables (like $x$ and $y$), you are looking for a point $(x, y)$ that satisfies both equations.\\
 
-To solve a system of equations using substitution, you start by solving one of the equations for one variable in terms of the other. Then, you substitute that expression into the second equation. This gives you an equation with just on variable, which you can solve. Once you find that value, you plug it back into one of the original equations to find the second variable.\\
+To solve a system of equations using substitution, you start by solving one of the equations for one variable in terms of the other. Then, you substitute that expression into one of the other equations. This gives you an equation with just one variable (assuming you started with two), which you can solve. Once you find that value, you plug it back into one of the original equations to find the second variable.\\
 
 With elimination, the goal is to eliminate one variable by adding or subtracting the equations. You may need to multiply one or both equations first to make the coefficients of a variable match. Once a variable is eliminated, you solve the resulting equation for the remaining variable, then substitute that value back into one of the original equations to find the other variable.\\
-
-$3 \times
-\begin{bmatrix}
-	7 & 5 & -10\\
-	3 & 8 & 0
-\end{bmatrix}
-=
-\begin{bmatrix}
-	21 & 15 & -30\\
-	9 & 24 & 0
-\end{bmatrix}
-$\\
 
 You can only add or subtract matrices if they have the same number of rows and the same number of columns. This is because matrix addition and subtraction is an element-wise operation.\\
 
@@ -466,6 +454,23 @@ x'\\
 y'
 \end{bmatrix}$ that represents the transformed point.\\
 
+$
+M =
+\begin{bmatrix}
+	m_{11} & m_{12}\\
+	m_{21} & m_ {22}
+\end{bmatrix}
+$
+$
+V =
+\begin{bmatrix}
+V_1 \\
+V_2
+\end{bmatrix}\\
+$\\
+
+the new vector would be $M \cdot v = v'$ or you could do $v_{\text{row}}M^T = v'$\\
+
 What kinds of transformations can matrices do?
 	\begin{itemize}
 		\item scaling: stretching or shrinking the plane along the x- and/or y-axis
@@ -509,9 +514,9 @@ $
 	20 & 0 & 15\\
 -4 & 0 & -3
 \end{pmatrix}
-$\\
+$\\\\
 
-The determinant is a special number calculated from a square matrix. If the determinant is non-zero, the matrix is invertible. If it is zero, the matrix is not invertible (it's singular). For a 2x2 matrix, the absolute value of the determinant gives the area scaling factor of the transformation. For a 3x3 matrix, it gives you the volume scaling factor. If the determinant is 0, it means the rows or columns of the matrix are linearly dependent - they lie in the same line or plane.\\
+The determinant of a square matrix is a special number that represents how the matrix transforms space—specifically, it measures how the matrix scales volume (or area in 2D). If the determinant is zero, it means the transformation squashes space into a lower dimension, losing information. A matrix with a zero determinant is called singular, which means it does not have an inverse. This happens when the matrix’s columns (or rows) are linearly dependent, meaning one column can be expressed as a combination of others. In systems of equations, a singular (determinant-zero) matrix implies the system is either dependent—where the equations overlap and there are infinitely many solutions—or inconsistent, where the equations contradict and have no solution. A system is consistent if it has at least one solution, whether unique or infinite. Thus, the determinant and singularity give essential insight into whether a system can be solved uniquely, infinitely, or not at all.\\
 
 If
 $ A = 
@@ -519,7 +524,7 @@ $ A =
 a & b\\
 c & d
 \end{bmatrix}
-$, then $det(A) = ad - bc$\\
+$, then $\text{det}(A) = ad - bc$\\
 
 If
 $ A = 
@@ -528,10 +533,92 @@ a & b & c\\
 d & e & f\\
 g & h & i\\
 \end{bmatrix}
-$, then $det(A) = a(ei - fh) - b(di - fg) + c(dh - eg)$\\
+$, then $\text{det}(A) = a(ei - fh) - b(di - fg) + c(dh - eg)$\\
 
-finish this section with matmul, identity, inverse, ect\\
+What does it mean to compose matrices? It means that you can apply transformations in sequence by multiplying their matrices together.\\
 
+$T = BA$\\
+$v' = B(Av) = (BA)v$\\
+$f(x) = Ax$\\
+$g(x) = Bx$\\
+$g(f(x)) = B(Ax) = (BA)x$\\
+
+properties of matrix multiplication (A, B, and C are n x n matrices, I is the n x n identity matrix and O is the n x n zero matrix):
+	\begin{itemize}
+		\item the commutative property of multiplication \textcolor{red}{does not hold!} $AB \neq BA$
+		\item associative property of multiplication: $(AB)C = A(BC)$
+		\item distributive properties: $A(B + C) = AB + AC$ and $(B + C)A = BA + CA$
+		\item multiplicative identity property $IA = A$ and $AI = A$
+		\item multiplicative property of zero: $OA = O$ and $AO = O$
+		\item dimension property: the product of an m x n matrix and an n x k matrix is an m x k matrix
+	\end{itemize}
+
+Consider a system of equations like so:
+$3x - 2y - z = -1$\\
+$2x + 5y + 2 = 0$\\
+$-4x - y = 8$\\
+$\downarrow$\\
+
+$
+\begin{bmatrix}
+3 & -2 & -1\\
+2 & 5 & 1\\
+-4 & -1 & 0
+\end{bmatrix}
+$
+$
+\begin{bmatrix}
+x\\
+y\\
+z
+\end{bmatrix}
+$
+$
+=
+\begin{bmatrix}
+-1\\
+0\\
+8
+\end{bmatrix}
+$\\\\
+
+$\uparrow$ generalized $A_{n \times n}\vec{x}_{n \times 1} = \vec{b}_{n \times 1}$\\
+
+When the coefficient matrix A is not square, you cannot use the inverse to solve the system because only square matrices can have an inverse, and only non-singular square matrices (with $\text{det}(A) \neq 0$) actually do have an inverse. In an underdetermined system (more variables than equations: $m < n$) you will usually have infintely many solutions, or sometimes none. Here you would use substitution, elimination, parametric solutions, or row-reduction (gaussian elimination). In a overdetermined system (more equations than variables: $m > n$) it might be inconsistent (no solution), or sometimes it has a best-fit solution. Here you would use gaussian elimination, least squares method, or pseudoinverses. There are other methods for square matrices like row-reduction or cramer's rule.\\
+
+$f^{-1}(f(x)) = x$\\
+$f(f^{-1}(x)) = x$\\
+
+$A =
+\begin{bmatrix}
+0 & 1\\
+-1 & 0
+\end{bmatrix}
+$
+
+$B =
+\begin{bmatrix}
+0 & -1\\
+1 & 0
+\end{bmatrix}
+$\\\\
+
+let $A$ represent a $90^{\circ}$ clockwise rotation and $b$ represent a $90^{\circ}$ counter-clockwise rotation of the unit vectors. Visually speaking, thses two rotation matrices are inverses of each other. Multiplying them in either order gives the identity matrix.\\
+
+For any invertible square matrix $A$, the inverse $A^{-1}$ can be calculated as:\\
+\begin{center}
+	$A^{-1} = \frac{1}{\text{det}(A)}\text{adj}(A)$
+\end{center}
+where:
+	\begin{itemize}
+		\item $\text{det}(A)$ is the determinant of matrix $A$ (and must be non-zero),
+		\item $\text{adj}(A)$ is the adjugate (or classical adjoint) of $A$, which is the transpose of the cofactor matrix
+	\end{itemize}
+
+multiplying 2x2 vs 3x3...nxn?\\
+how to find the determinant of nxn?\\
+how to find the minor and cofactor?\\
+how to find the adjugate matrix?\\
 
 
 
@@ -578,9 +665,43 @@ the expected value of a random variable is the long-run average outcome you woul
 
 $E[X] = \sum_{i=1}^{n} x^i \cdot P(x_i)$\\
 
-\textbf{sequences, series}\\
-rewrite\\
+\textbf{series}\\
 
+A sequence is an ordered list of numbers following some rule or pattern. You can get each term from the previous one by repeated addition (arithmetic sequence) or repeated multiplication (geometric sequence), or some other rule.\\
+
+examples of other rules:
+	\begin{itemize}
+		\item fibonacci: 
+			each term is the sum of the previous two terms: $F_n = F_{n - 1} + F_{n - 2}$\\
+			so the sequence starts: $0, 1, 1, 2, 3, 5, 8, 13, \ldots$
+		\item quadtratic:\\
+			terms might increase by a pattern that fits a quadratic formula, like $n^2$:\\
+			$1, 4, 9, 16, 25 \ldots$
+		\item alternating:\\
+			terms might alternate between positive and negative, like:\\
+			$1, -1, 1, -1, 1, -1, \ldots$
+		\item recursive:\\
+			terms can be defined using more complex rules involoving previous terms
+	\end{itemize}
+
+$a, ar, ar^2, ar^3, \ldots, ar^{n-1}$\\
+$S_n = a + ar + ar^2 + \ldots + ar^{n-1}$\\
+
+The \textcolor{blue}{first} term is an expression where the variable r is raised to the \textcolor{blue}{zeroth} power, so the \textcolor{blue}{nth} term is an expression that has r raised to the \textcolor{blue}{n-1} power.\\ 
+
+sum of a finite geometric series ($r \neq 1$):
+	\begin{itemize}
+		\item $S_n = a + ar + ar^2 + \ldots + ar^{n-1}$ 
+		\item $rS_n = ar + ar^2 + ar^3 + \ldots + ar^{n}$   
+		\item $S_n - rS_n = (a + ar + ar^2 + \ldots + ar^{n-1}) - (ar + ar^2 + ar^3 + \ldots + ar^{n})$
+		\item $S_n - rS_n = a - ar^n$
+		\item $S_n(1 - r) = a(1 - r^n)$
+		\item $S_n = a\frac{1 - r^n}{1 - r}$ if $r \neq 1$ 
+	\end{itemize}
+
+summation notation\\
+the binomial theorem\\
+arithmetic series\\
 
 \newpage
 \section*{Trigonometry}
@@ -800,9 +921,11 @@ implicit differentiation\\
 EVT\\
 rolle's theorem\\
 MVT\\
+optimization\\
 newtons method\\
 
-
 \section*{integration}
+
+
 
 \end{document}
