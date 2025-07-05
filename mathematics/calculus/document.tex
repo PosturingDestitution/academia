@@ -3,6 +3,8 @@
 \usepackage{amssymb}
 \setlength{\parindent}{0pt}
 
+\usepackage{tikz}
+
 \usepackage{graphicx}
 \usepackage[a4paper, left=1.5in, right=1.5in, top=1.5in, bottom=1.5in]{geometry}
 \usepackage{xcolor}
@@ -23,7 +25,7 @@
 
 Calculus is the study of rates of change and the accumulation of quantities.\\
 
-the least common multiple of two (or more) numbers is the smallest number that is a multiple of both (or all) of them:\\
+the least common multiple of two (or more) numbers is the smallest number that is a multiple of both (or all) of them:
 	\begin{itemize}
 		\item multiples of 4: 4, 8, \textcolor{red}{12}, 16, 20
 		\item multiples of 6: 6, \textcolor{red}{12}, 18, 24
@@ -341,13 +343,13 @@ A function is invertible if it is one-to-one (horizontal line test). So, this me
 		\item $x^3 - y^3 = (x - y)(x^2 + xy + y^2)$
 	\end{itemize}
 
-\textbf{binomial theorem}
+\textbf{binomial}
 	\begin{itemize}
 		\item $(x + y)^2 = x^2 + 2xy + y^2$
 		\item $(x - y)^2 = x^2 - 2xy + y^2$
 		\item $(x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3$
 		\item $(x - y)^3 = x^3 - 3x^2y + 3xy^2 - y^3$
-		\item $(x + y)^n = x^n + nx^{n-1}y + \frac{n(n-1)}{2}x^{n-2}y^2 + \ldots + \binom{n}{k}x^{n-k}y^k + \ldots + nxy^{n-1} + y^n$ where $\binom{n}{k} = \frac{n(n-1) \ldots (n-k+1)}{1 \cdot 2 \cdot 3 \cdot \ldots \cdot k}$
+		\item $(x + y)^n = \sum_{k = 0}^{n} = \binom{n}{k}x^{(n-k)}y^{k}$  
 	\end{itemize}
 
 \textbf{scalars, vectors, and matrices}\\
@@ -605,22 +607,17 @@ $\\\\
 
 let $A$ represent a $90^{\circ}$ clockwise rotation and $b$ represent a $90^{\circ}$ counter-clockwise rotation of the unit vectors. Visually speaking, thses two rotation matrices are inverses of each other. Multiplying them in either order gives the identity matrix.\\
 
-For any invertible square matrix $A$, the inverse $A^{-1}$ can be calculated as:\\
-\begin{center}
-	$A^{-1} = \frac{1}{\text{det}(A)}\text{adj}(A)$
-\end{center}
-where:
-	\begin{itemize}
-		\item $\text{det}(A)$ is the determinant of matrix $A$ (and must be non-zero),
-		\item $\text{adj}(A)$ is the adjugate (or classical adjoint) of $A$, which is the transpose of the cofactor matrix
-	\end{itemize}
+to find the $\text{det}(A)_{n \times n}$ use cofactor expansion or row reduction (gaussian elemination). you will need to understand minors and cofactors to compute the determinant this way.\\
 
-multiplying 2x2 vs 3x3...nxn?\\
-how to find the determinant of nxn?\\
-how to find the minor and cofactor?\\
-how to find the adjugate matrix?\\
+the adjugate is the transpose of its cofactor matrix $\text{adj}(A) = [C_{ij}]^T$\\
 
+$A^{-1} = \frac{1}{\text{det}(A)} \cdot \text{adj}(A)$\\
 
+gaussian elimination can also be used to find the inverse by augmenting the matrix\\
+
+$[A \mid I] \to [I \mid A^{-1}]$ often faster for large matrices\\
+
+advanced techniques: LU decomposition/row operations\\
 
 \textbf{probability and combinatorics}
 consider a standard deck of cards (no jokers)\\
@@ -699,12 +696,91 @@ sum of a finite geometric series ($r \neq 1$):
 		\item $S_n = a\frac{1 - r^n}{1 - r}$ if $r \neq 1$ 
 	\end{itemize}
 
-summation notation\\
-the binomial theorem\\
-arithmetic series\\
+$\sum_{k = 1}^{n} ar^{k - 1} = \frac{a(1-r^n)}{1 - r}$\\
+
+The binomial theorem gives a formula for expanding powers of a binomial\\
+
+$(a + b)^n = \sum_{k = 0}^{n} = \binom{n}{k}a^{(n-k)}b^{k}$\\
+
+Each term in the expansion represents on way to choose how many a's and how many b's you take from those n factors\\
+
+Pascal's triangle gives you the binomial coeffiecients used in binomial expansion\\
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2, every node/.style={circle, draw, minimum size=7mm, inner sep=0pt, font=\small}]
+
+% Row 1
+\node (n11) at (0,0) {1};
+
+% Row 2
+\node (n21) at (-1,-1) {1};
+\node (n22) at (1,-1) {1};
+
+% Row 3
+\node (n31) at (-2,-2) {1};
+\node (n32) at (0,-2) {2};
+\node (n33) at (2,-2) {1};
+
+% Row 4
+\node (n41) at (-3,-3) {1};
+\node (n42) at (-1,-3) {3};
+\node (n43) at (1,-3) {3};
+\node (n44) at (3,-3) {1};
+
+% Row 5
+\node (n51) at (-4,-4) {1};
+\node (n52) at (-2,-4) {4};
+\node (n53) at (0,-4) {6};
+\node (n54) at (2,-4) {4};
+\node (n55) at (4,-4) {1};
+
+\end{tikzpicture}
+\end{center}
+
+$(a + b)^4 = 1a^4b^0 + 4a^3b^1 + 6a^2b^2 + 4a^1b^3 + 1a^0b^4$\\
+
+Each number $\binom{n}{k}$ counts the number of ways to chose k b's (and thus n-k a's) from n total factors of (a+b)\\
+
+$a, a + d, a + 2d, \ldots, a + (n - 1)d$\\
+
+sum of a finite arithmetic sequence:
+	\begin{enumerate}
+		\item $S_n = a + (a + d) + (a + 2d) + \ldots + [a + (n - 1)d]$ 
+		\item $S_n = [a + (n - 1)d] + [a + (n - 2)d] + [a + (n - 3)d] + \ldots + a$
+		\item $2S_n = n[2a + (n - 1)d]$ 
+		\item $S_n = \frac{n}{2}[2a + (n - 1)d]$
+	\end{enumerate}
+
+$\sum_{k = 1}^{n}[a + (k - 1)d] = \frac{n}{2}[2a + (n - 1)d]$
 
 \newpage
 \section*{Trigonometry}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+
+  % Draw parallel lines
+  \draw[thick] (-3,2) -- (3,2);   % Top parallel line
+  \draw[thick] (-3,0) -- (3,0);   % Bottom parallel line
+
+  % Draw transversal
+  \draw[thick] (-2.5,-0.5) -- (2.5,2.5);
+
+\end{tikzpicture}
+\end{center}
+
+angle relationships formed when a transversal intersects parallel lines:
+	\begin{itemize}
+		\item complementary angles: two angles whose measures add up to $90^{\circ}$
+		\item supplementary angles: two angles whose measures add up to $180^{\circ}$
+		\item vertical angles: pairs of opposite angles formed when two lines intersect. they are always equal in measure.
+		\item corresponding angles: when a transversal crosses two lines, corresponding angles are pairs located on the same side of the transversal and in matching corners (one interior, one exterior). If the lines are parallel, corresponding angles are equal.
+		\item alternate interior angles: angles located between the two lines but on opposite sides of the transversal. if the lines are parallel, these angles are equal.
+		\item alternate exterior angles: angles located outside the two lines and on opposite sides of the transversal. if the lines are parallel, these angles are equal.
+		\item same-side (consecutive) interior angles: angles that lie between the two lines and on the same side of the transversal. if the lines are parallel, these angles are supplementary (add up to $180^{\circ}$)
+	\end{itemize}
+
+
 
 $
 \begin{array}{|c|c|c|c|}
