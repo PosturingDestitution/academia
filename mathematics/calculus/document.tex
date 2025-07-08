@@ -845,7 +845,7 @@ SOH-CAH-TOA is a mnemonic device that expresses the relationship between the bas
 
 The triangle definition only works for angles between 0 and $\frac{\pi}{2}$. To extend trig functions to all angles (including negative angles and angles larger then ($2\pi$ or $360^{\circ}$), mathematicians use the unit circle. Thus allowing use to use trig functions on the coordinate plane, enabling graphing and calculus.\\	
 
-\textbf{trigonometric identities}
+\textbf{trigonometric identities:}
 \begin{itemize}
 	\item $\frac{1}{\cos(\theta)} = \sec(\theta)$	
 	\item $\frac{1}{\sin(\theta)} = \csc(\theta) $
@@ -876,179 +876,154 @@ The triangle definition only works for angles between 0 and $\frac{\pi}{2}$. To 
 	$\frac{\sin(A)}{a} = \frac{\sin(B)}{b} \frac{\sin(C)}{c}$\\
 	$a^2 = b^2 + c^2 - 2bc\cos(A)$ (SAS or SSS)
 
-\newpage
-\section*{Limits CLEAN UP THIS SECTION}
+\section*{Limits}
 
+An indeterminate form is a mathematical expression that arises in limits where the limit cannot be directly determined from the form itself because it is ambiguous or undefined in a straightforward way.\\
 
-	observe the values of the function as it aproaches some value\\
-	an information limit definition\\
-	limit laws\\
-	types of discontinuiuties\\
-	laws of continuity\\
-	continuity of some functions\\
-	continuity of composite functions\\
-	evaluating limits algebraically\\
-	what is an indeterminate form\\
-	limit at infinty\\
-	the squeeze theorem\\
-	two important limits\\
-	IVT and bisection method\\
-	the size of the gap\\
-	foraml definition of a limit\\
+\textbf{indeterminate forms:}
+	\begin{itemize}
+		\item $\frac{0}{0}$
+		\item $\frac{\infty}{\infty}$
+		\item $0 \times \infty$
+		\item $\infty - \infty$
+		\item $0^0$
+		\item $\infty^0$
+	\end{itemize}
 
-	so let us consider $f(x) = \frac{\sin(x)}{x}$ ($x$ in radians)\\
-	the value of $f(0)$ is not defined because\\
-	$f(0) = \frac{\sin(0)}{0} = \frac{0}{0}$\\
-	however if we take $x \to 0^{+}$ and $x \to 0^{-}$ we get the impression that $f(x)$ gets closer and closer to 1 as $x \to 0$ from the left and right.
-	\begin{center}
-		$\lim_{x \to 0}f(x) = 1$
-	\end{center}
-	recall that the distance between two numbers $\lvert a - b\rvert$...thus we can express the idea that $f(x)$ is close to $L$ by saying that $\lvert f(x) - L\rvert$ is small.\\
+\textbf{types of discontinuities:}
+	\begin{itemize}
+		\item removeable: $f(x) = \frac{(x^2 - 1)}{x - 1}$
+		\item jump: the left-hand and right-hand limit at the point exist but are not equal
+		\item infinite (essential): $f(x) = \frac{1}{x}$
+		\item oscillatory: $f(x) = \sin(\frac{1}{x})$
+	\end{itemize}
 
-\textbf{an informal limit definition}\\
-	Assume that $f(x)$ is defined for all $x$ near $c$ (i.e., in some open interval containing c), but not necessarily at $c$ itself. We say that: \textit{the limit of $f(x)$ as $x$ approaches $c$ is equal to $L$} if $\lvert f(x) - L\rvert$ becomes arbitarily small when $x$ is any number sufficiently close (but not equal) to $c$. In this case, we write:
-	\begin{center}
-		$\lim_{x \to c}f(x) = L$
-	\end{center}
-	we also say the $f(x)$ approaches or converges to $L$ as $x \to c$ (and we write $f(x) \to L$)\\
+How do the values of a function behave when x approaches a number c, whether or not the function at c is defined?\\
+$f(x) = \frac{\sin(x)}{x}$
+$f(0) = \frac{\sin(0)}{0} = \frac{0}{0}$\\
+Using a calculator you can numerically see that as $x \to 0+$ and $x \to 0-$ the function appears to approach one.\\
 
-	If the values of $f(x)$ do not converge to any limit as $x \to c$, we say that $\lim_{x \to c}f(x)$ DNE. It is important to note that the value $f(c)$ itself, which may or may not be defined, plays no role in the limit. All that matters are the values $f(x)$ for $x$ close to c. Furthermore, if $f(x)$ approaches a limit as $x \to c$, then the limiting value $L$ is unique. We say the $\lim_{x \to c}f(x) = \infty$ if $f(x)$ increases beyond bound as $x$ approaches $c$, and $\lim_{x \to c}f(x) = -\infty$ if $f(x)$ becomes arbitrarily large (in absolute value) but negative as $x$ approaches $c$\\
+\textbf{limit laws} assume that $\lim_{x \to c}f(x)$ and $\lim_{x \to c}g(x)$ exist, then:
+	\begin{itemize}
+		\item sum law: $\lim{x \to c}(f(x) + g(x)) = \lim_{x \to c}f(x) + \lim_{x \to c}g(x)$
+		\item constant multiple law: for any number k, $\lim_{x \to c}kf(x) = k\lim_{x \to c}f(x)$
+		\item product law: $\lim_{x \to c}f(x)g(x) = (\lim_{x \to c}f(x))(\lim_{x \to c}g(x)$)
+		\item quotient law: if $\lim_{x \to c}g(x) \neq 0$, then $\lim_{x \to c}\frac{f(x)}{g(x)} = \frac{\lim_{x \to c}f(x)}{\lim_{x \to c}g(x)}$
+	\end{itemize}
 
-	The Limit Laws state that if $\lim_{x \to c}f(x)$ and $\lim_{x \to c}g(x)$ both exist, then
-		\begin{itemize}
-			\item $\lim_{x \to c}(f(x) + g(x)) = \lim_{x \to c}f(x) + \lim_{x \to c}g(x)$
-			\item $\lim_{x \to c}kf(x) = k\lim_{x \to c}f(x)$
-			\item $\lim_{x \to c}f(x)g(x) = (\lim_{x \to c}f(x))(\lim_{x \to c}g(x))$
-			\item if $\lim_{x \to c}g(x) \neq 0$, then $\lim_{x \to c}\frac{f(x)}{g(x)} = \frac{\lim_{x \to c}f(x)}{\lim_{x \to c}g(x)}$
-			\item if $\lim_{x \to c}f(x)$ or $\lim_{x \to c}g(x) DNE$, then the Limit Laws cannot be applied
-		\end{itemize}
+\textbf{continuity at a point:} $\lim{x \to c}f(x) = f(c)$\\
 
-	Assume that $f(x)$ is defined on an open interval containing $x = c$. Then $f$ is continuous at $x = c$ if $\lim_{x \to c}f(x) = f(c)$ If the limit does not exist, or if it exists but is not equal to $f(c)$, we say that $f$ has a discontinuity (or is discontinuous) at $x = c$. A function $f(x)$ may be continuous at some points and discontinuous at others. if $f(x)$ is continuous at all points in an interval $I$, then $f(x)$ is said to be continuous on $I$. Here, if I is an interval $[a, b]$ or $[a, b)$ that includes $a$ as a left-endpoint, we require that $\lim_{x \to a+}f(x) = f(a)$. Similarly, we require that $\lim_{x \to b-}f(x) = f(b)$ if $I$ includes $b$ as a right-endpoint $b$. If $f(x)$ is continuous at all points in its domain, then $f(x)$ is simply called continuous. Lets look at how a function can fail to be continuous...remeber that point discontinuity requires that the limit exist at that point, the value of the function exists at that point, and those two equal. If the first two conditions hold but that last one fails then we say that the function has a removable discontinuity at that point. Removable discontinuities are "mild" in the following sense: We can make $f$ continuous at $x = c$ by redefining $f(c)$. A "worse" type of discontinuity is a jump discontinuity, which occurs if the one-sided limits $\lim_{x \to c-}f(x)$ and $\lim_{x \to c+}f(x)$ exist but are not equal. We say that $f(x)$ has an infinite discontinuity at $x = c$ if one or both of the one-sided limits is infinite (even if $f(x)$ itself is not defined at $x = c$). We should mention that some functions have more "severe" types of discontinuity than those discussed above. For example, $f(x) = \sin(\frac{1}{x})$ oscillates infinitely often between $+1$ and $-1$ as $x \to 0$. Nether the left-nor the right-hand limits exist at $x = 0$, so this discontinuity is no a jump discontinuity. Although of interest from a theoretical point of view, these discontinuities rarely arise in practice.\\
+\textbf{laws of continuity} assume that $f(x)$ and $g(x)$ are continuous at a point $x = c$. then the following functions area lso continuous at $x = c$:
+	\begin{itemize}
+		\item $f(x) + g(x)$ and $f(x) - g(x)$
+		\item $kf(x)$ for any constant k
+		\item $f(x)g(x)$
+		\item $\frac{f(x)}{g(x)}$ if $g(c) \neq 0$
+	\end{itemize}
 
-	\textbf{Laws of Continuity}\\
-	Assume that $f(x)$ and $g(x)$ are continuous at a point $x = c$. Then the following functions are also continuous at $x = c$:\\
-		\begin{itemize}
-			\item $f(x) + g(x)$
-			\item $f(x) - g(x)$
-			\item $kf(x)$ for any constant $k$
-			\item $f(x)g(x)$
-			\item $\frac{f(x)}{g(x)}$ if $g(c) \neq 0$
-		\end{itemize}
+\textbf{continuity of composite functions} let $F(x) = f(g(x))$ be a composite function. If $g$ is continuous at $x = c$ and $f$ is continuous at $x = g(c)$, then $F(x)$ is continuous at $x = c$.\\
 
-	\textbf{Continuity of Polynomial and Rational Functions}\\
-	Let $P(x)$ and $Q(x)$ be polynomials. Then:\\
-		\begin{itemize}
-			\item $P(x)$ is continuous on the real line
-			\item $\frac{P(x)}{Q(x)}$ is continuous at all values $c$ such that $Q(x) \neq 0$
-		\end{itemize}
+\textbf{squeeze theorem} assume that for $x \neq c$ (in some open interval containing $c$), $l(x) \leq f(x) \leq u(x)$ and $\lim_{x \to c}l(x) = \lim_{x \to c}u(x) = L$ then $\lim_{x \to c}f(x)$ exists and $\lim_{x \to c}f(x) = L$\\
 
-	\textbf{Continuity of Some Basic Functions}\\
-		\begin{itemize}
-			\item $y = \sin(x)$ and $y = \cos(x)$ are continuous on the real line
-			\item For $b > 0$, $y = b^x$ is continuous on the real line
-			\item If $n$ is a natural number, then $y = x^{\frac{1}{n}}$ is continuous on its domain
-		\end{itemize}
+\textbf{important trigonometric limits:}
+	\begin{itemize}
+		\item $\lim_{\theta \to 0}\frac{\sin(\theta)}{\theta}$
+		\item $\lim_{\theta \to 0}\frac{1 - \cos(\theta)}{\theta}$
+	\end{itemize}
 
-	\textbf{Continuity of Composite Functions}\\
-		Let $F(x) = f(g(x))$ be a composite function. If $g$ is continuous at $x = c$ and $f$ is continuous at $x = g(c)$, then $F(x)$ is continuous at $x = c$. It is easy to evaluate a limit when the function in question is known to be continuous. in this case, by definition, the limit is equal to the function value. In general, we say that $f(x)$ has an indeterminate form at $x = c$ if, when $f(x)$ is evaluated at $x = c$, we obtain an indefined expression of the type $\frac{0}{0}$, $\frac{\infty}{\infty}$, $\infty \cdot 0$, $\infty - \infty$. Later when we study derivatives, we will be faced with limits $lim_{x \to c}f(x)$, where $f(c)$ is not defined. In such cases, substitution cannot be used directly. However, some of these limits can be evaluated using substitution, provided that we first use algebra to rewrite the formula for $f(x)$\\
+\textbf{intermediate value theorem:} if $f(x)$ is continuous on a closed interval $[a, b]$ and $f(a) \neq f(b)$, then for every value $M$ between $f(a)$ and $f(b)$, there exists at least one value $c \in (a, b)$ such that $f(c) = M$.\\
 
-	\textbf{Evaluating Limits Algebraically}
-		\begin{itemize}
-			\item $\lim_{x \to 4}\frac{x^2 - 16}{x - 4}$\\
-				The function is not defined at $x = 4$ because $f(4) = \frac{4^2 - 16}{4 - 4}  = \frac{0}{0}$ (arithmetically undefined)\\
+\textbf{existence of zeros:} if $f(x)$ is continuous on $[a, b]$ and if $f(a)$ and $f(b)$ are nonzero and have opposite signs, then $f(x)$ has a zero in $(a, b)$.\\
 
-				However, the numerator of $f(x)$ factors and\\
-				$\frac{x^2 - 16}{x - 4} = \frac{(x+4)(x-4)}{x - 4} = x + 4$ (valid for $x \neq 4$)\\
-				In other words, $f(x)$ coincides with the \textit{continuous} function $x + 4$ for all $x \neq 4$. Sinve the limit depends only on the values of $f(x)$ for $x \neq 4$, we have\\
-				$\lim_{x \to 4}\frac{x^2 - 16}{x - 4} = \lim_{x \to 4}(x + 4) = 8$\\
+we can locate zeroes of functions to arbitrary accuracy using the \textbf{bisection method}.\\
+$f(x) = \cos^2(x) - 2\sin(\frac{x}{4})$\\
+$f(0) = 1 > 0$, $f(2) \approx -0.786 < 0$\\
+we can guarantee that $f(x) = 0$ has a solution in $(0, 2)$. we can locate a zero more accurately by dividing $[0, 2]$ into two intervals $[0, 1]$ and $[1, 2]$. one of these must contain a zero of $f(x)$. to determine which, we evalutate $f(x)$ at the midpoint $m = 1$. a calculator gives $f(1) \approx -0.203 < 0$, and since $f(0) = 1$, we see that $f(x)$ takes opposite signs at the endpoints of $[0, 1]$. therefore, $(0, 1)$ must contain a zero. we discard $[1, 2]$ because both $f(1)$ and $f(2)$ are negative. the bisection method consists of continuing this process until we narrow down the location of the zero to the desired accuracty.\\
 
-				In general, we say that $f(x)$ has an indeterminate form at $x = c$, we obtain an undefined expression of the type\\
-				
-				$\frac{0}{0}, \frac{\infty}{\infty}, \infty \cdot 0, \infty - \infty$\\
+\textbf{the size of the gap:}\\
+recall that the distance from $f(x)$ to $L$ is $\lvert f(x) - L\rvert$. it is convenient to refer to the quantity $\lvert f(x) - L\rvert$ as the gap between the value $f(x)$ and the limit $L$. lets reexamine the basic trigonometric limit $\lim_{x \to 0}\frac{\sin(x)}{x}$. so 1 tells us that the gap $\lvert f(x) - 1\rvert$ gets arbitrarily small when x is sufficiently close by not equal to 0. suppose we want the gap $\lvert f(x) - 1\rvert$ to be less than 0.2. how close to 0 must x be? $\lvert f(x) - 1\rvert < 0.2$ if $0 < \lvert x\rvert < 1$. if we insist instead that the gap be smaller than 0.004, we can check by zooming in $\lvert f(x) - 1\rvert < 0.004$ if $0 < \lvert x\rvert < 0.15$. it would seem that this process can be continued: by zooming in on the graph, we can find a small interval around $c = 0$ where the gap $\lvert f(x) - 1\rvert$ is smaller than any prescribed positive number. to express this in a precise fasion, we follow time-honored tradition and use the greek letters $\epsilon$ (epsilon) and $\delta$ (delta to denote small numbers specifying the size of the gap and the quantity $\lvert x - c\rvert$, respectively. in our case, $c = 0$ and $\lvert x - c\rvert = \lvert x - 0\rvert = \lvert x\rvert$. The precise meaning is that for every choice of $\epsilon > 0$, there exists some $\delta$ (depending on $\epsilon$) such that $\lvert \frac{\sin(x)}{x} - 1\rvert < \epsilon$ if $0 < \lvert x\rvert < \delta$. the number $\delta$ tells us how close is sufficiently close for a give $\epsilon$.\\
 
-				We also say that $f$ is indeterminate at $x = c$. Our strategy is to \textit{transform $f(x)$ algebraically if possible into a new expression that is defined and continuous at $x = c$, and then evaluate by substitution ("plugging in")}. As you study the following examples, notice that the critical step in each case is to cancel a common factor from the numerator and denominator at the appropriate moment, thereby removing the indeterminacy.
-			\item $\lim_{x \to 4}\frac{\sqrt{x} - 2}{x - 4}$\\
-				The function $f(x) = \frac{\sqrt{x} - 2}{x - 4}$ is indeterminate at $x = 4$ since\\
+\textbf{formal definition of a limit:}\\
+suppose that $f(x)$ is defined for all $x$ in an open interval containing $c$ (but not necessarily at $x = c$). then
+\begin{center}$\lim_{x \to c}f(x) = L$\end{center}
+if for all $\epsilon > 0$, there exists $\delta > 0$ such that
+\begin{center}$\lvert f(x) - L\rvert < \epsilon$ if $0 < \lvert x - c\rvert < \delta$\end{center}
 
-				$f(4) = \frac{\sqrt{4} - 2}{4 - 4} = \frac{0}{0}$ (indeterminate)\\
-
-				$(\frac{\sqrt{x} - 2}{x - 4})(\frac{\sqrt{x} + 2}{\sqrt{x} + 2}) = \frac{x - 4}{(x - 4)(\sqrt{x} + 2)} = \frac{1}{\sqrt{x} + 2}$ (if $x \neq 4$)\\
-
-				Since $\frac{1}{\sqrt{x} + 2}$ is continuous at $x = 4$,\\
-
-				$\lim_{x \to 4}\frac{\sqrt{x} - 2}{x - 4} = \lim_{x \to 4}\frac{1}{\sqrt{x} + 2} = \frac{1}{4}$
-
-			\item $\lim_{x \to 2}\frac{x^2 - x + 5}{x - 2}$\\
-				At $x = 2$ we have\\
-				
-$f(2) = \frac{2^2 - 2 + 5}{2 - 2} = \frac{7}{0}$ (undefined, but not an indeterminate form)\\
-				This is \textit{not} an indeterminate form. In fact, shows that the one-sided limits are infinte:\\
-
-				$\lim_{x \to 2-}\frac{x^2 - x + 5}{x - 2} = -\infty$, $\lim_{x \to 2+}\frac{x^2 - x + 5}{x - 2} = \infty$\\
-
-				The limit itself does not exist.
-		\end{itemize}
-
-	\textbf{The Squeeze Theorem}\\
-	In our study of the derivative, we will need to evaluate certain limits involving transcendental functions such as sine and cosine. The algebraic techniques of the previous section are often ineffective for such functions and other tools are required. One such tool is the Squeeze Theorem, which we discuss in this section and use to evaluate the trigonometric limits later. Consider a function $f(x)$ that is trapped between two functions $l(x)$ and $u(x)$ on an interval $I$. In other words, $l(x) \leq f(x) \leq u(x)$ for all $x \in I$. In this case, the graph of $f(x)$ lies between the graphs of $l(x)$ and $u(x)$, with $l(x)$ as the lower and $u(x)$ as the upper function. The Squeeze Theorem applies when $f(x)$ is not just trapped, but actually squeezed at a point $x = c$ by $l(x)$ and $u(x)$. By this we mean that for all $x \neq c$ in some open interval containing $c$, $l(x) \leq f(x) \leq u(x)$ and $\lim_{x \to c}l(x) = \lim_{x \to c}u(x) = L$. We do not require that $f(x)$ be defined at $x = c$, but it is clear graphically that $f(x)$ must approach the limit $L$. We state this formally: Assume that for $x \neq c$ (in some open interval containing $c$), $l(x) \leq f(x) \leq u(x)$ and $\lim_{x \to c}l(x) = \lim_{x \to c}u(x) = L$. Then $\lim_{x \to c}f(x)$ exists and $\lim_{x \to c}f(x) = L$\\
-
-\textbf{two important limits}\\
-	$\lim_{\theta \to 0}\frac{\sin(\theta)}{\theta} = 1$\\
-	$\lim_{\theta \to 0}\frac{1 - \cos{\theta}}{\theta} = 0$\\
-
-\textbf{Intermediate Value Theorem}\\
-	This is a basic result which states that a continuous function on an interval cannot skip values. If $f(x)$ is continuous on a closed interval $[a, b]$ and $f(a) \neq f(b)$, then for every value $M$ between $f(a)$ and $f(b)$, there exists at least one value $c \in (a, b)$ such that $f(c) = M$. Prove that the equation $\sin(x) = 0.3$ has at least one solution. We may apply the IVT since $\sin(x)$ is continuous. We choose an interval where we suspect that a solution exists. The desired value 0.3 lies between the two function value $\sin(0) = 0$ and $\sin(\frac{\pi}{2} = 1$. so the interval $[0 , \frac{\pi}{2}]$ will work. The IVT tells us that $\sin(x) = 0.3$ has at least one solution in $(0, \frac{\pi}{2})$. Since $\sin(x)$ is periodic, $\sin(x)$ actually has infinitely many solutions. The IVT can be used to show the existence of zeros of functions. If $f(x)$ is continuous and takes on both positive and negative values, say, $f(a) < 0$ and $f(b) > 0$, then the IVT guarantees that $f(c) = 0$ for some $c$ between $a$ and $b$. If $f(x)$ is continuous on $[a, b]$ and if $f(a)$ and $f(b)$ are nonzero and have opposite signs, then $f(x)$ has a zero in $(a, b)$. We can locate zeros of functions to arbitrary accuracy using the Bisection Method. Show that $f(x) = \cos^2(x) - 2\sin(\frac{x}{4})$ has a zero in $(0, 2)$. Then locate the zero more accurately using the Bisecition Method. Using a calculator, we find that $f(0)$ and $f(2)$ have opposite signs: $f(0) = 1 > 0$, $f(2) \approx -0.786 < 0$. We can locate a zero more accurately by dividing $[0, 2]$ into two intervals $[0, 1]$ and $[1, 2]$. One of these must contain a zero of $f(x)$. To determine which, we evaluate $f(x)$ at the midpoint $m = 1$. A calculator gives $f(1) \approx -0.203$, and since $f(0) = 1$, we see that $f(x)$ takes on opposite signs at the endpoints of $[0, 1]$. Therefore, $(0, 1)$ must contain a zero. We discard the $[1, 2]$ because both $f(1)$ and $f(2)$ are negative. The Bisection Method consists of continuing this process until we narrow down the location of the zero to the desired accuracy. The IVT seems to state the obvious, namely that a continuous function cannot skip values. Yet its proof is quite subtle because it depends on the completeness property of the real numbers. To highlight the subtlety observe that IVT is false for functions defined only on the rational numbers. For example, $f(x) = x^2$ does not have the intermediate value property if we restrict its domain to the rational numbers. Indeed, $f(0) = 0$ and $f(2) = 4$ but $f(c) = 2$ has no solution for $c$ rational. The solution $c = \sqrt{2}$ is "missing" from the set of rational numbers because it is irrational. From the beginnings of calculus, the IVT was surely regarded as obvious. However, it was not possible to give a genuinely rigorous proof until the completeness property was clarified in the second half of the ninteenth century.\\
-
-\textbf{The Size of the Gap}\\
-	Recall that the distance from $f(x)$ to $L$ is $\lvert f(x) - L\rvert$. It is convenient to refer to that quantity $\lvert f(x) - L\rvert$ as the \textit{gap} between the value $f(x)$ and the limit $L$. Let us reexamine the basic trigonometric limit $\lim_{x \to 0}\frac{\sin(x)}{x} = 1$. In this example, $f(x) = \frac{\sin(x)}{x}$ and $L = 1$, so (1) tells us that the gap $\lvert f(x) - 1\rvert$ gets arbitrarily small when $x$ is sufficiently close but not equal to 0. Suppose we want the gap $\lvert f(x) - 1\rvert$ to be less than 0.2. How close to 0 must $x$ be? The following statement is true: $\lvert \frac{\sin(x)}{x} - 1\rvert < 0.2$ if $0 < \lvert x\rvert < 1$. If we insist instead that the gap be smaller than 0.004... $\lvert \frac{\sin(x)}{x} - 1\rvert < 0.004$ if $0 < \lvert x\rvert$. It would seem that this process can be continued: By zooming in on the graph, we can find a small interval around $c = 0$ where the gap $\lvert f(x) - 1\rvert$ is smaller than any prescribed positive number.To express this in a precise fashion, we follow time-honored tradition and use the Greek letter $\epsilon$ and $\delta$ to denote small numbers specifying the size of the gap and the quantity $\lvert x - c\rvert$, respectively. In our case, $c = 0$ and $\lvert x - c\rvert$ = $\lvert x - 0\rvert$ = $\lvert x\rvert$. The precise meaning is that for every choise of $\epsilon > 0$, there exists some $\delta$ (depending on $\epsilon$) such that $\lvert \frac{\sin(x)}{x} - 1\rvert < \epsilon$ if $0 < \lvert x\rvert < \delta$. The number $\delta$ tells us how close is sufficiently close for a given $\epsilon$. With this motivation, we are ready to state the formal definition of the limit.\\
-
-\textbf{FORMAL DEFINITION OF A LIMIT}\\
-Suppose the $f(x)$ is defined for all $x$ in an open interval containing $c$ (but no necessarily at $x = c$). Then \begin{center}$\lim_{x \to c}f(x) = L$\end{center} if for all $\epsilon > 0$, there exists $\delta > 0$ such that \begin{center}$\lvert f(x) - L\rvert<\epsilon$ if $0<\lvert x - c\rvert<\delta$\end{center} The condition $0 < \lvert x - c\rvert < \delta$ in this definition excludes $x = c$. As in our previous informal definition, we formulate it this way so that the limit depends only on values of $f(x)$ near $c$ but no on $f(c)$ itself. As we have seen, in many cases the limit exists even when $f(c)$ is not defined.
-
-\newpage
 \section*{differentiation}
 
+\textbf{the derivative} the derivative of a function $f$ at $x = a$ is the limit of the difference quotients (if it exists):
 \begin{center} $f'(a) = \lim_{h \to 0}\frac{f(a + h) - f(a)}{h}$ \end{center}
+when the limit exists, we say that $f$ is differentiable at $x = a$. an equivalent definition of the derivative is
 \begin{center} $f'(a) = \lim_{x \to a}\frac{f(x) - f(a)}{x - a}$ \end{center}
+
+	\textbf{tangent line} assume that $f(x)$ is differentiable at $x = a$. the tangent line to the graph of $y = f(x)$ at $P = (a, f(a))$ is the line through $P$ of slope $f'(a)$. the equation of the tangent line in point-slope form is
 \begin{center} $y - f(a) = f'(a)(x - a)$ \end{center}
 
-$\frac{d}{dx}(c) = 0$\\
-$\frac{d}{dx}x = 1$\\
-$\frac{d}{dx}(x^n) = nx^{-1}$ (power rule)\\
-$\frac{d}{dx}[cf(x)] = cf'(x)$\\
-$\frac{d}{dx}[f(x)+g(x)] = f'(x) + g'(x)$\\
-$\frac{d}{dx}[f(x)g(x)] = f(x)g'(x) + g(x)f'(x)$ (product rule)\\
-$\frac{d}{dx}[\frac{f(x)}{g(x)}] = \frac{g(x)f'(x) - f(x)g'(x)}{[g(x)]^2}$ (quotient rule)\\
-$\frac{d}{dx}f(g(x)) = f'(g(x))g'(x)$ (chain rule)\\
-$\frac{d}{dx}f(x)^n = nf(x)^{n-1}f'(x)$ (general power rule)\\
-$\frac{d}{dx}\sin(x) = \cos(x)$\\ 
-$\frac{d}{dx}\cos(x) = -\sin(x)$\\
-$\frac{d}{dx}\tan(x) = \sec^2(x)$
-$\frac{d}{dx}\csc(x) = -\csc(x)\cot(x)$\\
-$\frac{d}{dx}\sec(x) = \sec(x)\tan(x)$\\
-$\frac{d}{dx}\cot(x) = -\csc^2(x)$\\
-$\frac{d}{dx}\sin^{-1}(x) = \frac{1}{\sqrt(1 - x^2)}$\\
-$\frac{d}{dx}\cos^{-1}(x) = -\frac{1}{\sqrt(1 - x^2)}$\\
-$\frac{d}{dx}\tan^{-1}(x) = \frac{1}{1 + x^2}$\\
-$\frac{d}{dx}(e^x) = e^x$\\
-$\frac{d}{dx}(a^x) = (\ln a)a^x$\\
-$\frac{d}{dx}\ln\mid x\mid = \frac{1}{x}$\\
-$\frac{d}{dx}\log_ax = \frac{1}{(\ln a)x}$\\
+\textbf{derivative of linear and constant functions:}
+	\begin{itemize}
+		\item if $f(x) = mx + b$ is a linear function, then $f'(a) = m$ for all $a$
+		\item if $f(x) = b$ is a constant function, then $f'(a) = 0$ for all $a$
+	\end{itemize}
 
-deriving rules using first principles\\
-derivatives of trig, inverse, exponentials/logs,
+\textbf{linearity rules} assume that $f$ and $g$ are differentiable functions
+	\begin{itemize}
+		\item sum rule: the function $f + g$ is differentiable and $(f + h)' = f' + g'$
+		\item constant multiple rule: for any constant $c$, $cf$ is differentiable and $(cf)' = cf'$
+	\end{itemize}
+
+\textbf{differentiability implies continuity} if $f$ is differentiable at $x = c$, then $f$ is continuous at $x = c$.\\
+\textcolor{blue}{Proof:}
+	\begin{enumerate}
+		\item
+		\item
+		\item
+		\item
+		\item
+	\end{enumerate}
+
+using first principles: power rule, product rule, quotient rule\\
+using first principles: the chain rule, the general power rule\\
+derivatives of trig, inverse, exponentials/logs\\
+
 implicit differentiation\\
-EVT\\
+related rates\\
+linear approx\\
+extreme values, critical points, EVT\\
 rolle's theorem\\
 MVT\\
-related rates\\
-linear approximation\\
-min/max points, concavity, infection points, critial points
-optimization\\
+
+min/max points, concavity, infection points, critial points\\
+applied optimization\\
+
 newtons method\\
 
-\section*{integration}
+\textbf{derivatives:}
+	\begin{itemize}
+		\item $\frac{d}{dx}(c) = 0$
+		\item $\frac{d}{dx}x = 1$
+		\item $\frac{d}{dx}(x^n) = nx^{-1}$ (power rule)
+		\item $\frac{d}{dx}[cf(x)] = cf'(x)$
+		\item $\frac{d}{dx}[f(x)+g(x)] = f'(x) + g'(x)$
+		\item $\frac{d}{dx}[f(x)g(x)] = f(x)g'(x) + g(x)f'(x)$
+		\item $\frac{d}{dx}[\frac{f(x)}{g(x)}] = \frac{g(x)f'(x) - f(x)g'(x)}{[g(x)]^2}$
+		\item $\frac{d}{dx}f(g(x)) = f'(g(x))g'(x)$
+		\item $\frac{d}{dx}f(x)^n = nf(x)^{n-1}f'(x)$
+		\item $\frac{d}{dx}\sin(x) = \cos(x)$
+		\item $\frac{d}{dx}\cos(x) = -\sin(x)$
+		\item $\frac{d}{dx}\tan(x) = \sec^2(x)$
+		\item $\frac{d}{dx}\csc(x) = -\csc(x)\cot(x)$
+		\item $\frac{d}{dx}\sec(x) = \sec(x)\tan(x)$
+		\item $\frac{d}{dx}\cot(x) = -\csc^2(x)$
+		\item $\frac{d}{dx}\sin^{-1}(x) = \frac{1}{\sqrt(1 - x^2)}$
+		\item $\frac{d}{dx}\cos^{-1}(x) = -\frac{1}{\sqrt(1 - x^2)}$
+		\item $\frac{d}{dx}\tan^{-1}(x) = \frac{1}{1 + x^2}$
+		\item $\frac{d}{dx}(e^x) = e^x$
+		\item $\frac{d}{dx}(a^x) = (\ln a)a^x$
+		\item $\frac{d}{dx}\ln\mid x\mid = \frac{1}{x}$
+		\item $\frac{d}{dx}\log_ax = \frac{1}{(\ln a)x}$
+	\end{itemize}
 
+\section*{integration}
 anti-derivative, basic integration rules\\
 intial value problems\\
 "area under a curve as an integal"\\
