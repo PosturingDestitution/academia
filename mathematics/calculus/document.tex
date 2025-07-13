@@ -711,14 +711,14 @@ $S_n = a + ar + ar^2 + \ldots + ar^{n-1}$\\
 The \textcolor{blue}{first} term is an expression where the variable r is raised to the \textcolor{blue}{zeroth} power, so the \textcolor{blue}{nth} term is an expression that has r raised to the \textcolor{blue}{n-1} power.\\ 
 
 sum of a finite geometric series ($r \neq 1$):
-	\begin{itemize}
+	\begin{enumerate}
 		\item $S_n = a + ar + ar^2 + \ldots + ar^{n-1}$ 
 		\item $rS_n = ar + ar^2 + ar^3 + \ldots + ar^{n}$   
 		\item $S_n - rS_n = (a + ar + ar^2 + \ldots + ar^{n-1}) - (ar + ar^2 + ar^3 + \ldots + ar^{n})$
 		\item $S_n - rS_n = a - ar^n$
 		\item $S_n(1 - r) = a(1 - r^n)$
 		\item $S_n = a\frac{1 - r^n}{1 - r}$ if $r \neq 1$ 
-	\end{itemize}
+	\end{enumerate}
 
 $\sum_{k = 1}^{n} ar^{k - 1} = \frac{a(1-r^n)}{1 - r}$\\
 
@@ -969,7 +969,7 @@ assume that $f(x)$ is differentiable at $x = a$. the tangent line to the graph o
 
 \textcolor{blue}{proof of the power rule}
 	\begin{enumerate}
-		\item assume that $n$ is a whole number and let $f(x) = x^n$. then $f'(a) = \lim_{x \to a}\frac{x^n - x^a}{x - a}$
+		\item assume that $n$ is a whole number and let $f(x) = x^n$. then $f'(a) = \lim_{x \to a}\frac{x^n - a^n}{x - a}$
 		\item to simplify the difference quotient, we need to generalize the following identities: $x^2 - a^2 = (x - a)(x + a)$\\ $x^3 - a^3 = (x - a)(x^2 + xa + a^2)$\\ $x^4 - a^4 = (x - a)(x^3 + x^2a + xa^2 + a^3)$
 		\item the generalizaiton is $x^n - a^n = (x - a)(x^{n - 1} + x^{n - 2}a + x^{n - 3}a^2 + \ldots + xa^{n - 2} + a^{n - 1})$
 		\item to verify, observe that the right-hand side is equal to\\ $x(x^{n - 1} + x^{n - 2}a + x^{n - 3}a^2 + \ldots + xa^{n - 2} + a^{n - 1})$\\$-a(x^{n - 1} + x^{n - 2}a + x^{n - 3}a^2 + \ldots + xa^{n - 2} + a^{n - 1})$
@@ -1158,7 +1158,48 @@ steps:
 	\end{itemize}
 
 \section*{Integration}
+\textbf{antiderivatives} a function $F(x)$ is an antiderivative of $f(x)$ on $(a, b)$ if $F'(x) = f(x)$ for all $x \in (a, b)$.\\
 
+\textbf{general antiderivative} let $F(x)$ be an antiderivative of $f(x)$ on $(a, b)$. then every other antiderivative on $(a, b)$ is of the form $F(x) + C$ for some constant $C$.\\
+
+\textbf{indefinite integral} the notion $\int f(x)\,dx = F(x) + C$ means that $F'(x) = f(x)$ we say that $F(x) + C$ is the antiderivative or indefinite integral of $f(x)$.\\
+
+\textbf{power rule for integrals} $\int x^n\,dx = \frac{x^{n + 1}}{n + 1} + C$ for $n \neq -1$\\ 
+
+\textbf{linearity of the indefinite integral:}
+	\begin{itemize}
+		\item $\int (f(x) + g(x))\,dx = \int f(x)\,dx + \int g(x)\,dx$
+		\item $\int cf(x)\,dx = c\int f(x)\,dx$
+	\end{itemize}
+
+\textbf{basic trigonometric integrals:}
+	\begin{itemize}		
+		\item $\int \sin x \,dx = -\cos x + C$
+		\item $\int \cos x \,dx = \sin x + C$
+		\item $\int \sec^2 x \,dx = \tan x + C$
+		\item $\int \csc^2 x \,dx = -\cot x + C$
+		\item $\int \sec x \tan x \,dx = \sec x + C$
+		\item $\int \csc x \cot x \,dx = -\csc x + C$
+	\end{itemize}
+
+for the rest of this section assume that $f(x)$ is continuous and positive, so that the graph of $f(x)$ lies above the x-axis. as a first step, we approximate the area using rectangles. first, choose a whole number $N$ and divide $[a, b]$ into $N$ subintervals of equal width, each subinterval has width $\Delta x = \frac{b - a}{N}$ since $[a, b]$ has width $b - a$. the right endpoints of the subintervals are $a + \Delta x, a + 2\Delta x, \ldots, a + (N - 1)\Delta x, a + N\Delta x$. notice that the last right enpoint is $b$ because $a + N\Delta x = a + N(\frac{b - a}{N}) = b$. next, above each subinterval, construct the rectangle whose height is the value of $f(x)$ at the right enpoint of the subinterval. each rectangle has width $\Delta x$. the height of the first rectangle is $f(a + \Delta x)$ and its area is $f(a + \Delta x)\Delta x$. similarly, the second rectangle ahs a height $f(a + 2\Delta x)$ and area of $f(a + 2\Delta x)\Delta x$, ect. the sum of the areas of the rectangles is $f(a + \Delta x)\Delta x + f(a + 2\Delta x)\Delta x + \ldots + f(a + N\Delta x)\Delta x$. this sum is called the Nth right-endpoint approximation and is denoted $R_N$ as $R_N = \Delta x(f(a + \Delta x) + f(a + 2\Delta x) + \ldots + f(a + N\Delta x))$. in words, $R_N$ is equal to $\Delta x$ times the sum of the function values at the right endpoints of the subintervals.\\
+
+left endpoint and midpoint\\
+
+\textbf{linearity of summations}
+	\begin{itemize}
+		\item
+		\item
+		\item
+	\end{itemize}
+
+\textbf{power sums}\\
+
+
+\textbf{definite integral}\\
+
+
+signed areas\\
 
 
 

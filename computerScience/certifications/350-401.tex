@@ -534,10 +534,6 @@ VTP advertises updates by using a multicast address across the trunk links for a
 		\item client requests: This advertisement is a request by a client to receive the more detailed subset advertisement. Typically, this occurs when a switch with a lower revision number joins the VTP domain and observes a summary advertisement with a higher revision than it has stored locally.
 	\end{itemize}
 
-
-\textbf{need to flush out MSTP ideas}
-
-
 \section*{Resources}
 When we talk about the internet, nearly everything you interact with - from web pages and images to videos, documents, and even online services - is considered a resource. A resource is any entity that can be identified and accessed over a network. It is a broad and flexible term that encompasses not just tangible files but also abstract concepts like a user's mailbox or a particular section within a web page. This universality is crucial because the internet is not just a collection of files; it is a vast ecosystem of interconnvected data, services, and information that needs to be precisely identified and addressed so computers and humans can find, retrieve, and interact with them efficiently.\\
 
@@ -583,31 +579,24 @@ DNS is structured as a tree, with each level of the tree managed independently b
 
 This structure makes DNS highly scalable and fault-tolerant. No single server holds the entire DNS database. Instead, each domain or zone has authoritative name servers that are responsible for answering queries about it. These authoritative servers can be operated by: hosting companies, domain registrars, organizations managing their own infrastructure, Content Delivery Networks (CDNs), etc.
 
-\section*{Internetwork}
-At the bottom level, individual LANs connect users and local devices within a building or campus. These LANs are connected to wider networks through routers, which typically serve as default gateways. These routers mark the edge of the LAN and connect to a broader network — often the ISP — using longer-distance links. Within an organization or local network domain, routers use Interior Gateway Protocols (IGPs) such as OSPF or EIGRP to exchange routing information and determine how to move packets internally.\\
+\section*{Internet Service Providers}
+A Tier 1 ISP is at the top of the Internet hierarchy. These providers own and operate the major portions of the Internet's global backbone infrastructure, such as international fiber-optic cables and high-capacity routers. Tier 1 ISPs can reach every other network on the Internet without having to pay for access. They achieve this through mutual agreements called settlement-free peering with other Tier 1 providers. This means they exchange traffic without money changing hands because the arrangement is mutually beneficial. Tier 1 ISPs do not purchase IP transit from anyone; they are self-sufficient and fully interconnected. Their role is foundational—they form the core routing infrastructure of the Internet, and smaller ISPs rely on them to transmit data globally. They typically sell access to their network to Tier 2 ISPs, large corporations, governments, and content delivery networks (CDNs).\\
 
-This brings us to the concept of an Autonomous System, or AS. An Autonomous System is a large collection of IP networks and routers under the control of a single organization that presents a unified routing policy to the rest of the internet. Each AS is assigned a unique Autonomous System Number (ASN), which identifies it when exchanging routing information with other systems. ISPs, large enterprises, universities, and content delivery networks all operate Autonomous Systems. Essentially, an AS acts as a self-contained administrative domain for routing.\\
+A Tier 2 ISP is one level below Tier 1. These providers do not have global reach on their own and therefore must purchase IP transit from Tier 1 providers in order to access parts of the Internet that are not reachable through their own network. However, Tier 2 ISPs also engage in peering agreements, typically with other Tier 2 ISPs or regional networks, to reduce reliance on costly transit arrangements. This allows them to deliver a combination of peering and paid transit to balance cost and performance. Tier 2 ISPs often serve regional or national markets, acting as wholesalers or resellers to smaller ISPs and businesses. They have their own significant infrastructure but still depend on Tier 1 providers for full Internet connectivity.\\
 
-ISPs in particular often operate one or more ASes. These ASes are not isolated — they must connect with other ASes to reach parts of the internet they don’t directly control. The protocol used to manage routing between different Autonomous Systems is called the Border Gateway Protocol (BGP). BGP is an Exterior Gateway Protocol (EGP), and its purpose is to advertise which IP prefixes (blocks of IP addresses) are reachable through which AS paths. In other words, BGP helps routers in one AS learn about networks that are reachable via other ASes and determine the best way to get to them.\\
+A Tier 3 ISP is at the bottom of the ISP hierarchy. These providers primarily serve end users such as homes and small businesses. They typically do not engage in peering relationships and must buy all of their Internet connectivity from Tier 2 or sometimes even Tier 1 ISPs. Tier 3 ISPs operate at the local level and focus on retail access, customer support, and last-mile delivery. They do not own significant infrastructure beyond what is needed to connect customers to upstream providers. Their business model revolves around providing access to the Internet through technologies such as DSL, cable, fiber-optic, or wireless connections, and they often lease or rent bandwidth from higher-tier providers.\\
 
-The reason we need Autonomous Systems and BGP is that the internet is not one massive, flat network. It is instead a decentralized collection of thousands of interconnected networks, each with its own routing policies, priorities, and constraints. BGP allows each AS to control how it shares routing information and which routes it prefers, enabling organizations to balance cost, performance, redundancy, and traffic engineering goals. While IGPs handle routing within a single AS, BGP handles routing between them — making the global internet function as a cohesive whole.\\
+\section*{Autonomous Systems}
+An Autonomous System (AS) is a collection of IP networks and routers under the control of a single organization that presents a unified routing policy to the rest of the internet. Each AS operates with a unique Autonomous System Number (ASN), assigned by a Regional Internet Registry (RIR). ASes are the building blocks of the internet's routing system and communicate using the Border Gateway Protocol (BGP). This allows each AS to exchange routing information with others, enabling data to find efficient paths across the global internet.\\
 
-\textbf{the internet's backbone}\\
-Tier 1 Internet Service Providers (ISPs) are the giants of global internet infrastructure. These companies operate vast international fiber-optic networks and maintain direct, settlement-free peering relationships with every other Tier 1 provider. This means they do not have to pay anyone to reach any part of the internet - they can route data to any destination entirely through their own netowrk or through peers who mutually agree to exchange traffic for free. Because of this, Tier 1 ISPs form the core of the internet, often described as the "backbone". They manage high-capacity links between continents, operate core routers at strategic point worldwide, and are essential for the global availability of online services. Examples of Tier 1 providers include Lumen (formerly Level 3), AT\&T, NTT Communications, GTT, and Telia Carrier. These companies primarily serve other ISPs and large enterprises, rather than individual consumers.\\
+ASes are essential because they help manage and control how traffic enters and exits large networks. Organizations like Internet Service Providers (ISPs), large enterprises, educational institutions, and content providers often operate their own AS to manage traffic independently and maintain control over routing policies.\\
 
-\textbf{regional middlemen}\\
-Tier 2 ISPs occupy a middle ground in the internet ecosystem. They often operate large national or regional networks and have their own infrastructure, but unlike Tier 1 providers, they still pay other providers (usually Tier 1s) for transit to reach parts of the internet they cannot access via peering. However, they also establish peering agreements with other networks - especially at Internet Exchange Points (IXPs) - to exchange traffic cost-effectively. Tier 2 ISPs are frequently regional carriers or large commercial ISPs, such as Comcast, British Telecom, or Spectrum. They serve a mix of customers, including smaller ISPs, businesses, and sometimes residential users. Because they maintain peering and transit relationship, they have more flexibility than Tier 3 providers, but they are still dependent on higher-tier ISPs to complete global traffic routes.\\
+As of mid-2025, there are approximately 75,000 to 80,000 registered Autonomous Systems, though not all are active at any given time. The exact number fluctuates as new ASNs are issued and old ones are retired. You can view current statistics through services like Hurricane Electric’s BGP Toolkit, CIDR Report, or RIR websites (e.g., RIPE NCC, ARIN).\\
 
-\textbf{local access providers}\\
-Tier 3 ISPs are the last-mile providers - the ones that actually deliver internet access to homes, schools, and small businesses. These providers typically do not have their own global or large-scale networks and rely entirely on upstream Tier 2 or Tier 1 ISPs for connectivity to the broader internet. Their focus is on access techonologies like fiber-to-the-home (FTTH), DSL, cable, or fixed wireless. Tier 3 ISPs purchase internet transit from higher-tier providers and specialize in local coverage and customer support. Some may operate in rural areas underserved by larger carriers. They are responsible for managing customer premise equipment (CPE), assigning local IP addresses (often using DHCP and NAT), and ensuring that customers can access online services with acceptable performance.\\
+In summary, an Autonomous System is a fundamental unit of internet routing, and there are tens of thousands of them operating today, each helping to make the global internet function reliably and efficiently.\\
 
-Tier 1 ISPs often perform roles typically associated with Tier 3 ISPs in large cities and densely populated regions. While Tier 1 ISPs are primarily known for operating global internet backbone infrastructure and exchanging traffic through settlement-free peering with other Tier 1s, they also frequently offer direct internet access services to end-users — especially in markets where they already have local infrastructure in place. In these cases, they act as both the core transit provider and the last-mile provider.\\
-
-For example, a Tier 1 provider like AT\&T or Lumen (formerly Level 3) may own long-haul fiber routes across continents, but also deliver fiber or DSL internet to homes and businesses in cities like New York, Los Angeles, or Chicago. In this context, they are essentially functioning as a Tier 3 ISP — handling customer premise equipment (CPE), assigning local IP addresses, managing access networks, and providing customer support. Their global capabilities do not prevent them from also building and managing regional or local infrastructure where it makes economic or strategic sense.\\
-
-This dual role is quite common because it allows large providers to capture more of the value chain. By offering both transit services to other ISPs and direct access services to end customers, Tier 1 ISPs can generate multiple streams of revenue while also having greater control over performance, latency, and customer experience. It’s also more efficient for them to leverage existing infrastructure, such as fiber routes and data centers, to deliver services across multiple layers of the internet ecosystem.\\
-
-\section*{IPv4}
+\section*{IP Review}
+\textbf{IPv4}\\
 $2^{32} = 4,294,967,296$ 0.0.0.0 - 255.255.255.255\\
 In the early days of IPv4, to organize address allocation, IP addresses were divided into five classes (A-E), distinguished by their first few bits. Each class had a default subnet mask defining which bits represented the network and which represented the host.
 
@@ -648,10 +637,46 @@ Route aggregation, also known as supernetting, is a technique that reduces the n
 
 Variable Length Subnet Masking (VLSM) allows you to apply different subnet mask to different subnets within the same network block. This lets you match subnet sizes to actual need, conserving address space. Say you have the following: 192.168.10.0/24 (256 addresses). Let us say that we want four subnets with 100 hosts, 50 hosts, 25 hosts, and 10 hosts...well you might divide in like this: 192.168.10.0/25 (126 usable), 192.168.10.0/26 (62 usable), 192.168.10.0/27 (30 usable), 192.168.10.0/28 (14 usable). Each smaller subnet uses a longer subnet mask (more network bits), and you get very tight, efficient allocation.\\
 
-Conceptually, Network Address Translation (NAT) allows you to multiply the utility of an IPv4 address by combining it with port numbers, giving you a space closer to: $2^{32} \cdot 2^{16}$ In practice, a single public IPv4 address with NAT can support tens of thousands of concurrent outbound connections, and you do not get more IP addresses you get more address/port combinations, which helps you multiplex more private devices through a limited public space.
+Conceptually, Network Address Translation (NAT) allows you to multiply the utility of an IPv4 address by combining it with port numbers, giving you a space closer to: $2^{32} \cdot 2^{16}$ In practice, a single public IPv4 address with NAT can support tens of thousands of concurrent outbound connections, and you do not get more IP addresses you get more address/port combinations, which helps you multiplex more private devices through a limited public space.\\
 
-\section*{IPv6}
- 
+\textbf{IPv6}\\
+$2^128 = 3.4 \times 10^{38}$\\
+2001:0db8:85a3:0000:0000:8a2e:0370:7336 $\Rightarrow$ leading zeros in a group can be omitted and a consecutive sequence of zero groups can be compressed using :: (once per address) 2001:db8:85a3::8a2e:370:7334\\
+
+types of IPv6 address:
+	\begin{itemize}
+		\item link-local (FE80::/10): used for communication within a single local network segment, automatically assigned and not routable beyond the local link
+		\item global unicast (2000::/3): publicly routable addresses used on the wider internet
+		\item unique local (FC00::/7 mostly FD00::/8): private addresses for internal network use, not routable on the public internet
+		\item loopback (::1): refers to the local device like for internal communication like 127.0.0.1 for IPv4
+		\item unspecified (::): means no address assigned; used during startup or initialization
+		\item multicast (FF00::/8): one-to-many communication to a group of devices
+		\item anycast: uses unicast address format but routed to the nearest instance of multiple devices sharing the address, used for load balancing and high availability
+	\end{itemize}
+
+\textbf{NDP}\\
+Neighbor Discovery Protocol (NDP) is an IPv6 protocol used by devices on the same local network (link) to discover information about each other and to manage communication efficiently. It replaces several IPv4 protocols like ARP (Address Resolution Protocol), ICMP Router Discovery, and others by combining their functions into one.\\
+
+how does ndp work?\\
+SLAAC and EUI-64?\\
+
+routing algorithms\\
+equal-cost multipathing\\
+path selection\\
+static routing\\
+policy based routing\\
+virtual routing and forwarding\\
+
+\section*{EIGRP}
+\section*{OSPF}
+\section*{BGP}
+\section*{Multicast}
+\section*{QoS}
+
+
+
+
+
  
 \end{document}
 
