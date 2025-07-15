@@ -181,7 +181,7 @@ if you square any real number you will get a non-negative result ($(x)^2 = (-x)^
 		\item $3((x^2 + \frac{7}{3} + \frac{49}{36}) - \frac{49}{36}) + 4$
 		\item $3((x + \frac{7}{6})^2 - \frac{49}{36}) + 4$
 		\item $3(x + \frac{7}{6})^2 - \frac{49}{12} + 4$
-		\item $4(x + \frac{7}{6})^2 - \frac{49}{12} + 4$
+		\item $3(x + \frac{7}{6})^2 - \frac{49}{12} + 4$
 		\item $3(x + \frac{7}{6})^2 - \frac{1}{12}$
 	\end{enumerate}
 
@@ -326,11 +326,58 @@ $f(x) = -x^2 - 2x + 1$:
 		\item $-(x + 1)^2 + 2$
 	\end{enumerate}
 
-The definition of a hyperbola is similar to that of an ellipse, where there are two foci. While every point on a ellipse has distances to these foci that give a constant sum. Every point on a hyperbola has distances to these foci that give a constant differense. The foci sit on the outside of the branches with the two vertices between them. In between those vertices we have the center which sits on the transverse axis connecting the vertices. The a, b, and c terms from the ellipse will pretty much mean the same things. a is the distance from the center to the vertex. c is the distance from the center to a focus. b is the distance from the center to the co-vertex. The co-vertex does not lie on the hyperbola like it does for an ellipse. However, b helps define the asymptotes, which guide the shape of the branches of the hyperbola. If you form a rectangle centered at $(h, k)$ with dimensions: $\text{width} = 2a$ and $\text{height} = 2b$. The asymptotes pass through the diagonals of this rectangle.
+The definition of a hyperbola is similar to that of an ellipse, where there are two foci. While every point on a ellipse has distances to these foci that give a constant sum. Every point on a hyperbola has distances to these foci that give a constant differense. The foci sit on the outside of the branches with the two vertices between them. In between those vertices we have the center which sits on the transverse axis connecting the vertices. The a, b, and c terms from the ellipse will pretty much mean the same things. a is the distance from the center to the vertex. c is the distance from the center to a focus. b is the distance from the center to the co-vertex. The co-vertex does not lie on the hyperbola like it does for an ellipse. However, b helps define the asymptotes, which guide the shape of the branches of the hyperbola. If you form a rectangle centered at $(h, k)$ with dimensions: $\text{width} = 2a$ and $\text{height} = 2b$. The asymptotes pass through the diagonals of this rectangle.\\
 
-$\frac{(x - h)^2}{a^2} - \frac{(y - k)^2}{b^2} = 1$ (asymptotes: $y = \frac{b}{a}x$ and $y = -\frac{b}{a}x$)\\ 
-  
-$\frac{(y - k)^2}{a^2} - \frac{(x - h)^2}{b^2} = 1$ (asymptotes: $y = \frac{a}{b}x$ and $y = -\frac{a}{b}x$)\\ 
+let us find the asymptotes for the horizontal hyperbola:
+	\begin{enumerate}
+		\item $\frac{(x - h)^2}{a^2} - \frac{(y - k)^2}{b^2} = 1$ 
+		\item lets solve for y to understand the graphs shape $-\frac{(y - k)^2}{b^2} = -\frac{(x - h)^2}{a^2} + 1$ 
+		\item $\frac{(y - k)^2}{b^2} = \frac{(x - h)^2}{a^2} - 1$ 
+		\item $(y - k)^2 = b^2(\frac{(x - h)^2}{a^2} - 1)$  
+		\item $y - k = \pm b \sqrt{\frac{(x - h)^2}{a^2} - 1}$ consider $x \to \infty$ 
+		\item $\sqrt{\frac{(x - h)^2}{a^2} - 1} \approx \sqrt{\frac{(x - h)^2}{a^2}} = \frac{\lvert x - h\rvert}{a} = \frac{x - h}{a}$  
+		\item as $x \to \infty$ then $y \approx \pm b \cdot \frac{x - h}{a} \Rightarrow y \approx k \pm \frac{b}{a}(x - h)$
+	\end{enumerate}
+
+the discriminant is tradtionally introduced in the context of solving quadratic equations, but it is also very powerful in analyzing conic sections. let us begin with the general second-degree equation in two variables: $Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$ this equation represents a conic section, which could be a parabola, ellipse, hyperbola, or (in degenerate cases) a point, line, ect. the discriminant used here is: $\Delta = B^2 - 4AC$. this is not the same as the quadratic discriminant: $b^2 - 4ac$ for single-variable quadratics. it is a different discriminant, but has an analogous role. depending on the value of $\Delta = B^2 - 4AC$, the conic is:
+	\begin{itemize}
+		\item ellipse (or circle if $A = C$ and $B = 0$ if $\Delta < 0$
+		\item parabola if $\Delta = 0$
+		\item hyperbola if $\Delta > 0$
+	\end{itemize}
+
+it all comes down to the quadratic part of the conic: $Ax^2 + Bxy + Cy^2$ this defines the shape of the conic, while the $Dx + Ey + F$ part just translates it. you can think of this as a sort of matrix\\
+
+$
+\begin{bmatrix}
+x & y
+\end{bmatrix}
+$
+$
+\begin{bmatrix}
+A & \frac{B}{2}\\
+\frac{B}{2} & C
+\end{bmatrix}
+$
+$
+\begin{bmatrix}
+x\\
+y
+\end{bmatrix}
+$\\
+
+this is a quadratic form, and the matrix's properties determine the geometry. we can rotate the coordinate system (diagonalize the matrix) to eliminate the cross-term $Bxy$. after rotation, the conic becomes: $A'x'^2 + C'y'^2 + \text{linear terms} = 0$ now the classification is straightforward:
+	\begin{itemize}
+		\item if $A'$ and $C'$ has the same sign $\rightarrow$ ellipse
+		\item if one is zero and the other non-zero $\rightarrow$ parabola
+		\item if they have opposite signs $\rightarrow$ hyperbola
+	\end{itemize}
+and it turns out: $\Delta = B^2 - 4AC$ captures exactly that information about the signs of the eigenvalues of the matrix. so:
+	\begin{itemize}
+		\item $\Delta < 0 \Rightarrow \text{same signs} \Rightarrow \text{ellipse}$
+		\item $\Delta = 0 \Rightarrow \text{one zero eigenvalue} \Rightarrow \text{parabola}$ 
+		\item $\Delta > 0 \Rightarrow \text{opposite signs} \Rightarrow \text{hyperbola}$ 
+	\end{itemize}
 
 \textbf{basic classes of functions:}
 	\begin{itemize}
@@ -777,7 +824,6 @@ sum of a finite arithmetic sequence:
 
 $\sum_{k = 1}^{n}[a + (k - 1)d] = \frac{n}{2}[2a + (n - 1)d]$
 
-\newpage
 \section*{Trigonometry}
 
 \begin{center}
@@ -836,8 +882,11 @@ circle angle theorems:
 \end{tikzpicture}
 \end{center}
 
+$\theta \text{ radians} = \frac{s}{r} \Rightarrow s = r\theta$\\
+
 $\pi = \frac{\text{circumference}}{\text{diameter}}$\\
-$1^\circ = \frac{\pi}{180} \text{radians}$\\
+
+$1^\circ = \frac{\pi}{180} \text{ radians}$\\
 
 Trigonometric functions are special mathematical functions that originally come from studying right triangles. They relate the size of an angle in a triangle to the ratios of the lengths of the triangle's sides.\\
 
@@ -869,11 +918,21 @@ The triangle definition only works for angles between 0 and $\frac{\pi}{2}$. To 
 	\item $\cos(2\theta) = \cos^2(\theta) - \sin^2(\theta)$		
 	\item $\cos(2\theta) = 2\cos^2(\theta) - 1$
 	\item $\cos(2\theta) = 1 - 2\sin^2(\theta)$
+	\item $\cos\left(\frac{x}{2}\right) = \pm \sqrt{\frac{1 + \cos x}{2}}$
+	\item $\sin\left(\frac{x}{2}\right) = \pm \sqrt{\frac{1 - \cos x}{2}}$
+	\item $\tan\left(\frac{x}{2}\right) = \pm \sqrt{\frac{1 - \cos x}{1 + \cos x}}$
+	\item $\tan\left(\frac{x}{2}\right) = \frac{\sin x}{1 + \cos x}$
+	\item $\tan\left(\frac{x}{2}\right) = \frac{1 - \cos x}{\sin x}$
+	\item $\cos A \cos B = \frac{1}{2} \left[ \cos(A - B) + \cos(A + B) \right]$
+	\item $\sin A \sin B = \frac{1}{2} \left[ \cos(A - B) - \cos(A + B) \right]$
+	\item $\sin A \cos B = \frac{1}{2} \left[ \sin(A + B) + \sin(A - B) \right]$
+	\item $\cos A \sin B = \frac{1}{2} \left[ \sin(A + B) - \sin(A - B) \right]$
 \end{itemize}
 
 \textbf{law of sines and cosines}\\
 
 	$\frac{\sin(A)}{a} = \frac{\sin(B)}{b} \frac{\sin(C)}{c}$\\
+
 	$a^2 = b^2 + c^2 - 2bc\cos(A)$ (SAS or SSS)
 
 \section*{Limits}
@@ -927,8 +986,8 @@ Using a calculator you can numerically see that as $x \to 0+$ and $x \to 0-$ the
 
 \textbf{important trigonometric limits:}
 	\begin{itemize}
-		\item $\lim_{\theta \to 0}\frac{\sin(\theta)}{\theta}$
-		\item $\lim_{\theta \to 0}\frac{1 - \cos(\theta)}{\theta}$
+		\item $\lim_{\theta \to 0}\frac{\sin(\theta)}{\theta} = 1$
+		\item $\lim_{\theta \to 0}\frac{1 - \cos(\theta)}{\theta} = 0$
 	\end{itemize}
 
 \textbf{intermediate value theorem:} if $f(x)$ is continuous on a closed interval $[a, b]$ and $f(a) \neq f(b)$, then for every value $M$ between $f(a)$ and $f(b)$, there exists at least one value $c \in (a, b)$ such that $f(c) = M$.\\
@@ -949,6 +1008,14 @@ suppose that $f(x)$ is defined for all $x$ in an open interval containing $c$ (b
 if for all $\epsilon > 0$, there exists $\delta > 0$ such that
 \begin{center}$\lvert f(x) - L\rvert < \epsilon$ if $0 < \lvert x - c\rvert < \delta$\end{center}
 
+four rigorous definitions of the limit:
+	\begin{itemize}
+		\item $\lim_{x \to a}f(x) = L$ means $\forall \epsilon > 0, \exists \delta > 0 : 0 < \lvert x - a\rvert < \delta \Rightarrow \lvert f(x) - L\rvert < \epsilon$
+		\item $\lim_{x \to \infty}f(x) = L$ means $\forall \epsilon > 0, \exists N > 0 : x > N \Rightarrow \lvert f(x) - L\rvert < \epsilon$   
+		\item $\lim_{x \to a}f(x) = \infty$ means $\forall M > 0, \exists \delta > 0 : 0 < \lvert x - a\rvert < \delta \Rightarrow f(x) > M$  
+		\item $\lim_{x \to \infty}f(x) = \infty$ means $\forall M > 0, \exists N > 0 : x > N \Rightarrow f(x) > M$
+	\end{itemize}
+
 \section*{Differentiation}
 
 \textbf{the derivative} of a function $f$ at $x = a$ is the limit of the difference quotients (if it exists):
@@ -965,7 +1032,6 @@ assume that $f(x)$ is differentiable at $x = a$. the tangent line to the graph o
 		\item if $f(x) = mx + b$ is a linear function, then $f'(a) = m$ for all $a$
 		\item if $f(x) = b$ is a constant function, then $f'(a) = 0$ for all $a$
 	\end{itemize}
-\newpage
 
 \textcolor{blue}{proof of the power rule}
 	\begin{enumerate}
