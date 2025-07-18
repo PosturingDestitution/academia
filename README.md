@@ -1,1 +1,1 @@
-This repo spawned out of a burning desire to take full accountability of my academic endeavors, outside of any institution. I recognize that I can teach myself, riding off of mere passion and curiosity for the world.
+This repo spawned from a burning desire to take full accountability of my academic endeavors, outside of any institution. I recognize that I can teach myself, riding off of mere passion and curiosity for the world.
