@@ -1248,27 +1248,102 @@ steps:
 		\item $\int \csc x \cot x \,dx = -\csc x + C$
 	\end{itemize}
 
-for the rest of this section assume that $f(x)$ is continuous and positive, so that the graph of $f(x)$ lies above the x-axis. as a first step, we approximate the area using rectangles. first, choose a whole number $N$ and divide $[a, b]$ into $N$ subintervals of equal width, each subinterval has width $\Delta x = \frac{b - a}{N}$ since $[a, b]$ has width $b - a$. the right endpoints of the subintervals are $a + \Delta x, a + 2\Delta x, \ldots, a + (N - 1)\Delta x, a + N\Delta x$. notice that the last right enpoint is $b$ because $a + N\Delta x = a + N(\frac{b - a}{N}) = b$. next, above each subinterval, construct the rectangle whose height is the value of $f(x)$ at the right enpoint of the subinterval. each rectangle has width $\Delta x$. the height of the first rectangle is $f(a + \Delta x)$ and its area is $f(a + \Delta x)\Delta x$. similarly, the second rectangle ahs a height $f(a + 2\Delta x)$ and area of $f(a + 2\Delta x)\Delta x$, ect. the sum of the areas of the rectangles is $f(a + \Delta x)\Delta x + f(a + 2\Delta x)\Delta x + \ldots + f(a + N\Delta x)\Delta x$. this sum is called the Nth right-endpoint approximation and is denoted $R_N$ as $R_N = \Delta x(f(a + \Delta x) + f(a + 2\Delta x) + \ldots + f(a + N\Delta x))$. in words, $R_N$ is equal to $\Delta x$ times the sum of the function values at the right endpoints of the subintervals.\\
-
-left endpoint and midpoint\\
+for the rest of this section assume that $f(x)$ is continuous and positive, so that the graph of $f(x)$ lies above the x-axis. as a first step, we approximate the area using rectangles. first, choose a whole number $N$ and divide $[a, b]$ into $N$ subintervals of equal width, each subinterval has width $\Delta x = \frac{b - a}{N}$ since $[a, b]$ has width $b - a$. the right endpoints of the subintervals are $a + \Delta x, a + 2\Delta x, \ldots, a + (N - 1)\Delta x, a + N\Delta x$. notice that the last right enpoint is $b$ because $a + N\Delta x = a + N(\frac{b - a}{N}) = b$. next, above each subinterval, construct the rectangle whose height is the value of $f(x)$ at the right enpoint of the subinterval. each rectangle has width $\Delta x$. the height of the first rectangle is $f(a + \Delta x)$ and its area is $f(a + \Delta x)\Delta x$. similarly, the second rectangle ahs a height $f(a + 2\Delta x)$ and area of $f(a + 2\Delta x)\Delta x$, ect. the sum of the areas of the rectangles is $f(a + \Delta x)\Delta x + f(a + 2\Delta x)\Delta x + \ldots + f(a + N\Delta x)\Delta x$. this sum is called the Nth right-endpoint approximation and is denoted $R_N$ as $R_N = \Delta x[f(a + \Delta x) + f(a + 2\Delta x) + \ldots + f(a + N\Delta x)]$. in words, $R_N$ is equal to $\Delta x$ times the sum of the function values at the right endpoints of the subintervals.\\
 
 \textbf{linearity of summations}
 	\begin{itemize}
-		\item
-		\item
-		\item
+		\item $\sum_{j=m}^{n}(a_j + b_j) = \sum_{j=m}^{n}a_j + \sum_{j=m}^{n}b_j$
+		\item $\sum_{j=m}^{n}Ca_j = C\sum_{j=m}^{n}a_j$ ($C$ any constant)
+		\item $\sum_{j=1}^{n}k = nk$ ($k$ for any constant and $n \geq 1$)
 	\end{itemize}
 
-\textbf{power sums}\\
+$R_N = \Delta x[f(a + \Delta x) + f(a + 2\Delta x) + \ldots + f(a + N\Delta x)]$\\
+$R_N = \Delta x\sum_{j=1}^{N}f(a + j\Delta x)$\\
+$L_N = \Delta x[f(a) + f(a + \Delta x) + f(a + 2\Delta x) + \ldots + f(a + (N -1)\Delta x)]$\\
+$L_N = \Delta x\sum_{j=0}^{N-1}f(a + j\Delta x)$\\
+$M_N = \Delta x\sum_{j=1}^{N}f(a + (j - \frac{1}{2})\Delta x)$\\
 
+if $f(x)$ is continuous on $[a, b]$, then the endpoint and midpoint approximations approach one and the same limit as as $N \to \infty$. in other words, there is a value $L$ such that $\lim_{N \to \infty}R_N = \lim_{N \to \infty}L_N = \lim_{N \to \infty}M_N = L$\\
+
+\textbf{power sums}\\
+the kth power sum is the sum of the kth powers of the first $N$ integers.\\
+	\begin{itemize}
+		\item $\sum_{j=1}^{N}j = 1 + 2 + \ldots + N = \frac{N(N + 1)}{2} = \frac{N^2}{2} + \frac{N}{2}$
+		\item $\sum_{j=1}^{N}j^2 = 1^2 + 2^2 + \ldots + N^2 = \frac{N(N + 1)(2N + 1)}{6} = \frac{N^3}{3} + \frac{N^2}{2} + \frac{N}{6}$ 
+		\item $\sum_{j=1}^{N}j^3 = 1^3 + 2^3 + \ldots + N^3 = \frac{N^2(N + 1)^2}{4} = \frac{N^4}{4} + \frac{N^3}{2} + \frac{N^2}{4}$ 
+	\end{itemize}
+
+in the endpoint and midpoint approximations, we approximate the area under the graph by rectangles of equal width. the heights of the rectangles are the values of $f(x)$ at the endpoints or midpoints of the subintervals. in riemann sum approximations, we relax these requirements; the rectangles need not have equal width and height of a rectangle may be any value of $f(x)$ within the subinterval. more formally, to define a riemann sum, we choose a partition and a set of intermediate points. a partition $P$ of length $N$ is any choice of points in $[a, b]$ that divides the interval into $N$ subintervals:\\
+partition P: $a = x_0 < x_1 < x_2 \ldots < x_N = b$\\
+subintervals: $[x_0, x_1], [x_1, x_2], \ldots [x_{N-1}, x_{N}]$\\
+we denote the length of the ith interval by $\Delta x_i = x_i - x_i - x_{i-1}$\\
+the maximum of the lendths $\Delta x_i$ is called the norm of the partition $P$ and is denoted $\lVert P\rVert$. a set of intermediate points is a set of points $C = {c_1, \ldots, c_N}$, where $c_i$ belongs to $[x_{i-1}, x_i]$\\
+
+now, over each subinterval $[x_{i-1}, x_i]$ we constuct the rectangle of height $f(c_i)$ and base $\Delta x_i$. this rectangle has area $f(c_i)\Delta x_i$. if $f(c_i) < 0$, the rectangle extends below the x-axis and the "area" $f(c_i)\Delta x_i$ is negative. the riemann sum is the sum of these positive or negative areas: $R(f, P, C) = \sum_{i=1}^{N}f(c_i)\Delta x_i = f(c_1)\Delta x_1 + f(c_2)\Delta x_2 + \ldots + f(c_N)\Delta x_N$\\
+
+the endpoint and midpoint approximations are examples of riemann sums. they correspond to the partition of $[a, b]$ into $N$ subintervals of equal length $\Delta x = \frac{b - a}{N}$ and the choice of right endpoints, left endpoints, or midpoints as intermediate points.\\
+
+having introduced riemann sums, we are ready to make the following definition: a function is integrable of $[a, b]$ if all of the riemann sum (not just the endpoint and midpoint approximations) approach one and the same limit $L$ as the norm of the partition tends to zero. more formally, we write\\
+$L = \lim_{\lVert P\rVert \to 0}R(f, P, C) = \lim_{\lVert P\rVert \to 0}\sum_{i=1}^{N}f(c_i)\Delta x_i$\\
+if $\lvert R(f, P, C) - L\rvert$ gets arbitrarily small as the norm $\lVert P\rVert$ tends to zero, no matter how we choose the partition and intermediate points. note that as $\lVert P\rVert \to 0$, the number $N$ of intervals tends to $\infty$. the limit $L$ is called the definite integral of $f(x)$ over $[a, b]$.\\
 
 \textbf{definite integral}\\
+the definite integral of $f(x)$ over $[a, b]$ is the limit of riemann sums and is denoted by the integral sign:\\
+$\int_{a}^{b}f(x)\, dx = \lim_{\lVert P\rVert \to 0}R(f, P, C) = \lim_{\lVert P\rVert \to 0}\sum_{i=1}^{N}f(c_i)\Delta x_i$\\
+when this limit exists, we say that $f(x)$ is integrable over $[a, b]$.\\
 
+\textcolor{blue}{remarks}
+	\begin{itemize}
+		\item we often refer to the definite integral more simply as the integral of $f$ over $[a, b]$.
+		\item the function $f(x)$ inside the integral sign is called integrand
+		\item the numbers $a$ and $b$ representing the interval $[a, b]$ are called the limits of integration.
+		\item any variable may be used as a variable of integration (this is a "dummy" variable). thus, the following three integrals all denote the same quantitiy: $\int_{a}^{b}f(x)\,dx$, $\int_{a}^{b}f(x)\,dx$, $\int_{a}^{b}f(x)\,dx$  
+		\item recall that the indefinite integral $\int f(x)\, dx$ denotes the general antiderivative of $f(x)$
+	\end{itemize}
+most functions that arise in practice are integrable. in particular, every continuous function is integrable, as stated in the following theorem.\\
+if $f(x)$ is continuous on $[a, b]$, then $f(x)$ is integrable over $[a, b]$.\\
 
-signed areas\\
+when $f(x)$ is continuous and positive, we interpret the definite integral as the area under the graph. if $f(x)$ is not positive, then the definite integral is not equal to an area in the usual sense, but we may interpret is as the signed area between the graph and the x-axis. signed area is defined as following:\\
+signed area of a region $=$ (area above x-axis) - (area below x-axis)\\
 
+thus, signed area treats regions under the x-axis as "negative area". to see why the definit eintegral gives us signed area, suppose first that $f(x)$ is negative on $[a, b]$ and consider a riemann sum: $R(f, C, P) = f(c_1)\Delta x_1 + f(c_2)\Delta x_2 + \ldots + f(c_N)\Delta x_N$ since $f(c_i) < 0$, each term is equal to the negative of the area of a rectangle: $f(c_i)\Delta x_i = -(\text{area of rectangle of height }\lvert f(c_i)\rvert)$\\
 
+therefore, the riemann sums $R(f, C, P)$ converge to the negative of the area between the graph and the x-axis. if $f(x)$ takes on both positive and negative values, then $f(c_i)\Delta x_i$ is positive or negative, depending on whether the corresponding rectangle lies above or below the x-axis. in this case, the riemann sums converge to the signed area. in summary,\\
+$\int_{a}^{b}f(x)\, dx = \text{signed area of region between the graph and x-axis over } [a, b]$\\
 
+\textbf{integral of a constant} for any constant $C$, $\int_{a}^{b}C\,dx = C(b - a)$.\\
 
+\textbf{linearity of the definite integral} if $f(x)$ and $g(x)$ are integrable over $[a, b]$, then
+	\begin{itemize}
+		\item $\int_{a}^{b}(f(x) + g(x))\,dx = \int_{a}^{b}f(x)\,dx + \int_{a}^{b}g(x)\,dx$
+		\item $\int_{a}^{b}Cf(x)\,dx = C\int_{a}^{b}f(x)\,dx$ for any constant $C$
+	\end{itemize}
+
+\textbf{reversing the limits of integration} for $a < b$, we set $\int_{a}^{b}f(x)\,dx = -\int_{b}^{a}f(x)\,dx$\\
+
+\textbf{additivity for adjacent intervals} for $a \leq b \leq c$,\\
+$ \int_{a}^{c}f(x)\,dx  = \int_{a}^{b}f(x)\,dx + \int_{b}^{c}f(x)\,dx$\\
+
+\textbf{comparison theorem} if $g(x) \leq f(x)$ on an interval $[a, b]$, then\\
+$\int_{a}^{b}g(x)\,dx \leq \int_{a}^{b}f(x)\,dx$\\
+
+\textbf{the fundamental theorem of calculus, part I} assume that $f(x)$ is continuous on $[a, b]$ and let $F(x)$ be an antiderivative of $f(x)$ on $[a, b]$. then\\
+$\int_{a}^{b}f(x)\,dx = F(b) - F(a)$\\
+
+part I of the fundamental theorem shows that we can compute definite integrals using antiderivatives. part II turns this relationship around: it tells us that we can use the definite integral to construct antiderivatives. to state part II, we introduce the area function (or cumulative area function) associated to a function $f(x)$ and lower limit $a$: $A(x) = \int_{a}^{x}f(t)\, dx = \text{signed area from a to x}$ in essence, we turn the definite integral into a function by trating the upper limit x as a variable rather than a constant. notice that $A(a) = 0$ because $A(a) = \int_{a}^{a}f(t)\,dt = 0$. although $A(x)$ is defined by an integral, in many cases we can find an explicit formula it.\\
+
+\textbf{fundamental theorem of calculus, part II} let $f(x)$ be a continuous function on $[a, b]$. then $A(x) = \int_{a}^{x}f(t)\, dt$ is an antiderivative of $f(x)$, that is, $A'(x) = f(x)$, or equivalently,\\
+$\frac{d}{dx}\int_{a}^{x}f(t)\,dt = f(x)$\\
+furthermore, $A(x)$ satisfies the initial condition $A(a) = 0$.\\
+
+integration (antidifferentiation) is generally more difficult than differentiation. there are no sure-fire methods for finding an antiderivative, and, in some cases, there is no elementary formula for the antiderivative. however, there are several general techniques that are widely applicable. one such technique is the substitution method, which uses the chain rule "in reverse".\\
+
+\textbf{substitution method} if $F'(x) = f(x)$, then\\
+$\int f(u(x))u'(x)\,dx = F(u(x)) + C$\\
+
+there are two ways of using substitution to compute definite integrals. one way is to carry out the substitution method fully to find an antiderivative in terms of the x-variable. however, it is often more efficient to evaluate the definite integral directly in terms of the u-variable. this can be done provided that the limits of integration are changed as indicated in the next theorem.\\
+
+\textbf{change of variables formula for definite integrals} if $u(x)$ is differentiable on $[a, b]$ and $f(x)$ is integrable on the range of $u(x)$, then\\
+$\int_{a}^{b}f(u(x))u'(x)\,dx = \int_{u(a)}^{u(b)}f(u)\,du$\\
 
 \end{document}
