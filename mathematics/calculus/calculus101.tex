@@ -35,6 +35,32 @@ the greatest common factor of two (or more) numbers is the largest number that d
 		\item factors of 18: 1, 2, 3, \textcolor{red}{6}, 9, 18
 	\end{itemize}
 
+the GCD is the same as the GCF they both refer to the largest number that evenly divides two or more integers.\\
+
+prime factorization: GCD(72, 27)
+	\begin{itemize}
+		\item $\frac{72}{2} = 36$
+		\item $\frac{36}{2} = 18$ 
+		\item $\frac{18}{2} = 9$ 
+		\item $\frac{9}{3} = 3$ 
+		\item $\frac{3}{3} = 1$ 
+		\item $72 = 2^3 \cdot 3^2$ 
+		\item $\frac{27}{3} = 9$ 
+		\item $\frac{9}{3} = 3$ 
+		\item $\frac{3}{3} = 1$ 
+		\item $27 = 3^3$ 
+	\end{itemize}
+the common factor is $3^2 = 9$\\
+
+euclidean algorithm: GCD(72, 27)\\
+keep dividing and replacing until the remainder is 0. the last non-zero remainder is the GCD.
+	\begin{itemize}
+		\item $\frac{72}{27} = 2$ remainder 18
+		\item $\frac{27}{18} = 1$ remainder 9
+		\item $\frac{18}{9} = 2$ remainder 0
+	\end{itemize}
+$\text{GCD} = 9$\\
+
 \textbf{inequalities and absolute value:}
 	\begin{itemize}	
 		\item $[a, b] = a \leq x \leq b$
@@ -1345,5 +1371,39 @@ there are two ways of using substitution to compute definite integrals. one way 
 
 \textbf{change of variables formula for definite integrals} if $u(x)$ is differentiable on $[a, b]$ and $f(x)$ is integrable on the range of $u(x)$, then\\
 $\int_{a}^{b}f(u(x))u'(x)\,dx = \int_{u(a)}^{u(b)}f(u)\,du$\\
+
+$\text{area between the graphs} = \int_{a}^{b}(y_{\text{top}} - y_{\text{bot}})\,dx = \int_{a}^{b}(f(x) - g(x))\,dx$\\
+
+$\text{area between the graphs} = \int_{c}^{d}(g_2(y) - g_1(y))\,dy = \int_{c}^{d}(x_{\text{right}} - x_{\text{left}})\,dy$\\
+
+\textbf{volume as the integral of cross-sectional area}\\
+suppose that a solid body extends from height $y = a$ to $y = b$. let $A(y)$ be the area of the horizontal cross section at height $y$. then\\ $\text{volume of the solid body } = \int_{a}^{b}A(y)\,dy$\\
+
+recall that the average of $N$ numbers $a_1, a_2, \ldots, a_N$ is the sum divided by $N$:\\ $\frac{a_1 + a_2 + \ldots a_N}{N} = \frac{1}{N}\sum_{j=1}^{N}a_j$\\ we cannot define the average value of a function $f(x)$ on an interval $[a, b]$ as a sum because there are infinitely many values of $x$ to consider. however, the right-endpoint appproximation may be interpreted as an average value:\\ $R_N = \frac{b - a}{N}(f(x_1) + f(x_2) + \ldots + f(x_N))$\\ where $x_i = a + i(\frac{b - a}{N})$. dividing by $(b - a)$, we obtain the average of the function values $f(x_i)$:\\ $\frac{1}{b - a}R_N = \frac{f(x_1) + f(x_2) + \ldots + f(x_N)}{N}$\\ if $N$ is large, it is reasonable to think of this quantity as an approximation to the average of $f(x)$ on $[a, b]$. therefore, we define the average value itself as the limit:\\ $\text{average value } = \lim_{N \to \infty}\frac{1}{b - a}R_N(f) = \frac{1}{b - a}\int_{a}^{b}f(x)\,dx$ the average value is also called the mean value.\\
+
+\textbf{average value} the average value of an integrable function $f(x)$ on $[a, b]$ is the quantitiy\\ $\text{average value } = \frac{1}{b - a}\int_{a}^{b}f(x)\,dx$\\
+
+\textbf{mean value theorem for integrals} if $f(x)$ is continuous on $[a, b]$, then there exists a value $c \in [a, b]$ such that\\ $f(c) = \frac{1}{b - a}\int_{a}^{b}f(x)\,dx$\\
+
+a solid of revolution is a solid obtained by rotating a region in the plane about an axis. the sphere and right circular cone are familiar examples of such solids.\\
+
+\textbf{volume of a solid of revolution: disk method} if $f(x)$ is continuous and $f(x) \geq 0$ on $[a, b]$, then the volume $V$ obtained by rotating the region under the graph about the x-axis is $[\text{with } R = f(x)]$:\\ $V = \pi\int_{a}^{b}R^2\,dx = \pi\int_{a}^{b}f(x)^2\,dx$\\
+
+we now consider some variations on the formula for a volume of revolution. first suppose that the region between two curves $y = f(x)$ and $y = g(x)$, where $f(x) \geq g(x) \geq 0$, is rotated about the x-axis. then the vertical cross section of the solid at $x$ is generated as the segment $\overline{AB}$ revolves around the x-axis. this cross section is a washer of outer radius $R = f(x)$ and inner radius $r = g(x)$. the area of this washer is $\pi R^2 - \pi r^2$ or $\pi(f(x)^2 - g(x)^2)$, and we obtain the volume of the solid as the integral of the cross-section area:\\ $V = \pi \int_{a}^{b}(R^2 - r^2)\,dx = \pi \int_{a}^{b}(f(x)^2 - g(x)^2)\,dx$\\
+
+we computed volumes by integrating cross-section area. the shell method is based on a different idea and is more convenient in some cases. in the shell method, we use cylindrical shells to approximate a volume of revolution. to this end, let us first derive an approximation to the volume of a cylindrical shell of height $h$, outer radius $R$, and inner radius $r$. since the shell is obtained by removing a cylinder of radius $r$ from the wider cylinder of radius $R$, its volume is equal to\\ $\pi R^2h - \pi r^2h = \pi h(R^2 - r^2) = \pi h(R + r)(R - r) = \pi h(R + r)\Delta r$\\ where $\Delta r = R - r$ is the shell's thickness. if the shell is very thin, then $R$ and $r$ are nearly equal and we may replace $(R + r)$ by $2R$ in the equation above to obtain the approximation $\text{volume of shell} \approx 2\pi Rh\Delta r$\\
+
+now consider a solid obtained by rotating the region under $y = f(x)$ from $x = a$ to $x = b$ around the y-axis. the idea is to divide the solid into this concentric shells. more precisely, we divide $[a, b]$ into $N$ subintervals of length $\Delta x = \frac{b - a}{N}$ with endpoints $x_0, x_1, \ldots, x_N$. when we rotate the thin strip of area above $[x_{i - 1}, x_i]$ about the y-axis, we obtain a thin shell whose volume we denote by $V_i$. the total volume $V$ of the solid is equal to $V = \sum_{i=1}^{N}V_i$.\\
+
+the top rim of the ith shell is curved. however, when $\Delta x$ is small we may approximate this thin shell by the cylindrical shell (with a flat rim) of height $f(x_i)$.\\ $V_i \approx (\text{circumference})(\text{height})(\text{thickness}) = 2\pi x_if(x_i)\Delta x$\\ therefore,\\ $V = \sum_{i=1}^{N}V_i \approx \sum_{i=1}^{N}2\pi x_if(x_i)\Delta x$\\
+
+\textbf{volume of a solid of revolution: the shell method} the volume $V$ of the solid obtained by rotating the region under the graph of $y = f(x)$ over the interval $[a, b]$ about the y-axis is equal to\\ $V = 2\pi \int_{a}^{b}xf(x)\,dx$\\
+
+the exponential function\\
+
+
+
+
+
 
 \end{document}
