@@ -1,5 +1,0 @@
-How I program C - Eskil Steenberg (https://www.youtube.com/watch?=443UNeGrFoM)
-
-Data Oriented Design - Andrew Kelley (https://www.youtube.com/watch?v=IroPQ150F6c)
-
-Master C programming - dr Jonas Birch (https://www.youtube.com/watch?v=C3mhalhAEA4)

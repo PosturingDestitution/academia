@@ -83,7 +83,7 @@ if you square any real number you will get a non-negative result ($(x)^2 = (-x)^
 		\item $ab \leq \lvert a\rvert\lvert b\rvert$
 	\end{enumerate}
 
-\textbf{lines equations:}\\
+\textbf{lines equations:}
 	\begin{itemize}
 		\item $(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2})$
 		\item $\frac{y_2 - y_1}{x_2 - x_1}$
@@ -160,26 +160,6 @@ if you square any real number you will get a non-negative result ($(x)^2 = (-x)^
 \textbf{cone with arbitrary base: where A is the area of the base:}
 	\begin{itemize}
 		\item $V = \frac{1}{3}Ah$
-	\end{itemize}
-
-\textbf{exponents and logs:} 
-	\begin{itemize}
-		\item $x^mx^n = x^{m+n}$
-		\item $\frac{x^m}{x^n} = x^{m-n}$
-		\item $(x^m)^n = x^{mn}$
-		\item $x^{-n} = \frac{1}{x^n}$
-		\item $(xy)^n = x^ny^n$
-		\item $(\frac{x}{y})^n = \frac{x^n}{y^n}$ \item $x^{1/n} = \sqrt[n]{x}$
-		\item $x^{\frac{m}{n}} = \sqrt[n]{x^m} = (\sqrt[n]{x})^m$
-		\item $\log_ax = y \leftrightarrow a^y = x$
-		\item $\log_a(xy) = \log_ax + \log_ay$
-		\item $\log_a(a^x) = x$
-		\item $a^{\log_a x} = x$
-		\item $\log_a(\frac{x}{y}) = \log_ax - \log_ay$
-		\item $\log_a1 = 0$
-		\item $\log_aa = 1$
-		\item $\log_a(x^r) = r\log_ax$
-		\item $\log_ba = \frac{\log_ca}{\log_cb}$
 	\end{itemize}
 
 \textbf{factoring:}
@@ -848,8 +828,6 @@ sum of a finite arithmetic sequence:
 
 $\sum_{k = 1}^{n}[a + (k - 1)d] = \frac{n}{2}[2a + (n - 1)d]$
 
-\section*{Trigonometry}
-
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
 
@@ -1399,11 +1377,89 @@ the top rim of the ith shell is curved. however, when $\Delta x$ is small we may
 
 \textbf{volume of a solid of revolution: the shell method} the volume $V$ of the solid obtained by rotating the region under the graph of $y = f(x)$ over the interval $[a, b]$ about the y-axis is equal to\\ $V = 2\pi \int_{a}^{b}xf(x)\,dx$\\
 
-the exponential function\\
-inverse functions\\
-logs and there derivatives\\
-exponential growth and decay\\
-compound intereset and present value\\
+\section*{Exponential and Inverse Functions}
+
+an exponential function is a function of the form $f(x) = b^x$, where $b > 0$ and $b \neq 1$. the number $b$ is called the base. some examples are $2^x$, $(1.4)^x$, and $10^x$. we exclude the case $b = 1$ because $f(x) = 1^x$ is a constant function. calculators give good decimal approximations to values of exponential functions: $2^4 = 16$, $2^{-3} = 0.125$, $(1.4)^3 = 2.744$, $10^{4.6} \approx 39,810.717$. three properties of exponential functions should be singled out from the start:
+	\begin{itemize}
+		\item exponential functions are positive: $b^x > 0$ for all $x$
+		\item $f(x) = b^x$ is increasing if $b > 1$ and decreasing if $0 < b < 1$
+		\item the range of $f(x) = b^x$ is the set of all positive real numbers
+	\end{itemize}
+another important feature of $f(x) = b^x$ (for $b > 1$) is that it increases rapidly. although "rapid increase" is a subjective term, the following precise statement is true: $f(x) = b^x$ increases more rapidly than every polynomial function. for example, $f(x) = 3^x$ eventually overtakes and increases faster than the power functions $x^3$, $x^4$, and $x^5$.\\
+
+\textbf{laws of exponents ($b > 0$)}
+	\begin{itemize}
+		\item $b^0 = 1$
+		\item $b^xb^y = b^{x + y}$
+		\item $\frac{b^x}{b^y} = b^{x - y}$
+		\item $b^{-x} = \frac{1}{b^x}$
+		\item $(b^x)^y = b^{xy}$
+		\item $b^{\frac{1}{n}} = \sqrt[n]{b}$
+	\end{itemize}
+
+\textbf{inverse}\\
+let $f(x)$ have a domain $D$ and range $R$. the inverse function $f^{-1}(x)$ (if it exists) is the function with domain $R$ such that\\ $f^{-1}(f(x)) = x$ for $x \in D$ and $f(f^{-1}(x)) = x$ for $x \in R$\\ if $f^{-1}$ exists, then $f$ is called invertible.\\
+
+\textbf{one-to-one functions} a function $f(x)$ is one-to-one (on its domain $D$) if for every value $c$, the equation $f(x) = c$ has at most one solution for $x \in D$\\
+
+\textbf{existence of inverses} if $f(x)$ is one-to-one on its domain $D$, then $f$ is invertible. furthermore,
+	\begin{itemize}
+		\item domain of $f = \text{range of} f^{-1}$
+		\item range of $f = \text{domain of} f^{-1}$ 
+	\end{itemize}
+
+\textbf{horizontal line test} a function $f(x)$ is one-to-one if and only if every horizontal line intersects the graph of $f$ in at most one point.\\
+
+\textbf{derivative of the inverse} assume that $f(x)$ is differentiable and one-to-one with inverse $g(x) = f^{-1}(x)$. if $b$ belongs to the domain of $g(x)$ and $f'(g(b)) \neq 0$, then $g'(b)$ exists and $g'(b) = \frac{1}{f'(g(b))}$\\
+
+the logarithm to the base $b$ (where $b > 0$ and $b \neq 1$) is the inverse of the exponential function $f(x) = b^x$ and is denoted $\log_{b}x$. by definition, $b^{\log_{b}x} = x$ and $\log_{b}b^x = x$.\\
+
+\textbf{laws of logarithms}
+	\begin{itemize}
+		\item $\log_{b}(1) = 0$
+		\item $\log_{b}(b) = 1$
+		\item $\log_{b}(xy) = \log_{b}x + \log_{b}y$
+		\item $\log_{b}\frac{x}{y} = \log_{b}x - \log_{b}y$
+		\item $\log_{b}(\frac{1}{x}) = -\log_{b}(x)$
+		\item $\log_{b}(x^n) = n\log_{b}x$
+	\end{itemize}
+we also note that all logarithm functions are proprtional. more precisely, the following change of base formula holds: $\log_{b}x = \frac{\log_{a}x}{\log_{a}b}$, $\log_{b}x = \frac{\ln(x)}{\ln(b)}$\\
+
+\textbf{derivative of $f(x) = \ln(x)$} $\frac{d}{dx}\ln(x) = \frac{1}{x}$ for $x > 0$\\
+
+\textbf{antiderivative of $y = \frac{1}{x}$} the function $f(x) = \ln \lvert x\rvert$ is an antiderivative of $y = \frac{1}{x}$ in the domain ${x : x \neq 0}$, that is, $\int\frac{dx}{x} = \ln \lvert x \rvert + C$\\
+
+in this section we study quantities $P(t)$ that depend exponentially on time:
+
+\begin{center}$P(t) = P_0e^{kt}$\end{center}
+
+where $P_0$ and $k$ are constants. if $k > 0$, then $P(t)$ grows exponentially with growth constant $k$, and if $k < 0$, then $P(t)$ decays exponentially with decay constant $k$. the coefficient $P_0$ is the initial size since $P(0) = P_0e^{k \cdot 0} = P_0$. exponential growth or decay may also be expressed by the formula $P(t) = P_0b^t$ with $b = e^k$, since $P_0b^t = P_0(e^k)^t = P_0e^{kt}$.\\
+
+the exponential functions $y = P_0e^{kt}$ are the only functions that satisfy this differential equation.\\
+\textcolor{red}{theorem 1} if $y(t)$ is differentiable function satisfying the differential equation\\
+$y' = ky$\\
+then $y(t) = P_0e^{kt}$, where $P_0$ is the initial value $P_0 = y(0)$\\
+
+\textbf{doubling time} if $P(t) = P_0e^{kt}$ with $k > 0$, then the doubling time of $P$ is:\\
+$\text{doubling time} = \frac{\ln2}{k}$\\
+if $P(t) = P_0e^{-kt}$ then this is the formulae for half-life\\
+
+exponential functions play an important role in financial calculations. in this section,we use these functions to compute compound interest and present value. the initial sum of money $P_0$ in an account or investment is called the principal. when a principal of $P_0$ dollars is deposited into a bank account, the amount or balance in the account at time $t$ depends on two factors: the interest rate $r$ and how often interest is compounded. if interest is paid out once a year at the end of the year, we say that the interest is compounded annually. if the principal and interest are retained in the account, then the balance grows exponentially.\\
+
+\textbf{compound interest} if $P_0$ dollars are deposited into an account earning interest at an annual rate $r$, compounded $M$ times yearly, then the value of the account after $t$ years is $P(t) = P_0(1 + \frac{r}{M})^{Mt}$.\\
+
+\textbf{limit formula for $e$ and $e^x$}\\
+$e = \lim{n \to \infty}(1 + \frac{1}{n})^n$ and $e^x = \lim_{n \to \infty}(1 + \frac{x}{n})^n$ for all $x$\\
+
+\textbf{continuously compounded interest} if $P_0$ dollars are deposited into an account earning interest at an annual rate $r$, compounded continuously, then the value of the account after $t$ years is $P(t) = P_0e^{rt}$
+
+the concept of present value (PV) is used in finance to compare the values of payments made at different times. assume that there is an interest rate $r$ at which any investor can lend or borrow money and that interest is compounded continuously. then the PV of $P$ dollars to be received $t$ years in the future is defined to be $Pe^{-rt}$:\\
+$\text{The PV of P dollars received at time t is} Pe^{-rt}$\\
+what is the reasoning behind this definition? when you invest at the interest rate $r$ for $t$ years, your principal increases by a factor $e^{rt}$, so you invest $Pe^{-rt}$, dollars, your principal grows to $Pe^{-rt}e^{rt} = P$ dollars at time $t$. thus, the present value $Pe^{-rt}$ is the amount you would have to invest today in order to have $P$ dollars at time $t$
+
+\textbf{PV of an income stream} the present value at interest rate $r$ of an income stream paying out $R(t)$ dollars/year continuously for $T$ years is $PV = \int_{0}^{T}R(t)e^{-rt}\,dt$
+
+
 models involving $y' = k(y - b)$\\
 L'H$\hat{\text{o}}$pital's rule\\
 inverse trig functions\\
