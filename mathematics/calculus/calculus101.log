@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.7.22)  22 JUL 2025 22:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.7.22)  23 JUL 2025 15:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1624,7 +1624,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 1451--1453
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1463--1467
+Underfull \hbox (badness 10000) in paragraph at lines 1460--1461
+
+ []
+
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 1464--1465
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1466--1467
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1468--1469
 
  []
 
@@ -1634,11 +1649,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 1470--1472
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1473--1474
+Underfull \hbox (badness 10000) in paragraph at lines 1473--1475
 
  []
 
-[35] (./calculus101.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 1476--1477
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1484--1488
+
+ []
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 1489--1490
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1491--1492
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1493--1494
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1495--1513
+
+ []
+
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 1515--1517
+
+ []
+
+[38] (./calculus101.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1651,7 +1701,7 @@ Here is how much of TeX's memory you used:
  46191 multiletter control sequences out of 15000+600000
  566878 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,17n,107p,1557b,706s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,17n,107p,1594b,706s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texli
@@ -1668,10 +1718,10 @@ re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1
 /public/cm-super/sfrm1000.pfb>
-Output written on calculus101.pdf (35 pages, 319834 bytes).
+Output written on calculus101.pdf (38 pages, 332603 bytes).
 PDF statistics:
- 206 PDF objects out of 1000 (max. 8388607)
- 133 compressed objects within 2 object streams
+ 218 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

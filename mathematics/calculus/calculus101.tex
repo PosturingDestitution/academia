@@ -1301,7 +1301,7 @@ when this limit exists, we say that $f(x)$ is integrable over $[a, b]$.\\
 		\item we often refer to the definite integral more simply as the integral of $f$ over $[a, b]$.
 		\item the function $f(x)$ inside the integral sign is called integrand
 		\item the numbers $a$ and $b$ representing the interval $[a, b]$ are called the limits of integration.
-		\item any variable may be used as a variable of integration (this is a "dummy" variable). thus, the following three integrals all denote the same quantitiy: $\int_{a}^{b}f(x)\,dx$, $\int_{a}^{b}f(x)\,dx$, $\int_{a}^{b}f(x)\,dx$  
+		\item any variable may be used as a variable of integration (this is a "dummy" variable). thus, the following three integrals all denote the same quantitiy: $\int_{a}^{b}f(x)\,dx$, $\int_{a}^{b}f(t)\,dt$, $\int_{a}^{b}f(u)\,du$  
 		\item recall that the indefinite integral $\int f(x)\, dx$ denotes the general antiderivative of $f(x)$
 	\end{itemize}
 most functions that arise in practice are integrable. in particular, every continuous function is integrable, as stated in the following theorem.\\
@@ -1457,20 +1457,63 @@ the concept of present value (PV) is used in finance to compare the values of pa
 $\text{The PV of P dollars received at time t is} Pe^{-rt}$\\
 what is the reasoning behind this definition? when you invest at the interest rate $r$ for $t$ years, your principal increases by a factor $e^{rt}$, so you invest $Pe^{-rt}$, dollars, your principal grows to $Pe^{-rt}e^{rt} = P$ dollars at time $t$. thus, the present value $Pe^{-rt}$ is the amount you would have to invest today in order to have $P$ dollars at time $t$
 
-\textbf{PV of an income stream} the present value at interest rate $r$ of an income stream paying out $R(t)$ dollars/year continuously for $T$ years is $PV = \int_{0}^{T}R(t)e^{-rt}\,dt$
+\textbf{PV of an income stream} the present value at interest rate $r$ of an income stream paying out $R(t)$ dollars/year continuously for $T$ years is $PV = \int_{0}^{T}R(t)e^{-rt}\,dt$\\
 
+we have seen that a quantity grows or decays exponentially if its rate of change is proportional to the amount present. this characteristic property is expressed by the differential equation $y' = ky$. we now study a closely related differential equation: $\frac{dy}{dt} = k(y - b)$\\ where $k$ and $b$ are constants and $k \neq 0$. this differential equation describes a quantity $y$ whose rate of change is proportional to the size of the difference $y - b$. the general solution is $y(t) = b + Ce^{kt}$\\ where $C$ is a constant determined by the initial condition. to very this, we note that $(y - b)' = y'$ since $b$ is a constant, so the first equation may be rewritten $\frac{d}{dt}(y - b) = k(y - b)$\\ in other words, $y - b$ satisfies the differential equation of an exponential function. thus, $y - b = Ce^{kt}$ or $y = b + Ce^{kt}$, as claimed.
 
-models involving $y' = k(y - b)$\\
-L'H$\hat{\text{o}}$pital's rule\\
-inverse trig functions\\
-hyperbolic functions\\
+\textbf{L'H$\hat{\text{o}}$pital's rule} assume that $f(x)$ and $g(x)$ are differentiable on an open interval containing $a$ and that\\ $f(a) = g(a) = 0$\\ also assume that $g'(x) \neq 0$ for $x$ near but not equal to $a$. then\\ $\lim_{x \to a}\frac{f(x)}{g(x)} = \lim_{x \to a}\frac{f(x)'}{g(x)'}$\\ provided that the limit on the right exists. this conclusion also holds if $f(x)$ and $g(x)$ are differentiable for $x$ near (but not equal to ) $a$ and\\ $\lim_{x \to a}f(x) = \pm\infty$ and $\lim_{x \to a}f(x) = \pm\infty$\\ furthermore, these limits may be replaced by one-sided limits.\\
 
+sometimes, we are interested in determining which of two functions, $f(x)$ and $g(x)$, grows faster. for example, there are two standard computer algorithms for sorting data (alphabetizing, ordering according to rank, ect.): quick sort and bubble sort. the average time equired to sort a list of size $n$ has order of magnitude $n\ln(n)$ for quick sort and $n^2$ for bubble sort. which algorithm is faster when the size $n$ is large? although $n$ is a whole number, this problem amounts to comparing the growth of $f(x) = x\ln(x)$ and $g(x) = x^2$ as $x \to \infty$.\\ we say that $f(x)$ grows faster than $g(x)$ if\\ $\lim{x \to \infty}\frac{f(x)}{g(x)} = \infty$ or equivalently, $\lim{x \to \infty}\frac{g(x)}{f(x)} = 0$\\ to compare the growth of functions, we need a version of L'H$\hat{\text{o}}$pital's rule that applies to limits as $x \to \infty$.\\
 
+\textbf{L'H$\hat{\text{o}}$pital's rule for limits as $x \to \infty$} assume that $f(x)$ and $g(x)$ are differentiable in an interval $(b, \infty)$ and that $g'(x) \neq 0$ for $x > b$. if $\lim_{x \to \infty}f(x)$ and $\lim_{x \to \infty}g(x)$ both exists and either both are zero or both are infinite, then\\ $\lim_{x \to infty}\frac{f(x)}{g(x)} = \lim_{x \to infty}\frac{f'(x)}{g'(x)}$\\ provided that the limit on the right exists. a similar result holds for limits as $x \to -\infty$.\\
 
+$\theta = \sin^{-1}(x)$ is the unique angle in $[-\frac{\pi}{2}, \frac{\pi}{2}]$ such that $\sin(\theta) = x$\\
+$\theta = \cos^{-1}(x)$ is the unique angle in $[0, \pi]$ such that $\cos(\theta) = x$\\
+
+\textbf{derivatives of arcsine and arccosine}\\
+$\frac{d}{dx}\sin^{-1}(x) = \frac{1}{\sqrt{1 - x^2}}$, $\frac{d}{dx}\cos^{-1}(x) = -\frac{1}{\sqrt{1 - x^2}}$\\  
+
+\textbf{derivatives of inverse trigonometric functions}\\
+	\begin{itemize}
+		\item $\frac{d}{dx}\tan^{-1}(x) = \frac{1}{\sqrt{1 + x^2}}$ 
+		\item $\frac{d}{dx}\cot^{-1}(x) = -\frac{1}{\sqrt{1 + x^2}}$ 
+		\item $\frac{d}{dx}\sec^{-1}(x) = \frac{1}{\lvert x\rvert\sqrt{1 - x^2}}$ 
+		\item $\frac{d}{dx}\csc^{-1}(x) = -\frac{1}{\lvert x\rvert\sqrt{1 - x^2}}$ 
+	\end{itemize}
+
+the hyperbolic functions are certain special combinations of $e^x$ and $e^{-x}$ that play a role in engineering and physics. the hyperbolic sine and cosine, often called "cinch" and "cosh", are the functions defined as follows:\\
+$\sinh(x) = \frac{e^x - e^{-x}}{2}$, $\cosh(x) = \frac{e^x + e^{-x}}{2}$\\ as the terminology suggest, there are similarities between the hyperbolic and trigonometric functions. the trigonometric functions and their hyperbolic analogs have the same parity., thus, sin x and sing x are both odd, and cos x and cosh x are both even. the basic trigonometric identity $\sin^2(x) + \cos^2(x) = 1$ has a hyperbolic analog: $\sinh^2(x) - \cosh^2(x) = 1$. the addition formulas satisfied by $\sin(\theta)$ and $\cos(\theta)$ have hyperbolic analogs:\\
+$\sinh(A + B) = \sinh(A)\cosh(B) + \cosh(A)\sinh(B)$\\
+$\cosh(A + B) = \cosh(A)\cosh(B) + \sinh(A)\sinh(B)$\\		
+
+it follows from the definitions that $\cosh(x) + \sinh(x) = e^x$, $\cosh(x) - \sinh(x) = e^x$ we obtain the following by multiplying these two equation together:\\ $\cosh^2(x) - \sinh^2(x) = (\cosh(x) + \sinh(x))(\cosh(x) - \sinh(x)) = e^x \cdot e^{-x} = 1$\\
+
+\textbf{hyperbola instead of the circle:} the identity $\sin^2(t) + \cos^2(t) = 1$ tells us that the point $(\cos(t), \sin(t))$ lies on the unit circle $x^2 + y^2 = 1$. similarly, the identity $\cosh^2(t) - \sinh^2(t) = 1$ says that the point $(\cosh(t), \sinh(t))$ lies on the hyperbola $x^2 - y^2 = 1$\\
+
+\textbf{derivative formulas:} the formulas for derivatives of the hyperbolic functions are similar to the formulas for the corresponsing trigonometric function, differing at most by a minus sign: $\frac{d}{dx}\sinh(x) = \cosh(x)$, $\frac{d}{dx}\cosh(x) = \sinh(x)$\\
+
+the terms "hyperbolic sine" and "hyperbolic cosine" suggest a connection between the hyperbolic and trigonometric functions. this excursion explored the source of the connection, which leads us to complex numbers and Euler's famous formula.\\ recall that $y = e^t$ satisfies the differential equation $y' = y$ and every solution is of the form $y = Ce^t$ for some constant $C$. on the other hand, we can check that both $y = e^t$ and $y = e^{-t}$ satisfy the second-order differential equation\\ $y'' = y$\\ indeed, $(e^t)'' = e^t$ and $(e^{-t})'' = (-e^{-t}) = e^{-t}$. it can be shown that every solution of this equation has the form $y = Ae^t + Be^{-t}$ for some constants $A$ and $B$.\\ now let's examine what happens when we cahnge the equation by a minus sign:\\ $y'' = -y$\\ in this case, $y = \sin(t)$ and $y = \cos(t)$ are solutions because\\ $(\sin(t))'' = (\cos(t))' = -\sin(t)$, $(\cos(t))'' = (-\sin(t))' = -\cos(t)$\\ furthermore, it can be proved as before that every solution of the equation has the form\\ $y = A\cos(t) + B\sin(t)$\\ this might seem to be the end of the story. however, there is another way to write down solutions to the equation. consider the exponential functions $y = e^{it}$ and $y = e^{-it}$, where\\ $i = \sqrt{-1}$\\ the number $i$ is an imaginary complex number satisfying $i^2 = -1$. since $i$ is not a real number, the exponential $e^{it}$ is not defined without further explanation. but if we accept that $e^{it}$ can be defined and that it is legitimate to apply the usual rules of calculus to it, we obtain\\
+$\frac{d}{dt}e^{it} = ie^{it}$\\
+differentiating a second time yields\\
+$(e^{it})'' = (ie^{it})' = i^2e^{it} = -e^{it}$\\
+in other words, $y = e^{it}$ is a solution to the equation $y'' = -y$ and must therefore be expressible in terms of $\sin(t)$ and $\cos(t)$. that is, for some constant $A$ and $B$,\\
+$e^{it} = A\cos(t) + B\sin(t)$\\
+we determine $A$ and $B$ by considering initial conditions. first, set $t = 0$ in the equation\\
+$1 = e^{i0} = \frac{d}{dt}e^{it} = A\cos(0) + B\sin(0) = A$\\
+then take the derivative of the equation and set $t = 0$:\\
+$ie^{it} = \frac{d}{dx}e^{it} = A\cos'(t) + B\sin'(t) = -A\sin(t) + B\cos(t)$\\
+$i = ie^{i0} = -A\sin(0) + B\cos(0) = B$\\
+thus, $A = 1$ and $B = i$, and the equation yields Euler's formula:\\
+$e^{it} = \cos(t) + i\sin(t)$\\
+Euler derived this result using power series, which allows us to define $e^{it}$ in a rigorous fashion.\\ At $t = \pi$, Euler's formula yields\\
+$e^{i\pi} = -1$\\
+here we have a simple but surpring relation between the three important numbers $e$, $\pi$, and $i$.\\ euler's formula also reveals the source of the analogy between hyperbolic and trigonometric functions. let us calculate the hyperbolic cosine at $x = it$:\\
+$\cosh(it) = \frac{e^{it} + e^{-it}}{2} = \frac{\cos(t) + \sin(t)}{2} + \frac{\cos(-t) + i\sin(-t)}{2} = \cos(t)$\\
+a similar calculation shows that $\sinh(it) = i\sin(t)$. in other words, the hyperbolic and trigonometric functions are not merly analogous - once we introduce complex numbers, we see that they are very nearly the same functions.\\
+
+\section*{Techniques of Integration}
 integration techniques(numerical integration, parts, trigonometric sub, partial fractions)\\
 improper integrals\\
-
-further applications of the integral and taylor polynomials\\
 
 
 \end{document}
