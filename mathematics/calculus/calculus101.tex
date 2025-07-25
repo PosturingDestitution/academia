@@ -1512,8 +1512,124 @@ $\cosh(it) = \frac{e^{it} + e^{-it}}{2} = \frac{\cos(t) + \sin(t)}{2} + \frac{\c
 a similar calculation shows that $\sinh(it) = i\sin(t)$. in other words, the hyperbolic and trigonometric functions are not merly analogous - once we introduce complex numbers, we see that they are very nearly the same functions.\\
 
 \section*{Techniques of Integration}
-integration techniques(numerical integration, parts, trigonometric sub, partial fractions)\\
-improper integrals\\
+numerical integration is the process of approximating a definite integral using well-chosen sums of function values. we use numerical integration when we cannot find a formula for an antiderivative and thus cannot apply the FTC. for instanc, the gaussian function $f(x) = e^{\frac{-x^2}{2}}$, whose graph is a bell-shaped curve, does not have an elementary antiderivative. numerical methods are needed to approximate $\int_{a}^{b}e^{\frac{-x^2}{2}}\,dx$.\\ let $N$ be a whole number. the trapezodial rule $T_N$ consists of approximating $\int_{a}^{b}f(x)\,dx$ by the average of the left-and right-endpoint approximations: $T_N = \frac{1}{2}(R_N + L_N)$\\ this approximation was used informally in previous chapters, where we observed that the average was likely to give a better approximation than either of $R_N$ or $L_N$ alone. to derive a formula for $T_N$, let us recall the formulas for the endpoint approximations. we divide $[a, b]$ into $N$ subintervals of length $\Delta x = \frac{b - a}{N}$ with endpoints\\ $x_0 = a, x_1 = a + \Delta x, x_2 = a + 2\Delta x, \ldots, x_N = b$\\ for convenience, we denote the values of $f(x)$ at the endpoints by $y_j$:\\ $y_j = f(x_j) = f(a + j\Delta x) (j = 0, 1, 2, \ldots, N)$\\ in particular, $y_0 = f(a)$ and $y_N = f(b)$. then\\$R_N = \Delta x\sum_{j=1}^{N}y_j$, $L_N = \Delta x\sum_{j=0}^{N-1}y_j$\\ when we form the sum $R_N + L_N$, each value $y_j$ occurs twice except for the first $y_0$ (which only occursd in $L_N$) and the last $y_N$ (which only occurs in $R_N$). therefore,\\ $R_N + L_N = \Delta x(y_0 + 2y_1 + 2y_2 + \ldots + 2y_{N-1} + y_N)$\\ dividing by 2 we obtain the formula for $T_N$\\
+
+\textbf{trapezodial rule} the Nth trapezodial approximation to $int_{a}^{b}f(x)\,dx$ is\\
+$T_N = \frac{1}{2}\Delta x(y_0 + 2y_1 + \ldots + 2y_{N-1} + y_N)$\\
+where $\Delta x = \frac{b - a}{N}$ and $y_j = f(a + j\Delta x)$.\\
+
+\textbf{midpoint rule} the Nth midpoint approximation to $\int_{a}^{b}f(x)\,dx$ is\\
+$M_N = \Delta x(f(c_1) + f(c_2) + \ldots + f(c_N))$\\
+where $\Delta x = \frac{b - a}{N}$ and $c_j = a + (j - \frac{1}{2})\Delta x)$ is the midpoint of the jth interval $[x_{j-1}, x_j]$.\\
+
+in applications, it is important to know the accuracy of a numerical approximation. we define the error in $T_N$ and $M_N$ by\\
+$\text{Error}(T_N) = \lvert T_N - \int_{a}^{b}f(x)\,dx\rvert$, $\text{Error}(M_N) = \lvert M_N - \int_{a}^{b}f(x)\,dx\rvert$\\
+accoring to the following theorem, the magnitudes of these errors are related to the size of the second derivative $f''(x)$-here we assume $f''(x)$ exists and is continuous.\\
+
+\textbf{error bound for $T_N$ and $M_N$} let $K_2$ be a number such that $\lvert f''(x)\rvert \leq K_2$ for all $x \in [a, b]$. then\\
+$\text{Error}(T_N) \leq \frac{K_2(b-a)^3}{12N^2}$, $\text{Error}(M_N) \leq \frac{K_2(b - a)^3}{24N^2}$\\
+
+can we improve on the trapezoidal and midpoint rules? one clue is that when $f(x)$ is concave (up or down), then the exact value of the integral lies between $T_N$ and $M_N$. in fact, we see geometrically that
+	\begin{itemize}
+		\item if $f(x)$ is concave down $\Rightarrow T_N \leq \int_{a}^{b}f(x)\,dx \leq M_N$
+		\item if $f(x)$ is concave up $\Rightarrow M_N \leq \int_{a}^{b}f(x)\,dx \leq T_N$ 
+	\end{itemize}
+this suggests that the average of $T_N$ and $M_N$ may be more accurate than either $T_N$ or $M_N$ alone.\\ simpson's rule $S_N$ exploits this idea, but it takes into account that $M_N$ is roughly twice as accurate as $T_N$. therefore, $S_N$ uses a weighted average, which is more accurate than the ordinary average. for $N$ even, we define\\ $S_N = \frac{1}{3}T_{\frac{N}{2}} + \frac{2}{3}M_{\frac{N}{2}}$\\ to derive a formula for $S_N$, let $\Delta x = \frac{b - a}{N}$ and, as before, set $x_j = a + j\Delta x$ and $y_j = f(a + j\Delta x$. if we use just the even-numbered endpoints, we obtain a partition of $[a, b]$ into $\frac{N}{2}$ subintervals (keep in mind that $N$ is even):\\ $[x_0, x_2], [x_2, x_4], \ldots, [x_{N-2}, x_N]$\\ the endpoints of these intervals are used to compute $T_{\frac{N}{2}}$, and we use the midpoints $x_1, x_3, \ldots, x_{N-1}$ to compute $M_{\frac{N}{2}}$\\
+$N_{\frac{N}{2}} = (\frac{1}{2})\frac{b - a}{\frac{N}{2}}(2y_0 + 2y_2 + 2y_4 + \ldots + 2y_{N-2} + y_N)$\\
+$M_{\frac{N}{2}} = \frac{b - a}{\frac{N}{2}}(y_1 + y_3 + y_5 + \ldots + y_{N-1}) = \frac{b - a}{N}(2y_1 + 2y_3 + 2y_5 + \ldots + 2y_{N-1})$\\
+thus,\\
+$S_N = \frac{1}{3}T_{\frac{N}{2}} + \frac{2}{3}M_{\frac{N}{2}} = \frac{1}{3}\Delta x(y_0 + 2y_2 + 2y_4 + \ldots + 2y_{N-2} + y_N) + \frac{1}{3}\Delta x(4y_1 + 4y_3 + 4y_5 + \ldots + 4y_{n-1})$\\
+
+\textbf{simpson's rule} assume that $N$ is even. let $\Delta x = \frac{b - a}{N}$ and $y_j = f(a + j\Delta x)$.\\
+the Nth approximation to $\int_{a}^{b}f(x)\,dx$ by simpson's rule the quantity\\
+$S_N = \frac{1}{3}\Delta x[y_0 + 4y_1 + 2y_2 + \ldots + 4y_{N-3} + 2y_{N-2} + 4y_{N-1} + y_N]$\\
+
+we now state (without proof) a bound for the error in simpson's rule, where\\
+$\text{Error}(S_N) = \lvert S_N(f) - \int_{a}^{b}f(x)\,dx$\\
+the error involves the fourth derivative, which we assume exists and is continuous.\\
+
+\textbf{error bound for $S_N$} let $K_4$ be a number such that $\lvert f^{(4)}(x)\rvert \leq K_4$ for all $x \in [a, b]$. then\\
+$\text{Error}(S_N) \leq \frac{K_4(b - a)^5}{180N^4}$\\
+
+the integration by parts formula is derived from the product rule:\\
+$(u(x)v(x))' = u(x)v'(x) + u'(x)v(x)$\\
+this formula states that $u(x)v(x)$ is an antiderivative of the right-hand side, so\\
+$u(x)v(x) = \int u(x)v'(x)\,dx + \int u'(x)v(x)\,dx$\\
+combining the term on the left with the second integral on the right, we obtain\\
+
+\textbf{integration by parts formula}\\
+$\int u(x)v'(x)\,dx = u(x)v(x) - \int u'(x)v(x)\,dx$\\
+
+integration by parts can be used to derive reduction formulas for integrals that depend on a positive integer $n$ such as $\int x^ne^x\,dx$ or $\int \ln^n x\,dx$. a reduction formula (also called a recursive formula) expresses the integral for a given value of $n$ in terms of a similar integral for a smaller value of $n$. the desired integral is evaluated by applying the reduction formula repeatedly.\\
+
+\textcolor{blue}{a reduction formula} verify the reduction formula\\
+$\int x^ne^x\,dx = x^ne^x - n \int x^{n-1}e^x\,dx$\\
+then use the reduction formula to evaluate $\int x^3e^x\,dx$.
+\textbf{solution} we derive the reduction formula using integration by parts once:\\
+$u = x^n, v'=e^x, u' = nx^{n-1}, v = e^x$\\
+$\int x^ne^x\,dx = uv - \int u'v\,dx = x^ne^x - n\int x^{n-1}e^x\,dx$\\
+to evaluate $\int x^3e^x\,dx$, we will need to use the reduction formula for $n = 3, 2, 1$:\\
+	\begin{enumerate}
+		\item $\int x^3e^x\,dx = x^3e^x - 3\int x^2e^x\,dx$
+		\item $= x^3e^x - 3(x^2e^x - 2\int xe^x\,dx) = x^3e^x - 3x^2e^x + 6 \int xe^x\,dx$
+		\item $= x^3e^x - 3x^2e^x + 6(xe^x - \int e^x\,dx) = x^3e^x - 3x^2e^x + 6xe^x - 6e^x + C$
+		\item $= (x^3 - 3x^2 + 6x - 6)e^x + C$
+	\end{enumerate}
+
+in this section, we combine stubstitution and integration by parts with the appropriate identities to integrate various trigonometirc functions. first, consider\\ $\int \sin^m(x)\cos^n(x)\,dx$\\ where $n$, $m$ are positive integers. the easier case occurs when one or both of the exponents $m$, $n$ is odd.\\
+
+in general, if $n$ is odd, we may use the identity $\cos^2(x) = 1 - \sin^2(x)$ to write $\cos^n(x)$ as a power of $(1 - \sin^2(x))$ times $\cos(x)$ and subsitute $u = \sin(x), du = \cos(x)dx$. alternatively, if $m$ is odd, we write $\sin^m(x)$ as a power of $(1 - \cos^2(x))$ times $\sin(x)$.\\
+
+\textbf{reduction formulas for sine and cosine}
+	\begin{itemize}
+		\item $\int\sin^n(x)\,dx = -\frac{1}{n}\sin^{n-1}x\cos(x) + \frac{n-1}{n}\int\sin^{n-2}(x)\,dx$
+		\item $\int\cos^n(x)\,dx = -\frac{1}{n}\cos^{n-1}x\sin(x) + \frac{n-1}{n}\int\cos^{n-2}(x)\,dx$ 
+	\end{itemize}
+
+\textcolor{blue}{example 3} evaluate $\int\sin^4(x)\,dx$\\
+by reduction formula with $n = 4$, we obtain\\
+$\int\sin^4(x)\,dx = -\frac{1}{4}\sin^3(x)\cos(x) + \frac{3}{4}\int\sin^2(x)\,dx$\\ to evaluate the integral on the right, we apply the reduction formula again with $n = 2$:\\ $\int\sin^2(x)\,dx = -\frac{1}{2}\sin(x)\cos(x) + \frac{1}{2}\int\,dx = -\frac{1}{2}\sin(x)\cos(x) + \frac{1}{2}x + C$\\ $\int\sin^4(x)\,dx = -\frac{1}{4}\sin^3(x)\cos(x) - \frac{3}{8}\sin(x)\cos(x) + \frac{3}{8}x + C$\\ trigonometric integrals can be expressed in more than one way because of the large number of trigonometric identities. for example, a computer algebra system may yield the following evaluation of the integral in the previous example:\\ $\int\sin^4(x)\,dx = \frac{1}{32}(x - 8\sin(2x) + \sin(4x)) + C$\\ you can check that this agrees with the result. the following formulas are verified using some of those double angle identities.
+	\begin{itemize}
+		\item $\int\sin^2(x)\,dx = \frac{x}{2} - \frac{\sin(2x)}{4} + C = \frac{x}{2} - \frac{1}{2}\sin(x)\cos(x) + C$
+		\item $\int\cos^2(x)\,dx = \frac{x}{2} + \frac{\sin(2x)}{4} + C = \frac{x}{2} + \frac{1}{2}\sin(x)\cos(x) + C$ 
+	\end{itemize}
+more work is required to integrate $\sin^m(x)\cos^n(x)$ when both $n$ and $m$ are even:\\ if $m \leq n$, use the identity $\sin^2(x) = 1 - \cos^2(x)$ to replace $\sin^m(x)$ by $(1 - \cos^2(x))^{\frac{m}{2}}$:\\ $\int\sin^m(x)\cos^n(x)\,dx = \int(1 - \cos^2(x))^{\frac{m}{2}}\cos^n(x)\,dx$\\ expand the integral on the right to obtain a sum of integrals of powers of $\cos(x)$ and use reduction formula.\\ if $m \geq n$, replace $\cos^n(x)$ by $(1 - \sin^2(x))^{\frac{n}{2}}$:\\ $\int\sin^m(x)\cos^n(x)\,dx = \int(\sin^m(x))(1 - \sin^2(x))^{\frac{n}{2}}\,dx$\\ expand the integral on the right to obtain a sum of integrals of powers of $\sin(x)$ and again evaluate using reduction formula.\\
+
+our next goal is to integrate functions involving one of the square root expressions:\\ $\sqrt{a^2 - x^2}$, $\sqrt{x^2 + a^2}$, $\sqrt{x^2 - a^2}$\\ in each case, a substitution transforms the integral into a trigonometric integral. for example, the substitution $x = a\sin(\theta)$ may be used when the integrand involves $\sqrt{a^2 - x^2}$.\\
+
+\textbf{integrals involving $\sqrt{a^2 - x^2}$} if $\sqrt{a^2 - x^2}$ occurs in an integral where $a > 0$, try the substitution\\
+$x = a\sin(\theta)$, $dx = a\cos(\theta)d\theta$, $\sqrt{a^2 - x^2} = a\cos(\theta)$\\
+
+\textbf{integrals involving $\sqrt{a^2 + x^2}$} if $\sqrt{a^2 + x^2}$ occurs in an integral where $a > 0$, try the substitution\\
+$x = a\tan(\theta)$, $dx = a\sec^2(\theta)d\theta$, $\sqrt{a^2 + x^2} = a\sec(\theta)$\\
+
+\textbf{integrals involving $\sqrt{x^2 - a^2}$} if $\sqrt{x^2 - a^2}$ occurs in an integral where $a > 0$, try the substitution\\
+$x = a\sec(\theta)$, $dx = a\sec(\theta)\tan(\theta)d\theta$, $\sqrt{x^2 - a^2} = a\tan(\theta)$\\
+
+in this section, we introduce the methods of partial fractions, used to integrate rational functions $\frac{P(x)}{Q(x)}$, where $P(x)$ and $Q(x)$ are polynomials. as we will see the integral of a rational function can be expressed as a sum of three types of terms: rational functions, arctangents of linear or quadratic functions, and logarithms of polynomials. here is a typical example:\\ $\int\frac{(2x^3 + x^2 - 2x)dx}{(x^2 + 1)^2} = \frac{x + 4}{2x^2 + 2} + \frac{3}{2}\tan^{-1}x + \ln(x^2 + 1) + C$\\ the method of partial fractions yields an explicit antiderivative of this type whenever we can factor the denominator $Q(x)$ into a product of linear and quadratic factors.\\ a rational function $\frac{P(x)}{Q(x)}$ is called proper if the degree of $P(x)$ is less than the degree of $Q(x)$.\\ suppose first that $\frac{P(x)}{Q(x)}$ is proper and that the denominator $Q(x)$ factors as a product of distinct linear factors. in other words,\\
+$\frac{P(x)}{Q(x)} = \frac{P(x)}{(x - a_1)(x - a_2)\ldots(x - a_n)}$\\
+where the roots $a_1, a_2, \ldots, a_n$ are all distinct and $\text{deg}(P) < n$. then there is a partial fraction decomposition:\\ 
+$\frac{P(x)}{Q(x)} = \frac{A_1}{(x - a_1)} + \frac{A_2}{x - a_2} + \ldots + \frac{A_n}{x - a_n}$\\
+
+a quadratic polynomial $ax^2 + bx + c$ is called irreducible if it cannot be written as a product of two linear factors (without using complex numbers). a power of an irreducible quadratic factor $(ax^2 + bx + c)^M$ contributes a sum of the following type to a partial fraction decomposition:\\
+$\frac{A_1x + B_1}{ax^2 + bx + c} + \frac{A_2x + B_2}{(ax^2 + bx + c)^2} + \ldots + \frac{A_Mx + B_M}{(ax^2 + bx + c)^M}$\\
+for example,\\
+$\frac{4 - x}{x(x^2 + 4x + 2)^2} = \frac{1}{x} - \frac{x + 4}{x^2 + 4x + 2} - \frac{2x + 9}{(x^2 + 4x + 2)^2}$\\
+you may need to use trigonometric substitution to integrate these terms. in particular, the following result may be useful.\\
+$\int\frac{dx}{x^2 + a} = \frac{1}{\sqrt{a}}\tan^{-1}(\frac{x}{\sqrt{a}}) + C$ (for $a > 0$)\\
+
+sometimes, we are interested in integrating a function over an infinite interval. for example, in statistics, the probability integral\\ $\int_{\infty}^{\infty}e^{\frac{-x^2}{2}}\,dx$\\ represents the area under the bell-shaped curve for $-\infty < x < \infty$. this is an example of an improper integral. although the region under the curve extends infinitely to the left and right, the total area is finite.\\ we consider three types of improper integrals, depending on whether one or both endpoints are infinite:\\ $\inf_{-\infty}^{b}f(x)\,dx$, $\inf_{a}^{\infty}f(x)\,dx$, $\inf_{-\infty}^{\infty}f(x)\,dx$\\
+
+\textbf{improper integral} fix a number $a$ and assume that $f(x)$ is integrable over $[a, b]$ for all $b \geq a$. the improper integral of $f(x)$ over $[a, \infty)$ is defined as the limit (if it exists)\\
+$\int_{a}^{\infty}f(x)\,dx = \lim_{R \to \infty}f(x)\,dx$\\
+when the limit exists, we say that the improper integral converges. in a similar fashion we define $\int_{-\infty}^{a}f(x)\,dx = \lim_{R \to -\infty}\int_{R}^{a}f(x)\,dx$\\
+
+a doubly infinite improper integral is defined as a sum (provided that both integrals on the right converge):\\
+$\int_{-infty}^{\infty}f(x)\,dx = \int_{-\infty}^{0}f(x)\,dx + \int_{0}^{\infty}f(x)\,dx$
+
+
+
+
 
 
 \end{document}
