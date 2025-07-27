@@ -1,0 +1,219 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\setlength{\parindent}{0pt}
+
+\title{Differentiation}
+\author{alexander}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\textbf{the derivative} of a function $f$ at $x = a$ is the limit of the difference quotients (if it exists):
+\begin{center} $f'(a) = \lim_{h \to 0}\frac{f(a + h) - f(a)}{h}$ \end{center}
+when the limit exists, we say that $f$ is differentiable at $x = a$. an equivalent definition of the derivative is
+\begin{center} $f'(a) = \lim_{x \to a}\frac{f(x) - f(a)}{x - a}$ \end{center}
+
+\textbf{tangent lines:}\\
+assume that $f(x)$ is differentiable at $x = a$. the tangent line to the graph of $y = f(x)$ at $P = (a, f(a))$ is the line through $P$ of slope $f'(a)$. the equation of the tangent line in point-slope form is
+\begin{center} $y - f(a) = f'(a)(x - a)$ \end{center}
+
+\textbf{derivative of linear and constant functions:}
+	\begin{itemize}
+		\item if $f(x) = mx + b$ is a linear function, then $f'(a) = m$ for all $a$
+		\item if $f(x) = b$ is a constant function, then $f'(a) = 0$ for all $a$
+	\end{itemize}
+
+\textcolor{blue}{proof of the power rule}
+	\begin{enumerate}
+		\item assume that $n$ is a whole number and let $f(x) = x^n$. then $f'(a) = \lim_{x \to a}\frac{x^n - a^n}{x - a}$
+		\item to simplify the difference quotient, we need to generalize the following identities: $x^2 - a^2 = (x - a)(x + a)$\\ $x^3 - a^3 = (x - a)(x^2 + xa + a^2)$\\ $x^4 - a^4 = (x - a)(x^3 + x^2a + xa^2 + a^3)$
+		\item the generalizaiton is $x^n - a^n = (x - a)(x^{n - 1} + x^{n - 2}a + x^{n - 3}a^2 + \ldots + xa^{n - 2} + a^{n - 1})$
+		\item to verify, observe that the right-hand side is equal to\\ $x(x^{n - 1} + x^{n - 2}a + x^{n - 3}a^2 + \ldots + xa^{n - 2} + a^{n - 1})$\\$-a(x^{n - 1} + x^{n - 2}a + x^{n - 3}a^2 + \ldots + xa^{n - 2} + a^{n - 1})$
+		\item when we carry out the multiplications, all terms cancle except the first and the last, so $x^n - a^n$ remains, as required. the identity gives us\\ $\frac{x^n - a^n}{x - a} = x^{n - 1} + x^{n - 2}a + x^{n - 3}a^2 + \ldots + xa^{n - 2} + a^{n - 1} (x \neq a)$
+		\item therefore,\\ $f'(a) = \lim_{x \to a}(x^{n - 1} + x^{n - 2}a + x^{n - 3}a^2 + \ldots + xa^{n - 2} + a^{n - 1})$\\ $a^{n - 1} + a^{n - 2}a + a^{n - 3}a^2 + \ldots + aa^{n - 2} + a^{n - 1} (\text{n terms})$\\ $na^{n - 1}$
+	\end{enumerate}
+
+\textbf{linearity rules} assume that $f$ and $g$ are differentiable functions
+	\begin{itemize}
+		\item sum rule: the function $f + g$ is differentiable and $(f + h)' = f' + g'$
+		\item constant multiple rule: for any constant $c$, $cf$ is differentiable and $(cf)' = cf'$
+	\end{itemize}
+
+\textbf{differentiability implies continuity} if $f$ is differentiable at $x = c$, then $f$ is continuous at $x = c$.\\
+\textcolor{blue}{Proof:}
+	\begin{enumerate}
+		\item by definition, if $f$ is differentiable at $x = c$, then the following limit exists: $f'(c) = \lim_{x \to c}\frac{f(x) - f(c)}{x - c}$
+		\item our goal is to prove that $f$ is continuous at $x = c$, which means that $\lim_{x \to c}f(x) = f(c)$. To relate the two limits, consider the equation (valid for $x \neq c$) $f(x) - f(c) = (x - c)\frac{f(x) - f(c)}{x - c}$
+		\item both factors on the right approach a limit as $x \to c$, so we may apply the limit laws: $\lim_{x \to c}(f(x) - f(c)) = \lim_{x \to c}((x - c)\frac{f(x) - f(c)}{x - c})$
+		\item $\lim_{x \to c}(f(x) - f(c)) = (\lim_{x \to c}(x - c)(\lim_{x \to c}\frac{f(x) - f(c)}{x - c})$
+		\item $\lim_{x \to c}(f(x) - f(c)) = 0 \cdot f'(c) = 0$
+		\item therefore, $\lim_{x \to c}f(x) = \lim_{x \to c}(f(x) - f(c)) + \lim_{x \to c}f(c) = 0 + f(c) = f(c)$, as desired
+	\end{enumerate}
+
+\textcolor{blue}{proof of the product rule}
+	\begin{enumerate}
+		\item we prove the product rule by writing the difference quotient for $f(x)g(x)$ in a vlever way as a sum of two terms. the limit definition of the derivative applied to the product function gives us\\ $(fg)'(x) = \lim_{h \to 0}\frac{f(x + h)g(x + h) - f(x)g(x)}{h}$
+		\item the trick is to subtract $f(x + h)g(x)$ and add it back again in the numerator of the difference quotient:\\ $f(x + h)g(x + h) - f(x + h)g(x) + f(x + h)g(x) - f(x)g(x)$
+		\item combing terms, we see that the numerator is equal to\\ $f(x + h)(g(x + h) - g(x)) + g(x)(f(x + h) - f(x))$
+		\item now write $(fg)'(x)$ as a sum of two limits: \\ $(fg)'(x) = \lim_{h \to 0}f(x + h)\frac{g(x + h) - g(x)}{h} + \lim_{h \to 0}g(x)\frac{f(x + h) - f(x)}{h}$
+		\item the use of the sum law is valid, provided that each limit on the right exists. to check that the first limit exist and evaluate it, we note that $f(x)$ is continuous (because it is differentiable) and that $g(x)$ is differentiable:\\ $\lim_{h \to 0}f(x + h)\frac{g(x + h) - g(x)}{h} = \lim_{h \to 0}f(x + h)\lim_{h \to 0}\frac{g(x + h) - g(x)}{h} = f(x)g'(x)$
+		\item the second limit is similar:\\ $\lim_{h \to 0}g(x)\frac{f(x + h) - f(x)}{h} = g(x)\lim_{h \to 0}\frac{f(x + h) - f(x)}{g} = g(x)f'(x)$
+		\item using the aforementioned we conclude that $fg$ is differentiable and that $(fg)'(x) = f(x)g'(x) + g(x)f'(x)$ as desired.
+	\end{enumerate}		
+
+\textcolor{blue}{proof of the quotient rule}
+	\begin{enumerate}
+		\item start with the definition of the derivative\\ $(\frac{f}{g})'(x) = \lim_{h \to 0}\frac{\frac{f(x + h)}{g(x + h)} - \frac{f(x)}{g(x)}}{h}$
+		\item combine the two fractions in the numerator\\ $(\frac{f}{g})'(x) = \lim_{h \to 0} \frac{1}{h} \cdot \frac{f(x + h)g(x) - f(x)g(x + h)}{g(x + h)g(x)}$    
+		\item manipulate the numerator\\ $f(x + h)g(x) - f(x)g(x + h) = [f(x + h)g(x) - f(x)g(x)] - [f(x)g(x + h) - f(x)g(x)] = g(x)[f(x + h) - f(x)] - f(x)[g(x + h) - g(x)]$
+		\item lets put that back into the limit\\ $(\frac{f}{g})'(x) = \lim_{h \to 0}\frac{g(x)[f(x + h) - f(x)] - f(x)[g(x + h) - g(x)]}{h \cdot g(x + h)g(x)}$ 
+		\item split the limit\\ $\lim_{h \to 0}[\frac{g(x)[f(x + h) - f(x)]}{h \cdot g(x + h)g(x)} - \frac{f(x)[g(x + h) - g(x)]}{h \cdot g(x + h)g(x)}]$\\
+		\item $(\frac{f}{g})'(x) = \frac{g(x)f'(x) - f(x)g'(x)}{[g(x)]^2}$ 
+	\end{enumerate}
+
+\textcolor{blue}{proof of the derivative of sin}
+	\begin{enumerate}
+		\item $\sin(x + h) = \sin(x)\cos(h) + \cos(x)\sin(h)$
+		\item $\sin(x + h) - \sin(x) = \sin(x)\cos(h) + \cos(x)\sin(h) - \sin(x)$ 
+		\item $\sin(x + h) - \sin(x) = (\sin(x)\cos(h) - \sin(x)) + \cos(x)\sin(h)$ 
+		\item $\sin(x + h) - \sin(x) = \sin(x)(\cos(h) - 1) + \cos(x)\sin(h)$ 
+		\item $\lim_{h \to 0}\frac{\sin(x)(\cos(h) - 1)}{h} + \lim_{h \to 0}\frac{\cos(x)\sin(h)}{h}$
+		\item $\sin(x)(0) + \cos(x)(1)$
+	\end{enumerate}
+
+\textcolor{blue}{proof of the chain rule}
+	\begin{enumerate}
+		\item $h(x) = f(g(x))$
+		\item $h'(x) = \lim_{h \to 0}\frac{f(g(x + h)) - f(g(x))}{h}$
+		\item the key idea is to manipulate the difference quotient to introduce $g(x + h) - g(x)$\\ $\frac{f(g(x + h)) = f(g(x))}{h} = \frac{f(g(x + h)) - f(g(x))}{g(x + h) - g(x)} \cdot \frac{g(x + h) - g(x)}{h}$
+		\item $h'(x) = \lim_{h \to 0}\frac{f(g(x + h)) - f(g(x))}{g(x + h) - g(x)} \cdot \lim_{h \to 0}\frac{g(x + h) - g(x)}{h}$
+		\item this is legitimate only if the denominator $g(x + h - g(x)$ is nonzero. therefore, to continue our proof, we make the extra assumption that $g(x + h) - g(x) \neq 0$ for all $h$ near but not equal to 0. this assumption is not necessary, but without it, the argument is more technical. the second limit on the right is $g'(x)$. the chain rule will follow if we show that the first limit equals $f'(g(x))$. to verify this, set $k = g(x + h) - g(x)$. then $g(x + h) = g(x) + k$ and\\ $\frac{f(g(x + h) - f(g(x)}{g(x + h) - g(x)} = \frac{f(g(x) + k) - f(g(x)}{k}$
+		\item since $g(x)$ is differentiable, it is also continuous. therefor $g(x + h)$ tends to $g(x)$ and $k = g(x + h) - g(x)$ tends to zero as $h \to 0$. thus, we may rewrite the limit in terms of $k$ to obtain the desired result:\\ $\lim_{h \to 0}\frac{f(g(x + h)) - f(g(x))}{g(x + h) - g(x)} = \lim_{k \to 0}\frac{f(g(x) + k - f(g(x))}{k} = f'(g(x))$
+	\end{enumerate}
+
+\textcolor{blue}{proof of the general power rule}
+	\begin{enumerate}
+		\item we write $g(x)^n = f(g(x))$, with $f(u) = u^n$. then $f'(u) = nu^{n - 1}$ and, by the chain rule,\\ $\frac{d}{dx}(g(x))^n = f'(g(x))g'(x) = n(g(x))^{n - 1}g'(x)$
+	\end{enumerate}
+
+\textbf{shifting and scaling rule} if $f(x)$ is differentiable, then for any constants $k$ and $b$, $\frac{d}{dx}f(kx + b) = kf'(kx + b)$\\
+
+\textbf{implicit differentiation:}\\
+to differentiate using the methods covered thus far, we must have a formula for $y$ in terms of $x$, for instance, $y = x^3 + 1$. but suppose that $y$ is determined instead by an equation such as $y^4 + xy = x^3 - x + 2$. in this case, we say that $y$ is defined impplicitly. how can we find the slope of the tangent line at a point on the graph? it may be inconvenient or even impossible to solve for $y$ explicitly as a function of $x$, but we can find $\frac{dy}{dx}$ using the method of implicit differentiation. to illustrate, consider the equation of the unit circle:
+	\begin{enumerate}
+		\item $x^2 + y^2 = 1$
+		\item to compute $\frac{dy}{dx}$, first take the derivative of both sides of the equation and evaluate: \\ $\frac{d}{dx}(x^2 + y^2) = \frac{d}{dx}(1)$
+		\item $\frac{d}{dx}(x^2) + \frac{d}{dx}(y^2) = 0$
+		\item $2x + \frac{d}{dx}(y^2) = 0$
+		\item what should we do with the term $\frac{d}{dx}(y^2)$? we use the chain rule. if we think of $y$ as a function $y = f(x)$, then $y^2 = f(x)^2$, and by the chain rule,\\ $\frac{d}{dx}y^2 = \frac{d}{dx}f(x)^2 = 2f(x)\frac{df}{dx} = 2y\frac{dy}{dx}$
+		\item $2x + \frac{d}{dx}(y^2)\to 2x + 2y\frac{dy}{dx}$, and we may solve for $\frac{dy}{dx}$ if $y \neq 0$:
+		\item $\frac{dy}{dx} = -\frac{x}{y}$
+	\end{enumerate}
+
+\textbf{related rates:}\\
+in related rate problems, the goal is to calculate an unknown rate of change in terms of other rates of change that are known. one typical problem involves a ladder learning against a wall. the question is: how fast does the ladder move if the bottom of the ladder is pulled away from the wall at constant speed? what is interesting and perhaps surprising is that the top and bottom travel at different speeds.\\
+
+\textbf{linear approximation:}\\
+we can use the derivative to estimate $\Delta f$ without computing it exactly. by definition, the derivative is the limit\\ $f'(a) = \lim_{\Delta x \to 0}\frac{f(a + \Delta x) - f(a)}{\Delta x} = \lim_{\Delta x \to 0}\frac{\Delta f}{\Delta x}$\\ so when $\Delta x$ is small, we have $\frac{\Delta f}{\Delta x} \approx f'(a)$, and thus, $\Delta f \approx f'(a)\Delta x$\\
+
+the linear approximation if often called the tangent line approximation because of the following interpretation. the quantitiy $\Delta f$ is the vertical change from $x = a$ to $a = a + \Delta x$ in the graph of $f(x)$. recall that for a nonvertical straight line, the vertical change is equal to the slope times the horizontal change. since the tangent line has slope $f'(a)$. the vertical change in the tangent line is $f'(a)\Delta x$. what the linear approximation does, therefore, is used the vertical change in the tangent line as an approximation to the vertical change in the graph of $f(x)$. when $\Delta x$ is small, the two quantities are nearly equal.\\
+
+Keep in mind the different roles played by $\Delta f$ and $f'(a)\Delta x$. the quantity of interest is $\Delta f$ and we estimate it by $f'(a)\Delta x$. most importantly, the linear approximation tells us that there is a nearly linear relationship between $\Delta f$ and $\Delta x$ when $\Delta x$ is small.\\
+
+\textbf{linearization:}\\
+we can approximate $f(x)$ itself rather than the change $\Delta f$ by rewriting the linear approximation in terms of the variable $x = a + \Delta x$. Then\\ $f(a + \Delta x) - f(a) \approx f'(a)\Delta x$\\ $f(x) - f(a) \approx f'(a)(x - a)$ (since $\Delta x = x - a$)\\ $f(x) \approx f(a) + f'(a)(x - a)$\\ the function on the right, denoted by $L(x)$, is called the linearization of $f(x)$ at $x = a$:\\ $L(x) = f'(a)(x - a) + f(a)$\\ we refer to $x = a$ as the center of the linearization. notice that $y = L(x)$ is the equation of the tangent line to the graph of $f(x)$ at $x = a$\\
+
+\textbf{approximating $f(x)$ by its linearization} assume that $f$ is differentiable at $x = a$ if $x$ is close to $a$, then\\ $f(x) \approx L(x) = f'(a)(x - a) + f(a)$\\
+
+\textbf{extreme values on an interval} let $f(x)$ be a function on an interval I and let $a \in I$. we say that $f(a)$ is the
+	\begin{itemize}
+		\item absolute minimum of $f(x)$ on $I$ if $f(a) \leq f(x)$ for all $x \in I$
+		\item absolute maximum of $f(x)$ on $I$ if $f(a) \geq f(x)$ for all $x \in I$
+	\end{itemize}
+
+\textbf{existence of extrema on a closed interval} if $f(x)$ is a continuous function on a closed (bounded) interval $I = [a, b]$, then $f(x)$ takes on a minimum and a maximum value on $I$.\\
+
+\textbf{local extrema} we say that $f(x)$ has a
+	\begin{itemize}
+		\item at $x = c$ if $f(c)$ is the minimum value of $f$ on some open interval (in the domain of $f$) containing $c$.
+		\item at $x = c$ if $f(c)$ is the maximum value of $f(x)$ on some open interval (in the domain of $f$) containing $c$.
+	\end{itemize}
+
+\textbf{critical points} a number $c$ in the domain of $f$ is called a critical point if either $f'(c) = 0$ or $f'(c)$ DNE.\\
+
+\textbf{fermat's theorem on local extrema} if $f(c)$ is a local min or max, then $c$ is a critical point of $f$.\\
+
+\textbf{extreme values on a closed interval} assume that $f(x)$ is continuous on $[a, b]$ and let $f(c)$ be the minimum or maximum value on $[a, b]$. then $c$ is either a critical point or one of the endpoints $a$ or $b$.\\
+
+\textbf{rolle's theorem} assume that $f(x)$ is continous on $[a, b]$ and differentiable on $(a, b)$. if $f(a) = f(b)$, then there exists a number $c$ between $a$ and $b$ such that $f'(c) = 0$.\\
+
+\textbf{mean value theorem} assume that $f$ is continuous on the closed interval $[a, b]$ and differentiable on $(a, b)$. then there exists at least one value $c$ in $(a, b)$ such that\\ $f'(c) = \frac{f(b) - f(a)}{b - a}$\\
+
+\textbf{the sign of the derivative} let $f$ be a differentiable function on the open interval $(a, b)$.
+	\begin{itemize}
+		\item if $f'(x) > 0$ for $x \in (a, b)$, then $f$ is increasing on $(a, b)$.
+		\item if $f'(x) < 0$ for $x \in (a, b)$, then $f$ is decreasing on $(a, b)$. 
+	\end{itemize}
+
+\textbf{first derivative test for critical points} assume that $f(x)$ is differentiable and let $c$ be a critical point of $f(x)$. then:
+	\begin{itemize}
+		\item $f'(x)$ changes from + to - at $c$ $\Rightarrow$ $f(c)$ is a local maximum.
+		\item $f'(x)$ changes from - to + at $c$ $\Rightarrow$ $f(c)$ is a local minimum. 
+	\end{itemize}
+
+\textbf{test for concavity} suppose that $f''(x)$ exists for all $x \in (a, b)$.
+	\begin{itemize}
+		\item if $f''(x) > 0$ for all $x \in (a, b)$, then $f$ is concave up on $(a, b)$.
+		\item if $f''(x) < 0$ for all $x \in (a, b)$, then $f$ is concave down on $(a, b)$. 
+	\end{itemize}
+
+\textbf{test for inflection points} assume that $f''(x)$ exists for all $x \in (a, b)$ and let $c \in (a, b)$. if $f''(c) = 0$ and $f''(x)$ changes sign at $x = c$, then $f(x)$ has a point of inflection at $x = c$.\\
+
+\textbf{second derivative test} assume that $f(x)$ is differentiable and let $c$ be a critical point. if $f''(c)$ exists, then
+	\begin{itemize}
+		\item $f''(c) > 0 \Rightarrow f(c)$ is a local minimum
+		\item $f''(c) < 0 \Rightarrow f(c)$ is a local maximum 
+		\item $f''(c) = 0 \Rightarrow f(c)$ inconclusive: $f(c)$ may be a local min, max, or neither
+	\end{itemize}
+
+\textbf{newton's method:}\\
+this is a procedure for finding numerical approximations to zeros of functions. numerical approximations are important because it is often impossible to find the zeros exactly. for example, the polynomial $f(x) = x^5 - x - 1$ has one real root $c$, but we can prove, using an advanced branch of mathematics called Galois Theory, that there is no algebraic formula for this root. newtons method shows that $c \approx 1.1673$, and with enough computation, we can compute $c$ to any desired degree of accuracy.\\
+
+in newton's method, we begin by choosing a number $x_0$, which we believe is close to a root of $f(x)$. this starting value $x_0$ is called the initial guess. newton's method then produces a sequence $x_0, x_1, x_2, \ldots$ of successive approximations that, in favorable situations, converge to a root.\\
+
+steps:
+	\begin{itemize}
+		\item choose initial guess $x_0$ (close to the desired root if possible).
+		\item generate successive approximations $x_1, x_2, \ldots$ where\\ $x_{n + 1} = x_n - \frac{f(x_n)}{f'(x_n)}$
+	\end{itemize}
+
+\textbf{derivatives:}
+	\begin{itemize}
+		\item $\frac{d}{dx}(c) = 0$
+		\item $\frac{d}{dx}x = 1$
+		\item $\frac{d}{dx}(x^n) = nx^{-1}$ (power rule)
+		\item $\frac{d}{dx}[cf(x)] = cf'(x)$
+		\item $\frac{d}{dx}[f(x)+g(x)] = f'(x) + g'(x)$
+		\item $\frac{d}{dx}[f(x)g(x)] = f(x)g'(x) + g(x)f'(x)$
+		\item $\frac{d}{dx}[\frac{f(x)}{g(x)}] = \frac{g(x)f'(x) - f(x)g'(x)}{[g(x)]^2}$
+		\item $\frac{d}{dx}f(g(x)) = f'(g(x))g'(x)$
+		\item $\frac{d}{dx}f(x)^n = nf(x)^{n-1}f'(x)$
+		\item $\frac{d}{dx}\sin(x) = \cos(x)$
+		\item $\frac{d}{dx}\cos(x) = -\sin(x)$
+		\item $\frac{d}{dx}\tan(x) = \sec^2(x)$
+		\item $\frac{d}{dx}\csc(x) = -\csc(x)\cot(x)$
+		\item $\frac{d}{dx}\sec(x) = \sec(x)\tan(x)$
+		\item $\frac{d}{dx}\cot(x) = -\csc^2(x)$
+		\item $\frac{d}{dx}\sin^{-1}(x) = \frac{1}{\sqrt(1 - x^2)}$
+		\item $\frac{d}{dx}\cos^{-1}(x) = -\frac{1}{\sqrt(1 - x^2)}$
+		\item $\frac{d}{dx}\tan^{-1}(x) = \frac{1}{1 + x^2}$
+		\item $\frac{d}{dx}(e^x) = e^x$
+		\item $\frac{d}{dx}(a^x) = (\ln a)a^x$
+		\item $\frac{d}{dx}\ln\mid x\mid = \frac{1}{x}$
+		\item $\frac{d}{dx}\log_ax = \frac{1}{(\ln a)x}$
+	\end{itemize}
+
+\end{document}

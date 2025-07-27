@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setlength{\parindent}{0pt}
+
+\title{Limits}
+\author{alexander}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+An indeterminate form is a mathematical expression that arises in limits where the limit cannot be directly determined from the form itself because it is ambiguous or undefined in a straightforward way.\\
+
+\textbf{indeterminate forms:}
+	\begin{itemize}
+		\item $\frac{0}{0}$
+		\item $\frac{\infty}{\infty}$
+		\item $0 \times \infty$
+		\item $\infty - \infty$
+		\item $0^0$
+		\item $\infty^0$
+	\end{itemize}
+
+\textbf{types of discontinuities:}
+	\begin{itemize}
+		\item removeable: $f(x) = \frac{(x^2 - 1)}{x - 1}$
+		\item jump: the left-hand and right-hand limit at the point exist but are not equal
+		\item infinite (essential): $f(x) = \frac{1}{x}$
+		\item oscillatory: $f(x) = \sin(\frac{1}{x})$
+	\end{itemize}
+
+How do the values of a function behave when x approaches a number c, whether or not the function at c is defined?\\
+$f(x) = \frac{\sin(x)}{x}$
+$f(0) = \frac{\sin(0)}{0} = \frac{0}{0}$\\
+Using a calculator you can numerically see that as $x \to 0+$ and $x \to 0-$ the function appears to approach one.\\
+
+\textbf{limit laws} assume that $\lim_{x \to c}f(x)$ and $\lim_{x \to c}g(x)$ exist, then:
+	\begin{itemize}
+		\item sum law: $\lim{x \to c}(f(x) + g(x)) = \lim_{x \to c}f(x) + \lim_{x \to c}g(x)$
+		\item constant multiple law: for any number k, $\lim_{x \to c}kf(x) = k\lim_{x \to c}f(x)$
+		\item product law: $\lim_{x \to c}f(x)g(x) = (\lim_{x \to c}f(x))(\lim_{x \to c}g(x)$)
+		\item quotient law: if $\lim_{x \to c}g(x) \neq 0$, then $\lim_{x \to c}\frac{f(x)}{g(x)} = \frac{\lim_{x \to c}f(x)}{\lim_{x \to c}g(x)}$
+	\end{itemize}
+
+\textbf{continuity at a point:} $\lim{x \to c}f(x) = f(c)$\\
+
+\textbf{laws of continuity} assume that $f(x)$ and $g(x)$ are continuous at a point $x = c$. then the following functions area lso continuous at $x = c$:
+	\begin{itemize}
+		\item $f(x) + g(x)$ and $f(x) - g(x)$
+		\item $kf(x)$ for any constant k
+		\item $f(x)g(x)$
+		\item $\frac{f(x)}{g(x)}$ if $g(c) \neq 0$
+	\end{itemize}
+
+\textbf{continuity of composite functions} let $F(x) = f(g(x))$ be a composite function. If $g$ is continuous at $x = c$ and $f$ is continuous at $x = g(c)$, then $F(x)$ is continuous at $x = c$.\\
+
+\textbf{squeeze theorem} assume that for $x \neq c$ (in some open interval containing $c$), $l(x) \leq f(x) \leq u(x)$ and $\lim_{x \to c}l(x) = \lim_{x \to c}u(x) = L$ then $\lim_{x \to c}f(x)$ exists and $\lim_{x \to c}f(x) = L$\\
+
+\textbf{important trigonometric limits:}
+	\begin{itemize}
+		\item $\lim_{\theta \to 0}\frac{\sin(\theta)}{\theta} = 1$
+		\item $\lim_{\theta \to 0}\frac{1 - \cos(\theta)}{\theta} = 0$
+	\end{itemize}
+
+\textbf{intermediate value theorem:} if $f(x)$ is continuous on a closed interval $[a, b]$ and $f(a) \neq f(b)$, then for every value $M$ between $f(a)$ and $f(b)$, there exists at least one value $c \in (a, b)$ such that $f(c) = M$.\\
+
+\textbf{existence of zeros:} if $f(x)$ is continuous on $[a, b]$ and if $f(a)$ and $f(b)$ are nonzero and have opposite signs, then $f(x)$ has a zero in $(a, b)$.\\
+
+we can locate zeroes of functions to arbitrary accuracy using the \textbf{bisection method}.\\
+$f(x) = \cos^2(x) - 2\sin(\frac{x}{4})$\\
+$f(0) = 1 > 0$, $f(2) \approx -0.786 < 0$\\
+we can guarantee that $f(x) = 0$ has a solution in $(0, 2)$. we can locate a zero more accurately by dividing $[0, 2]$ into two intervals $[0, 1]$ and $[1, 2]$. one of these must contain a zero of $f(x)$. to determine which, we evalutate $f(x)$ at the midpoint $m = 1$. a calculator gives $f(1) \approx -0.203 < 0$, and since $f(0) = 1$, we see that $f(x)$ takes opposite signs at the endpoints of $[0, 1]$. therefore, $(0, 1)$ must contain a zero. we discard $[1, 2]$ because both $f(1)$ and $f(2)$ are negative. the bisection method consists of continuing this process until we narrow down the location of the zero to the desired accuracty.\\
+
+\textbf{the size of the gap:}\\
+recall that the distance from $f(x)$ to $L$ is $\lvert f(x) - L\rvert$. it is convenient to refer to the quantity $\lvert f(x) - L\rvert$ as the gap between the value $f(x)$ and the limit $L$. lets reexamine the basic trigonometric limit $\lim_{x \to 0}\frac{\sin(x)}{x}$. so 1 tells us that the gap $\lvert f(x) - 1\rvert$ gets arbitrarily small when x is sufficiently close by not equal to 0. suppose we want the gap $\lvert f(x) - 1\rvert$ to be less than 0.2. how close to 0 must x be? $\lvert f(x) - 1\rvert < 0.2$ if $0 < \lvert x\rvert < 1$. if we insist instead that the gap be smaller than 0.004, we can check by zooming in $\lvert f(x) - 1\rvert < 0.004$ if $0 < \lvert x\rvert < 0.15$. it would seem that this process can be continued: by zooming in on the graph, we can find a small interval around $c = 0$ where the gap $\lvert f(x) - 1\rvert$ is smaller than any prescribed positive number. to express this in a precise fasion, we follow time-honored tradition and use the greek letters $\epsilon$ (epsilon) and $\delta$ (delta to denote small numbers specifying the size of the gap and the quantity $\lvert x - c\rvert$, respectively. in our case, $c = 0$ and $\lvert x - c\rvert = \lvert x - 0\rvert = \lvert x\rvert$. The precise meaning is that for every choice of $\epsilon > 0$, there exists some $\delta$ (depending on $\epsilon$) such that $\lvert \frac{\sin(x)}{x} - 1\rvert < \epsilon$ if $0 < \lvert x\rvert < \delta$. the number $\delta$ tells us how close is sufficiently close for a give $\epsilon$.\\
+
+\textbf{formal definition of a limit:}\\
+suppose that $f(x)$ is defined for all $x$ in an open interval containing $c$ (but not necessarily at $x = c$). then
+\begin{center}$\lim_{x \to c}f(x) = L$\end{center}
+if for all $\epsilon > 0$, there exists $\delta > 0$ such that
+\begin{center}$\lvert f(x) - L\rvert < \epsilon$ if $0 < \lvert x - c\rvert < \delta$\end{center}
+
+four rigorous definitions of the limit:
+	\begin{itemize}
+		\item $\lim_{x \to a}f(x) = L$ means $\forall \epsilon > 0, \exists \delta > 0 : 0 < \lvert x - a\rvert < \delta \Rightarrow \lvert f(x) - L\rvert < \epsilon$
+		\item $\lim_{x \to \infty}f(x) = L$ means $\forall \epsilon > 0, \exists N > 0 : x > N \Rightarrow \lvert f(x) - L\rvert < \epsilon$   
+		\item $\lim_{x \to a}f(x) = \infty$ means $\forall M > 0, \exists \delta > 0 : 0 < \lvert x - a\rvert < \delta \Rightarrow f(x) > M$  
+		\item $\lim_{x \to \infty}f(x) = \infty$ means $\forall M > 0, \exists N > 0 : x > N \Rightarrow f(x) > M$
+	\end{itemize}
+
+\end{document}
