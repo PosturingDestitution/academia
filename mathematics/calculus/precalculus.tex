@@ -409,11 +409,61 @@ A function $f$ is invertible if there exists another function $f^{-1}(x)$ such t
 
 A function is invertible if it is one-to-one (horizontal line test). So, this means that different input always produce different outputs.\\
 
+\textbf{the factor theorem}\\
+if a polynomial $f(x)$ has $f(r) = 0$, then $(x - r)$ is a factor of $f(x)$ and conversely: if $(x - r)$ is a factor of $f(x)$, then $f(r) = 0$ it connects roots (or zeros) of a polynomial to its linear factors so:
+	\begin{itemize}
+		\item if plugging in $x=r$ gives you 0, then $x-r$ divides the polynomial exactly
+		\item no remainder. its a clean factor
+	\end{itemize}
+for example $f(x) = x^3 + a^3$ if $x = -a$: $f(-a) = (-a)^3 + a^3 = 0$ so $(x + a)$ is a factor
+
 \textbf{special factorizations}
 	\begin{itemize}
-		\item $x^2 - y^2 = (x + y)(x - y)$
-		\item $x^3 + y^3 = (x + y)(x^2 - xy + y^2)$
-		\item $x^3 - y^3 = (x - y)(x^2 + xy + y^2)$
+		\item $(x + y)(x - y) = x^2 - y^2$
+			\begin{enumerate}
+				\item factoring $x^2 - a^2$
+				\item we are trying to factor a quadratic expression so we are looking for something of the form: $x^2 - a^2 = (x+r)(x+r)$
+				\item $(x+r)(x+r) = x^2 + sx + rx + rs$
+				\item $(x+r)(x+r) = x^2 + (s + r)x + rs$
+				\item $r + s = 0$
+				\item $rs = -a^2$
+				\item $r = a$
+				\item $s = -a$
+				\item $x^2 - a^2 = (x+a)(x-a)$
+			\end{enumerate}
+		\item $(x + y)(x^2 - xy + y^2) = x^3 + y^3$
+			\begin{enumerate}
+				\item $x^3 + a^3 = (x + a)(\text{quadratic})$
+				\item $x^3 + a^3 = (x + a)(x^2 + bx + c)$ 
+				\item $(x + a)(x^2 + bx + c) = x(x^2 + bx + c) + a(x^2 + bx + c)$
+				\item $x(x^2 + bx + c) + a(x^2 + bx + c) = x^3 + bx^2 + cx + ax^2 + abx + ac$ 
+				\item $x^3 + bx^2 + cx + ax^2 + abx + ac = x^3 + (b + a)x^2 + (c + ab)x + ac$
+				\item we know $x^3 + a^3 = (1)x^3 + 0x^2 + 0x + (1)a^3$
+				\item $b + a = 0 \Rightarrow b = -a$
+				\item $c + ab = 0 \Rightarrow c = -ab \Rightarrow c = a^2$
+				\item $x^3 + a^3 = (x + a)(x^2 - ax + a^2)$
+			\end{enumerate}
+		\item $(x - y)(x^2 + xy + y^2) = x^3 - y^3$
+			\begin{enumerate}
+				\item $x^3 - a^3 = (x - a)(\text{quadratic})$
+				\item $x^3 - a^3 = (x - a)(x^2 + bx + c)$ 
+				\item $(x - a)(x^2 + bx + c) = x(x^2 + bx + c) - a(x^2 + bx + c)$
+				\item $x(x^2 + bx + c) - a(x^2 + bx + c) = x^3 + bx^2 + cx - ax^2 - abx - ac$ 
+				\item $x^3 + bx^2 + cx - ax^2 - abx - ac = x^3 + (b - a)x^2 + (c - ab)x - ac$
+				\item we know $x^3 - a^3 = (1)x^3 + 0x^2 + 0x - (1)a^3$
+				\item $b - a = 0 \Rightarrow b = a$
+				\item $c - ab = 0 \Rightarrow c = a^2$
+				\item $x^3 - a^3 = (x - a)(x^2 + ax + a^2)$
+			\end{enumerate}
+		\item $x^n - a^n = (x-a)(x^{n-1} + x^{n-2}a + x^{n-3}a^2 + \ldots + a^{n-1}$
+			\begin{enumerate}
+				\item $x(x^{n-1} + x^{n-1}a + x^{n-3}a^2 + \ldots + a^{n-1})$
+				\item $x^n + x^{n-1}a + x^{n-2}a^2 + \ldots + xa^{n-1}$
+				\item $-a(x^{n-1} + x^{n-2}a + x^{n-3}a^2 + \ldots + a^{n-1})$
+				\item $-ax^{n-1} - a^2x^{n-2} -a^3x^{n-3} - \ldots - a^n$
+				\item $(x^n + x^{n-1}a + x^{n-2}a^2 + \ldots + xa^{n-1}) + (-ax^{n-1} - a^2x^{n-2} -a^3x^{n-3} - \ldots - a^n )$
+				\item $x^n - a^n$
+			\end{enumerate}
 	\end{itemize}
 
 \textbf{binomial}

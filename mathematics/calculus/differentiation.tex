@@ -26,14 +26,23 @@ assume that $f(x)$ is differentiable at $x = a$. the tangent line to the graph o
 		\item if $f(x) = b$ is a constant function, then $f'(a) = 0$ for all $a$
 	\end{itemize}
 
-\textcolor{blue}{proof of the power rule}
+\textbf{the power rule (1)}
 	\begin{enumerate}
-		\item assume that $n$ is a whole number and let $f(x) = x^n$. then $f'(a) = \lim_{x \to a}\frac{x^n - a^n}{x - a}$
-		\item to simplify the difference quotient, we need to generalize the following identities: $x^2 - a^2 = (x - a)(x + a)$\\ $x^3 - a^3 = (x - a)(x^2 + xa + a^2)$\\ $x^4 - a^4 = (x - a)(x^3 + x^2a + xa^2 + a^3)$
-		\item the generalizaiton is $x^n - a^n = (x - a)(x^{n - 1} + x^{n - 2}a + x^{n - 3}a^2 + \ldots + xa^{n - 2} + a^{n - 1})$
-		\item to verify, observe that the right-hand side is equal to\\ $x(x^{n - 1} + x^{n - 2}a + x^{n - 3}a^2 + \ldots + xa^{n - 2} + a^{n - 1})$\\$-a(x^{n - 1} + x^{n - 2}a + x^{n - 3}a^2 + \ldots + xa^{n - 2} + a^{n - 1})$
-		\item when we carry out the multiplications, all terms cancle except the first and the last, so $x^n - a^n$ remains, as required. the identity gives us\\ $\frac{x^n - a^n}{x - a} = x^{n - 1} + x^{n - 2}a + x^{n - 3}a^2 + \ldots + xa^{n - 2} + a^{n - 1} (x \neq a)$
-		\item therefore,\\ $f'(a) = \lim_{x \to a}(x^{n - 1} + x^{n - 2}a + x^{n - 3}a^2 + \ldots + xa^{n - 2} + a^{n - 1})$\\ $a^{n - 1} + a^{n - 2}a + a^{n - 3}a^2 + \ldots + aa^{n - 2} + a^{n - 1} (\text{n terms})$\\ $na^{n - 1}$
+		\item $\frac{d}{dx}(x^n) = \lim_{h \to 0}\frac{(x + h)^n - x^n}{h}$
+		\item $(x + h)^n = \sum_{k=0}^{n}\binom{n}{k}x^{n-k}h^k$
+		\item $(x + h)^n - x^n = \sum_{k=1}^{n}\binom{n}{k}x^{n-k}h^k$ 
+		\item $\frac{(x + h)^n - x^n}{h} = \sum_{k=1}^{n}\binom{n}{k}x^{n-k}h^{k-1}$ 
+		\item take the limit as $h \to 0$. all terms with $h^{k-1}$ for $k \geq 2$ go to zero. only the $k=1$ term remains.
+		\item $\binom{n}{1}x^{n-1} = nx^{n-1}$
+		\item $\frac{d}{dx}(x^n) = nx^{n-1}$
+	\end{enumerate}
+
+\textbf{the power rule (2)}
+	\begin{enumerate}
+		\item $f'(a) = \lim_{x \to a}\frac{x^n - a^n}{x - a}$
+		\item $x^n - a^n = (x - a)(x^{n-1} + x^{n-2}a + \ldots + xa^{n-2} + a^{n-1})$
+		\item $\frac{x^n - a^n}{x - a} = x^{n-1} + x^{n-2}a + \ldots + xa^{n-2} + a^{n-1}$ 
+		\item $f'(a) = na^{n-1}$
 	\end{enumerate}
 
 \textbf{linearity rules} assume that $f$ and $g$ are differentiable functions
@@ -43,7 +52,6 @@ assume that $f(x)$ is differentiable at $x = a$. the tangent line to the graph o
 	\end{itemize}
 
 \textbf{differentiability implies continuity} if $f$ is differentiable at $x = c$, then $f$ is continuous at $x = c$.\\
-\textcolor{blue}{Proof:}
 	\begin{enumerate}
 		\item by definition, if $f$ is differentiable at $x = c$, then the following limit exists: $f'(c) = \lim_{x \to c}\frac{f(x) - f(c)}{x - c}$
 		\item our goal is to prove that $f$ is continuous at $x = c$, which means that $\lim_{x \to c}f(x) = f(c)$. To relate the two limits, consider the equation (valid for $x \neq c$) $f(x) - f(c) = (x - c)\frac{f(x) - f(c)}{x - c}$
