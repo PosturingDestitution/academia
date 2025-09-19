@@ -51,7 +51,7 @@ assume that $f(x)$ is differentiable at $x = a$. the tangent line to the graph o
 		\item constant multiple rule: for any constant $c$, $cf$ is differentiable and $(cf)' = cf'$
 	\end{itemize}
 
-\textbf{differentiability implies continuity} if $f$ is differentiable at $x = c$, then $f$ is continuous at $x = c$.\\
+\textbf{differentiability implies continuity} if $f$ is differentiable at $x = c$, then $f$ is continuous at $x = c$.
 	\begin{enumerate}
 		\item by definition, if $f$ is differentiable at $x = c$, then the following limit exists: $f'(c) = \lim_{x \to c}\frac{f(x) - f(c)}{x - c}$
 		\item our goal is to prove that $f$ is continuous at $x = c$, which means that $\lim_{x \to c}f(x) = f(c)$. To relate the two limits, consider the equation (valid for $x \neq c$) $f(x) - f(c) = (x - c)\frac{f(x) - f(c)}{x - c}$
@@ -61,50 +61,53 @@ assume that $f(x)$ is differentiable at $x = a$. the tangent line to the graph o
 		\item therefore, $\lim_{x \to c}f(x) = \lim_{x \to c}(f(x) - f(c)) + \lim_{x \to c}f(c) = 0 + f(c) = f(c)$, as desired
 	\end{enumerate}
 
-\textcolor{blue}{proof of the product rule}
+\textbf{proof of the product rule}
 	\begin{enumerate}
-		\item we prove the product rule by writing the difference quotient for $f(x)g(x)$ in a vlever way as a sum of two terms. the limit definition of the derivative applied to the product function gives us\\ $(fg)'(x) = \lim_{h \to 0}\frac{f(x + h)g(x + h) - f(x)g(x)}{h}$
-		\item the trick is to subtract $f(x + h)g(x)$ and add it back again in the numerator of the difference quotient:\\ $f(x + h)g(x + h) - f(x + h)g(x) + f(x + h)g(x) - f(x)g(x)$
-		\item combing terms, we see that the numerator is equal to\\ $f(x + h)(g(x + h) - g(x)) + g(x)(f(x + h) - f(x))$
-		\item now write $(fg)'(x)$ as a sum of two limits: \\ $(fg)'(x) = \lim_{h \to 0}f(x + h)\frac{g(x + h) - g(x)}{h} + \lim_{h \to 0}g(x)\frac{f(x + h) - f(x)}{h}$
-		\item the use of the sum law is valid, provided that each limit on the right exists. to check that the first limit exist and evaluate it, we note that $f(x)$ is continuous (because it is differentiable) and that $g(x)$ is differentiable:\\ $\lim_{h \to 0}f(x + h)\frac{g(x + h) - g(x)}{h} = \lim_{h \to 0}f(x + h)\lim_{h \to 0}\frac{g(x + h) - g(x)}{h} = f(x)g'(x)$
-		\item the second limit is similar:\\ $\lim_{h \to 0}g(x)\frac{f(x + h) - f(x)}{h} = g(x)\lim_{h \to 0}\frac{f(x + h) - f(x)}{g} = g(x)f'(x)$
-		\item using the aforementioned we conclude that $fg$ is differentiable and that $(fg)'(x) = f(x)g'(x) + g(x)f'(x)$ as desired.
-	\end{enumerate}		
-
-\textcolor{blue}{proof of the quotient rule}
-	\begin{enumerate}
-		\item start with the definition of the derivative\\ $(\frac{f}{g})'(x) = \lim_{h \to 0}\frac{\frac{f(x + h)}{g(x + h)} - \frac{f(x)}{g(x)}}{h}$
-		\item combine the two fractions in the numerator\\ $(\frac{f}{g})'(x) = \lim_{h \to 0} \frac{1}{h} \cdot \frac{f(x + h)g(x) - f(x)g(x + h)}{g(x + h)g(x)}$    
-		\item manipulate the numerator\\ $f(x + h)g(x) - f(x)g(x + h) = [f(x + h)g(x) - f(x)g(x)] - [f(x)g(x + h) - f(x)g(x)] = g(x)[f(x + h) - f(x)] - f(x)[g(x + h) - g(x)]$
-		\item lets put that back into the limit\\ $(\frac{f}{g})'(x) = \lim_{h \to 0}\frac{g(x)[f(x + h) - f(x)] - f(x)[g(x + h) - g(x)]}{h \cdot g(x + h)g(x)}$ 
-		\item split the limit\\ $\lim_{h \to 0}[\frac{g(x)[f(x + h) - f(x)]}{h \cdot g(x + h)g(x)} - \frac{f(x)[g(x + h) - g(x)]}{h \cdot g(x + h)g(x)}]$\\
-		\item $(\frac{f}{g})'(x) = \frac{g(x)f'(x) - f(x)g'(x)}{[g(x)]^2}$ 
+		\item $(fg)'(x) = \lim_{h \to 0}\frac{f(x + h)g(x + h) - f(x)g(x)}{h}$
+		\item add and subtract $f(x)g(x + h)$
+		\item $\lim_{h \to 0}\frac{f(x + h)g(x + h) - f(x)g(x + h) + f(x)g(x + h) - f(x)g(x)}{h}$
+		\item $\lim_{h \to 0}[\frac{f(x + h) - f(x)}{h}g(x + h) + f(x)\frac{g(x + h) - g(x)}{h}]$
+		\item $\lim_{h \to 0}\frac{f(x + h) - f(x)}{h} \cdot \lim_{h \to 0}g(x + h) + f(x) \cdot \lim_{h \to 0}\frac{g(x + h) - g(x)}{h}$
+		\item $(fg)'x = f'(x)g(x) + f(x)g'(x)$
 	\end{enumerate}
 
-\textcolor{blue}{proof of the derivative of sin}
+\textbf{proof of the quotient rule}
 	\begin{enumerate}
+		\item $(\frac{f}{g}(x))' = \lim_{h \to 0}\frac{\frac{f(x + h)}{g(x + h)} - \frac{f(x)}{g(x)}}{h}$	
+		\item $\frac{f(x + h)}{g(x + h)} - \frac{f(x)}{g(x)} = \frac{f(x + h)g(x) - f(x)g(x + h)}{g(x + h)g(x)}$
+		\item $\lim_{h \to 0}\frac{\frac{f(x + h)}{g(x + h)} - \frac{f(x)}{g(x)}}{h} = \lim_{h \to 0}\frac{f(x + h)g(x) - f(x)g(x + h)}{hg(x + h)g(x)}$
+		\item add and subtract $f(x)g(x)$
+		\item $\lim_{h \to 0}\frac{g(x)(f(x + h) - f(x)) - f(x)(g(x + h) - g(x))}{hg(x + h)g(x)}$
+		\item $\lim_{h \to 0}[\frac{f(x + h) - f(x)}{h} \cdot \frac{g(x)}{g(x + h)g(x)} - \frac{g(x + h) - g(x)}{h} \cdot \frac{f(x)}{g(x + h)g(x)}]$
+		\item $f'(x) \cdot \frac{1}{g(x)} - g'(x)\frac{f(x)}{g(x)g(x)}$
+		\item $\frac{f'(x)}{g(x)} - \frac{f(x)g'(x)}{[g(x)]^2} = \frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}$
+	\end{enumerate}
+
+\textbf{proof of the derivative of sin}
+	\begin{enumerate}
+		\item $\frac{d}{dx}\sin(x) = \lim_{h \to 0}\frac{\sin(x + h) - \sin(x)}{h}$
 		\item $\sin(x + h) = \sin(x)\cos(h) + \cos(x)\sin(h)$
-		\item $\sin(x + h) - \sin(x) = \sin(x)\cos(h) + \cos(x)\sin(h) - \sin(x)$ 
-		\item $\sin(x + h) - \sin(x) = (\sin(x)\cos(h) - \sin(x)) + \cos(x)\sin(h)$ 
-		\item $\sin(x + h) - \sin(x) = \sin(x)(\cos(h) - 1) + \cos(x)\sin(h)$ 
-		\item $\lim_{h \to 0}\frac{\sin(x)(\cos(h) - 1)}{h} + \lim_{h \to 0}\frac{\cos(x)\sin(h)}{h}$
-		\item $\sin(x)(0) + \cos(x)(1)$
+		\item $\lim_{h \to 0}\frac{\sin(x + h) - \sin(x)}{h} = \lim_{h \to 0}\frac{\sin(x)\cos(h) - \sin(x) + \cos(x)\sin(h)}{h}$
+		\item $\lim_{h \to 0}\frac{\sin(x)(\cos(h) - 1) + \cos(x)\sin(h)}{h}$
+		\item $\lim_{h \to 0}[\sin(x) \cdot \frac{\cos(h) - 1}{h} + \cos(x) \cdot \frac{\sin(h)}{h}]$
+		\item $\sin(x) \cdot (0) + \cos(x) \cdot (1)$
+		\item $\frac{d}{dx}\sin(x) = \cos(x)$
 	\end{enumerate}
 
-\textcolor{blue}{proof of the chain rule}
+\textbf{proof of the chain rule}
 	\begin{enumerate}
-		\item $h(x) = f(g(x))$
-		\item $h'(x) = \lim_{h \to 0}\frac{f(g(x + h)) - f(g(x))}{h}$
-		\item the key idea is to manipulate the difference quotient to introduce $g(x + h) - g(x)$\\ $\frac{f(g(x + h)) = f(g(x))}{h} = \frac{f(g(x + h)) - f(g(x))}{g(x + h) - g(x)} \cdot \frac{g(x + h) - g(x)}{h}$
-		\item $h'(x) = \lim_{h \to 0}\frac{f(g(x + h)) - f(g(x))}{g(x + h) - g(x)} \cdot \lim_{h \to 0}\frac{g(x + h) - g(x)}{h}$
-		\item this is legitimate only if the denominator $g(x + h - g(x)$ is nonzero. therefore, to continue our proof, we make the extra assumption that $g(x + h) - g(x) \neq 0$ for all $h$ near but not equal to 0. this assumption is not necessary, but without it, the argument is more technical. the second limit on the right is $g'(x)$. the chain rule will follow if we show that the first limit equals $f'(g(x))$. to verify this, set $k = g(x + h) - g(x)$. then $g(x + h) = g(x) + k$ and\\ $\frac{f(g(x + h) - f(g(x)}{g(x + h) - g(x)} = \frac{f(g(x) + k) - f(g(x)}{k}$
-		\item since $g(x)$ is differentiable, it is also continuous. therefor $g(x + h)$ tends to $g(x)$ and $k = g(x + h) - g(x)$ tends to zero as $h \to 0$. thus, we may rewrite the limit in terms of $k$ to obtain the desired result:\\ $\lim_{h \to 0}\frac{f(g(x + h)) - f(g(x))}{g(x + h) - g(x)} = \lim_{k \to 0}\frac{f(g(x) + k - f(g(x))}{k} = f'(g(x))$
+		\item note that g(x + h) does not nesicarilly depend linearly on g(x)?
+		\item
+		\item
+		\item
 	\end{enumerate}
 
-\textcolor{blue}{proof of the general power rule}
+\textbf{proof of the general power rule}
 	\begin{enumerate}
-		\item we write $g(x)^n = f(g(x))$, with $f(u) = u^n$. then $f'(u) = nu^{n - 1}$ and, by the chain rule,\\ $\frac{d}{dx}(g(x))^n = f'(g(x))g'(x) = n(g(x))^{n - 1}g'(x)$
+		\item
+		\item
+		\item
+		\item
 	\end{enumerate}
 
 \textbf{shifting and scaling rule} if $f(x)$ is differentiable, then for any constants $k$ and $b$, $\frac{d}{dx}f(kx + b) = kf'(kx + b)$\\
