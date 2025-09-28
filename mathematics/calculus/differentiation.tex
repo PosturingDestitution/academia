@@ -47,18 +47,23 @@ assume that $f(x)$ is differentiable at $x = a$. the tangent line to the graph o
 
 \textbf{linearity rules} assume that $f$ and $g$ are differentiable functions
 	\begin{itemize}
-		\item sum rule: the function $f + g$ is differentiable and $(f + h)' = f' + g'$
+		\item sum rule: the function $f + g$ is differentiable and $(f + g)' = f' + g'$
 		\item constant multiple rule: for any constant $c$, $cf$ is differentiable and $(cf)' = cf'$
 	\end{itemize}
 
-\textbf{differentiability implies continuity} if $f$ is differentiable at $x = c$, then $f$ is continuous at $x = c$.
+\textbf{differentiability implies continuity} 	
 	\begin{enumerate}
-		\item by definition, if $f$ is differentiable at $x = c$, then the following limit exists: $f'(c) = \lim_{x \to c}\frac{f(x) - f(c)}{x - c}$
-		\item our goal is to prove that $f$ is continuous at $x = c$, which means that $\lim_{x \to c}f(x) = f(c)$. To relate the two limits, consider the equation (valid for $x \neq c$) $f(x) - f(c) = (x - c)\frac{f(x) - f(c)}{x - c}$
-		\item both factors on the right approach a limit as $x \to c$, so we may apply the limit laws: $\lim_{x \to c}(f(x) - f(c)) = \lim_{x \to c}((x - c)\frac{f(x) - f(c)}{x - c})$
-		\item $\lim_{x \to c}(f(x) - f(c)) = (\lim_{x \to c}(x - c)(\lim_{x \to c}\frac{f(x) - f(c)}{x - c})$
-		\item $\lim_{x \to c}(f(x) - f(c)) = 0 \cdot f'(c) = 0$
-		\item therefore, $\lim_{x \to c}f(x) = \lim_{x \to c}(f(x) - f(c)) + \lim_{x \to c}f(c) = 0 + f(c) = f(c)$, as desired
+		\item $y - y_1 = m(x - x_1) \Rightarrow y - f(c) = f'(c)(x - c)$ tangent line
+		\item $f(x) \approx f(c) + f'(c)(x - c) + \text{some error}$
+		\item $\text{some error} = f(x) - f(c) - f'(c)(x - c)$
+		\item definition of the derivative $f'(c) = \lim_{x \to c}\frac{f(x) - f(c)}{x - c}$
+		\item $\frac{f(x) - f(c)}{x - c} = f'(c) + \epsilon(x)$
+		\item $\epsilon(x) \to 0 \text{ as } x \to c$
+		\item $\epsilon(x) := \frac{f(x) - f(c)}{x - c} - f'(c) \text{ for } x \neq c$
+		\item $\epsilon(x)(x - c) = f(x) - f(c) - f'(c)(x - c)$
+		\item $f(x) = f(c) + f'(c)(x - c) + \epsilon(x)(x - c)$
+		\item $\lim_{x \to c}[f(x) = f(c) + f'(c)(x - c) + \epsilon(x)(x - c)]$
+		\item $\lim_{x \to c}f(x) = f(c)$ point continuity
 	\end{enumerate}
 
 \textbf{proof of the product rule}
@@ -96,18 +101,12 @@ assume that $f(x)$ is differentiable at $x = a$. the tangent line to the graph o
 
 \textbf{proof of the chain rule}
 	\begin{enumerate}
-		\item note that g(x + h) does not nesicarilly depend linearly on g(x)?
-		\item
-		\item
-		\item
-	\end{enumerate}
-
-\textbf{proof of the general power rule}
-	\begin{enumerate}
-		\item
-		\item
-		\item
-		\item
+		\item $h(x) = f(g(x))$ 
+		\item $h'(x) = \lim_{h \to 0}\frac{f(g(x + h)) - f(g(x))}{h}$
+		\item notice that the numerator is $\Delta f$ and the denominator is $\Delta x$ not the change in $\Delta g$
+		\item $\frac{f(g(x + h)) - f(g(x))}{1} \cdot \frac{1}{g(x + h) - g(x)} \cdot \frac{1}{h} \cdot \frac{g(x + h) - g(x)}{1}$
+		\item $\lim_{h \to 0}\frac{f(g(x + h)) - f(g(x))}{h} = \lim_{h \to 0}\frac{f(g(x + h)) - f(g(x))}{g(x + h) - g(x)} \cdot \lim_{h \to 0}\frac{g(x + h) - g(x)}{h}$
+		\item $h'(x) = f'(g(x)) \cdot g'(x)$
 	\end{enumerate}
 
 \textbf{shifting and scaling rule} if $f(x)$ is differentiable, then for any constants $k$ and $b$, $\frac{d}{dx}f(kx + b) = kf'(kx + b)$\\

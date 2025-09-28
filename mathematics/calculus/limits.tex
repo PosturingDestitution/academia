@@ -10,7 +10,17 @@
 \begin{document}
 \maketitle
 
-An indeterminate form is a mathematical expression that arises in limits where the limit cannot be directly determined from the form itself because it is ambiguous or undefined in a straightforward way.\\
+when evaluating the limit of a function at a point where direct substitution yields an indeterminate form (such as $\frac{0}{0}$), this indicates a potential discontinuity. in these cases, we can often simplify the function algebraically to obtain a new function $g(x)$ that is continuous at the point $x = c$. this new function satisfies the condition for point continuity: $\lim_{x \to c} g(x) = g(c)$. the original function $f(x)$, by contrast, may not be defined at $x = c$, so it lacks this full continuity condition — though the limit $\lim_{x \to c} f(x)$ may still exist. since $f(x)$ and $g(x)$ agree for all $x \neq c$, and $g(x)$ is continuous at $c$, it is valid to evaluate the limit of $f(x)$ by computing $g(c)$. this reflects the idea of a removable discontinuity, where the limit exists despite the function being undefined at that point.\\
+
+
+
+\textbf{types of discontinuities:}
+	\begin{itemize}
+		\item removeable: $f(x) = \frac{(x^2 - 1)}{x - 1}$
+		\item jump: the left-hand and right-hand limit at the point exist but are not equal $f(x) = \begin{cases} x+1, & \text{if } x < 2\\ 5, & \text{if } x \geq 2\end{cases}$
+		\item infinite (essential): $f(x) = \frac{1}{x}$
+		\item oscillatory: $f(x) = \sin(\frac{1}{x})$
+	\end{itemize}
 
 \textbf{indeterminate forms:}
 	\begin{itemize}
@@ -22,18 +32,8 @@ An indeterminate form is a mathematical expression that arises in limits where t
 		\item $\infty^0$
 	\end{itemize}
 
-\textbf{types of discontinuities:}
-	\begin{itemize}
-		\item removeable: $f(x) = \frac{(x^2 - 1)}{x - 1}$
-		\item jump: the left-hand and right-hand limit at the point exist but are not equal
-		\item infinite (essential): $f(x) = \frac{1}{x}$
-		\item oscillatory: $f(x) = \sin(\frac{1}{x})$
-	\end{itemize}
-
-How do the values of a function behave when x approaches a number c, whether or not the function at c is defined?\\
-$f(x) = \frac{\sin(x)}{x}$
-$f(0) = \frac{\sin(0)}{0} = \frac{0}{0}$\\
-Using a calculator you can numerically see that as $x \to 0+$ and $x \to 0-$ the function appears to approach one.\\
+algrbraic manipulations\\
+limits at infty\\
 
 \textbf{limit laws} assume that $\lim_{x \to c}f(x)$ and $\lim_{x \to c}g(x)$ exist, then:
 	\begin{itemize}
@@ -57,11 +57,30 @@ Using a calculator you can numerically see that as $x \to 0+$ and $x \to 0-$ the
 
 \textbf{squeeze theorem} assume that for $x \neq c$ (in some open interval containing $c$), $l(x) \leq f(x) \leq u(x)$ and $\lim_{x \to c}l(x) = \lim_{x \to c}u(x) = L$ then $\lim_{x \to c}f(x)$ exists and $\lim_{x \to c}f(x) = L$\\
 
-\textbf{important trigonometric limits:}
-	\begin{itemize}
-		\item $\lim_{\theta \to 0}\frac{\sin(\theta)}{\theta} = 1$
-		\item $\lim_{\theta \to 0}\frac{1 - \cos(\theta)}{\theta} = 0$
-	\end{itemize}
+\textbf{$f(x) = \lim_{\theta \to 0}\frac{\sin(\theta)}{\theta}$}
+	\begin{enumerate}
+		\item consider the unit circle ($r = 1$) centered at the origin. let $\theta$ be an angle with $0 < \lvert \theta \rvert < \frac{\pi}{2}$. we want the limit as $\theta \to 0$ from both sides.
+		\item $\text{area}(T_1) < \text{area}(S) < \text{area}(T_2)$
+		\item $\frac{1}{2}\cos(\theta)\sin(\lvert\theta\rvert) < \frac{1}{2}\lvert\theta\rvert < \frac{1}{2}\tan(\lvert\theta\rvert)$
+		\item $\cos(\theta)\sin(\lvert\theta\rvert) < \lvert\theta\rvert < \tan(\lvert\theta\rvert)$ 
+		\item $\cos(\theta) < \frac{\lvert\theta\rvert}{\sin(\lvert\theta\rvert)} < \frac{\tan(\lvert\theta\rvert)}{\sin(\lvert\theta\rvert)}$
+		\item $\cos(\theta) < \frac{\sin(\theta)}{\theta} < \frac{1}{\cos(\theta)}$
+		\item at $\theta = 0$, all areas equal zero, so the inequalities extend to include equality
+		\item $\cos(\theta) \leq \frac{\sin(\theta)}{\theta} \leq \frac{1}{\cos(\theta)}$ 
+		\item $\lim_{\theta \to 0}\cos(\theta) = 1$
+		\item $\lim_{\theta \to 0}\frac{1}{\cos(\theta)} = 1$
+		\item via the squeeze theorem $\lim_{\theta \to 0}\frac{\sin(\theta)}{\theta} = 1$
+	\end{enumerate}
+
+\textbf{$f(x) = \frac{\cos(\theta) - 1}{\theta}$}
+	\begin{enumerate}
+		\item $\frac{\cos(\theta) - 1}{\theta} \cdot \frac{\cos(\theta) + 1}{\cos(\theta) + 1} = \frac{\cos^2(\theta) - 1}{\theta(\cos(\theta) + 1)}$
+		\item $\sin^2(\theta) = 1 - \cos^2(\theta) \Rightarrow -\sin^2(\theta) = \cos^2(\theta) - 1$
+		\item $-\frac{\sin^2(\theta)}{\theta(\cos(\theta) + 1)} = -\frac{\sin(\theta)}{\theta} \cdot \frac{\sin(\theta)}{\cos(\theta) + 1}$
+		\item $\lim_{\theta \to 0}\frac{\cos(\theta) - 1}{\theta} = -1 \cdot 0 \cdot \frac{1}{2} = 0$
+		\item
+		\item
+	\end{enumerate}
 
 \textbf{intermediate value theorem:} if $f(x)$ is continuous on a closed interval $[a, b]$ and $f(a) \neq f(b)$, then for every value $M$ between $f(a)$ and $f(b)$, there exists at least one value $c \in (a, b)$ such that $f(c) = M$.\\
 
