@@ -11,6 +11,33 @@
 \begin{document}
 \maketitle
 
+\textbf{integration power rule}
+	\begin{itemize}	
+		\item $\frac{d}{dx}[\frac{x^{n+1}}{n+1}] = x^n \Rightarrow \int x^n\,dx = \frac{x^{n+1}}{n+1} + C$
+	\end{itemize}
+
+\textbf{u-substitution}
+	\begin{itemize}	
+		\item $\int f(g(x))g'(x)\,dx \Rightarrow \int f(u)\,du$
+	\end{itemize}
+
+\textbf{integration by parts}
+	\begin{itemize}
+		\item $(uv)'(x) = u'(x)v(x) + u(x)v'(x) \Rightarrow \int u\,dv = uv - \int v\,du$
+	\end{itemize}
+
+\textbf{trigonometric substitution}
+	\begin{itemize}
+		\item $\sqrt{a^2 - x^2} = \sqrt{a^2(1 - (\frac{x}{a})^2)} = a\sqrt{1 - (\frac{x}{a})^2}$
+		\item $\sin^2(\theta) + \cos^2(\theta) = 1 \Rightarrow \cos(\theta) = \sqrt{1 - \sin^2(\theta)}$
+		\item $\sin(\theta) = \frac{x}{a} \Rightarrow a\sin(\theta) = x$
+		\item $\cos(\theta) = \sqrt{1 - (\frac{x}{a})^2} \Rightarrow a\cos(\theta) = a\sqrt{1 - (\frac{x}{a})^2} \Rightarrow a\cos(\theta) = \sqrt{a^2 - x^2}$
+		\item $\theta = \sin^{-1}(\frac{x}{a})$ has a range of $[-\frac{\pi}{2}, \frac{\pi}{2}]$
+		\item on this interval, $\cos(\theta) \geq 0$, so $a\cos(\theta)$ is always non-negative
+		\item that matches the principal square root, which must be non-negative
+	\end{itemize}
+
+
 \textbf{antiderivatives} a function $F(x)$ is an antiderivative of $f(x)$ on $(a, b)$ if $F'(x) = f(x)$ for all $x \in (a, b)$.\\
 \textbf{general antiderivative} let $F(x)$ be an antiderivative of $f(x)$ on $(a, b)$. then every other antiderivative on $(a, b)$ is of the form $F(x) + C$ for some constant $C$.\\
 \textbf{indefinite integral} the notion $\int f(x)\,dx = F(x) + C$ means that $F'(x) = f(x)$ we say that $F(x) + C$ is the antiderivative or indefinite integral of $f(x)$.\\

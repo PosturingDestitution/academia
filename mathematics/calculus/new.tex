@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\setlength{\parindent}{0pt}
+
+\title{Integration}
+\author{alexander}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\textbf{FTC}
+	\begin{itemize}
+		\item if $f$ is a continuous function on an interval $[a, b]$, and $F(x) = \int_{a}^{x}f(t)\,dt$ is defined for $x \in [a, b]$, then $F'(x) = f(x)$
+		\item if $f$ is continuous function on $[a, b]$, and $F$ is any andiderivative of $f$, meaning $F'(x) = f(x)$, then $\int_{a}^{b}f(x)\,dx = F(b) - F(a)$
+	\end{itemize}
+
+\textbf{integration power rule}
+        \begin{itemize}
+                \item $\frac{d}{dx}[\frac{x^{n+1}}{n+1}] = x^n \Rightarrow \int x^n\,dx = \frac{x^{n+1}}{n+1} + C$
+        \end{itemize}
+                
+\textbf{u-substitution}
+        \begin{itemize}
+                \item $\int f(g(x))g'(x)\,dx \Rightarrow \int f(u)\,du$
+        \end{itemize}
+                
+\textbf{integration by parts}
+        \begin{itemize}
+                \item $(uv)'(x) = u'(x)v(x) + u(x)v'(x) \Rightarrow \int u\,dv = uv - \int v\,du$
+        \end{itemize}
+
+\textbf{trigonometric substitution}
+	\begin{itemize}
+		\item $\sin^2(\theta) + \cos^2(\theta) = 1 \Rightarrow \cos(\theta) = \sqrt{1 - \sin^2(\theta)}$
+		\item $\sqrt{a^2 - x^2} = \sqrt{a^2(1 - (\frac{x}{a})^2)} = a\sqrt{1 - (\frac{x}{a})^2}$
+		\item $a\sin(\theta) = x$ and $a\cos(\theta) = \sqrt{a^2 - x^2}$
+	\end{itemize}
+
+\textbf{integration with partial fraction}
+	\begin{itemize}
+		\item
+	\end{itemize}
+
+\textbf{riemann sums}
+	\begin{itemize}
+		\item given a definite integral like so: $\int_{a}^{b}f(x)\,dx$ you can approximate it by breaking $[a, b]$ into smaller subintervals with a width of $\Delta x = \frac{b - a}{n}$. you now have subintervals like so: $[x_0, x_1], [x_1, x_2], \ldots, [x_{n-1}, x_n]$ where $x_i = a + i\Delta x$.
+		\item $L_n = \sum_{i = 0}^{n - 1}f(x_i) \cdot \Delta x$ 
+		\item $R_n = \sum_{i = 1}^{n}f(x_i) \cdot \Delta x$
+		\item $M_n = \sum_{i = 1}^{n}f(m_i) \cdot \Delta x$ where $m_i = \frac{x_{i-1} + x_i}{2}$
+		\item $T_n = \sum_{i = 1}^{n}\frac{f(x_{i - 1} + f(x_i)}{2} \cdot \Delta x$
+	\end{itemize}
+
+signed areas\\
+area between graphs\\
+average value\\
+mean value theorem for intgrals\\
+disk, shell, washer\\
+exponential functions\\
+inverse functions\\
+L'Hopital's rule\\
+hyperbolic trig functions\\
+simpsons rule\\
+improper integrals\\
+
+\end{document}
