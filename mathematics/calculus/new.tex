@@ -4,12 +4,23 @@
 \usepackage{xcolor}
 \setlength{\parindent}{0pt}
 
-\title{Integration}
+\title{integration and more}
 \author{alexander}
 \date{\today}
 
 \begin{document}
 \maketitle
+
+\textbf{trigonometric functions and the inverse}\\
+to obtain the inverse of a function, the function must be one-to-one, meaning that each input corresponds to exactly one unique output and no two different inputs share the same output value. however, the trigonometric functions such as sine, cosine, and tangent are not one-to-one over their entire domains because they are periodic and repeat their values infinitely many times. therefore, to define their inverses $\arcsin(x)$, $\arccos(x)$, and $\arctan(x)$ we must restrict the domain of each trigonometric function to an interval where it passes the horizontal line test. this ensures that each inverse function is well-defined and produces a single, unique ouput for every input within its range.	
+	\begin{itemize}
+		\item $y = \sin(x)$, domain: $x \in (-\infty, \infty)$, range: $y \in [-1, 1]$, period: $2\pi$\\
+			$y = \arcsin(x)$, domain: $x \in [-1, 1]$, range: $y = [-\frac{\pi}{2}, \frac{\pi}{2}$
+		\item $y = \cos(x)$, domain: $x \in (-\infty, \infty)$, range: $y \in [-1, 1]$, period: $2\pi$\\
+			$y = \arccos(x)$, domain: $x \in [-1, 1]$, range: $y \in [0, \pi]$
+		\item $y = \tan(x) = \frac{\sin(x)}{\cos(x)}$, domain: $x \neq \frac{\pi}{2}, n \in \mathbb{Z}$, range: $y \in (\infty, \infty)$, period: $\pi$\\
+			$y = \arctan(x)$, domain: $x \in (-\infty, \infty)$, range: $\in (-\frac{\pi}{2}, \frac{\pi}{2})$
+	\end{itemize}	
 
 \textbf{FTC}
 	\begin{itemize}
@@ -25,6 +36,7 @@
 \textbf{u-substitution}
         \begin{itemize}
                 \item $\int f(g(x))g'(x)\,dx \Rightarrow \int f(u)\,du$
+		\item $\int_{a}^{b}f(g(x))g'(x)\,dx = \int_{u(a)}^{u(b)}f(u)\,du$
         \end{itemize}
                 
 \textbf{integration by parts}
@@ -33,11 +45,12 @@
         \end{itemize}
 
 \textbf{trigonometric substitution}
-	\begin{itemize}
-		\item $\sin^2(\theta) + \cos^2(\theta) = 1 \Rightarrow \cos(\theta) = \sqrt{1 - \sin^2(\theta)}$
-		\item $\sqrt{a^2 - x^2} = \sqrt{a^2(1 - (\frac{x}{a})^2)} = a\sqrt{1 - (\frac{x}{a})^2}$
-		\item $a\sin(\theta) = x$ and $a\cos(\theta) = \sqrt{a^2 - x^2}$
-	\end{itemize}
+	\begin{enumerate}
+		\item $\sqrt{a^2 - b^2x^2} = \sqrt{a^2(1 - \frac{b^2x^2}{a^2})} = \sqrt{a^2(1 - (\frac{bx}{a})^2)} = \sqrt{a^2(1 - (\frac{b}{a}x)^2)} = a\sqrt{1 - (\frac{b}{a}x)^2}$
+		\item $\sin^2(\theta) = \cos^2(\theta) = 1 \Leftrightarrow \cos(\theta) = \sqrt{1 - (\sin(\theta))^2}$ 
+		\item $\frac{b}{a}x = \sin(\theta) \Leftrightarrow x = \frac{a}{b}\sin(\theta)$
+		\item $a\cos(\theta) = \sqrt{a^2 - b^2x^2}$
+	\end{enumerate}
 
 \textbf{integration with partial fraction}
 	\begin{itemize}
@@ -53,16 +66,24 @@
 		\item $T_n = \sum_{i = 1}^{n}\frac{f(x_{i - 1} + f(x_i)}{2} \cdot \Delta x$
 	\end{itemize}
 
+prooving the binomial theorem and special factorizations\\
+diff. implies cont.\\
+simple limits revisited\\
+derivative of ln(x) vs integrating 1/x\\
+differentiating inverse csc\\
+IBP problems, power reduction, improper integration\\
+why trig subs prefer certain substiutions\\
+partial fractions\\
+e exponentials and compounding, logs review (slide rule)\\
+$e^{i\theta} = \cos(\theta) + i\sin(\theta)$, $\sinh(x)$, $\sin^2(\theta) - \cos^2(\theta) = 1$\\
 signed areas\\
 area between graphs\\
 average value\\
 mean value theorem for intgrals\\
 disk, shell, washer\\
 exponential functions\\
-inverse functions\\
 L'Hopital's rule\\
 hyperbolic trig functions\\
 simpsons rule\\
-improper integrals\\
 
 \end{document}
