@@ -52,10 +52,17 @@ to obtain the inverse of a function, the function must be one-to-one, meaning th
 		\item $a\cos(\theta) = \sqrt{a^2 - b^2x^2}$
 	\end{enumerate}
 
-\textbf{integration with partial fraction}
+when you do a trig substitution, you often let something like $x = \sin(\theta)$. that automatically restrics $\theta$ to the range of the inverse sine function, which is $-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}$. within this range, $\sin(\theta)$ can be positive or negative, but $\cos(\theta)$ is always nonnegative. now, when you use the pythagorean identity $\sin^2(\theta) + \cos^2(\theta) = 1$, and solve for $\cos(\theta)$, you get $\cos(\theta) = \pm \sqrt{1 - \sin^2(\theta)}$. mathematically, both the positive and negative square roots are valid - but you have to choose which sign is correct for the range of $\theta$ you are working in. because we restriced $\theta$ to $[-\frac{\pi}{2}, \frac{\pi}{2}]$ when we said $x = \sin(\theta)$, we know $\cos(\theta) \geq 0$ there. Therefore, we choose the positive square root: $\cos(\theta) = + \sqrt{1 - \sin^2(\theta)}$. if instead we had chosen a substitution involving $\cos(\theta)$, we would pick a domain where $\sin(\theta)$ has a definite sign and make the corresponding choice.
+
+\textbf{integration by partial fraction decomposition}
 	\begin{itemize}
-		\item
+		\item distinct linear factors $\frac{A}{x - a} + \frac{B}{x - b}$
+		\item repeated linear factors $\frac{A_1}{x - a} + \frac{A_2}{(x - a)^2} + ldots \frac{A_n}{(x - a)^n}$
+		\item irreducible quadratic factors $\frac{Ax + B}{x^2 + bx + c}$
+		\item repeated quadratic factors $\frac{A_1x + B_1}{x^2 + bx + c} + \ldots + \frac{A_nx + B_n}{(x^2 + bx + c)^n}$
 	\end{itemize}
+
+a rational function is of the form $\frac{P(x)}{Q(x)}$ where $P(x)$ and $Q(x)$ are polynomials. with a proper fraction ($\text{deg}(P) < \text{deg}(Q)$) you can go straight to the decomposition, but for something improper ($\text{deg}(P) > \text{deg}(Q)$), you will need to use polynomial division ($\frac{P(x)}{Q(x)} = S(x) + \frac{R(x)}{Q(x)}$) where $S(x)$ is a polynomial (the quotient), and $\frac{R(x)}{Q(x)}$ is now a proper fraction (remainder over the denominator).
 
 \textbf{riemann sums}
 	\begin{itemize}
@@ -66,24 +73,23 @@ to obtain the inverse of a function, the function must be one-to-one, meaning th
 		\item $T_n = \sum_{i = 1}^{n}\frac{f(x_{i - 1} + f(x_i)}{2} \cdot \Delta x$
 	\end{itemize}
 
-prooving the binomial theorem and special factorizations\\
-diff. implies cont.\\
-simple limits revisited\\
-derivative of ln(x) vs integrating 1/x\\
-differentiating inverse csc\\
-IBP problems, power reduction, improper integration\\
-why trig subs prefer certain substiutions\\
-partial fractions\\
-e exponentials and compounding, logs review (slide rule)\\
-$e^{i\theta} = \cos(\theta) + i\sin(\theta)$, $\sinh(x)$, $\sin^2(\theta) - \cos^2(\theta) = 1$\\
-signed areas\\
-area between graphs\\
-average value\\
-mean value theorem for intgrals\\
-disk, shell, washer\\
-exponential functions\\
 L'Hopital's rule\\
-hyperbolic trig functions\\
 simpsons rule\\
 
+
+
+
+disk, shell, washer\\
+signed areas\\
+area between graphs\\
+average value, mean value theorem and other integral theorems\\
+
+
+
+
+proving the binomial theorem and special factorizations\\
+diff. implies cont.\\
+
+history of logs? what is e? doubling time? compounding?
+$e^{i\theta} = \cos(\theta) + i\sin(\theta)$, $\sinh(x)$, $\sin^2(\theta) - \cos^2(\theta) = 1$\\
 \end{document}
