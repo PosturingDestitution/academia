@@ -52,12 +52,12 @@ to obtain the inverse of a function, the function must be one-to-one, meaning th
 		\item $a\cos(\theta) = \sqrt{a^2 - b^2x^2}$
 	\end{enumerate}
 
-when you do a trig substitution, you often let something like $x = \sin(\theta)$. that automatically restrics $\theta$ to the range of the inverse sine function, which is $-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}$. within this range, $\sin(\theta)$ can be positive or negative, but $\cos(\theta)$ is always nonnegative. now, when you use the pythagorean identity $\sin^2(\theta) + \cos^2(\theta) = 1$, and solve for $\cos(\theta)$, you get $\cos(\theta) = \pm \sqrt{1 - \sin^2(\theta)}$. mathematically, both the positive and negative square roots are valid - but you have to choose which sign is correct for the range of $\theta$ you are working in. because we restriced $\theta$ to $[-\frac{\pi}{2}, \frac{\pi}{2}]$ when we said $x = \sin(\theta)$, we know $\cos(\theta) \geq 0$ there. Therefore, we choose the positive square root: $\cos(\theta) = + \sqrt{1 - \sin^2(\theta)}$. if instead we had chosen a substitution involving $\cos(\theta)$, we would pick a domain where $\sin(\theta)$ has a definite sign and make the corresponding choice.
+when you do a trig substitution, you often let something like $x = \sin(\theta)$. that automatically restrics $\theta$ to the range of the inverse sine function, which is $-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}$. within this range, $\sin(\theta)$ can be positive or negative, but $\cos(\theta)$ is always nonnegative. now, when you use the pythagorean identity $\sin^2(\theta) + \cos^2(\theta) = 1$, and solve for $\cos(\theta)$, you get $\cos(\theta) = \pm \sqrt{1 - \sin^2(\theta)}$. mathematically, both the positive and negative square roots are valid - but you have to choose which sign is correct for the range of $\theta$ you are working in. because we restriced $\theta$ to $[-\frac{\pi}{2}, \frac{\pi}{2}]$ when we said $x = \sin(\theta)$, we know $\cos(\theta) \geq 0$ there. Therefore, we choose the positive square root: $\cos(\theta) = + \sqrt{1 - \sin^2(\theta)}$. if instead we had chosen a substitution involving $\cos(\theta)$, we would pick a domain where $\sin(\theta)$ has a definite sign and make the corresponding choice.\\
 
 \textbf{integration by partial fraction decomposition}
 	\begin{itemize}
 		\item distinct linear factors $\frac{A}{x - a} + \frac{B}{x - b}$
-		\item repeated linear factors $\frac{A_1}{x - a} + \frac{A_2}{(x - a)^2} + ldots \frac{A_n}{(x - a)^n}$
+		\item repeated linear factors $\frac{A_1}{x - a} + \frac{A_2}{(x - a)^2} + \ldots + \frac{A_n}{(x - a)^n}$
 		\item irreducible quadratic factors $\frac{Ax + B}{x^2 + bx + c}$
 		\item repeated quadratic factors $\frac{A_1x + B_1}{x^2 + bx + c} + \ldots + \frac{A_nx + B_n}{(x^2 + bx + c)^n}$
 	\end{itemize}
@@ -70,26 +70,46 @@ a rational function is of the form $\frac{P(x)}{Q(x)}$ where $P(x)$ and $Q(x)$ a
 		\item $L_n = \sum_{i = 0}^{n - 1}f(x_i) \cdot \Delta x$ 
 		\item $R_n = \sum_{i = 1}^{n}f(x_i) \cdot \Delta x$
 		\item $M_n = \sum_{i = 1}^{n}f(m_i) \cdot \Delta x$ where $m_i = \frac{x_{i-1} + x_i}{2}$
-		\item $T_n = \sum_{i = 1}^{n}\frac{f(x_{i - 1} + f(x_i)}{2} \cdot \Delta x$
+		\item $T_n = \sum_{i = 1}^{n}\frac{f(x_{i - 1} + f(x_i))}{2} \cdot \Delta x$
 	\end{itemize}
 
-L'Hopital's rule\\
-simpsons rule\\
+\textbf{combinatorics}
+if you have n objects you can arrange them in n! ways. lets say n is 5 then using the multiplication rule you can place 5 unique objects in the first location leaving you with 4 unique object for the next location and so on. now lets say you have 5 objects again and want to find the number of ways to arrange (permute) 3 of those 5 elements ($P(n, k)$) so 123 is a different arrangment from 321 which means that the order matters. this being said $P(n, k) = \frac{n!}{(n - k)!} Rightarrow P(5, 3) = \frac{5 * 4 * 3 * 2 * 1}{2 * 1}$. 5 objects can go in the first bucket, 4 can go in the next and finally 3 remain for the last bucket. now for a combination we say that the order does not matter meaning that 123 = 321 for this case. the number of ways you can arrange 3 objects would be 3! so we will have to remove those from the calculation like so $\binom{n}{k} = \frac{n!}{k!(n-k)!} \Rightarrow \binom{5}{3} = \frac{5!}{3!(5 - 3)!}$\\
 
+pascals identity: $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$\\
 
+prove/understand the binomial theorem\\
 
-
-disk, shell, washer\\
 signed areas\\
-area between graphs\\
-average value, mean value theorem and other integral theorems\\
+
+volumes of revolution\\
+
+arclength\\
+
+
+\textbf{logs, e, and more}\\
+in the 1600s, people invented logarithms to make multiplication and division easier. at the time, atronomers and navigators were doing tons of tedious multiplications. the insight was that multiplication can be turned into addition if you can map numbers into a new scale $\log(ab) = \log(a) + \log(b)$ so instead of multiplying $a$ and $b$, you just add their logs. before calculators, people used log tables. the slide rule was used as a physical calculator (with log scales) up until the 1960s (cold war).\\
+
+compound interest formula\\
+$\lim_{n \to \infty}$\\
+$\frac{dy}{dx} = y$ show that $e^xe^X = e^{x + X}$\\
+factorial\\
+geometric series\\
+$\frac{dy}{dx} = cy \Rightarrow y(x) = e^{cx}$\\
+doubling time and half life\\
+lhopitals rule\\
+hyperbolic functions and a "leap of magination"\\
+
+
+numerical integration\\
+improper integrals\\
+
+taylor polynomials\\
+
+intro to first order linear diffyQ\\
+infinite series\\
 
 
 
 
-proving the binomial theorem and special factorizations\\
-diff. implies cont.\\
-
-history of logs? what is e? doubling time? compounding?
-$e^{i\theta} = \cos(\theta) + i\sin(\theta)$, $\sinh(x)$, $\sin^2(\theta) - \cos^2(\theta) = 1$\\
 \end{document}
