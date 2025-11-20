@@ -74,16 +74,22 @@ a rational function is of the form $\frac{P(x)}{Q(x)}$ where $P(x)$ and $Q(x)$ a
 	\end{itemize}
 
 \textbf{combinatorics}
-if you have n objects you can arrange them in n! ways. lets say n is 5 then using the multiplication rule you can place 5 unique objects in the first location leaving you with 4 unique object for the next location and so on. now lets say you have 5 objects again and want to find the number of ways to arrange (permute) 3 of those 5 elements ($P(n, k)$) so 123 is a different arrangment from 321 which means that the order matters. this being said $P(n, k) = \frac{n!}{(n - k)!} Rightarrow P(5, 3) = \frac{5 * 4 * 3 * 2 * 1}{2 * 1}$. 5 objects can go in the first bucket, 4 can go in the next and finally 3 remain for the last bucket. now for a combination we say that the order does not matter meaning that 123 = 321 for this case. the number of ways you can arrange 3 objects would be 3! so we will have to remove those from the calculation like so $\binom{n}{k} = \frac{n!}{k!(n-k)!} \Rightarrow \binom{5}{3} = \frac{5!}{3!(5 - 3)!}$\\
+if you have n objects you can arrange them in n! ways. lets say n is 5 then using the multiplication rule you can place 5 unique objects in the first location leaving you with 4 unique object for the next location and so on. now lets say you have 5 objects again and want to find the number of ways to arrange (permute) 3 of those 5 elements ($P(n, k)$) so 123 is a different arrangment from 321 which means that the order matters. this being said $P(n, k) = \frac{n!}{(n - k)!} \Rightarrow P(5, 3) = \frac{5 * 4 * 3 * 2 * 1}{2 * 1}$. 5 objects can go in the first bucket, 4 can go in the next and finally 3 remain for the last bucket. now for a combination we say that the order does not matter meaning that 123 = 321 for this case. the number of ways you can arrange 3 objects would be 3! so we will have to remove those from the calculation like so $\binom{n}{k} = \frac{n!}{k!(n-k)!} \Rightarrow \binom{5}{3} = \frac{5!}{3!(5 - 3)!}$\\
+
+combinations again\\
 
 pascals identity: $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$\\
 
 prove/understand the binomial theorem\\
 
+
+
+
+
+
+
 signed areas\\
-
 volumes of revolution\\
-
 arclength\\
 
 
@@ -108,8 +114,4 @@ taylor polynomials\\
 
 intro to first order linear diffyQ\\
 infinite series\\
-
-
-
-
 \end{document}
