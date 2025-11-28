@@ -73,45 +73,25 @@ a rational function is of the form $\frac{P(x)}{Q(x)}$ where $P(x)$ and $Q(x)$ a
 		\item $T_n = \sum_{i = 1}^{n}\frac{f(x_{i - 1} + f(x_i))}{2} \cdot \Delta x$
 	\end{itemize}
 
-\textbf{combinatorics}
-if you have n objects you can arrange them in n! ways. lets say n is 5 then using the multiplication rule you can place 5 unique objects in the first location leaving you with 4 unique object for the next location and so on. now lets say you have 5 objects again and want to find the number of ways to arrange (permute) 3 of those 5 elements ($P(n, k)$) so 123 is a different arrangment from 321 which means that the order matters. this being said $P(n, k) = \frac{n!}{(n - k)!} \Rightarrow P(5, 3) = \frac{5 * 4 * 3 * 2 * 1}{2 * 1}$. 5 objects can go in the first bucket, 4 can go in the next and finally 3 remain for the last bucket. now for a combination we say that the order does not matter meaning that 123 = 321 for this case. the number of ways you can arrange 3 objects would be 3! so we will have to remove those from the calculation like so $\binom{n}{k} = \frac{n!}{k!(n-k)!} \Rightarrow \binom{5}{3} = \frac{5!}{3!(5 - 3)!}$\\
-
-combinations again\\
-
-pascals identity: $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$\\
-
-prove/understand the binomial theorem\\
-
-
-
-
-
-
-
-signed areas\\
-volumes of revolution\\
-arclength\\
+\section*{whats next?}
+\begin{enumerate}
+	\item probability
+	\item arrangement, permutation, combinations
+	\item pascals identity and the binomial theorem
+	\item logs and exponential functions 
+	\item $A = P(1 + \frac{r}{n})^{nt} \Rightarrow A = Pe^{rt} \Rightarrow e = \lim_{n \to \infty}(1 + \frac{1}{n})^n$
+	\item doubling time, half life,
+	\item $e^{i\pi} + 1 = 0$, hyperbolic functions
+	\item signed areas, area between curves, average value of a function, volumes of revolution
+	\item numeric integration techniques, improper integrals, arc lengths
+	\item taylor polynomials
+	\item first order linear equations
+	\item sequences, convergence, power series, taylor series
+	\item polar coords
+\end{enumerate}
 
 
-\textbf{logs, e, and more}\\
-in the 1600s, people invented logarithms to make multiplication and division easier. at the time, atronomers and navigators were doing tons of tedious multiplications. the insight was that multiplication can be turned into addition if you can map numbers into a new scale $\log(ab) = \log(a) + \log(b)$ so instead of multiplying $a$ and $b$, you just add their logs. before calculators, people used log tables. the slide rule was used as a physical calculator (with log scales) up until the 1960s (cold war).\\
-
-compound interest formula\\
-$\lim_{n \to \infty}$\\
-$\frac{dy}{dx} = y$ show that $e^xe^X = e^{x + X}$\\
-factorial\\
-geometric series\\
-$\frac{dy}{dx} = cy \Rightarrow y(x) = e^{cx}$\\
-doubling time and half life\\
-lhopitals rule\\
-hyperbolic functions and a "leap of magination"\\
 
 
-numerical integration\\
-improper integrals\\
 
-taylor polynomials\\
-
-intro to first order linear diffyQ\\
-infinite series\\
 \end{document}
