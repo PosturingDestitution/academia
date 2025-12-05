@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.7.22)  10 AUG 2025 10:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.4)  4 DEC 2025 19:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -579,7 +579,7 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count305
 \l__pdf_internal_box=\box65
 )
-(./precalculus.aux)
+No file precalculus.aux.
 \openout1 = `precalculus.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
@@ -596,7 +596,6 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
-
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count306
@@ -1209,10 +1208,10 @@ L3 programming layer <2024-01-22>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 24325 strings out of 474222
- 631247 string characters out of 5748733
+ 24322 strings out of 474222
+ 631187 string characters out of 5748733
  1942975 words of memory out of 5000000
- 46189 multiletter control sequences out of 15000+600000
+ 46188 multiletter control sequences out of 15000+600000
  566273 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,17n,107p,1048b,706s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1231,7 +1230,7 @@ sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts
 /type1/public/cm-super/sfrm1000.pfb>
-Output written on precalculus.pdf (20 pages, 240629 bytes).
+Output written on precalculus.pdf (20 pages, 240412 bytes).
 PDF statistics:
  153 PDF objects out of 1000 (max. 8388607)
  98 compressed objects within 1 object stream
