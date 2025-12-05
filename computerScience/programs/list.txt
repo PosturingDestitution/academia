@@ -1,0 +1,28 @@
+*use the least amount of resources as possible
+
+variables
+control flow
+arrays
+pointers
+functions
+basic structs
+basic enums
+stack/heap memory
+
+1. fundamentals
+	- some sort of record manager	
+	- dynamic vector (mini std::vector)	
+	- config file parser
+
+2. more serious, mimics OS internals
+	- process table simulator (store in an array, linked list, or priority queue)
+	- job scheduler simulator (FCFS, round robin, priority scheduling)
+
+3. OS-adjacent projects
+	- memory allocator (malloc clone)
+	- basic file system emulator
+	- cooperative multitasking simulator
+
+4. alignment
+	- memory dump + struct analyzer
+	- hardware packet format parser
