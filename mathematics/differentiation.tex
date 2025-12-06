@@ -115,10 +115,8 @@ assume that $f(x)$ is differentiable at $x = a$. the tangent line to the graph o
 		\item $h'(x) = f'(g(x)) \cdot g'(x)$
 	\end{enumerate}
 
-\textbf{shifting and scaling rule} if $f(x)$ is differentiable, then for any constants $k$ and $b$, $\frac{d}{dx}f(kx + b) = kf'(kx + b)$\\
-
 \textbf{implicit differentiation:}\\
-to differentiate using the methods covered thus far, we must have a formula for $y$ in terms of $x$, for instance, $y = x^3 + 1$. but suppose that $y$ is determined instead by an equation such as $y^4 + xy = x^3 - x + 2$. in this case, we say that $y$ is defined impplicitly. how can we find the slope of the tangent line at a point on the graph? it may be inconvenient or even impossible to solve for $y$ explicitly as a function of $x$, but we can find $\frac{dy}{dx}$ using the method of implicit differentiation. to illustrate, consider the equation of the unit circle:
+to differentiate using the methods covered thus far, we must have a formula for $y$ in terms of $x$, for instance, $y = x^3 + 1$. but suppose that $y$ is determined instead by an equation such as $y^4 + xy = x^3 - x + 2$. in this case, we say that $y$ is defined implicitly. how can we find the slope of the tangent line at a point on the graph? it may be inconvenient or even impossible to solve for $y$ explicitly as a function of $x$, but we can find $\frac{dy}{dx}$ using the method of implicit differentiation. to illustrate, consider the equation of the unit circle:
 	\begin{enumerate}
 		\item $x^2 + y^2 = 1$
 		\item to compute $\frac{dy}{dx}$, first take the derivative of both sides of the equation and evaluate: \\ $\frac{d}{dx}(x^2 + y^2) = \frac{d}{dx}(1)$
@@ -135,65 +133,82 @@ in related rate problems, the goal is to calculate an unknown rate of change in 
 \textbf{linear approximation:}\\
 we can use the derivative to estimate $\Delta f$ without computing it exactly. by definition, the derivative is the limit\\ $f'(a) = \lim_{\Delta x \to 0}\frac{f(a + \Delta x) - f(a)}{\Delta x} = \lim_{\Delta x \to 0}\frac{\Delta f}{\Delta x}$\\ so when $\Delta x$ is small, we have $\frac{\Delta f}{\Delta x} \approx f'(a)$, and thus, $\Delta f \approx f'(a)\Delta x$\\
 
-the linear approximation if often called the tangent line approximation because of the following interpretation. the quantitiy $\Delta f$ is the vertical change from $x = a$ to $a = a + \Delta x$ in the graph of $f(x)$. recall that for a nonvertical straight line, the vertical change is equal to the slope times the horizontal change. since the tangent line has slope $f'(a)$. the vertical change in the tangent line is $f'(a)\Delta x$. what the linear approximation does, therefore, is used the vertical change in the tangent line as an approximation to the vertical change in the graph of $f(x)$. when $\Delta x$ is small, the two quantities are nearly equal.\\
+the linear approximation if often called the tangent line approximation because of the following interpretation. the quantitiy $\Delta f$ is the vertical change from $x = a$ to $a = a + \Delta x$ in the graph of $f(x)$. recall that for a nonvertical straight line, the vertical change is equal to the slope times the horizontal change. since the tangent line has slope $f'(a)$ the vertical change in the tangent line is $f'(a)\Delta x$. what the linear approximation does, therefore, is used the vertical change in the tangent line as an approximation to the vertical change in the graph of $f(x)$. when $\Delta x$ is small, the two quantities are nearly equal.\\
 
-Keep in mind the different roles played by $\Delta f$ and $f'(a)\Delta x$. the quantity of interest is $\Delta f$ and we estimate it by $f'(a)\Delta x$. most importantly, the linear approximation tells us that there is a nearly linear relationship between $\Delta f$ and $\Delta x$ when $\Delta x$ is small.\\
+Keep in mind the different roles played by $\Delta f$ and $f'(a)\Delta x$. the quantity of interest is $\Delta f$ and we estimate it by $f'(a)\Delta x$. most importantly, the linear approximation tells us that there is a nearly linear relationship between $\Delta f$ and $\Delta x$ when $\Delta x$ is small because differentiability means that the function is locally well-approximated by a line. (differentiability at $a$ means that near $a$, the function behaves almost like its tangent line)\\
 
 \textbf{linearization:}\\
 we can approximate $f(x)$ itself rather than the change $\Delta f$ by rewriting the linear approximation in terms of the variable $x = a + \Delta x$. Then\\ $f(a + \Delta x) - f(a) \approx f'(a)\Delta x$\\ $f(x) - f(a) \approx f'(a)(x - a)$ (since $\Delta x = x - a$)\\ $f(x) \approx f(a) + f'(a)(x - a)$\\ the function on the right, denoted by $L(x)$, is called the linearization of $f(x)$ at $x = a$:\\ $L(x) = f'(a)(x - a) + f(a)$\\ we refer to $x = a$ as the center of the linearization. notice that $y = L(x)$ is the equation of the tangent line to the graph of $f(x)$ at $x = a$\\
 
 \textbf{approximating $f(x)$ by its linearization} assume that $f$ is differentiable at $x = a$ if $x$ is close to $a$, then\\ $f(x) \approx L(x) = f'(a)(x - a) + f(a)$\\
 
-\textbf{extreme values on an interval} let $f(x)$ be a function on an interval I and let $a \in I$. we say that $f(a)$ is the
-	\begin{itemize}
-		\item absolute minimum of $f(x)$ on $I$ if $f(a) \leq f(x)$ for all $x \in I$
-		\item absolute maximum of $f(x)$ on $I$ if $f(a) \geq f(x)$ for all $x \in I$
-	\end{itemize}
+\textbf{absolute extrema on an interval}
+for $f$ defined on an interval $I$ and $a \in I$:
+\begin{itemize}
+    \item $f(a)$ is an \emph{absolute minimum} on $I$ if $f(a) \le f(x)$ for all $x \in I$.
+    \item $f(a)$ is an \emph{absolute maximum} on $I$ if $f(a) \ge f(x)$ for all $x \in I$.
+\end{itemize}
 
-\textbf{existence of extrema on a closed interval} if $f(x)$ is a continuous function on a closed (bounded) interval $I = [a, b]$, then $f(x)$ takes on a minimum and a maximum value on $I$.\\
+\textbf{extreme value theorem}
+If $f$ is continuous on a closed interval $[a,b]$, then $f$ attains both a minimum and a maximum on $[a,b]$.\\
 
-\textbf{local extrema} we say that $f(x)$ has a
-	\begin{itemize}
-		\item at $x = c$ if $f(c)$ is the minimum value of $f$ on some open interval (in the domain of $f$) containing $c$.
-		\item at $x = c$ if $f(c)$ is the maximum value of $f(x)$ on some open interval (in the domain of $f$) containing $c$.
-	\end{itemize}
+\textbf{local extrema}
+$f$ has a
+\begin{itemize}
+    \item \emph{local minimum} at $c$ if $f(c)$ is the minimum on some open interval containing $c$;
+    \item \emph{local maximum} at $c$ if $f(c)$ is the maximum on some open interval containing $c$.
+\end{itemize}
 
-\textbf{critical points} a number $c$ in the domain of $f$ is called a critical point if either $f'(c) = 0$ or $f'(c)$ DNE.\\
+\textbf{critical point}
+a number $c$ in the domain of $f$ is a critical point if $f'(c)=0$ or $f'(c)$ does not exist.\\
 
-\textbf{fermat's theorem on local extrema} if $f(c)$ is a local min or max, then $c$ is a critical point of $f$.\\
+\textbf{fermat's Theorem}
+if $f$ has a local extremum at $c$ and $f'(c)$ exists, then $f'(c)=0$.\\
 
-\textbf{extreme values on a closed interval} assume that $f(x)$ is continuous on $[a, b]$ and let $f(c)$ be the minimum or maximum value on $[a, b]$. then $c$ is either a critical point or one of the endpoints $a$ or $b$.\\
+\textbf{locating extrema on $[a,b]$}
+if $f$ is continuous on $[a,b]$, then any absolute max/min occurs at a critical point or at an endpoint.\\
 
-\textbf{rolle's theorem} assume that $f(x)$ is continous on $[a, b]$ and differentiable on $(a, b)$. if $f(a) = f(b)$, then there exists a number $c$ between $a$ and $b$ such that $f'(c) = 0$.\\
+\textbf{rolle's theorem}
+if $f$ is continuous on $[a,b]$, differentiable on $(a,b)$, and $f(a)=f(b)$, then there exists $c \in (a,b)$ such that $f'(c)=0$.\\
 
-\textbf{mean value theorem} assume that $f$ is continuous on the closed interval $[a, b]$ and differentiable on $(a, b)$. then there exists at least one value $c$ in $(a, b)$ such that\\ $f'(c) = \frac{f(b) - f(a)}{b - a}$\\
+\textbf{mean value theorem}
+if $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then there exists $c \in (a,b)$ such that
+\[
+f'(c)=\frac{f(b)-f(a)}{b-a}.
+\]
 
-\textbf{the sign of the derivative} let $f$ be a differentiable function on the open interval $(a, b)$.
-	\begin{itemize}
-		\item if $f'(x) > 0$ for $x \in (a, b)$, then $f$ is increasing on $(a, b)$.
-		\item if $f'(x) < 0$ for $x \in (a, b)$, then $f$ is decreasing on $(a, b)$. 
-	\end{itemize}
+\textbf{sign of the derivative}
+For differentiable $f$ on $(a,b)$:
+\begin{itemize}
+    \item if $f'(x)>0$, then $f$ is increasing on $(a,b)$;
+    \item if $f'(x)<0$, then $f$ is decreasing on $(a,b)$.
+\end{itemize}
 
-\textbf{first derivative test for critical points} assume that $f(x)$ is differentiable and let $c$ be a critical point of $f(x)$. then:
-	\begin{itemize}
-		\item $f'(x)$ changes from + to - at $c$ $\Rightarrow$ $f(c)$ is a local maximum.
-		\item $f'(x)$ changes from - to + at $c$ $\Rightarrow$ $f(c)$ is a local minimum. 
-	\end{itemize}
+\textbf{first derivative test}
+If $c$ is a critical point:
+\begin{itemize}
+    \item $f'$ changes $+$ to $-$ at $c$ $\implies$ local max.
+    \item $f'$ changes $-$ to $+$ at $c$ $\implies$ local min.
+\end{itemize}
 
-\textbf{test for concavity} suppose that $f''(x)$ exists for all $x \in (a, b)$.
-	\begin{itemize}
-		\item if $f''(x) > 0$ for all $x \in (a, b)$, then $f$ is concave up on $(a, b)$.
-		\item if $f''(x) < 0$ for all $x \in (a, b)$, then $f$ is concave down on $(a, b)$. 
-	\end{itemize}
+\textbf{concavity test}
+If $f''$ exists on $(a,b)$:
+\begin{itemize}
+    \item $f''(x)>0$ $\implies$ $f$ is concave up.
+    \item $f''(x)<0$ $\implies$ $f$ is concave down.
+\end{itemize}
 
-\textbf{test for inflection points} assume that $f''(x)$ exists for all $x \in (a, b)$ and let $c \in (a, b)$. if $f''(c) = 0$ and $f''(x)$ changes sign at $x = c$, then $f(x)$ has a point of inflection at $x = c$.\\
+\textbf{test for inflection points}
+Suppose $f''$ exists on $(a,b)$ and let $c \in (a,b)$. 
+If $f''(c)=0$ and $f''$ changes sign at $c$, then $f$ has an inflection point at $c$.\\
 
-\textbf{second derivative test} assume that $f(x)$ is differentiable and let $c$ be a critical point. if $f''(c)$ exists, then
-	\begin{itemize}
-		\item $f''(c) > 0 \Rightarrow f(c)$ is a local minimum
-		\item $f''(c) < 0 \Rightarrow f(c)$ is a local maximum 
-		\item $f''(c) = 0 \Rightarrow f(c)$ inconclusive: $f(c)$ may be a local min, max, or neither
-	\end{itemize}
+\textbf{second derivative test}
+Let $c$ be a critical point and assume $f''(c)$ exists.
+\begin{itemize}
+    \item $f''(c) > 0 \;\Rightarrow\; f(c)$ is a local minimum.
+    \item $f''(c) < 0 \;\Rightarrow\; f(c)$ is a local maximum.
+    \item $f''(c) = 0 \;\Rightarrow\;$ test is inconclusive.
+\end{itemize}
 
 \textbf{newton's method:}\\
 this is a procedure for finding numerical approximations to zeros of functions. numerical approximations are important because it is often impossible to find the zeros exactly. for example, the polynomial $f(x) = x^5 - x - 1$ has one real root $c$, but we can prove, using an advanced branch of mathematics called Galois Theory, that there is no algebraic formula for this root. newtons method shows that $c \approx 1.1673$, and with enough computation, we can compute $c$ to any desired degree of accuracy.\\
