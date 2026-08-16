@@ -3,39 +3,75 @@
 \usepackage{amssymb}
 \setlength{\parindent}{0pt}
 
-\title{test}
+\title{series}
 \author{alexander}
 \date{\today}
-
 \begin{document}
 \maketitle
 
-arithmetic: $\sum_{k=1}^{n}(a + (k - 1)d)$
+
+
+a sequence we will say is an ordered list of terms, which we can denote by $a_1,a_2,a_3,\ldots$. a series is formed by adding the terms of a sequence: $a_1+a_2+a_3+\ldots$. for a finite sequence, this is simply a finite sum. for an infinite sequence, however, we cannot simply perform infinitely many additions and assume that the result is a finite number. instead, we consider the sequence of partial sums and ask whether those partial sums approach a finite limit. arithmetic and geometric sequences are particular types of sequences with simple relationships between consecutive terms.\\
+
+in an arithmetic sequence, each term is obtained from the previous term by adding a constant difference, $a_{n+1}=a_n+d$, so the $n$th term can be written as $a_n=a+(n-1)d$. in a geometric sequence, each term is obtained from the previous term by multiplying by a constant ratio, $a_{n+1}=ra_n$, so the $n$th term can be written as $a_n=ar^{n-1}$. from these terms we can form the corresponding finite series, $\sum_{k=1}^{n}(a+(k-1)d)$ and $\sum_{k=1}^{n}ar^{k-1}$. there are other sequences that are neither arithmetic nor geometric; for now, however, we begin with these.\\
+
+for a finite arithmetic series, the nth partial sum is:
 \begin{enumerate}
 	\item $S_n = a + (a + d) + (a + 2d) + \ldots + (a + (n - 1)d)$
-	\item $S_n = (a + (n - 1)d) + (a + (n - 2)d) + \ldots + a$	
-	\item $2S_n = [a + (a + (n - 1)d] + [(a + d) + (a + (n - 2)d] + \ldots$
+	\item $S_n = (a + (n - 1)d) + (a + (n - 2)d) + \ldots + a$
+	\item $2S_n = [a + (a + (n - 1)d)] + [(a + d) + (a + (n - 2)d)] + \ldots$
 	\item $2S_n = n(2a + (n - 1)d)$
 	\item $S_n = \frac{n}{2}(2a + (n - 1)d)$
 \end{enumerate}
 
-geometric: $\sum_{k=1}^{n}ar^{k-1}$
+\newpage
+for a finite geometric series, the nth partial sum is:
 \begin{enumerate}
-	\item $(S_n - rS_n) = (a + ar + ar^2 + \dots + ar^{n-1}) -  (ar + ar^2 + ar^3 + \ldots + ar^n)$
-	\item $S_n - rS_n = a-a^r$
-	\item $S_n(1 - r) = a-ar^n$
-	\item $S_n = \frac{a - ar^n}{1 - r} = \frac{a(1 - r^n)}{1 - r}  \\ r \neq 1$
+	\item $S_n - rS_n = (a + ar + ar^2 + \ldots + ar^{n-1}) - (ar + ar^2 + ar^3 + \ldots + ar^n)$
+	\item $S_n - rS_n = a - ar^n$
+	\item $S_n(1-r) = a-ar^n$
+	\item $S_n = \frac{a-ar^n}{1-r} = \frac{a(1-r^n)}{1-r}$, $r\neq1$
 \end{enumerate}
 
+the restriction $r\neq1$ comes from the algebraic expression $\frac{a(1-r^n)}{1-r}$, since when $r=1$ the denominator is zero. however, the original geometric sum is still well-defined when $r=1$. in that case every term is $a$, so $S_n=na$. therefore, the restriction applies to this particular form of the formula, not to the original sum itself.\\
 
-converging infinite partial sums + a little dE proof for fun
+let us now consider the infinite series $1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16}+\frac{1}{32}+\ldots$ which can be written as $\sum_{n=1}^{\infty}\frac{1}{2^{n-1}}$.\\
 
+first, let us look at the series numerically by considering its partial sums:
 
+$S_1=1=1.0$
 
+$S_2=1+\frac{1}{2}=\frac{3}{2}=1.5$
 
+$S_3=1+\frac{1}{2}+\frac{1}{4}=\frac{7}{4}=1.75$
 
+$S_4=1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}=\frac{15}{8}=1.875$
 
+$S_5=1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16}=\frac{31}{16}=1.9375$
 
+$S_6=1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16}+\frac{1}{32}=\frac{63}{32}=1.96875$
 
+the sequence of partial sums is therefore: $1,\frac{3}{2},\frac{7}{4},\frac{15}{8},\frac{31}{16},\frac{63}{32},\ldots$ or, numerically, $1.0,1.5,1.75,1.875,1.9375,1.96875,\ldots$\\
 
+as we continue forming partial sums, we see that they appear to approach a particular value. to me it is unclear at this point if this is approaching $1.9999234532423\ldots$ or $2$. maybe we should look further. perhaps it is approaching $2$, but even if we continue calculating more partial sums, I still cannot establish exactly what value it approaches.\\
+
+therefore, rather than reasoning about the infinite sum directly, let us obtain $S_n$ algebraically. once we have a general expression for the $n$th partial sum, we can investigate what happens to the sequence of partial sums as $n$ approaches infinity.\\
+
+using the formula for the nth partial sum of a geometric series, with $a=1$ and $r=\frac{1}{2}$, we have
+
+$S_n=\frac{1(1-(\frac{1}{2})^n)}{1-\frac{1}{2}}=2\left(1-\frac{1}{2^n}\right)=2-\frac{1}{2^{n-1}}$.\\
+
+we can now take the limit of the sequence of partial sums:
+
+$\lim_{n\to\infty}S_n=\lim_{n\to\infty}\left(2-\frac{1}{2^{n-1}}\right)=2$.\\
+
+so our original numerical observation was correct: the sequence of partial sums approaches $2$. the infinite series therefore converges to $2$. however, we can now return to our original numerical question and make it more precise. we originally asked whether the partial sums were approaching some number very close to $2$ or whether they were actually approaching $2$. the expression for $S_n$ tells us exactly how far each partial sum is from $2$:
+
+$|S_n-2|=\left|2-\frac{1}{2^{n-1}}-2\right|=\frac{1}{2^{n-1}}$.\\
+
+therefore, the question of whether the partial sums approach $2$ can be understood as the question of whether we can make $\frac{1}{2^{n-1}}$ as small as we want by choosing $n$ sufficiently large. this gives us a way to move from our numerical intuition toward a precise definition of convergence. given any positive number $\epsilon$, can we find an $n$ such that
+
+$|S_n-2|<\epsilon$?
+
+if we can, then we have not merely observed numerically that the partial sums appear to approach $2$; we have established precisely what it means for the sequence of partial sums to converge to $2$.
 \end{document}
