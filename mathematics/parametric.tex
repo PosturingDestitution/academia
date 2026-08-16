@@ -1,0 +1,47 @@
+\documentclass{article}
+
+\author{alexander}
+\date{\today}
+\title{parametric}
+\begin{document}
+\maketitle
+
+
+in ordinary single-variable calculus, $y = f(x)$\\
+one independent variable: x. one dependent variable: y\\
+f establishes a relationship:\\
+$y = x^2$ function\\
+$x^2 + y^2 = 1$ relation ($y = \pm\sqrt{1-x^2}$ so for most x in $(-1, 1)$ there are two outputs) therefor the entire circle cannot be described by a single function $y = f(x)$. a circle is not a function but it is a relation\\
+
+function $\subseteq$ relation\\
+
+$r(t) = (x(t), y(t))$ here we still have one independent variable but now we have two functions both dependent on t that together give us a point on this curve.\\
+
+a parameter is an auxiliary variable whose value determines the values of other variables or quantities in  the system. "aux" means that is has been introduced to help describe or determine something else;i.e., its value indirectly determines the coordinates of points on the curve. a parameter may or may not have a direct geometric meaning. for example,$\theta$ may represent an angle, while $t$ may simply serve as an auxiliary variable for determining the coordinates of points on a curve.\\
+
+$x = \cos(t), y = \sin(t)$\\
+$x^2 + y^2 = \cos^2(t) + \sin^2(t) = 1$
+
+we introduce a parametrization becuase the relation describes an interdependence between x and y rather than giving one as a function of the other over the enrite curve. introducing the parameter t gives us a single variable through which we can determine both coordinates, allowing us to describe the points of the curve parametrically.\\
+
+image $P = (x, y)$ Q1 so let r = the distance (of a line) from the origin to this point and let $\theta$ be the angle that this line makes from the x-axis. naturally we have a right triangle here so that means that $\cos(\theta) = \frac{x}{r} \Rightarrow x = r\cos(\theta)$ and $\sin(\theta) = \frac{y}{r} \Rightarrow y = r\sin(\theta)$\\
+
+in an ordinary function $y = f(x)$, x is the independent variable and y depends on x. therefore, $\frac{dy}{dx}$ describes the change in y with respect to the independent variable x. in a parametric representation, $x = x(t)$ and $y = y(t)$, so t is now the independent variable and both x and y depend on t. therefore, instead of immediately considering $\frac{dy}{dx}$, we can first consider how each coordinate changes with respect to the new independent variable: $\frac{dx}{dt}$, $\frac{dy}{dt}$. however, our original question of the slope of the curve is still the change in y with respect to x. since both x and y change with respect to t, we can relate their changes through t: $\frac{dy}{dx} = \frac{dy}{dt}\frac{dt}{dx} = \frac{\frac{dy}{dt}}{\frac{dx}{dt}}$. therefore, the first derivative of a parametrically defined curve is $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$.\\
+
+once we have $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$, differentiation with respect to x now has to pass through t. thus $\frac{d}{dx} = \frac{1}{dx/dt}\frac{d}{dt}$. therefore, $\frac{d^2y}{dx^2} = \frac{1}{dx/dt}\frac{d}{dt}\left(\frac{dy}{dx}\right)$. higher derivatives follow by repeatedly applying the same operation.\\
+
+at $t=t_0$, the point on the curve is $(x(t_0),y(t_0))$. the tangent slope is $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$. a horizontal tangent occurs when $\frac{dy}{dt}=0$ while $\frac{dx}{dt}\neq0$. a vertical tangent occurs when $\frac{dx}{dt}=0$ while $\frac{dy}{dt}\neq0$.\\
+
+different parameterizations can describe the same geometric curve. for example, $x=\cos(t), y=\sin(t)$ and $x=\cos(2t), y=\sin(2t)$ both describe the unit circle, but the parameter traverses the circle differently. therefore, a parameterization contains information about how the curve is traversed, not merely which points constitute the curve.\\
+
+the ordinary differential element of arc length is $ds=\sqrt{dx^2+dy^2}$. since $dx=\frac{dx}{dt}dt$ and $dy=\frac{dy}{dt}dt$, we obtain $ds=\sqrt{\left(\frac{dx}{dt}\right)^2+\left(\frac{dy}{dt}\right)^2}\,dt$. therefore, the arc length of a parametrically defined curve is $L=\int_a^b\sqrt{\left(\frac{dx}{dt}\right)^2+\left(\frac{dy}{dt}\right)^2}\,dt$.\\
+
+starting from the ordinary expression $A=\int y\,dx$, and using $dx=\frac{dx}{dt}dt$, we obtain $A=\int_{t_1}^{t_2}y(t)\frac{dx}{dt}\,dt$. for a closed parametric curve, the direction in which the curve is traversed matters because reversing the direction reverses the sign of the integral.\\
+
+for surface area, we can use the same arc length element. for revolution about the x-axis, $S=2\pi\int y\,ds$, giving $S=2\pi\int y(t)\sqrt{x'(t)^2+y'(t)^2}\,dt$. for revolution about the y-axis, $S=2\pi\int x\,ds$, giving $S=2\pi\int x(t)\sqrt{x'(t)^2+y'(t)^2}\,dt$.\\
+
+the curvature of a parametrically defined curve is $\kappa=\frac{|x'y''-y'x''|}{(x'^2+y'^2)^{3/2}}$.
+
+
+
+\end{document}
