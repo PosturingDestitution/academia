@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.9)  16 AUG 2026 05:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.9)  18 AUG 2026 00:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -134,71 +134,61 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 14--15
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 54--55
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--57
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 58--59
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
 
  []
 
-[3] (./series.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
+
+ []
+
+[5] (./series.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 1703 strings out of 469296
- 23516 string characters out of 5465562
- 452951 words of memory out of 6000000
- 30574 multiletter control sequences out of 15000+600000
+ 1705 strings out of 469296
+ 23578 string characters out of 5465562
+ 447951 words of memory out of 6000000
+ 30576 multiletter control sequences out of 15000+600000
  634364 words of font info for 67 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 56i,6n,65p,649b,218s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 56i,8n,65p,649b,218s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texli
@@ -206,14 +196,13 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on series.pdf (3 pages, 125070 bytes).
+blic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy7.pfb>
+Output written on series.pdf (5 pages, 115271 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
+ 70 PDF objects out of 1000 (max. 8388607)
+ 42 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

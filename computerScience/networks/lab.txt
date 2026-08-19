@@ -1,0 +1,37 @@
+OPEN NETWORKING LAB
+
+Goal:
+Build a completely free/open-source networking lab on Fedora for
+deep networking study. CCNP topics will provide the general curriculum,
+but the lab does not need to reproduce Cisco IOS or Cisco commands.
+
+Architecture:
+- Fedora = host system
+- KVM/QEMU = virtual machines when needed
+- Containers/network namespaces = lightweight network nodes
+- Containerlab = create and manage topologies
+- FRRouting (FRR) = routing protocols
+- Linux networking = interfaces, bridges, VLANs, routing, VRFs, etc.
+- Wireshark/tcpdump = packet inspection
+- Python/Ansible = automation later
+
+Learning approach:
+Start with a very small topology and gradually add complexity.
+Use the lab to understand what is actually happening at the
+protocol, packet, operating-system, and forwarding levels.
+
+PLAN:
+
+1. Set up the virtualization/container environment.
+2. Create a basic two-node network.
+3. Learn Linux interfaces, addresses, routes, and packet forwarding.
+4. Add FRRouting and study routing protocols.
+5. Build larger routed and switched topologies.
+6. Study VLANs, STP, LAGs, VRFs, IPv6, QoS, filtering, etc.
+7. Capture and inspect packets with Wireshark/tcpdump.
+8. Add Python/Ansible and network automation.
+9. Gradually build more complex network scenarios.
+
+Constraint:
+Everything should be free/open-source or legally available without
+purchasing Cisco IOS licenses.
