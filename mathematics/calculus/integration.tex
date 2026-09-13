@@ -15,7 +15,7 @@
 to obtain the inverse of a function, the function must be one-to-one, meaning that each input corresponds to exactly one unique output and no two different inputs share the same output value. however, the trigonometric functions such as sine, cosine, and tangent are not one-to-one over their entire domains because they are periodic and repeat their values infinitely many times. therefore, to define their inverses $\arcsin(x)$, $\arccos(x)$, and $\arctan(x)$ we must restrict the domain of each trigonometric function to an interval where it passes the horizontal line test. this ensures that each inverse function is well-defined and produces a single, unique ouput for every input within its range.	
 	\begin{itemize}
 		\item $y = \sin(x)$, domain: $x \in (-\infty, \infty)$, range: $y \in [-1, 1]$, period: $2\pi$\\
-			$y = \arcsin(x)$, domain: $x \in [-1, 1]$, range: $y = [-\frac{\pi}{2}, \frac{\pi}{2}$
+			$y = \arcsin(x)$, domain: $x \in [-1, 1]$, range: $y = [-\frac{\pi}{2}, \frac{\pi}{2}]$
 		\item $y = \cos(x)$, domain: $x \in (-\infty, \infty)$, range: $y \in [-1, 1]$, period: $2\pi$\\
 			$y = \arccos(x)$, domain: $x \in [-1, 1]$, range: $y \in [0, \pi]$
 		\item $y = \tan(x) = \frac{\sin(x)}{\cos(x)}$, domain: $x \neq \frac{\pi}{2}, n \in \mathbb{Z}$, range: $y \in (\infty, \infty)$, period: $\pi$\\
@@ -70,31 +70,7 @@ a rational function is of the form $\frac{P(x)}{Q(x)}$ where $P(x)$ and $Q(x)$ a
 		\item $L_n = \sum_{i = 0}^{n - 1}f(x_i) \cdot \Delta x$ 
 		\item $R_n = \sum_{i = 1}^{n}f(x_i) \cdot \Delta x$
 		\item $M_n = \sum_{i = 1}^{n}f(m_i) \cdot \Delta x$ where $m_i = \frac{x_{i-1} + x_i}{2}$
-		\item $T_n = \sum_{i = 1}^{n}\frac{f(x_{i - 1} + f(x_i))}{2} \cdot \Delta x$
+		\item $T_n = \sum_{i = 1}^{n}\frac{f(x_{i - 1}) + f(x_i)}{2} \cdot \Delta x$
 	\end{itemize}
 
-\section*{review/rewriting (always ask why?)}
-\begin{enumerate}
-	\item signed area
-	\item areas between two curves
-	\item change of variables
-	\item volume as the integral of cross-sectional area
-	\item average value of a function
-	\item mean value theorem for integrals
-	\item volume of a solid of revolution: disk method, shell method
-	\item arc lengths
-	\item review properties of logs and exponents
-	\item defining the number e
-	\item derivative of the inverse
-	\item derivative of $\ln(x)$ and the antiderivative of $\frac{1}{x}$
-	\item compound interest, $P(t) = P_0e^{kt}$, doubling/halving time, defining e as a limit vs a sum
-	\item L'Hopital's rule
-	\item complex numbers, hyperbolic trig functions
-	\item numeric integration techniques, simpsons rule, bounds of error
-	\item improper integrals
-	\item taylor polynomials
-	\item (some) differential equations
-	\item sequences, convergence, power series, taylor series
-	\item polar coords
-\end{enumerate}
 \end{document}
