@@ -1,45 +1,60 @@
 \documentclass{article}
+\usepackage[margin=1in]{geometry}
 
 \author{alexander}
 \date{\today}
-\title{parametric}
+\title{parametric equations and polar coordinates}
 \begin{document}
 \maketitle
 
 
-in ordinary single-variable calculus, $y = f(x)$\\
-one independent variable: x. one dependent variable: y\\
-f establishes a relationship:\\
-$y = x^2$ function\\
-$x^2 + y^2 = 1$ relation ($y = \pm\sqrt{1-x^2}$ so for most x in $(-1, 1)$ there are two outputs) therefor the entire circle cannot be described by a single function $y = f(x)$. a circle is not a function but it is a relation\\
 
-function $\subseteq$ relation\\
+recall the following before reading this document: $\frac{x}{r} = \cos(\theta)$, $\frac{y}{r} = \sin(\theta)$, $\frac{y}{x} = \tan(\theta)$ and $x^2 + y^2 = r^2$\\
 
-$r(t) = (x(t), y(t))$ here we still have one independent variable but now we have two functions both dependent on t that together give us a point on this curve.\\
+in rectangular coordinates, a point is represented by $(x, y)$. function $\subseteq$ relation. every curve can be described by a relation between x and y, but not every curve can be described by a single function of x.\\
 
-a parameter is an auxiliary variable whose value determines the values of other variables or quantities in  the system. "aux" means that is has been introduced to help describe or determine something else;i.e., its value indirectly determines the coordinates of points on the curve. a parameter may or may not have a direct geometric meaning. for example,$\theta$ may represent an angle, while $t$ may simply serve as an auxiliary variable for determining the coordinates of points on a curve.\\
+consider this equation for a circle $x^2 + y^2 = r^2$. when we solve for y or x we obtain two functions for the entire curve. it would be nice if we had one equation that we coule manipulate to produce individual points from for the entire curve... so we introduce a new independent variable upon which the components of the point depend.\\
 
-$x = \cos(t), y = \sin(t)$\\
-$x^2 + y^2 = \cos^2(t) + \sin^2(t) = 1$
+consider two points $A = (1, 2), B = (5, 6)$, $\Delta x = 4, \Delta y = 4$. let $t=0$ describe no movement at all and $t=1$ to describe all of the movement. $x = x_0 + \Delta x \cdot t, y = y_0 + \Delta y \cdot t$\\
 
-we introduce a parametrization becuase the relation describes an interdependence between x and y rather than giving one as a function of the other over the enrite curve. introducing the parameter t gives us a single variable through which we can determine both coordinates, allowing us to describe the points of the curve parametrically.\\
+now let us begin with the function $y = x^2$. let us consider both possibilities for our new independent variable: $t = y$ and $t = x$. if $t = y$, then solving for $x$ gives two possible values for each positive value of $t$. this means that a single value of $t$ can correspond to two different points on the parabola, so it does not give us one continuous path through the curve. if instead we let $t = x$, then each value of $t$ corresponds to exactly one point on the parabola. as $t$ increases, we move from the left side of the parabola through the vertex and toward the right side. thus, although both choices are based on the same original function, the choice of parameter affects how the points of the curve are associated with values of the parameter...so different parameterizations can produce the same curve; however, the way they are parameterized changes how the curve is traversed.\\
 
-image $P = (x, y)$ Q1 so let r = the distance (of a line) from the origin to this point and let $\theta$ be the angle that this line makes from the x-axis. naturally we have a right triangle here so that means that $\cos(\theta) = \frac{x}{r} \Rightarrow x = r\cos(\theta)$ and $\sin(\theta) = \frac{y}{r} \Rightarrow y = r\sin(\theta)$\\
+in polar coordinates, a point is represented by $(r,\theta)$, where $r$ is the distance from the origin and $\theta$ is the angle measured from the positive x-axis. unlike rectangular coordinates, where a point is described by $(x,y)$, polar coordinates describe a point by its distance and direction from the origin. a polar equation can place a constraint on $r$, $\theta$, or a relationship between them, while the other quantity remains free to vary.\\
 
-in an ordinary function $y = f(x)$, x is the independent variable and y depends on x. therefore, $\frac{dy}{dx}$ describes the change in y with respect to the independent variable x. in a parametric representation, $x = x(t)$ and $y = y(t)$, so t is now the independent variable and both x and y depend on t. therefore, instead of immediately considering $\frac{dy}{dx}$, we can first consider how each coordinate changes with respect to the new independent variable: $\frac{dx}{dt}$, $\frac{dy}{dt}$. however, our original question of the slope of the curve is still the change in y with respect to x. since both x and y change with respect to t, we can relate their changes through t: $\frac{dy}{dx} = \frac{dy}{dt}\frac{dt}{dx} = \frac{\frac{dy}{dt}}{\frac{dx}{dt}}$. therefore, the first derivative of a parametrically defined curve is $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$.\\
+consider the simple polar equations $r = a$, $\theta = \theta_0$, and $r = \theta$. in $r = a$, the distance from the origin is fixed at $a$, while $\theta$ is free to vary. as the angle changes, the point moves around the origin while remaining the same distance from it, producing a circle centered at the origin. in $\theta = \theta_0$, the angle is fixed while $r$ is free to vary. as the distance from the origin changes, the point moves along a line through the origin at the fixed angle $\theta_0$. finally, in $r = \theta$, neither quantity is fixed: as the angle increases, the distance from the origin increases with it, producing an archimedean spiral. by combining $r$ and $\theta$ in different ways using familiar functions, we can produce many other types of curves, such as limaçons, rose curves, and lemniscates.\\
 
-once we have $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$, differentiation with respect to x now has to pass through t. thus $\frac{d}{dx} = \frac{1}{dx/dt}\frac{d}{dt}$. therefore, $\frac{d^2y}{dx^2} = \frac{1}{dx/dt}\frac{d}{dt}\left(\frac{dy}{dx}\right)$. higher derivatives follow by repeatedly applying the same operation.\\
+\begin{enumerate}
+    \item $r = 2a\cos(\theta) + 2b\sin(\theta)$
+    \item $r^2 = 2ar\cos(\theta) + 2br\sin(\theta)$
+    \item $x^2+y^2 = 2ax+2by$
+    \item $x^2-2ax+y^2-2by=0$
+    \item $(x-a)^2+(y-b)^2=a^2+b^2$
+    \item center=$(a,b)$, radius=$\sqrt{a^2+b^2}$
+\end{enumerate}
 
-at $t=t_0$, the point on the curve is $(x(t_0),y(t_0))$. the tangent slope is $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$. a horizontal tangent occurs when $\frac{dy}{dt}=0$ while $\frac{dx}{dt}\neq0$. a vertical tangent occurs when $\frac{dx}{dt}=0$ while $\frac{dy}{dt}\neq0$.\\
+\vspace{1em}
 
-different parameterizations can describe the same geometric curve. for example, $x=\cos(t), y=\sin(t)$ and $x=\cos(2t), y=\sin(2t)$ both describe the unit circle, but the parameter traverses the circle differently. therefore, a parameterization contains information about how the curve is traversed, not merely which points constitute the curve.\\
+\begin{enumerate}
+    \item A full circle has area $\pi r^2$ and angle $2\pi$, so a sector with angle $\theta$ occupies the fraction $\frac{\theta}{2\pi}$ of the circle.
+    
+    \item $A = \frac{\theta}{2\pi}\pi r^2$
+    
+    \item $A = \frac{1}{2}r^2\theta$
+    
+    \item For a small slice of a polar curve, the angle is $d\theta$, so $dA = \frac{1}{2}r^2d\theta$.
+    
+    \item If $r=f(\theta)$, then $dA = \frac{1}{2}f(\theta)^2d\theta$.
+    
+    \item Adding all the slices from $\alpha$ to $\beta$ gives $A = \frac{1}{2}\int_{\alpha}^{\beta}f(\theta)^2d\theta$.
+\end{enumerate}
 
-the ordinary differential element of arc length is $ds=\sqrt{dx^2+dy^2}$. since $dx=\frac{dx}{dt}dt$ and $dy=\frac{dy}{dt}dt$, we obtain $ds=\sqrt{\left(\frac{dx}{dt}\right)^2+\left(\frac{dy}{dt}\right)^2}\,dt$. therefore, the arc length of a parametrically defined curve is $L=\int_a^b\sqrt{\left(\frac{dx}{dt}\right)^2+\left(\frac{dy}{dt}\right)^2}\,dt$.\\
 
-starting from the ordinary expression $A=\int y\,dx$, and using $dx=\frac{dx}{dt}dt$, we obtain $A=\int_{t_1}^{t_2}y(t)\frac{dx}{dt}\,dt$. for a closed parametric curve, the direction in which the curve is traversed matters because reversing the direction reverses the sign of the integral.\\
 
-for surface area, we can use the same arc length element. for revolution about the x-axis, $S=2\pi\int y\,ds$, giving $S=2\pi\int y(t)\sqrt{x'(t)^2+y'(t)^2}\,dt$. for revolution about the y-axis, $S=2\pi\int x\,ds$, giving $S=2\pi\int x(t)\sqrt{x'(t)^2+y'(t)^2}\,dt$.\\
 
-the curvature of a parametrically defined curve is $\kappa=\frac{|x'y''-y'x''|}{(x'^2+y'^2)^{3/2}}$.
+
+
+now onto derivatives...i though i understood this before but maybe not so....like as far as $\frac{dy}{dx} \Rightarrow \frac{\frac{dy}{dt}}{\frac{dx}{dt}}$ but i failed to consider this new $\frac{dy}{dx} = \frac{f^{'}(\theta_0)\sin(\theta_0) + f(\theta_0)\cos(\theta_0)}{f^{'}(\theta_0)\cos(\theta_0) - f(\theta_0)\sin(\theta_0)}$ whats this?
+
+arc legth and surface area!
 
 \end{document}
