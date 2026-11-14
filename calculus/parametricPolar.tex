@@ -1,0 +1,1191 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+
+\setlength{\parindent}{0pt}
+
+% built-in replacement for boxed mathematical expressions
+\newcommand{\mybox}[1]{\fbox{\ensuremath{\displaystyle #1}}}
+
+\author{alexander}
+\date{\today}
+\title{parametric equations and polar coordinates}
+
+\begin{document}
+\maketitle
+
+\section{introduction to parametric equations}
+
+recall the following relationships between rectangular and polar coordinates:
+\[
+\frac{x}{r}=\cos(\theta),\qquad
+\frac{y}{r}=\sin(\theta),\qquad
+\frac{y}{x}=\tan(\theta)
+\]
+and
+\[
+x^2+y^2=r^2.
+\]
+
+in rectangular coordinates, a point is represented by $(x,y)$. a function is a particular type of relation, meaning that every function is a relation, but not every relation is a function. every curve can be described by a relation between $x$ and $y$, but not every curve can be described by a single function of $x$.\\
+
+consider the equation of a circle:
+\[
+x^2+y^2=r^2.
+\]
+solving for $y$ gives
+\[
+y=\pm\sqrt{r^2-x^2}.
+\]
+we obtain two functions, one describing the upper half of the circle and another describing the lower half. this demonstrates that a single function of $x$ is not always sufficient to describe an entire curve. it would be useful if we had another way of describing a curve that did not require us to express one variable as a function of the other. this leads us to parametric equations.\\
+
+\subsection{introducing a parameter}
+
+a parameter is a new independent variable upon which the coordinates of a point depend. rather than describing $y$ directly in terms of $x$, we describe both $x$ and $y$ in terms of another variable, usually denoted by $t$.
+
+consider two points:
+\[
+A=(1,2),\qquad B=(5,6).
+\]
+the changes in the coordinates are
+\[
+\Delta x=4,\qquad \Delta y=4.
+\]
+let $t=0$ describe the starting point and $t=1$ describe the ending point. we can write
+\[
+x=x_0+\Delta x\cdot t
+\]
+and
+\[
+y=y_0+\Delta y\cdot t.
+\]
+substituting our values gives
+\[
+x=1+4t,\qquad y=2+4t.
+\]
+when $t=0$, we obtain $(1,2)$, and when $t=1$, we obtain $(5,6)$. as $t$ varies between zero and one, we trace the straight line segment connecting the two points.\\
+
+more generally, a parametric curve is described by two equations:
+\[
+\mybox{x=f(t),\qquad y=g(t).}
+\]
+each value of $t$ produces a corresponding point $(x,y)$. as the parameter changes, the point moves along the curve. the parameter therefore determines not only which points belong to the curve, but also the order and direction in which those points are traversed.\\
+
+\subsection{choosing a parameter}
+
+consider the function
+\[
+y=x^2.
+\]
+we can choose either $x$ or $y$ as our parameter.\\
+
+if we let $t=y$, then
+\[
+x=\pm\sqrt{t},\qquad y=t.
+\]
+for a positive value of $t$, there are two possible values of $x$. consequently, this parameterization does not assign a unique point to each parameter value. it can still describe the entire parabola if both branches are included, but it does not describe the curve using a single-valued $x(t)$.\\
+
+if instead we let $t=x$, then
+\[
+x=t,\qquad y=t^2.
+\]
+now each value of $t$ corresponds to exactly one point on the parabola. as $t$ increases, we move from the left side of the parabola through the vertex and toward the right side.\\
+
+thus, different parameterizations can produce the same curve; however, the way they are parameterized changes how the curve is traversed.\\
+
+\subsection{parameterizing a circle}
+
+consider the circle
+\[
+x^2+y^2=r^2.
+\]
+using the trigonometric relationship
+\[
+\cos^2(t)+\sin^2(t)=1,
+\]
+we can choose
+\[
+\mybox{x=r\cos(t),\qquad y=r\sin(t).}
+\]
+substituting these expressions into the original equation gives
+\[
+x^2+y^2
+=
+r^2\cos^2(t)+r^2\sin^2(t)
+\]
+\[
+=r^2\left(\cos^2(t)+\sin^2(t)\right)
+=r^2.
+\]
+therefore, these parametric equations describe the circle.\\
+
+as $t$ increases from $0$ to $2\pi$, the point travels once counterclockwise around the circle. the parameter is therefore related to the angle around the circle.\\
+
+\subsection{eliminating the parameter}
+
+sometimes we want to convert a parametric equation back into a rectangular equation. this is done by eliminating the parameter.\\
+
+for example, consider
+\[
+x=2t,\qquad y=t^2.
+\]
+solving the first equation for $t$ gives
+\[
+t=\frac{x}{2}.
+\]
+substituting into the second equation gives
+\[
+y=\left(\frac{x}{2}\right)^2.
+\]
+therefore,
+\[
+\mybox{y=\frac{x^2}{4}.}
+\]
+we have recovered the rectangular equation by eliminating the parameter.\\
+
+however, eliminating the parameter can sometimes lose information about the direction in which the curve is traversed or the restrictions on the parameter. therefore, the rectangular equation and the parametric equations may describe the same geometric curve while containing different information.\\
+
+\newpage
+
+\section{derivatives of parametric equations}
+
+one of the most important applications of parametric equations is differentiation. since both $x$ and $y$ depend on $t$, we cannot simply differentiate $y$ with respect to $x$ as though $x$ were the independent variable. instead, we use the chain rule.\\
+
+\subsection{first derivative}
+
+suppose that
+\[
+x=f(t),\qquad y=g(t).
+\]
+using the chain rule,
+\[
+\frac{dy}{dt}
+=
+\frac{dy}{dx}\frac{dx}{dt}.
+\]
+rearranging gives
+\[
+\mybox{
+\frac{dy}{dx}
+=
+\frac{\frac{dy}{dt}}{\frac{dx}{dt}}
+}
+\]
+provided that $\frac{dx}{dt}\neq0$.\\
+
+this formula allows us to find the slope of a parametric curve without eliminating the parameter.\\
+
+for example, consider
+\[
+x=t^2+1,\qquad y=t^3-3t.
+\]
+first, differentiate both equations with respect to $t$:
+\[
+\frac{dx}{dt}=2t
+\]
+and
+\[
+\frac{dy}{dt}=3t^2-3.
+\]
+substituting into the parametric derivative formula gives
+\[
+\frac{dy}{dx}
+=
+\frac{3t^2-3}{2t}.
+\]
+therefore,
+\[
+\mybox{
+\frac{dy}{dx}
+=
+\frac{3(t^2-1)}{2t}.
+}
+\]
+
+\subsection{tangent lines}
+
+once we have the derivative, we can find the equation of a tangent line using the point-slope formula:
+\[
+y-y_0=m(x-x_0).
+\]
+the slope is obtained from $\frac{dy}{dx}$, while the coordinates are found by substituting the relevant parameter value into the original parametric equations.\\
+
+using the previous curve, suppose that $t=1$. the coordinates are
+\[
+x=1^2+1=2
+\]
+and
+\[
+y=1^3-3(1)=-2.
+\]
+the slope is
+\[
+\frac{dy}{dx}
+=
+\frac{3(1)^2-3}{2(1)}
+=0.
+\]
+therefore, the tangent line is horizontal and has equation
+\[
+\mybox{y=-2.}
+\]
+
+\subsection{horizontal and vertical tangents}
+
+a horizontal tangent occurs when the slope is zero. for a parametric curve, this generally happens when
+\[
+\mybox{
+\frac{dy}{dt}=0,\qquad
+\frac{dx}{dt}\neq0.
+}
+\]
+
+a vertical tangent occurs when the denominator is zero while the numerator is nonzero:
+\[
+\mybox{
+\frac{dx}{dt}=0,\qquad
+\frac{dy}{dt}\neq0.
+}
+\]
+
+if both derivatives are zero, the formulas alone do not determine the tangent. we must investigate the behavior of the curve more carefully, often by examining limits or higher derivatives.\\
+
+\subsection{second derivative}
+
+the second derivative measures how the slope changes as we move along the curve. it is particularly useful for determining concavity.\\
+
+we begin with the first derivative:
+\[
+\frac{dy}{dx}
+=
+\frac{\frac{dy}{dt}}{\frac{dx}{dt}}.
+\]
+to find the second derivative, we differentiate this expression with respect to $x$. applying the chain rule gives
+\[
+\frac{d^2y}{dx^2}
+=
+\frac{
+\frac{d}{dt}\left(\frac{dy}{dx}\right)
+}{
+\frac{dx}{dt}
+}.
+\]
+therefore,
+\[
+\mybox{
+\frac{d^2y}{dx^2}
+=
+\frac{
+\frac{d}{dt}\left(\frac{dy}{dx}\right)
+}{
+\frac{dx}{dt}
+}.
+}
+\]
+
+an equivalent expression is
+\[
+\mybox{
+\frac{d^2y}{dx^2}
+=
+\frac{x'(t)y''(t)-y'(t)x''(t)}
+{[x'(t)]^3}.
+}
+\]
+
+for example, consider
+\[
+x=t^2,\qquad y=t^3.
+\]
+the first derivatives are
+\[
+x'=2t,\qquad y'=3t^2.
+\]
+therefore,
+\[
+\frac{dy}{dx}
+=
+\frac{3t^2}{2t}
+=
+\frac32t.
+\]
+now differentiate with respect to $t$:
+\[
+\frac{d}{dt}\left(\frac{dy}{dx}\right)
+=
+\frac32.
+\]
+dividing by $\frac{dx}{dt}=2t$ gives
+\[
+\mybox{
+\frac{d^2y}{dx^2}
+=
+\frac{3}{4t}.
+}
+\]
+
+\subsection{concavity}
+
+the sign of the second derivative tells us about the concavity of the curve.
+
+\begin{itemize}
+\item if $\frac{d^2y}{dx^2}>0$, the curve is concave upward.
+\item if $\frac{d^2y}{dx^2}<0$, the curve is concave downward.
+\end{itemize}
+
+for parametric equations, we must remember that the second derivative is calculated by differentiating the first derivative with respect to $t$ and then dividing by $\frac{dx}{dt}$.\\
+
+\newpage
+
+\section{introduction to polar coordinates}
+
+in rectangular coordinates, a point is represented by $(x,y)$. in polar coordinates, a point is represented by $(r,\theta)$, where $r$ is the distance from the origin and $\theta$ is the angle measured from the positive $x$-axis.\\
+
+the relationships between rectangular and polar coordinates are
+\[
+\mybox{x=r\cos(\theta)}
+\]
+\[
+\mybox{y=r\sin(\theta)}
+\]
+and
+\[
+\mybox{x^2+y^2=r^2.}
+\]
+we can also obtain
+\[
+\tan(\theta)=\frac{y}{x},
+\]
+although the correct quadrant must be considered when determining $\theta$.\\
+
+it is important to remember that polar coordinates are not unique. for example,
+\[
+(r,\theta)
+\]
+and
+\[
+(r,\theta+2\pi)
+\]
+represent the same point. furthermore,
+\[
+(r,\theta)=(-r,\theta+\pi).
+\]
+a negative value of $r$ means that we move in the direction opposite to the angle $\theta$.\\
+
+\subsection{simple polar equations}
+
+consider the simple polar equations
+\[
+r=a,\qquad \theta=\theta_0,\qquad r=\theta.
+\]
+
+in $r=a$, the distance from the origin is fixed at $a$, while $\theta$ is free to vary. as the angle changes, the point moves around the origin while remaining the same distance from it, producing a circle centered at the origin.\\
+
+in $\theta=\theta_0$, the angle is fixed while $r$ is free to vary. as the distance from the origin changes, the point moves along a line through the origin at the fixed angle $\theta_0$.\\
+
+finally, in $r=\theta$, neither quantity is fixed. as the angle increases, the distance from the origin increases with it, producing an archimedean spiral.\\
+
+\subsection{converting polar equations into rectangular equations}
+
+we can convert polar equations into rectangular equations by using
+\[
+x=r\cos(\theta),\qquad
+y=r\sin(\theta),\qquad
+x^2+y^2=r^2.
+\]
+
+for example, consider
+\[
+r=2a\cos(\theta)+2b\sin(\theta).
+\]
+multiplying both sides by $r$ gives
+\[
+r^2=2ar\cos(\theta)+2br\sin(\theta).
+\]
+using the polar-rectangular relationships,
+\[
+x^2+y^2=2ax+2by.
+\]
+rearranging gives
+\[
+x^2-2ax+y^2-2by=0.
+\]
+completing the square,
+\[
+(x-a)^2-a^2+(y-b)^2-b^2=0.
+\]
+therefore,
+\[
+\mybox{
+(x-a)^2+(y-b)^2=a^2+b^2.
+}
+\]
+this is a circle with center
+\[
+\mybox{(a,b)}
+\]
+and radius
+\[
+\mybox{\sqrt{a^2+b^2}.}
+\]
+
+\subsection{symmetry in polar coordinates}
+
+symmetry can help us sketch polar curves without calculating every point. there are several useful substitutions that can indicate symmetry.\\
+
+a curve is symmetric about the polar axis if replacing $\theta$ with $-\theta$ produces an equivalent equation.\\
+
+a curve is symmetric about the line $\theta=\frac{\pi}{2}$ if replacing $\theta$ with $\pi-\theta$ produces an equivalent equation.\\
+
+a curve is symmetric about the pole if replacing $r$ with $-r$, or equivalently replacing $\theta$ with $\theta+\pi$, produces an equivalent equation.\\
+
+these tests are sufficient conditions rather than necessary ones. a curve can have symmetry even when a particular substitution does not immediately demonstrate it.\\
+
+\subsection{common polar curves}
+
+some common polar equations produce recognizable shapes.
+
+\begin{itemize}
+\item $r=a$ produces a circle centered at the origin.
+\item $r=a\cos(\theta)$ produces a circle centered on the horizontal axis.
+\item $r=a\sin(\theta)$ produces a circle centered on the vertical axis.
+\item $r=a\cos(n\theta)$ and $r=a\sin(n\theta)$ produce rose curves.
+\item $r=a+b\cos(\theta)$ and $r=a+b\sin(\theta)$ produce lima\c{c}ons.
+\item $r^2=a^2\cos(2\theta)$ produces a lemniscate.
+\end{itemize}
+
+for rose curves, if $n$ is odd, the curve has $n$ petals. if $n$ is even, the curve has $2n$ petals.\\
+
+\newpage
+
+\section{derivatives of polar equations}
+
+we can differentiate polar equations by treating the angle $\theta$ as a parameter. this is an important connection between parametric equations and polar coordinates.\\
+
+suppose that a polar curve is described by
+\[
+r=f(\theta).
+\]
+using the rectangular-polar relationships,
+\[
+x=f(\theta)\cos(\theta)
+\]
+and
+\[
+y=f(\theta)\sin(\theta).
+\]
+both $x$ and $y$ are now functions of $\theta$, so we can use parametric differentiation.\\
+
+\subsection{deriving the polar derivative formula}
+
+recall that
+\[
+\frac{dy}{dx}
+=
+\frac{\frac{dy}{d\theta}}{\frac{dx}{d\theta}}.
+\]
+we begin by differentiating $x$ with respect to $\theta$:
+\[
+x=f(\theta)\cos(\theta).
+\]
+using the product rule,
+\[
+\frac{dx}{d\theta}
+=
+f'(\theta)\cos(\theta)
+-
+f(\theta)\sin(\theta).
+\]
+
+similarly,
+\[
+y=f(\theta)\sin(\theta).
+\]
+differentiating gives
+\[
+\frac{dy}{d\theta}
+=
+f'(\theta)\sin(\theta)
++
+f(\theta)\cos(\theta).
+\]
+
+substituting into the parametric derivative formula gives
+\[
+\mybox{
+\frac{dy}{dx}
+=
+\frac{
+f'(\theta)\sin(\theta)+f(\theta)\cos(\theta)
+}{
+f'(\theta)\cos(\theta)-f(\theta)\sin(\theta)
+}.
+}
+\]
+
+this is the polar derivative formula. it is simply parametric differentiation applied to the rectangular coordinates of a polar curve.\\
+
+\subsection{a more compact form}
+
+when working with polar equations, we can also write the derivative formula directly in terms of $r$:
+\[
+\mybox{
+\frac{dy}{dx}
+=
+\frac{
+r'\sin(\theta)+r\cos(\theta)
+}{
+r'\cos(\theta)-r\sin(\theta)
+}.
+}
+\]
+here, $r'=\frac{dr}{d\theta}$.\\
+
+\subsection{horizontal and vertical tangents in polar coordinates}
+
+a horizontal tangent occurs when the numerator of the derivative is zero, provided the denominator is nonzero:
+\[
+r'\sin(\theta)+r\cos(\theta)=0.
+\]
+
+a vertical tangent occurs when the denominator is zero, provided the numerator is nonzero:
+\[
+r'\cos(\theta)-r\sin(\theta)=0.
+\]
+
+if both numerator and denominator are zero, further investigation is required.\\
+
+\subsection{example of polar differentiation}
+
+consider the polar curve
+\[
+r=1+\cos(\theta).
+\]
+we first differentiate with respect to $\theta$:
+\[
+r'=-\sin(\theta).
+\]
+substituting into the polar derivative formula gives
+\[
+\frac{dy}{dx}
+=
+\frac{
+-\sin^2(\theta)+(1+\cos(\theta))\cos(\theta)
+}{
+-\sin(\theta)\cos(\theta)
+-(1+\cos(\theta))\sin(\theta)
+}.
+\]
+simplifying the numerator,
+\[
+-\sin^2(\theta)+\cos(\theta)+\cos^2(\theta)
+=
+\cos(\theta)+\cos(2\theta).
+\]
+simplifying the denominator,
+\[
+-\sin(\theta)\cos(\theta)-\sin(\theta)
+-\sin(\theta)\cos(\theta)
+\]
+\[
+=-\sin(\theta)(1+2\cos(\theta)).
+\]
+therefore,
+\[
+\mybox{
+\frac{dy}{dx}
+=
+\frac{
+\cos(\theta)+\cos(2\theta)
+}{
+-\sin(\theta)(1+2\cos(\theta))
+}.
+}
+\]
+
+\newpage
+
+\section{area in polar coordinates}
+
+in rectangular coordinates, the area under a curve is commonly calculated using
+\[
+A=\int_a^b f(x)\,dx.
+\]
+in polar coordinates, we use a different approach because the curve is described by its distance from the origin as a function of its angle.\\
+
+\subsection{deriving the polar area formula}
+
+a full circle has area $\pi r^2$ and angle $2\pi$. a sector with angle $\theta$ therefore occupies the fraction
+\[
+\frac{\theta}{2\pi}
+\]
+of the entire circle. multiplying by the area of the circle gives
+\[
+A=\frac{\theta}{2\pi}\pi r^2.
+\]
+simplifying,
+\[
+A=\frac12r^2\theta.
+\]
+for a small angular slice, the angle is $d\theta$, so
+\[
+dA=\frac12r^2d\theta.
+\]
+if $r=f(\theta)$, then
+\[
+dA=\frac12f(\theta)^2d\theta.
+\]
+adding all the slices from $\alpha$ to $\beta$ gives
+\[
+\mybox{
+A=\frac12\int_\alpha^\beta r^2\,d\theta.
+}
+\]
+
+\subsection{example of polar area}
+
+consider the curve
+\[
+r=2\cos(\theta).
+\]
+we want to find the area enclosed by the curve over the interval
+\[
+-\frac{\pi}{2}\leq\theta\leq\frac{\pi}{2}.
+\]
+using the polar area formula,
+\[
+A=\frac12\int_{-\pi/2}^{\pi/2}4\cos^2(\theta)\,d\theta.
+\]
+therefore,
+\[
+A=2\int_{-\pi/2}^{\pi/2}\cos^2(\theta)\,d\theta.
+\]
+using the identity
+\[
+\cos^2(\theta)=\frac{1+\cos(2\theta)}{2},
+\]
+we obtain
+\[
+A=\int_{-\pi/2}^{\pi/2}(1+\cos(2\theta))\,d\theta.
+\]
+integrating,
+\[
+A=
+\left[
+\theta+\frac12\sin(2\theta)
+\right]_{-\pi/2}^{\pi/2}.
+\]
+substituting the limits gives
+\[
+\mybox{A=\pi.}
+\]
+
+\subsection{area between two polar curves}
+
+sometimes we want to find the area between two polar curves rather than the area enclosed by a single curve. in this situation, we subtract the area of the inner curve from the area of the outer curve.\\
+
+if $r_{\mathrm{outer}}$ is the outer curve and $r_{\mathrm{inner}}$ is the inner curve, then
+\[
+\mybox{
+A=
+\frac12\int_\alpha^\beta
+\left(
+r_{\mathrm{outer}}^2-r_{\mathrm{inner}}^2
+\right)d\theta.
+}
+\]
+the curves must be compared over the interval where the chosen outer and inner curves are correctly identified. if their positions change, the integral may need to be split into separate intervals.\\
+
+\subsection{finding intersection points}
+
+to find where two polar curves intersect, we can set their radial expressions equal:
+\[
+r_1(\theta)=r_2(\theta).
+\]
+solving this equation gives candidate intersection angles. however, because polar coordinates are not unique, we must also consider whether the curves intersect at the pole or whether negative radial values produce additional intersections. sketching the curves can help identify the correct integration interval.\\
+
+\newpage
+
+\section{arc length}
+
+arc length measures the distance travelled along a curve. in rectangular coordinates, for a function $y=f(x)$, the familiar formula is
+\[
+L=\int_a^b\sqrt{1+\left(\frac{dy}{dx}\right)^2}\,dx.
+\]
+we can derive this formula using the Pythagorean theorem and then extend the same idea to parametric and polar curves.\\
+
+\subsection{deriving the arc length formula}
+
+consider a very small piece of a curve. its horizontal and vertical changes are $dx$ and $dy$. by the Pythagorean theorem,
+\[
+ds^2=dx^2+dy^2.
+\]
+taking the square root gives
+\[
+ds=\sqrt{dx^2+dy^2}.
+\]
+factoring out $dx^2$ gives
+\[
+ds=
+\sqrt{
+1+\left(\frac{dy}{dx}\right)^2
+}\,dx.
+\]
+adding all these small lengths along the curve gives
+\[
+\mybox{
+L=\int_a^b
+\sqrt{
+1+\left(\frac{dy}{dx}\right)^2
+}\,dx.
+}
+\]
+
+\subsection{parametric arc length}
+
+suppose a curve is described parametrically by
+\[
+x=f(t),\qquad y=g(t).
+\]
+we begin with
+\[
+ds^2=dx^2+dy^2.
+\]
+dividing by $dt^2$ gives
+\[
+\left(\frac{ds}{dt}\right)^2
+=
+\left(\frac{dx}{dt}\right)^2+
+\left(\frac{dy}{dt}\right)^2.
+\]
+taking the square root gives
+\[
+\frac{ds}{dt}
+=
+\sqrt{
+\left(\frac{dx}{dt}\right)^2+
+\left(\frac{dy}{dt}\right)^2
+}.
+\]
+therefore, integrating from $t=\alpha$ to $t=\beta$ gives
+\[
+\mybox{
+L=
+\int_\alpha^\beta
+\sqrt{
+\left(\frac{dx}{dt}\right)^2+
+\left(\frac{dy}{dt}\right)^2
+}\,dt.
+}
+\]
+
+\subsection{example of parametric arc length}
+
+consider the parametric curve
+\[
+x=3t,\qquad y=4t
+\]
+for $0\leq t\leq1$.
+
+first, differentiate:
+\[
+\frac{dx}{dt}=3,\qquad
+\frac{dy}{dt}=4.
+\]
+substituting into the arc length formula gives
+\[
+L=\int_0^1\sqrt{3^2+4^2}\,dt.
+\]
+simplifying,
+\[
+L=\int_0^1 5\,dt.
+\]
+therefore,
+\[
+\mybox{L=5.}
+\]
+
+\subsection{polar arc length}
+
+a polar curve can also be treated as a parametric curve by using $\theta$ as the parameter:
+\[
+x=r\cos(\theta),\qquad
+y=r\sin(\theta).
+\]
+we can therefore begin with the parametric arc length formula:
+\[
+L=
+\int_\alpha^\beta
+\sqrt{
+\left(\frac{dx}{d\theta}\right)^2+
+\left(\frac{dy}{d\theta}\right)^2
+}\,d\theta.
+\]
+
+differentiating $x$ gives
+\[
+\frac{dx}{d\theta}
+=
+r'\cos(\theta)-r\sin(\theta).
+\]
+differentiating $y$ gives
+\[
+\frac{dy}{d\theta}
+=
+r'\sin(\theta)+r\cos(\theta).
+\]
+
+substituting these expressions into the arc length formula gives
+\[
+L=
+\int_\alpha^\beta
+\sqrt{
+(r'\cos(\theta)-r\sin(\theta))^2
++
+(r'\sin(\theta)+r\cos(\theta))^2
+}\,d\theta.
+\]
+expanding the squares and combining like terms causes the cross terms to cancel:
+\[
+L=
+\int_\alpha^\beta
+\sqrt{
+(r')^2\cos^2(\theta)
++(r')^2\sin^2(\theta)
++r^2\cos^2(\theta)
++r^2\sin^2(\theta)
+}\,d\theta.
+\]
+using
+\[
+\cos^2(\theta)+\sin^2(\theta)=1,
+\]
+we obtain
+\[
+\mybox{
+L=
+\int_\alpha^\beta
+\sqrt{
+r^2+\left(\frac{dr}{d\theta}\right)^2
+}\,d\theta.
+}
+\]
+
+\subsection{example of polar arc length}
+
+consider the polar curve
+\[
+r=2\theta
+\]
+for $0\leq\theta\leq1$.
+
+first, differentiate:
+\[
+\frac{dr}{d\theta}=2.
+\]
+substituting into the polar arc length formula gives
+\[
+L=\int_0^1\sqrt{(2\theta)^2+2^2}\,d\theta.
+\]
+simplifying,
+\[
+L=2\int_0^1\sqrt{\theta^2+1}\,d\theta.
+\]
+this integral can be evaluated using a standard integration technique. the important step here is recognizing the correct polar arc length formula and substituting both $r$ and its derivative.\\
+
+\newpage
+
+\section{surface area of revolution}
+
+surface area of revolution is the area of a surface created by rotating a curve around an axis. the same geometric idea applies whether the curve is described using rectangular, parametric, or polar coordinates.\\
+
+imagine a small piece of a curve with arc length $ds$. when this piece is rotated around an axis, it generates a thin band. the approximate area of this band is its circumference multiplied by its small arc length:
+\[
+dS=2\pi(\mathrm{radius})\,ds.
+\]
+therefore,
+\[
+\mybox{S=2\pi\int(\mathrm{radius})\,ds.}
+\]
+the main task is determining the distance from the curve to the axis of rotation and expressing $ds$ in terms of the chosen variable.\\
+
+\subsection{surface area using rectangular coordinates}
+
+consider a curve $y=f(x)$.
+
+when revolving around the $x$-axis, the radius is the distance from the curve to the $x$-axis, which is $|y|$. also,
+\[
+ds=\sqrt{1+\left(\frac{dy}{dx}\right)^2}\,dx.
+\]
+substituting into the surface area expression gives
+\[
+\mybox{
+S_x=
+2\pi\int_a^b
+|y|\sqrt{1+\left(\frac{dy}{dx}\right)^2}\,dx.
+}
+\]
+
+when revolving around the $y$-axis, the radius is $|x|$. therefore,
+\[
+\mybox{
+S_y=
+2\pi\int_a^b
+|x|\sqrt{1+\left(\frac{dy}{dx}\right)^2}\,dx.
+}
+\]
+
+\subsection{surface area using parametric equations}
+
+suppose the curve is described by
+\[
+x=f(t),\qquad y=g(t).
+\]
+we already know that
+\[
+ds=
+\sqrt{
+\left(\frac{dx}{dt}\right)^2+
+\left(\frac{dy}{dt}\right)^2
+}\,dt.
+\]
+
+when revolving around the $x$-axis, the radius is $|y(t)|$. therefore,
+\[
+\mybox{
+S_x=
+2\pi\int_\alpha^\beta
+|y(t)|
+\sqrt{
+\left(\frac{dx}{dt}\right)^2+
+\left(\frac{dy}{dt}\right)^2
+}\,dt.
+}
+\]
+
+when revolving around the $y$-axis, the radius is $|x(t)|$. therefore,
+\[
+\mybox{
+S_y=
+2\pi\int_\alpha^\beta
+|x(t)|
+\sqrt{
+\left(\frac{dx}{dt}\right)^2+
+\left(\frac{dy}{dt}\right)^2
+}\,dt.
+}
+\]
+
+\subsection{surface area using polar coordinates}
+
+for a polar curve,
+\[
+x=r\cos(\theta),\qquad
+y=r\sin(\theta).
+\]
+we have already derived the polar arc length element:
+\[
+ds=
+\sqrt{
+r^2+\left(\frac{dr}{d\theta}\right)^2
+}\,d\theta.
+\]
+
+when revolving around the $x$-axis, the distance from the curve to the axis is
+\[
+|y|=|r\sin(\theta)|.
+\]
+therefore,
+\[
+\mybox{
+S_x=
+2\pi\int_\alpha^\beta
+|r\sin(\theta)|
+\sqrt{
+r^2+\left(\frac{dr}{d\theta}\right)^2
+}\,d\theta.
+}
+\]
+
+when revolving around the $y$-axis, the distance from the curve to the axis is
+\[
+|x|=|r\cos(\theta)|.
+\]
+therefore,
+\[
+\mybox{
+S_y=
+2\pi\int_\alpha^\beta
+|r\cos(\theta)|
+\sqrt{
+r^2+\left(\frac{dr}{d\theta}\right)^2
+}\,d\theta.
+}
+\]
+
+\subsection{understanding the surface area formulas}
+
+although the formulas may look different, they all come from the same idea:
+\[
+dS=2\pi(\mathrm{radius})\,ds.
+\]
+
+the radius is the perpendicular distance from the curve to the axis of rotation, and $ds$ is the small piece of arc length.
+
+therefore, before setting up a surface area integral, we should always identify:
+
+\begin{enumerate}
+\item the axis around which the curve is being rotated.
+\item the distance from the curve to that axis.
+\item the appropriate expression for $ds$.
+\item the interval over which the curve is traced.
+\end{enumerate}
+
+we must also be careful that the curve is not traced multiple times unless that is intended. tracing the same portion more than once would count the corresponding surface more than once.\\
+
+\newpage
+
+\section{summary of important formulas}
+
+the following formulas summarize the main results from this document.
+
+\subsection{parametric equations}
+
+\[
+x=f(t),\qquad y=g(t)
+\]
+
+first derivative:
+\[
+\mybox{
+\frac{dy}{dx}=\frac{y'(t)}{x'(t)}
+}
+\]
+
+second derivative:
+\[
+\mybox{
+\frac{d^2y}{dx^2}
+=
+\frac{
+\frac{d}{dt}\left(\frac{dy}{dx}\right)
+}{
+x'(t)
+}
+}
+\]
+
+horizontal tangent:
+\[
+y'(t)=0,\qquad x'(t)\neq0
+\]
+
+vertical tangent:
+\[
+x'(t)=0,\qquad y'(t)\neq0
+\]
+
+parametric arc length:
+\[
+\mybox{
+L=\int_\alpha^\beta
+\sqrt{x'(t)^2+y'(t)^2}\,dt
+}
+\]
+
+\subsection{polar coordinates}
+
+rectangular-polar conversions:
+\[
+\mybox{x=r\cos(\theta)}
+\]
+\[
+\mybox{y=r\sin(\theta)}
+\]
+\[
+\mybox{x^2+y^2=r^2}
+\]
+
+polar derivative:
+\[
+\mybox{
+\frac{dy}{dx}
+=
+\frac{r'\sin(\theta)+r\cos(\theta)}
+{r'\cos(\theta)-r\sin(\theta)}
+}
+\]
+
+horizontal tangent:
+\[
+r'\sin(\theta)+r\cos(\theta)=0
+\]
+
+vertical tangent:
+\[
+r'\cos(\theta)-r\sin(\theta)=0
+\]
+
+polar area:
+\[
+\mybox{
+A=\frac12\int_\alpha^\beta r^2\,d\theta
+}
+\]
+
+area between polar curves:
+\[
+\mybox{
+A=\frac12\int_\alpha^\beta
+(r_{\mathrm{outer}}^2-r_{\mathrm{inner}}^2)\,d\theta
+}
+\]
+
+polar arc length:
+\[
+\mybox{
+L=\int_\alpha^\beta
+\sqrt{r^2+(r')^2}\,d\theta
+}
+\]
+
+\subsection{surface area}
+
+general surface area:
+\[
+\mybox{S=2\pi\int(\mathrm{radius})\,ds}
+\]
+
+parametric surface area around the $x$-axis:
+\[
+\mybox{
+S_x=2\pi\int_\alpha^\beta
+|y(t)|\sqrt{x'(t)^2+y'(t)^2}\,dt
+}
+\]
+
+parametric surface area around the $y$-axis:
+\[
+\mybox{
+S_y=2\pi\int_\alpha^\beta
+|x(t)|\sqrt{x'(t)^2+y'(t)^2}\,dt
+}
+\]
+
+polar surface area around the $x$-axis:
+\[
+\mybox{
+S_x=2\pi\int_\alpha^\beta
+|r\sin(\theta)|\sqrt{r^2+(r')^2}\,d\theta
+}
+\]
+
+polar surface area around the $y$-axis:
+\[
+\mybox{
+S_y=2\pi\int_\alpha^\beta
+|r\cos(\theta)|\sqrt{r^2+(r')^2}\,d\theta
+}
+\]
+
+\end{document}
+

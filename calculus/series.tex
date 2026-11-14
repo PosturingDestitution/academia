@@ -6,283 +6,1226 @@
 \title{series}
 \author{alexander}
 \date{\today}
+
 \begin{document}
 \maketitle
 
-a sequence we will say is an ordered list of terms, which we can denote by $a_1,a_2,a_3,\ldots$. a series is formed by adding the terms of a sequence: $a_1+a_2+a_3+\ldots$. for a finite sequence, this is simply a finite sum. for an infinite sequence, however, we cannot simply perform infinitely many additions and assume that the result is a finite number. instead, we consider the sequence of partial sums and ask whether those partial sums approach a finite limit. arithmetic and geometric sequences are particular types of sequences with simple relationships between consecutive terms.\\
+\section{sequences}
 
-in an arithmetic sequence, each term is obtained from the previous term by adding a constant difference, $a_{n+1}=a_n+d$, so the $n$th term can be written as $a_n=a+(n-1)d$. in a geometric sequence, each term is obtained from the previous term by multiplying by a constant ratio, $a_{n+1}=ra_n$, so the $n$th term can be written as $a_n=ar^{n-1}$. from these terms we can form the corresponding finite series, $\sum_{k=1}^{n}(a+(k-1)d)$ and $\sum_{k=1}^{n}ar^{k-1}$. there are other sequences that are neither arithmetic nor geometric; for now, however, we begin with these.\\
+a sequence is an ordered list of terms, which we can denote by $a_1,a_2,a_3,\ldots$. each term in a sequence is associated with a positive integer, called its index. we can therefore describe a sequence using a general term, $a_n$, which gives the value of the term at any position $n$. sequences can be defined explicitly, where the value of each term is given directly in terms of $n$, or recursively, where each term is defined using one or more preceding terms.\\
 
-for a finite arithmetic series, the nth partial sum is:
-\begin{enumerate}
-	\item $S_n = a + (a + d) + (a + 2d) + \ldots + (a + (n - 1)d)$
-	\item $S_n = (a + (n - 1)d) + (a + (n - 2)d) + \ldots + a$
-	\item $2S_n = [a + (a + (n - 1)d)] + [(a + d) + (a + (n - 2)d)] + \ldots$
-	\item $2S_n = n(2a + (n - 1)d)$
-	\item $S_n = \frac{n}{2}(2a + (n - 1)d)$
-\end{enumerate}
+sequences can either converge or diverge. a sequence converges if its terms approach a finite number as $n$ increases without bound. in this case, we write
+\[
+\lim_{n\to\infty}a_n=L.
+\]
+the number $L$ is called the limit of the sequence. if the terms do not approach a finite limit, the sequence diverges. for example, consider the sequences
+\[
+a_n=\frac{1}{n}
+\qquad \text{and} \qquad
+b_n=n.
+\]
+for the first sequence, the terms approach zero as $n$ increases:
+\[
+\lim_{n\to\infty}\frac{1}{n}=0.
+\]
+therefore, the sequence converges. for the second sequence, the terms increase without bound, so it does not approach a finite limit. therefore, the sequence diverges.\\
+
+arithmetic and geometric sequences are particular types of sequences with simple relationships between consecutive terms. in an arithmetic sequence, each term is obtained from the previous term by adding a constant difference, $a_{n+1}=a_n+d$, so the $n$th term can be written as
+\[
+a_n=a+(n-1)d.
+\]
+in a geometric sequence, each term is obtained from the previous term by multiplying by a constant ratio, $a_{n+1}=ra_n$, so the $n$th term can be written as
+\[
+a_n=ar^{n-1}.
+\]
+there are other sequences that are neither arithmetic nor geometric; for now, however, we begin with these.\\
+
+\section{series}
+
+a series is formed by adding the terms of a sequence:
+\[
+a_1+a_2+a_3+\ldots
+\]
+for a finite sequence, this is simply a finite sum. for an infinite sequence, however, we cannot simply perform infinitely many additions and assume that the result is a finite number. instead, we consider the sequence of partial sums and ask whether those partial sums approach a finite limit.\\
+
+the $n$th partial sum of a series is the sum of its first $n$ terms:
+\[
+S_n=a_1+a_2+\ldots+a_n
+=\sum_{k=1}^{n}a_k.
+\]
+an infinite series is said to converge if the sequence of its partial sums converges to a finite limit. in other words, if
+\[
+\lim_{n\to\infty}S_n=S
+\]
+exists and is finite, then the infinite series converges to $S$, which we write as
+\[
+\sum_{n=1}^{\infty}a_n=S.
+\]
+if the sequence of partial sums does not approach a finite limit, the series diverges.\\
+
+it is important to distinguish between the convergence of a sequence and the convergence of a series. a sequence converges when its individual terms approach a finite limit. a series converges when the sequence of its partial sums approaches a finite limit. these are different conditions, and the convergence of one does not automatically imply the convergence of the other.\\
+
+\subsection{the nth-term test for divergence}
+
+we can establish an important condition for the convergence of an infinite series by considering its individual terms. suppose that the series
+\[
+\sum_{n=1}^{\infty}a_n
+\]
+converges to a finite sum $S$. since the partial sums approach $S$, we have
+\[
+\lim_{n\to\infty}S_n=S.
+\]
+we can also write the $n$th term of the series as the difference between two consecutive partial sums:
+\[
+a_n=S_n-S_{n-1}.
+\]
+taking the limit as $n$ approaches infinity gives
+\[
+\lim_{n\to\infty}a_n
+=
+\lim_{n\to\infty}(S_n-S_{n-1}).
+\]
+since both $S_n$ and $S_{n-1}$ approach $S$, it follows that
+\[
+\lim_{n\to\infty}a_n=S-S=0.
+\]
+therefore, if an infinite series converges, its individual terms must approach zero.\\
+
+this result gives us the nth-term test for divergence:
+\[
+\boxed{
+\begin{aligned}
+&\text{if } \lim_{n\to\infty}a_n\neq 0,\\
+&\text{or if the limit does not exist,}\\
+&\text{then } \sum_{n=1}^{\infty}a_n
+\text{ diverges.}
+\end{aligned}
+}
+\]
+
+it is important to understand that this test can only establish divergence. if the terms approach zero, we cannot conclude that the series converges. for example, consider the harmonic series:
+\[
+\sum_{n=1}^{\infty}\frac{1}{n}
+=
+1+\frac12+\frac13+\frac14+\ldots
+\]
+although its individual terms approach zero,
+\[
+\lim_{n\to\infty}\frac{1}{n}=0,
+\]
+the series itself diverges. this demonstrates that the terms of a convergent series must approach zero, but this condition alone is not sufficient to guarantee convergence. we will develop additional tests later to determine whether an infinite series converges or diverges.\\
 
 \newpage
 
-for a finite geometric series, the nth partial sum is:
+\section{finite series}
+
+\subsection{arithmetic series}
+
+for a finite arithmetic series, the $n$th partial sum is:
 \begin{enumerate}
-	\item $S_n - rS_n = (a + ar + ar^2 + \ldots + ar^{n-1}) - (ar + ar^2 + ar^3 + \ldots + ar^n)$
-	\item $S_n - rS_n = a - ar^n$
-	\item $S_n(1-r) = a-ar^n$
-	\item $S_n = \frac{a-ar^n}{1-r} = \frac{a(1-r^n)}{1-r}$, $r\neq1$
+    \item $S_n = a + (a + d) + (a + 2d) + \ldots + (a + (n - 1)d)$
+    \item $S_n = (a + (n - 1)d) + (a + (n - 2)d) + \ldots + a$
+    \item $2S_n = [a + (a + (n - 1)d)] + [(a + d) + (a + (n - 2)d)] + \ldots$
+    \item $2S_n = n(2a + (n - 1)d)$
+    \item $S_n = \frac{n}{2}(2a + (n - 1)d)$
 \end{enumerate}
 
-the restriction $r\neq1$ comes from the algebraic expression $\frac{a(1-r^n)}{1-r}$, since when $r=1$ the denominator is zero. however, the original geometric sum is still well-defined when $r=1$. in that case every term is $a$, so $S_n=na$. therefore, the restriction applies to this particular form of the formula, not to the original sum itself.\\
+therefore, the finite arithmetic series formula is
+\[
+\boxed{S_n=\frac{n}{2}(2a+(n-1)d).}
+\]
+another way to express this formula is
+\[
+\boxed{S_n=\frac{n}{2}(a+a_n).}
+\]
+this second form uses the first and last terms of the arithmetic series.\\
+
+\subsection{geometric series}
+
+for a finite geometric series, the $n$th partial sum is
+\[
+S_n=a+ar+ar^2+\ldots+ar^{n-1}.
+\]
+multiplying both sides by $r$ gives
+\[
+rS_n=ar+ar^2+ar^3+\ldots+ar^n.
+\]
+subtracting the second equation from the first gives
+\[
+S_n-rS_n
+=
+(a+ar+ar^2+\ldots+ar^{n-1})
+-(ar+ar^2+\ldots+ar^n).
+\]
+all intermediate terms cancel, leaving
+\[
+S_n-rS_n=a-ar^n.
+\]
+factoring the left side gives
+\[
+S_n(1-r)=a-ar^n.
+\]
+solving for $S_n$ gives
+\[
+\boxed{
+S_n=\frac{a-ar^n}{1-r}
+=\frac{a(1-r^n)}{1-r},
+\qquad r\neq1.
+}
+\]
+
+the restriction $r\neq1$ comes from the algebraic expression $\frac{a(1-r^n)}{1-r}$, since when $r=1$ the denominator is zero. however, the original geometric sum is still well-defined when $r=1$. in that case every term is $a$, so
+\[
+\boxed{S_n=na.}
+\]
+therefore, the restriction applies to this particular form of the formula, not to the original sum itself.\\
+
+\subsection{infinite geometric series}
 
 let us now consider the infinite series
 \[
-1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16}+\frac{1}{32}+\ldots
+1+\frac12+\frac14+\frac18+\frac1{16}+\ldots
 \]
 which can be written as
 \[
 \sum_{n=1}^{\infty}\frac{1}{2^{n-1}}.
 \]
-
 first, let us look at the series numerically by considering its partial sums:
-
 \[
 S_1=1=1.0
 \]
-
 \[
-S_2=1+\frac{1}{2}=\frac{3}{2}=1.5
+S_2=1+\frac12=\frac32=1.5
 \]
-
 \[
-S_3=1+\frac{1}{2}+\frac{1}{4}=\frac{7}{4}=1.75
+S_3=1+\frac12+\frac14=\frac74=1.75
 \]
-
 \[
-S_4=1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}=\frac{15}{8}=1.875
+S_4=1+\frac12+\frac14+\frac18=\frac{15}{8}=1.875
 \]
-
 \[
-S_5=1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16}
+S_5=1+\frac12+\frac14+\frac18+\frac1{16}
 =\frac{31}{16}=1.9375
 \]
-
 \[
-S_6=1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16}+\frac{1}{32}
+S_6=1+\frac12+\frac14+\frac18+\frac1{16}+\frac1{32}
 =\frac{63}{32}=1.96875
 \]
-
 the sequence of partial sums is therefore
 \[
-1,\frac{3}{2},\frac{7}{4},\frac{15}{8},\frac{31}{16},\frac{63}{32},\ldots
+1,\frac32,\frac74,\frac{15}{8},\frac{31}{16},\frac{63}{32},\ldots
 \]
 or, numerically,
 \[
 1.0,1.5,1.75,1.875,1.9375,1.96875,\ldots
 \]
-
 we can observe that the terms of the series approach zero as $n$ increases. the partial sums, however, appear to approach the finite number $2$.\\
 
-we can now use the formula for the finite geometric series to find an expression for the $n$th partial sum. in our example, the first term is $a=1$ and the common ratio is $r=\frac{1}{2}$. since $r\neq1$, we can use the formula:
+we can now use the formula for the finite geometric series to find an expression for the $n$th partial sum. in our example, the first term is $a=1$ and the common ratio is $r=\frac12$. since $r\neq1$, we can use the formula:
 \[
 S_n=\frac{a(1-r^n)}{1-r}.
 \]
-
-substituting $a=1$ and $r=\frac{1}{2}$ gives
+substituting $a=1$ and $r=\frac12$ gives
 \[
 S_n
 =
-\frac{1\left(1-\left(\frac{1}{2}\right)^n\right)}
-{1-\frac{1}{2}}.
+\frac{1-\left(\frac12\right)^n}{1-\frac12}.
 \]
-
-since multiplying by $1$ does not change the numerator,
-\[
-S_n
-=
-\frac{1-\left(\frac{1}{2}\right)^n}
-{1-\frac{1}{2}}.
-\]
-
 simplifying the denominator,
 \[
-1-\frac{1}{2}
-=
-\frac{2}{2}-\frac{1}{2}
-=
-\frac{1}{2}.
-\]
-
-therefore,
-\[
 S_n
 =
-\frac{1-\left(\frac{1}{2}\right)^n}
-{\frac{1}{2}}
+\frac{1-\left(\frac12\right)^n}{\frac12}
 =
-2\left(1-\left(\frac{1}{2}\right)^n\right).
+2\left(1-\left(\frac12\right)^n\right).
 \]
-
-distributing the $2$ gives
+distributing gives
 \[
-S_n
-=
-2-2\left(\frac{1}{2}\right)^n.
+S_n=2-\frac{2}{2^n}
+=2-\frac{1}{2^{n-1}}.
 \]
-
-we can simplify the second term:
-\[
-2\left(\frac{1}{2}\right)^n
-=
-\frac{2}{2^n}
-=
-\frac{2^1}{2^n}
-=
-2^{1-n}
-=
-\frac{1}{2^{n-1}}.
-\]
-
-therefore,
-\[
-\boxed{S_n=2-\frac{1}{2^{n-1}}}.
-\]
-
-we can now take the limit of the sequence of partial sums:
+we can now take the limit of the partial sums:
 \[
 \lim_{n\to\infty}S_n
 =
 \lim_{n\to\infty}
-\left(
-2-\frac{1}{2^{n-1}}
-\right).
+\left(2-\frac{1}{2^{n-1}}\right).
 \]
-
-as $n$ approaches infinity, $2^{n-1}$ becomes arbitrarily large, so
+since
 \[
-\lim_{n\to\infty}\frac{1}{2^{n-1}}=0.
+\lim_{n\to\infty}\frac{1}{2^{n-1}}=0,
+\]
+we obtain
+\[
+\lim_{n\to\infty}S_n=2.
+\]
+therefore, the infinite geometric series converges, and its sum is
+\[
+\boxed{
+1+\frac12+\frac14+\frac18+\ldots=2.
+}
 \]
 
+more generally, consider an infinite geometric series:
+\[
+\sum_{n=1}^{\infty}ar^{n-1}.
+\]
+using the finite geometric series formula, its partial sum is
+\[
+S_n=\frac{a(1-r^n)}{1-r}.
+\]
+if $|r|<1$, then
+\[
+\lim_{n\to\infty}r^n=0.
+\]
 therefore,
 \[
 \lim_{n\to\infty}S_n
 =
-2-0
+\frac{a(1-0)}{1-r}
 =
-2.
+\frac{a}{1-r}.
+\]
+thus, an infinite geometric series converges when $|r|<1$, and its sum is
+\[
+\boxed{
+\sum_{n=1}^{\infty}ar^{n-1}
+=
+\frac{a}{1-r},
+\qquad |r|<1.
+}
+\]
+if $|r|\geq1$ and $a\neq0$, the terms do not approach zero, so the series diverges by the nth-term test.\\
+
+\subsection{p-series}
+
+another particularly important type of infinite series is the $p$-series, which has the general form
+\[
+\boxed{
+\sum_{n=1}^{\infty}\frac{1}{n^p}
+}
+\]
+where $p$ is a positive real number. the convergence or divergence of a $p$-series depends entirely on the value of $p$.\\
+
+we can establish the conditions for convergence using the integral test. consider the corresponding function
+\[
+f(x)=\frac{1}{x^p}=x^{-p}.
+\]
+for $p>0$, this function is continuous, positive, and decreasing for $x\geq1$. therefore, we can apply the integral test:
+\[
+\int_1^\infty\frac{1}{x^p}\,dx
+=
+\lim_{b\to\infty}\int_1^b x^{-p}\,dx.
 \]
 
-thus, the sequence of partial sums approaches the finite number $2$, so this infinite geometric series converges to $2$.\\\\
-
-the harmonic series is defined as
+first, consider the case where $p\neq1$. integrating gives
 \[
+=
+\lim_{b\to\infty}
+\left[\frac{x^{1-p}}{1-p}\right]_1^b.
+\]
+substituting the limits gives
+\[
+=
+\lim_{b\to\infty}
+\frac{b^{1-p}-1}{1-p}.
+\]
+
+if $p>1$, then $1-p<0$, meaning that
+\[
+\lim_{b\to\infty}b^{1-p}=0.
+\]
+therefore, the improper integral converges:
+\[
+\int_1^\infty\frac{1}{x^p}\,dx
+=
+\frac{1}{p-1}.
+\]
+by the integral test, the corresponding $p$-series also converges.\\
+
+if $0<p<1$, then $1-p>0$, meaning that
+\[
+\lim_{b\to\infty}b^{1-p}=\infty.
+\]
+therefore, the improper integral diverges, and so does the corresponding $p$-series.\\
+
+we must also consider the case where $p=1$. in this case, the series becomes the harmonic series:
+\[
+\sum_{n=1}^{\infty}\frac{1}{n}.
+\]
+the corresponding improper integral is
+\[
+\int_1^\infty\frac{1}{x}\,dx
+=
+\lim_{b\to\infty}[\ln x]_1^b
+=
+\lim_{b\to\infty}\ln b
+=
+\infty.
+\]
+therefore, the harmonic series diverges.\\
+
+combining these results gives the $p$-series test:
+\[
+\boxed{
+\sum_{n=1}^{\infty}\frac{1}{n^p}
+\begin{cases}
+\text{converges}, & p>1,\\
+\text{diverges}, & 0<p\leq1.
+\end{cases}
+}
+\]
+
+the $p$-series test is particularly useful as a reference when applying other convergence tests. for example,
+\[
+\sum_{n=1}^{\infty}\frac{1}{n^2}
+\]
+converges because $p=2>1$, whereas
+\[
+\sum_{n=1}^{\infty}\frac{1}{\sqrt{n}}
+=
+\sum_{n=1}^{\infty}\frac{1}{n^{1/2}}
+\]
+diverges because $p=\frac12\leq1$.\\
+
+it is worth remembering that the harmonic series is simply the special case $p=1$. it is one of the most important examples of a divergent series whose individual terms nevertheless approach zero.\\
+
+\newpage
+
+\section{convergence tests}
+
+we have now seen that some infinite series converge while others diverge. although the geometric series and $p$-series have particularly useful convergence conditions, most infinite series do not have an obvious sum. we therefore need methods for determining whether a series converges or diverges without necessarily calculating its sum. these methods are called convergence tests.\\
+
+it is important to remember that each test has specific conditions that must be satisfied before it can be applied. furthermore, some tests can establish convergence, some can establish divergence, and some can do both. an inconclusive result does not mean that a series diverges; it simply means that the particular test does not provide an answer.\\
+
+\subsection{integral test}
+
+the integral test allows us to determine the convergence or divergence of an infinite series by comparing it with an improper integral. it is particularly useful for series whose terms can be represented by a continuous, positive, decreasing function.\\
+
+suppose that $f(x)$ is a continuous, positive, and decreasing function for $x\geq1$, and that $a_n=f(n)$. the integral test states that the series
+\[
+\sum_{n=1}^{\infty}a_n
+\]
+and the improper integral
+\[
+\int_1^\infty f(x)\,dx
+\]
+either both converge or both diverge.\\
+
+to understand why this works, we can compare the terms of the series with the areas under the curve of $f(x)$. because the function is decreasing, the rectangles formed using the function values provide upper and lower bounds for the corresponding areas. consequently, the finite partial sums can be bounded by improper integrals. if the integral has a finite value, the series must converge. if the integral diverges, the series must also diverge.\\
+
+for example, consider the harmonic series:
+\[
+\sum_{n=1}^{\infty}\frac{1}{n}.
+\]
+we know that the corresponding function is
+\[
+f(x)=\frac{1}{x}.
+\]
+this function is continuous, positive, and decreasing for $x\geq1$. therefore, we can apply the integral test:
+\[
+\int_1^\infty\frac{1}{x}\,dx
+=
+\lim_{b\to\infty}\int_1^b\frac{1}{x}\,dx.
+\]
+integrating gives
+\[
+=
+\lim_{b\to\infty}[\ln x]_1^b
+\]
+\[
+=
+\lim_{b\to\infty}(\ln b-\ln1).
+\]
+since $\ln1=0$ and $\ln b$ increases without bound,
+\[
+\int_1^\infty\frac{1}{x}\,dx=\infty.
+\]
+therefore, by the integral test,
+\[
+\boxed{
 \sum_{n=1}^{\infty}\frac{1}{n}
+\text{ diverges.}
+}
+\]
+
+\subsection{remainder estimate for the integral test}
+
+the integral test can also be used to estimate how close a partial sum is to the actual value of a convergent series. this difference is called the remainder or error.\\
+
+suppose that
+\[
+S=\sum_{n=1}^{\infty}a_n
+\]
+is convergent, and let
+\[
+S_N=\sum_{n=1}^{N}a_n.
+\]
+the remainder is the difference between the actual sum and the partial sum:
+\[
+R_N=S-S_N.
+\]
+equivalently,
+\[
+R_N=\sum_{n=N+1}^{\infty}a_n.
+\]
+for a positive, continuous, decreasing function $f(x)$ with $a_n=f(n)$, the remainder satisfies
+\[
+\boxed{
+\int_{N+1}^{\infty}f(x)\,dx
+\leq R_N
+\leq
+\int_N^\infty f(x)\,dx.
+}
+\]
+these inequalities allow us to estimate the error made by approximating an infinite series with a finite partial sum.\\
+
+for example, consider the convergent series
+\[
+\sum_{n=1}^{\infty}\frac{1}{n^2}.
+\]
+if we approximate its sum using the first $N$ terms, the remainder satisfies
+\[
+\int_{N+1}^{\infty}\frac{1}{x^2}\,dx
+\leq R_N
+\leq
+\int_N^\infty\frac{1}{x^2}\,dx.
+\]
+evaluating the integrals gives
+\[
+\frac{1}{N+1}\leq R_N\leq\frac{1}{N}.
+\]
+therefore, the error in the approximation is at most $\frac{1}{N}$.\\
+
+\subsection{direct comparison test (dct)}
+
+the direct comparison test allows us to determine the convergence or divergence of a series by comparing its terms with those of another series whose behavior is already known. the comparison is made using inequalities.\\
+
+suppose that $a_n$ and $b_n$ are nonnegative terms for all sufficiently large $n$, and that
+\[
+0\leq a_n\leq b_n.
+\]
+the direct comparison test has two important conclusions:
+
+\begin{enumerate}
+    \item if $\sum b_n$ converges, then $\sum a_n$ also converges.
+    \item if $\sum a_n$ diverges, then $\sum b_n$ also diverges.
+\end{enumerate}
+
+the reasoning comes from the fact that a smaller nonnegative series cannot have a larger partial sum than a larger series. similarly, if a smaller nonnegative series already grows without bound, the larger series must also grow without bound.\\
+
+for example, consider
+\[
+\sum_{n=1}^{\infty}\frac{1}{n^2+1}.
+\]
+for every positive integer $n$,
+\[
+0\leq\frac{1}{n^2+1}\leq\frac{1}{n^2}.
+\]
+we know that
+\[
+\sum_{n=1}^{\infty}\frac{1}{n^2}
+\]
+converges by the $p$-series test, since $p=2>1$. therefore, by the direct comparison test,
+\[
+\boxed{
+\sum_{n=1}^{\infty}\frac{1}{n^2+1}
+\text{ converges.}
+}
+\]
+
+\subsection{limit comparison test (lct)}
+
+the limit comparison test is another method of comparing two positive series. unlike the direct comparison test, it does not require us to establish an inequality between the terms. instead, we examine the limit of their ratio.\\
+
+suppose that $a_n$ and $b_n$ are positive terms and that
+\[
+L=\lim_{n\to\infty}\frac{a_n}{b_n}.
+\]
+if
+\[
+0<L<\infty,
+\]
+then the two series
+\[
+\sum_{n=1}^{\infty}a_n
+\qquad\text{and}\qquad
+\sum_{n=1}^{\infty}b_n
+\]
+either both converge or both diverge.\\
+
+the reason is that if the ratio approaches a positive finite number, the terms of the two series eventually behave like constant multiples of one another. therefore, they have the same convergence behavior.\\
+
+for example, consider
+\[
+\sum_{n=1}^{\infty}\frac{3n+2}{n^2+1}.
+\]
+for large values of $n$, the dominant terms in the numerator and denominator suggest that the terms behave similarly to $\frac{3}{n}$. we therefore compare with the harmonic series:
+\[
+b_n=\frac{1}{n}.
+\]
+taking the limit of the ratio gives
+\[
+L=
+\lim_{n\to\infty}
+\frac{\frac{3n+2}{n^2+1}}{\frac{1}{n}}.
+\]
+simplifying,
+\[
+L=
+\lim_{n\to\infty}
+\frac{3n^2+2n}{n^2+1}.
+\]
+dividing the numerator and denominator by $n^2$ gives
+\[
+L=
+\lim_{n\to\infty}
+\frac{3+\frac{2}{n}}{1+\frac{1}{n^2}}
+=3.
+\]
+since $0<3<\infty$, the two series have the same convergence behavior. the harmonic series diverges, so
+\[
+\boxed{
+\sum_{n=1}^{\infty}\frac{3n+2}{n^2+1}
+\text{ diverges.}
+}
+\]
+
+\subsection{alternating series test (ast)}
+
+an alternating series is a series whose terms alternate between positive and negative values. a common way of writing an alternating series is
+\[
+\sum_{n=1}^{\infty}(-1)^{n-1}b_n,
+\]
+where $b_n$ is positive. the alternating series test gives conditions under which such a series converges.\\
+
+the alternating series test states that the series
+\[
+\sum_{n=1}^{\infty}(-1)^{n-1}b_n
+\]
+converges if both of the following conditions are satisfied:
+
+\begin{enumerate}
+    \item $b_{n+1}\leq b_n$ for all sufficiently large $n$; in other words, the absolute values of the terms are decreasing.
+    \item $\displaystyle\lim_{n\to\infty}b_n=0$.
+\end{enumerate}
+
+the reasoning is that the positive and negative terms partially cancel one another. as the terms decrease in magnitude and approach zero, the partial sums become trapped between increasingly close upper and lower bounds. consequently, the partial sums approach a finite limit.\\
+
+for example, consider the alternating harmonic series:
+\[
+\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n}
 =
-1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}+\ldots
+1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\ldots
+\]
+the absolute values of its terms are
+\[
+b_n=\frac{1}{n}.
+\]
+these terms decrease because
+\[
+\frac{1}{n+1}<\frac{1}{n}
+\]
+for all positive integers $n$. furthermore,
+\[
+\lim_{n\to\infty}\frac{1}{n}=0.
+\]
+both conditions of the alternating series test are satisfied. therefore,
+\[
+\boxed{
+\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n}
+\text{ converges.}
+}
 \]
 
-notice that the denominators of the harmonic series are the natural numbers:
-\[
-1,2,3,4,5,6,\ldots
-\]
-so the denominator grows linearly as $n$ increases.
+\subsection{remainder estimate for the alternating series test}
 
-this is different from the geometric series we just considered, whose denominators are powers of $2$:
-\[
-1,2,4,8,16,32,\ldots
-\]
-and therefore grow exponentially.
+the alternating series test also provides a way to estimate the error when approximating an infinite alternating series using a finite number of terms.\\
 
-we can also notice that the geometric series is, in a sense, contained within the harmonic series. the harmonic series contains
+if an alternating series satisfies the conditions of the alternating series test, and $S_N$ is the sum of its first $N$ terms, then the remainder is
 \[
-1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\frac{1}{5},\frac{1}{6},\ldots
+R_N=S-S_N.
 \]
-while the geometric series contains
+the absolute value of the remainder is bounded by the magnitude of the first omitted term:
 \[
-1,\frac{1}{2},\frac{1}{4},\frac{1}{8},\frac{1}{16},\frac{1}{32},\ldots
+\boxed{
+|R_N|\leq b_{N+1}.
+}
 \]
+in other words, the error made by stopping after $N$ terms is no greater than the absolute value of the next term. furthermore, the remainder has the same sign as the first omitted term.\\
 
-after the first two terms, each corresponding term of the harmonic series is larger than the corresponding term of the geometric series:
+for example, consider approximating the alternating harmonic series using its first four terms:
 \[
-\frac{1}{3}>\frac{1}{4},
-\qquad
-\frac{1}{4}>\frac{1}{8},
-\qquad
-\frac{1}{5}>\frac{1}{16},
-\qquad
-\frac{1}{6}>\frac{1}{32},
-\ldots
+S_4=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}.
 \]
-
-therefore, although both series have terms that approach zero, the terms of the harmonic series approach zero much more slowly. this suggests that simply approaching zero may not be enough for a series to converge; the rate at which the terms approach zero may also matter.\\
-
-we can now make this observation more precise by grouping the terms of the harmonic series. after the first two terms, we group the remaining terms into groups containing $2,4,8,\ldots$ terms:
+the first omitted term is $\frac{1}{5}$. therefore,
 \[
-1+\frac{1}{2}
-+
-\left(\frac{1}{3}+\frac{1}{4}\right)
-+
-\left(\frac{1}{5}+\frac{1}{6}+\frac{1}{7}+\frac{1}{8}\right)
-+
-\left(\frac{1}{9}+\cdots+\frac{1}{16}\right)
-+\ldots
+|R_4|\leq\frac{1}{5}.
 \]
+the actual sum must lie within $\frac{1}{5}$ of the fourth partial sum.\\
 
-consider the first group:
+\subsection{absolute and conditional convergence}
+
+so far, we have primarily considered whether a series converges or diverges. however, for series containing both positive and negative terms, there is another important distinction. a series may converge even though the series formed by taking the absolute values of its terms diverges.\\
+
+a series
 \[
-\frac{1}{3}+\frac{1}{4}
->
-\frac{1}{4}+\frac{1}{4}
+\sum_{n=1}^{\infty}a_n
+\]
+is said to converge absolutely if
+\[
+\sum_{n=1}^{\infty}|a_n|
+\]
+converges. in other words, the series still converges when all negative terms are made positive.\\
+
+a series is said to converge conditionally if
+\[
+\sum_{n=1}^{\infty}a_n
+\]
+converges, but
+\[
+\sum_{n=1}^{\infty}|a_n|
+\]
+diverges.\\
+
+for example, consider the alternating harmonic series:
+\[
+\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n}.
+\]
+we have already established that this series converges by the alternating series test. however, taking the absolute value of every term gives
+\[
+\sum_{n=1}^{\infty}
+\left|\frac{(-1)^{n-1}}{n}\right|
 =
-\frac{2}{4}
-=
-\frac{1}{2}.
+\sum_{n=1}^{\infty}\frac{1}{n}.
 \]
+this is the harmonic series, which diverges. therefore, the alternating harmonic series converges conditionally.\\
 
-the next group contains $4$ terms, and each term is at least $\frac{1}{8}$:
+an important result is that absolute convergence implies convergence. this means that if
 \[
-\frac{1}{5}+\frac{1}{6}+\frac{1}{7}+\frac{1}{8}
->
-\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}
-=
-\frac{4}{8}
-=
-\frac{1}{2}.
+\sum_{n=1}^{\infty}|a_n|
 \]
-
-the next group contains $8$ terms, and each term is at least $\frac{1}{16}$:
+converges, then
 \[
-\frac{1}{9}+\frac{1}{10}+\cdots+\frac{1}{16}
->
-8\left(\frac{1}{16}\right)
-=
-\frac{8}{16}
-=
-\frac{1}{2}.
+\sum_{n=1}^{\infty}a_n
 \]
+must also converge. however, the converse is not necessarily true, as demonstrated by the alternating harmonic series.\\
 
-we can therefore see a pattern: the number of terms in each group doubles, while the smallest term in each group is cut in half. the product of these two changes remains $\frac{1}{2}$, so each group contributes at least $\frac{1}{2}$ to the sum.\\
+\newpage
 
-since each group contributes at least $\frac{1}{2}$, after adding $N$ such groups their total contribution is at least
+\subsection{root test}
+
+the root test is particularly useful for series containing terms raised to the $n$th power. it determines convergence by examining the limit of the $n$th root of the absolute value of each term.\\
+
+consider an infinite series
 \[
-\underbrace{\frac{1}{2}+\frac{1}{2}+\cdots+\frac{1}{2}}_{N\text{ groups}}
+\sum_{n=1}^{\infty}a_n.
+\]
+we calculate
+\[
+L=\lim_{n\to\infty}\sqrt[n]{|a_n|}.
+\]
+the root test gives three possible outcomes:
+
+\begin{enumerate}
+    \item if $L<1$, the series converges absolutely.
+    \item if $L>1$ or $L=\infty$, the series diverges.
+    \item if $L=1$, the test is inconclusive.
+\end{enumerate}
+
+the reasoning comes from the fact that if the $n$th root approaches a number smaller than one, the terms eventually decrease at a rate comparable to a geometric sequence with ratio less than one. if the limit is greater than one, the terms do not approach zero, so the series diverges.\\
+
+for example, consider
+\[
+\sum_{n=1}^{\infty}\frac{n^2}{3^n}.
+\]
+applying the root test gives
+\[
+L=
+\lim_{n\to\infty}
+\sqrt[n]{\frac{n^2}{3^n}}.
+\]
+simplifying,
+\[
+L=
+\lim_{n\to\infty}
+\frac{\sqrt[n]{n^2}}{3}.
+\]
+since
+\[
+\lim_{n\to\infty}\sqrt[n]{n^2}=1,
+\]
+we obtain
+\[
+L=\frac{1}{3}.
+\]
+since $L<1$, the series converges absolutely.\\
+
+\subsection{ratio test}
+
+the ratio test is particularly useful for series containing factorials, exponential expressions, or products of consecutive terms. it determines convergence by examining the ratio of consecutive absolute values.\\
+
+consider an infinite series
+\[
+\sum_{n=1}^{\infty}a_n.
+\]
+we calculate
+\[
+L=\lim_{n\to\infty}
+\left|\frac{a_{n+1}}{a_n}\right|.
+\]
+the ratio test gives three possible outcomes:
+
+\begin{enumerate}
+    \item if $L<1$, the series converges absolutely.
+    \item if $L>1$ or $L=\infty$, the series diverges.
+    \item if $L=1$, the test is inconclusive.
+\end{enumerate}
+
+the reasoning is similar to that of the root test. if the ratio of consecutive terms approaches a number smaller than one, the terms eventually decrease at a rate comparable to a convergent geometric series. if the ratio approaches a number greater than one, the terms do not approach zero, so the series diverges.\\
+
+for example, consider
+\[
+\sum_{n=1}^{\infty}\frac{n!}{3^n}.
+\]
+applying the ratio test gives
+\[
+L=
+\lim_{n\to\infty}
+\left|
+\frac{\frac{(n+1)!}{3^{n+1}}}
+{\frac{n!}{3^n}}
+\right|.
+\]
+simplifying,
+\[
+L=
+\lim_{n\to\infty}
+\frac{(n+1)!3^n}{3^{n+1}n!}.
+\]
+since $(n+1)!=(n+1)n!$, this becomes
+\[
+L=
+\lim_{n\to\infty}\frac{n+1}{3}.
+\]
+therefore,
+\[
+L=\infty.
+\]
+since $L>1$, the series diverges.\\
+
+\subsection{choosing a convergence test}
+
+different convergence tests are useful for different types of series. although there is no single test that works for every series, certain patterns can suggest which test to try first.\\
+
+\begin{itemize}
+    \item if the terms do not approach zero, use the nth-term test for divergence.
+    \item if the terms can be represented by a positive, continuous, decreasing function, consider the integral test.
+    \item if the terms can be compared directly with a familiar series, consider the direct comparison test.
+    \item if the terms resemble those of another series but an inequality is difficult to establish, consider the limit comparison test.
+    \item if the signs alternate, consider the alternating series test.
+    \item if the terms contain expressions raised to the $n$th power, consider the root test.
+    \item if the terms contain factorials or consecutive products, consider the ratio test.
+\end{itemize}
+
+it is important to remember that these are suggestions rather than strict rules. a series may be tested using more than one method, and the best choice is often the one that produces the simplest calculation. if a test is inconclusive, another test may still establish the convergence or divergence of the series.\\
+
+\newpage
+
+\section{power series}
+
+we have so far considered series whose terms depend only on the index $n$. we can now extend this idea by introducing a variable into the terms of an infinite series. a series of this form is called a power series.\\
+
+a power series centered at $a$ has the general form
+\[
+\boxed{
+\sum_{n=0}^{\infty}c_n(x-a)^n.
+}
+\]
+the coefficients $c_n$ are constants, $x$ is the variable, and $a$ is the center of the power series. expanding the summation gives
+\[
+c_0+c_1(x-a)+c_2(x-a)^2+\ldots
+\]
+unlike the series considered previously, the convergence of a power series depends on the value of $x$. for some values of $x$, the series converges, while for others, it diverges.\\
+
+\subsection{radius of convergence}
+
+a power series has a radius of convergence, denoted by $R$. this radius describes the distance from the center $a$ within which the series converges. in general, there are three possibilities:
+
+\begin{enumerate}
+    \item the series converges absolutely when $|x-a|<R$.
+    \item the series diverges when $|x-a|>R$.
+    \item the behavior at $|x-a|=R$ must be checked separately.
+\end{enumerate}
+
+the radius of convergence can be found using the ratio test or the root test. the ratio test is particularly useful when the coefficients involve factorials or products.\\
+
+\subsection{finding the radius of convergence}
+
+consider the power series
+\[
+\sum_{n=1}^{\infty}\frac{x^n}{n}.
+\]
+we can use the ratio test by letting
+\[
+a_n=\frac{x^n}{n}.
+\]
+then
+\[
+L=
+\lim_{n\to\infty}
+\left|\frac{a_{n+1}}{a_n}\right|.
+\]
+substituting gives
+\[
+L=
+\lim_{n\to\infty}
+\left|
+\frac{\frac{x^{n+1}}{n+1}}{\frac{x^n}{n}}
+\right|.
+\]
+simplifying,
+\[
+L=
+\lim_{n\to\infty}
+|x|\frac{n}{n+1}.
+\]
+since
+\[
+\lim_{n\to\infty}\frac{n}{n+1}=1,
+\]
+we obtain
+\[
+L=|x|.
+\]
+the ratio test tells us that the series converges absolutely when
+\[
+|x|<1.
+\]
+therefore, the radius of convergence is
+\[
+\boxed{R=1.}
+\]
+
+\subsection{interval of convergence}
+
+the radius of convergence alone does not tell us whether the series converges at the endpoints. these must be checked individually by substituting the endpoint values into the original series.\\
+
+for the previous example,
+\[
+\sum_{n=1}^{\infty}\frac{x^n}{n},
+\]
+we found that the radius of convergence is $R=1$, centered at $a=0$. therefore, we initially have
+\[
+-1<x<1.
+\]
+we must now check the endpoints.\\
+
+at $x=1$, the series becomes
+\[
+\sum_{n=1}^{\infty}\frac{1}{n},
+\]
+which is the harmonic series and diverges.\\
+
+at $x=-1$, the series becomes
+\[
+\sum_{n=1}^{\infty}\frac{(-1)^n}{n},
+\]
+which converges by the alternating series test.\\
+
+therefore, the interval of convergence is
+\[
+\boxed{[-1,1).}
+\]
+the radius of convergence is $R=1$, while the interval of convergence includes only one of its endpoints.\\
+
+\subsection{operations on power series}
+
+power series can be differentiated and integrated term by term within their interval of convergence. suppose that
+\[
+f(x)=\sum_{n=0}^{\infty}c_n(x-a)^n.
+\]
+differentiating term by term gives
+\[
+f'(x)=
+\sum_{n=1}^{\infty}nc_n(x-a)^{n-1}.
+\]
+integrating term by term gives
+\[
+\int f(x)\,dx
 =
-\frac{N}{2}.
+C+\sum_{n=0}^{\infty}
+\frac{c_n}{n+1}(x-a)^{n+1}.
 \]
+the resulting differentiated and integrated power series have the same radius of convergence as the original series, although their endpoint behavior may differ.\\
 
-as the number of groups increases without bound,
+\newpage
+
+\section{taylor and maclaurin series}
+
+power series provide a way of representing functions using an infinite sum of polynomial terms. one particularly important type of power series is the taylor series, which allows us to represent a sufficiently differentiable function in terms of its derivatives at a chosen point.\\
+
+the idea is to construct a polynomial that matches a function and its derivatives at a particular point. the more derivatives we match, the closer the polynomial can approximate the function near that point. by extending this process indefinitely, we obtain the taylor series.\\
+
+\subsection{deriving the taylor series}
+
+suppose that we want to represent a function $f(x)$ using a power series centered at $a$:
 \[
-\lim_{N\to\infty}\frac{N}{2}=\infty.
+f(x)=c_0+c_1(x-a)+c_2(x-a)^2+\ldots
 \]
-
-therefore, the partial sums of the harmonic series can become arbitrarily large. they cannot approach a finite number, so the harmonic series diverges:
+we begin by substituting $x=a$. all terms containing $(x-a)$ become zero, leaving
 \[
-\boxed{\sum_{n=1}^{\infty}\frac{1}{n}\text{ diverges}.}
+f(a)=c_0.
+\]
+therefore,
+\[
+c_0=f(a).
 \]
 
-this gives us an important distinction between the two series. in the geometric series, the terms approach zero quickly enough that the partial sums approach the finite number $2$. in the harmonic series, the terms also approach zero, but they do so slowly enough that the partial sums continue to grow without bound.\\\\
+differentiating the power series gives
+\[
+f'(x)=c_1+2c_2(x-a)+3c_3(x-a)^2+\ldots
+\]
+substituting $x=a$ gives
+\[
+f'(a)=c_1.
+\]
+therefore,
+\[
+c_1=f'(a).
+\]
 
-for sufficiently large n the hierachy is roughly: constant < log < linear < exponential < combinatorial\\
+differentiating again gives
+\[
+f''(x)=2c_2+6c_3(x-a)+12c_4(x-a)^2+\ldots
+\]
+substituting $x=a$ gives
+\[
+f''(a)=2c_2.
+\]
+therefore,
+\[
+c_2=\frac{f''(a)}{2!}.
+\]
 
-p-series then comparison test
+continuing this process, we find that the general coefficient is
+\[
+c_n=\frac{f^{(n)}(a)}{n!}.
+\]
+substituting these coefficients into the original power series gives the taylor series:
+\[
+\boxed{
+f(x)=
+\sum_{n=0}^{\infty}
+\frac{f^{(n)}(a)}{n!}(x-a)^n.
+}
+\]
+expanding the summation gives
+\[
+f(x)=f(a)+f'(a)(x-a)
++\frac{f''(a)}{2!}(x-a)^2
++\frac{f'''(a)}{3!}(x-a)^3+\ldots
+\]
+this series represents the function when the taylor series converges to the function. having derivatives of every order is not, by itself, sufficient to guarantee that this happens.\\
+
+\subsection{maclaurin series}
+
+a maclaurin series is simply a taylor series centered at zero. setting $a=0$ in the taylor series formula gives
+\[
+\boxed{
+f(x)=
+\sum_{n=0}^{\infty}
+\frac{f^{(n)}(0)}{n!}x^n.
+}
+\]
+expanding gives
+\[
+f(x)=f(0)+f'(0)x
++\frac{f''(0)}{2!}x^2
++\frac{f'''(0)}{3!}x^3+\ldots
+\]
+maclaurin series are particularly useful because the derivatives are evaluated at zero, which often makes the calculations simpler.\\
+
+\subsection{common maclaurin series}
+
+there are several functions whose maclaurin series appear frequently in calculus. these can be derived by repeatedly differentiating the function and evaluating the derivatives at zero.\\
+
+for the exponential function,
+\[
+\boxed{
+e^x=
+\sum_{n=0}^{\infty}\frac{x^n}{n!}
+=
+1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\ldots
+}
+\]
+this series converges for every real value of $x$.\\
+
+for the sine function,
+\[
+\boxed{
+\sin x=
+\sum_{n=0}^{\infty}
+\frac{(-1)^n x^{2n+1}}{(2n+1)!}
+}
+\]
+or, expanding,
+\[
+\sin x=
+x-\frac{x^3}{3!}
++\frac{x^5}{5!}
+-\frac{x^7}{7!}+\ldots
+\]
+this series also converges for every real value of $x$.\\
+
+for the cosine function,
+\[
+\boxed{
+\cos x=
+\sum_{n=0}^{\infty}
+\frac{(-1)^n x^{2n}}{(2n)!}
+}
+\]
+or, expanding,
+\[
+\cos x=
+1-\frac{x^2}{2!}
++\frac{x^4}{4!}
+-\frac{x^6}{6!}+\ldots
+\]
+this series also converges for every real value of $x$.\\
+
+\subsection{using known series}
+
+once we know the maclaurin series of certain functions, we can use algebraic substitutions to obtain power series for other functions. for example, since
+\[
+e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\ldots,
+\]
+we can replace $x$ with $-x$ to obtain
+\[
+e^{-x}
+=
+1-x+\frac{x^2}{2!}
+-\frac{x^3}{3!}+\ldots
+\]
+similarly, replacing $x$ with $x^2$ in the sine series gives
+\[
+\sin(x^2)
+=
+x^2-\frac{x^6}{3!}
++\frac{x^{10}}{5!}-\ldots
+\]
+these substitutions allow us to construct new power series without having to calculate every derivative of the new function.\\
+
+\subsection{taylor polynomials}
+
+although a taylor series contains infinitely many terms, we can approximate a function by using only a finite number of them. the resulting expression is called a taylor polynomial.\\
+
+the taylor polynomial of degree $n$ centered at $a$ is
+\[
+\boxed{
+T_n(x)=
+\sum_{k=0}^{n}
+\frac{f^{(k)}(a)}{k!}(x-a)^k.
+}
+\]
+expanding gives
+\[
+T_n(x)=f(a)+f'(a)(x-a)
++\frac{f''(a)}{2!}(x-a)^2
++\ldots+
+\frac{f^{(n)}(a)}{n!}(x-a)^n.
+\]
+as the degree increases, the polynomial generally provides a better approximation near the center $a$, provided the taylor series represents the function.\\
+
+for example, the maclaurin series for $e^x$ is
+\[
+e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\ldots
+\]
+using the first three terms gives the second-degree maclaurin polynomial:
+\[
+T_2(x)=1+x+\frac{x^2}{2}.
+\]
+we can use this polynomial to approximate values of $e^x$ near zero.\\
+
+\subsection{taylor remainder}
+
+when we approximate a function using a taylor polynomial, there is generally an error between the actual function and the polynomial approximation. this error is called the remainder.\\
+
+if $T_n(x)$ is the taylor polynomial of degree $n$, then the remainder is
+\[
+\boxed{
+R_n(x)=f(x)-T_n(x).
+}
+\]
+therefore, we can write
+\[
+f(x)=T_n(x)+R_n(x).
+\]
+the remainder tells us how accurate the polynomial approximation is.\\
+
+one important result is the lagrange form of the taylor remainder. if $f$ has a continuous derivative of order $n+1$ on an interval containing $a$ and $x$, then
+\[
+\boxed{
+R_n(x)=
+\frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}
+}
+\]
+for some number $c$ between $a$ and $x$.\\
+
+if we can find a constant $M$ such that
+\[
+|f^{(n+1)}(t)|\leq M
+\]
+throughout the interval between $a$ and $x$, then
+\[
+\boxed{
+|R_n(x)|
+\leq
+\frac{M|x-a|^{n+1}}{(n+1)!}.
+}
+\]
+this inequality allows us to place an upper bound on the error of a taylor polynomial without knowing the exact value of the remainder.\\
+
+for example, consider approximating $e^x$ near zero using the second-degree maclaurin polynomial:
+\[
+T_2(x)=1+x+\frac{x^2}{2}.
+\]
+the third derivative of $e^x$ is also $e^x$. on the interval $[0,1]$, we know that
+\[
+|e^x|\leq e.
+\]
+therefore, we can take $M=e$. the remainder satisfies
+\[
+|R_2(x)|
+\leq
+\frac{e|x|^3}{3!}.
+\]
+at $x=1$, this gives
+\[
+|R_2(1)|\leq\frac{e}{6}.
+\]
+this provides an upper bound on the error made by using the second-degree polynomial to approximate $e$.\\
+
+\subsection{when does a taylor series equal its function?}
+
+one final distinction is important when working with taylor series. a function may have derivatives of every order and still fail to equal its taylor series. therefore, finding a taylor series does not automatically prove that the series converges to the original function.\\
+
+the taylor theorem tells us that
+\[
+f(x)=T_n(x)+R_n(x).
+\]
+if the remainder approaches zero as $n$ increases, then
+\[
+\lim_{n\to\infty}R_n(x)=0,
+\]
+and consequently,
+\[
+f(x)=\lim_{n\to\infty}T_n(x).
+\]
+in this case, the taylor series converges to the original function. if the remainder does not approach zero, the taylor series does not represent the function at that particular value of $x$.\\
+
+this distinction is important because convergence of a power series and equality between that power series and a particular function are related but separate questions. the radius and interval of convergence tell us where the series converges, while the remainder helps establish whether its sum actually equals the function.\\
 
 \end{document}
+
